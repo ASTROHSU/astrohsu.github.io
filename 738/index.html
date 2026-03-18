@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#738 斑馬升級 🦓 — 區塊勢</title>
+<meta name="description" content="以太坊又升級了。台灣時間 12 月 4 日（今天）凌晨 6 點左右，以太坊完成 2025 年的第二次系統升級，代號 Fusaka （Fulu＋Osaka 的組合字）。這次升級共有 12 項更新，但最重⋯">
+<meta property="og:title" content="斑馬升級 🦓">
+<meta property="og:description" content="以太坊又升級了。台灣時間 12 月 4 日（今天）凌晨 6 點左右，以太坊完成 2025 年的第二次系統升級，代號 Fusaka （Fulu＋Osaka 的組合字）。這次升級共有 12 項更新，但最重⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/196da2ad-6197-4a41-acea-971ecee7b0db_2752x1536.png">
+<meta property="og:url" content="https://share.blocktrend.today/738/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#738</div>
+  <h1>斑馬升級 🦓</h1>
+</header>
+
+<article class="article-content">
+<p>以太坊又升級了。台灣時間 12 月 4 日（今天）凌晨 6 點左右，以太坊完成 2025 年的第二次系統升級，代號 <a href="https://ethereum.org/zh-tw/roadmap/fusaka/">Fusaka</a>（Fulu＋Osaka 的組合字）。這次升級共有 12 項更新，但最重要的就是 2 件事：</p><ol><li><p>改善錢包使用體驗</p></li><li><p>大幅降低 L2 手續費</p></li></ol><p>先從這次升級的吉祥物斑馬說起。</p><h2>斑馬升級 🦓</h2><p>2022 年，以太坊合併升級（The Merge<sup>1</sup>）把共識機制從工作量證明（PoW）切換到權益證明（PoS），正式宣告「算力挖礦」時代結束。從那天起，人們不必再去光華商場掃購顯示卡，只要把 ETH 拿去質押，就能賺得每年約 3% 挖礦收益。</p><p>只是「合併」聽起來非常抽象，多數人至今也說不出它到底「合併」了什麼。於是有人做出一張迷因圖：一黑一白兩隻熊擺出七龍珠的「融合」手勢，最後合體成一隻黑白相間的熊貓。那隻熊貓就象徵合併後的以太坊。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/196da2ad-6197-4a41-acea-971ecee7b0db_2752x1536.png" alt="" loading="lazy"></figure><p>這張迷因圖不只大家愛用，連以太坊基金會也常拿它來宣傳。因為它比任何技術解釋都好懂，熊貓意外成了合併升級的吉祥物。這次 Fusaka 升級也有類似巧思。在說明文件中，以太坊將斑馬<a href="https://ethereum.org/zh-tw/roadmap/fusaka/">定為吉祥物</a>：</p><blockquote><p>斑馬被 Fusaka 開發者選為「吉祥物」，因為牠的條紋象徵 PeerDAS 的欄位式資料可用性抽樣（column-based data-availability sampling）。節點會保管某些欄位子網（column subnets）並從每個對等節點的 slot 抽樣幾個其他欄位，以檢查 blob 資料是否可用。</p></blockquote><p>嗯 … 看不懂才是正常人 😂 我仿照熊貓迷因圖，替這次「斑馬升級」也做了一張。雖然圖中的 PeerDAS 抽樣機制是這次升級重點，但「手機變身硬體錢包」會讓一般使用者最有感。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/19cd1ded-e2be-4e73-b724-9fb985fe9a03_2560x1440.png" alt="" loading="lazy"></figure><h2>手機變身硬體錢包</h2><p>你買過硬體錢包嗎？加密貨幣太方便，也更容易弄丟。因此，人們會願意花錢買「不便」—— 把錢包私鑰與日常生活隔開來，避免駭客長驅直入。但也有人正是因為把私鑰藏得太好，最後連自己都找不到 😂 有沒有能同時兼顧安全與便利的辦法？開發者將腦筋動到手機上。</p><p>無論你用的是 iPhone 還是安卓，手機裡都有一顆專屬的安全晶片。這是整支手機最難攻破的堡壘，FaceID、指紋、行動支付金鑰都放在裡面，還具備防物理破解的保護機制，安全層級甚至高於硬體錢包。如果能把錢包私鑰也放進這顆晶片，理論上就能兼顧安全又不會弄丟。</p><p>問題是，手機內建的密碼學簽章機制與比特幣、以太坊技術不相容。因此，即便手機早就有硬體錢包等級的安全晶片，使用者也無法直接用它簽署鏈上交易。兩邊都在等待對方先伸出橄欖枝，這次斑馬升級，以太坊開發者總算主動「向手機靠攏」，將全球數十億支手機都採用的簽章機制納入原生支援，讓手機搖身一變成為硬體錢包。</p><p>未來幾個月，預期會有越來越多錢包 app 支援使用者「用臉、用指紋」創建錢包。私鑰（passkey）會直接存放在手機的安全晶片裡，由蘋果、Google 與全球資安專家確保安全。但這並不代表 Ledger、Trezor 等專用硬體錢包未來就沒生意。畢竟升級的只有以太坊，比特幣還是得用老方法保管。</p><p>當然，手機簽章也不是零風險。假如沒備份，手機遺失、故障，資產就可能找不回來。此外，手機私鑰目前無法像傳統助記詞能「攜碼互通」—— 在 Trust Wallet 生成的私鑰（passkey），暫時還無法搬到 Base Wallet 使用。這就像是被特定錢包綁住。萬一 app 突然掛掉，要把資產拿回來就相當麻煩。</p><p>在極端情況下，新技術顯得很脆弱。但在一般使用場景，它讓看到助記詞就頭暈的使用者，順利跨越門檻。</p><p>除了錢包好不好用，人們最關心的就是手續費多少錢。斑馬升級的第二大亮點，是把原本已經很便宜的以太坊 L2 變得更便宜。</p><h2>L2 還要多便宜？</h2><p>現在以太坊主網轉一筆 USDT 的 <a href="https://gasfeesnow.com/">gas fee</a> 是多少錢？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/feecc2e7-89a6-4f0b-8d3d-7555d2bfe5ac_2142x1378.png" alt="" loading="lazy"></figure><p>許多人的印象可能還停留在古早記憶，以為鏈上轉帳很貴，要花數十美元的 ETH 才夠。但在我寫文章當下，就連更複雜的跨鏈交易都只要 0.01 美元，約 0.3 元台幣就能完成。連以太坊主網都是這個價格，更不用說 L2 了。</p><p>這時有人會繼續憑印象（或想像）說：「果然就是加密貨幣沒人用才會這樣」。</p><p>但從客觀數據來看，鏈上交易越來越活絡。以太坊 L2 更是在 Coinbase 主導的 Base 鏈推動下（下圖藍線），流量在過去 2 年內大幅成長，幾乎已經快要塞爆區塊鏈。也因此這次的當務之急，就是要在不犧牲去中心化的前提下為以太坊擴容。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/0b0fcbc2-260f-4f4f-83d6-d22cb3ae1698_1700x878.png" alt="" loading="lazy"></figure><p>提升效率很簡單，但要兼顧去中心化非常困難。就像一個人做決定很容易，但要一群人有共識非常困難。以太坊在全球有數千個節點，每次效能升級都像是魔術表演。表面什麼都沒變，後台卻經歷了大工程。</p><p>以這次為例，既然鏈上交易接近滿載，最直覺的做法就是「增加空間（blob）」，讓區塊鏈可以一次處理更多交易。問題是以太坊節點散落在世界各地，不是每個國家的網路速度都像台灣一樣又快又穩。貿然把「資料空間」加大，等於逼迫節點必須在相同時間內從區塊鏈下載更多資料。跟不上同步速度的人，就會被淘汰出局。參與節點變少，以太坊就越中心化。走到極端，以太坊就會變成只有大企業才能參與的「機房鏈」。</p><p>兼顧效率和去中心化先天就是一種「又要馬兒好，又要馬兒不吃草」的無理要求。神奇的是，研究人員總能變出新把戲，屢次成功讓馬吃得更少、跑得更快。這次他們想到的辦法是抽樣（sampling）。節點不必下載全部資料，只要下載一部分，再搭配抽樣驗證就好。真正的機制當然比海關抽驗複雜得多。但大原則是在不增加節點負擔的前提下，讓區塊鏈能用相同成本乘載更多交易。</p><p>這也是為什麼開發者會將斑馬選為這次升級的吉祥物。因為斑馬身上的線條，就像是一條一條抽樣的資料（可說是相當牽強 😂）。</p><p>開發者在 2024 年初假設<sup>2</sup>，手續費阻礙了企業上鏈，只要以太坊的使用成本降低，就會有更多企業願意將應用搬上鏈。過去一年鏈上交易量大幅增加，證明這個方向正確。而這次升級是建立在既有基礎上，讓 L2 費用更便宜。</p><p>在我寫文章的當下，以太坊還要幾個小時之後才會完成升級。如果不出意外，這是以太坊在一年內完成的第二次系統升級。即便不是每次升級都能讓所有人有感，但這就像是一種「防災演練」。在面對像量子電腦<sup>3</sup>這類突如其來的威脅時，更能靈活應對。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/465">以太坊合併：升級路線圖、礦工的無意義分叉</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/596">以太坊最有感升級來了！手續費降低十倍、解鎖全新商業模式的坎昆升級（Dencun）</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/737">Vitalik 警告只剩 3 年！量子威脅加速，2030 年恐危及錢包私鑰</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/738">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

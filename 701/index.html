@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#701 Shopify 接入 USDC — 區塊勢</title>
+<meta name="description" content="區塊勢終身會員方案進行中。應讀者敲碗，我新增了刷卡升級選項，活動也延長至 6 月 26 日（四）24:00 截止。不過，我還是鼓勵大家以加密貨幣付款，別錯過用加密貨幣消費的難得機會。此外，如果以刷卡付⋯">
+<meta property="og:title" content="Shopify 接入 USDC">
+<meta property="og:description" content="區塊勢終身會員方案進行中。應讀者敲碗，我新增了刷卡升級選項，活動也延長至 6 月 26 日（四）24:00 截止。不過，我還是鼓勵大家以加密貨幣付款，別錯過用加密貨幣消費的難得機會。此外，如果以刷卡付⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/46a50124-244f-4ccd-9f88-9b2cad0baa13_1200x630.jpeg">
+<meta property="og:url" content="https://share.blocktrend.today/701/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#701</div>
+  <h1>Shopify 接入 USDC</h1>
+</header>
+
+<article class="article-content">
+<p>區塊勢終身會員方案進行中。應讀者敲碗，我新增了刷卡升級選項，活動也延長至 6 月 26 日（四）24:00 截止。不過，我還是鼓勵大家以加密貨幣付款，別錯過用加密貨幣消費的難得機會。此外，如果以刷卡付款，我會被平台抽走 13%（Substack 抽 10%，Stripe 抽 3%）；但以加密貨幣付款只抽 1%，而且款項直接進到我的錢包。對我來說，加密貨幣明顯是更划算的收款方式。</p><p>今天文章也是討論這個主題！近期全球電商平台龍頭 Shopify <a href="https://www.shopify.com/news/stablecoins-on-shopify">宣布</a>與 Coinbase、Stripe 合作，正式為超過 600 萬網路商家接入 USDC 支付，和信用卡並列成為預設付款方式。消息一出，Visa、Mastercard 股價接連下跌。市場預期加密貨幣將衝擊傳統刷卡支付，但我有不同看法。先從 Shopify 做什麼生意說起。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/46a50124-244f-4ccd-9f88-9b2cad0baa13_1200x630.jpeg" alt="" loading="lazy"></figure></div><h2>Shopify 接入 USDC</h2><p>Shopify 是電商界的隱形巨人，全球每 10 家電商就有 1 家用 Shopify 架站。Shopify 做 B2B 生意，你我可能都間接享受過它的服務。</p><p>假設我是咖啡烘豆師，想在網路上開店做生意。草創時期，我可能會先在蝦皮開設「明恩咖啡」賣場，以最低成本測試市場。等到有點知名度、客源穩定之後，我決定在台北開一家實體店面，讓消費者也能現場選購。</p><p>但問題馬上就來了：線上線下的庫存要怎麼整合？銷售報表怎麼統計？在網路上要怎麼認出曾經來過店面的顧客？蝦皮無法處理這些需求，Shopify 卻能一站解決。Shopify 不只整合銷存與結帳系統，還內建 CRM（客戶關係管理）系統，讓我從「賣東西」變成「做品牌」，是自立門戶的好幫手。</p><p>開店最重要的就是收錢。只要商家採用 Shopify 自家的金流系統 Shop Pay，顧客就能以信用卡或 Apple Pay 付款。即使是門市消費，如果事後客人線上提問，我也能立刻查到他的購買時間和品項，無縫處理售後服務。</p><p>近期 Shopify 還多了一項新功能 —— <a href="https://www.shopify.com/enterprise/blog/shopify-usdc-checkout">支援 USDC 支付</a> —— 根據官方說法，這項功能已經全面上線，只要商家沒有特別關閉，USDC 就會自動成為與信用卡並列的預設付款選項。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/0fc85aff-c746-4a84-9688-510750deab2b_1960x1960.png" alt="" loading="lazy"></figure></div><p>根據 Shopify <a href="https://www.shopify.com/enterprise/blog/shopify-usdc-checkout">敘述</a>（我將它改得口語一點）：</p><blockquote><p>穩定幣正在改變全球資金流動的方式。像 USDC 這類穩定幣，每月交易量早就破兆美元，但你平常網購時還是很少看到網站收加密貨幣。現在不一樣了。Shopify 跟 Coinbase、Stripe 合作，讓商家能直接在 Base 鏈上收 USDC，而且不用改動原本的網站流程，也不需要另外串接金流，全部都整合好了。</p></blockquote><p>只要有 USDC 就能直接在 Shopify 商店結帳，這對幣圈玩家來說很有吸引力。以前刷卡購物，帳單出來還得從交易所出金，不只多一筆手續費，還要處理稅務。現在用 USDC 一次結清，省錢也省事。Shopify 支援超過 480 種錢包，Coinbase Wallet、MetaMask、Phantom 都能用，甚至不登入帳號，以訪客身分也能完成交易。</p><p>對商家來說，收款流程完全沒變。顧客用 USDC 付款後，Shopify 會自動換成法幣，照原本設定轉進銀行帳戶，過程中沒有多餘手續費。如果商家熟悉加密貨幣，也可以選擇把 USDC 直接提領到自己的錢包。</p><p>這次 Shopify 的更新，多數人把重點放在有數百萬家電商開始支援 USDC 支付。但我認為 Shopify 真正的突破，是讓加密貨幣正式融入主流電商的收款流程 —— 不只是能轉帳，還能處理延遲撥款與退款。而背後最關鍵的技術推手，就是 Coinbase。</p><h2>定義支付流程</h2><p>Coinbase 近期積極推動加密支付的標準化。先前我在區塊勢介紹過 Coinbase 為 AI 代理人設計的 x402 協定<sup>1</sup>，這次推出的則是針對「真人」消費場景打造的商業支付標準：商業支付協定（<a href="https://shopify.engineering/commerce-payments-protocol">Commerce Payment Protocol</a>）。</p><p>Coinbase 拿比特幣披薩日當成<a href="https://blog.base.dev/commerce-payments-protocol">開場解釋</a>，讓人一聽就懂：</p><blockquote><p>加密支付已經存在多年，最早可以追溯到 15 年前那筆用 1 萬顆比特幣買披薩的交易。但時至今日，絕大多數鏈上支付仍停留在「一次性轉帳」的階段。這雖然可應付簡單的付款需求，但對商業交易來說，還遠遠不夠。現實世界的買賣不只是「按下付款」這麼簡單：顧客可能臨時取消訂單、賣家可能備貨出狀況，還有稅務調整、部分退款等突發狀況。</p></blockquote><p>Coinbase 與 Shopify 共同推出 Commerce Payment Protocol，就是想讓加密貨幣從單純的轉帳工具，變成商業支付的基礎建設。</p><p>假設有位客人用 USDC 向「明恩咖啡」下單並付款，我在備貨時卻發現其中一款咖啡豆缺貨，問題是這時 USDC 早就進到我錢包了，沒有「尚未請款」這回事。我只能主動聯繫顧客，要求他換成同價位的商品，或是以轉帳的方式將 USDC 退還給他。過程不但麻煩，還容易讓人懷疑是遇到詐騙。</p><p>這正是 Commerce Payment Protocol 要解決的問題。它讓加密支付分段進行，顧客先授權付款金額，資金暫存在智慧合約中的保管帳戶（escrow），商家確認可以出貨後才請款。</p><p>以經典的「披薩日」為例，交易會被拆成先授權（authorize），後撥款（capture）兩段。披薩店先收到付款授權，待披薩送達再請款。如果客人點的口味缺貨或反悔，店家可以選擇只收部分金額，或是在授權期間內取消交易，直接退款給客人。整套流程不用店家手動操作，也不用客服來回溝通，全部自動完成。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/2894fdc2-c09b-40f6-881f-2416a2f551aa_2000x1000.png" alt="" loading="lazy"></figure></div><p>過去，只有少數熟悉區塊鏈技術的商家支援加密貨幣支付，因為轉錯帳、退款流程、爭議處理，全都得自己負責。Shopify 面對的是數百萬家商家與全球顧客，不可能要求每一位店主、員工都懂區塊鏈。有了這一套標準化的自動機制，商家要整合加密貨幣收款才不會自討苦吃。</p><p>Coinbase 其實是向信用卡取經。我們每一筆信用卡交易，都遵循一套約 40 年前由國際標準組織（ISO）制定的規格「<a href="https://medium.com/plain-and-simple-series/all-things-tech-beautiful-iso-8583-an-introduction-plain-and-simple-21eb62455b28">ISO 8583</a>」。它規範各方該如何通訊，完成授權、請款、退款等流程。</p><p>Commerce Payment Protocol 就是加密貨幣版本。它定義出 6 種標準交易操作，把鏈上支付流程模組化，讓不同錢包與電商平台互通。店家不必懂區塊鏈，只要開通 Shopify，就能像收信用卡一樣，無痛收加密貨幣。</p><p>雖然 USDC 付款更快、更便宜，但想要撼動 Visa 和 Mastercard 還差得遠。因為信用卡不只是支付工具，最堅固的還是背後的信用體系。</p><h2>兩種有錢人</h2><p>信用的本質就是借錢。你的還款能力越強，銀行就越願意先替你墊錢，讓你先買後付。但 USDC 付款認的是錢包裡還剩多少錢，沒有身分也沒有信用。因此我不認為 USDC 能直接挑戰信用卡的「信用體系」，而是滿足不同族群的需求。</p><p>信用卡適合體制內的「有錢人」，他們在銀行有往來紀錄、薪資穩定、信用評分高，可以享受刷卡回饋與分期服務。而加密貨幣支付則更適合體制外的「有錢人」，例如投資人、內容創作者，他們的資產來自多元收入，但不一定被銀行認可。這些人沒辦法向銀行借一大筆錢，但財力未必比較差。加密貨幣讓他們的錢有地方可花，成為另一套支付的新選擇。</p><p>對 Shopify 來說，支援 USDC 當然是利多。不僅 Shopify 執行長 Tobi 同時也是 Coinbase 董事，這樣的整合還能替平台、商家打開另一個市場 —— 那些已經持有加密貨幣、但不一定有信用卡的顧客。尤其是當競爭對手還沒支援加密貨幣時，Shopify 搶先卡位，自然更能吸引 Web3 客群。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/phxTKt6JeKk?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>我最佩服的是 Coinbase 的經營策略。自從 Coinbase 推出 Base 鏈後<sup>2</sup><sup>3</sup><sup>4</sup>，與去中心化世界的整合就相當順暢。當其他國際交易所如幣安、OKX 還停留在「幣圈賭場」的經營模式，Coinbase 已經示範如何用區塊鏈為上市公司創造實質營收。</p><p>從交易所、錢包服務一路往基礎建設轉型，Coinbase 讓每一筆 USDC 支付都能跑在自家區塊鏈上，綁住的不是某個應用，而是整個支付生態系。這種從底層吃進營收的做法，非常厲害。</p><p>只不過這些策略佈局，短期內大家可能感受不深。對店家來說，除非顧客本來就來自 Web3 或沒有信用卡，否則多一個 USDC 的支付選項，實際營收可能完全沒變。對消費者來說，刷卡或用 Apple Pay 已是習慣動作，不見得會刻意點選 USDC 支付。</p><p>Shopify 和 Coinbase 顯然也知道這點，所以預告將推出補貼策略：只要使用 USDC 交易，就分別補貼店家 0.5%、消費者 1%。但習慣哪有這麼容易改。根據統計數字，上線首週的支付金額<a href="https://dune.com/sealaunch/commerce-payments-protocol">僅約 2,500 美元</a>。這跟我的實務經驗一致。區塊勢早就支援加密貨幣付款，但絕大多數人還是刷卡。沒人會為了「能用幣付款」掏錢。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/770e9486-95ca-4b45-a513-f2da8a58e08a_1956x1036.png" alt="" loading="lazy"></figure></div><p>不過這還是一件大事。加密貨幣支付曾經是個遙不可及的理想，買披薩只是特例<sup>5</sup>。回到日常消費場景，根本沒人會用加密貨幣付款。直到這幾年，人們從加密貨幣支付卡開始，逐步走向實際用加密貨幣錢包轉帳。從被動扣款，慢慢變為主動支付。</p><p>過去區塊勢能收加密貨幣，是因為我剛好夠懂區塊鏈能應付技術問題。但即便我有能力處理，我還是希望這套機制趕快來取代我。因為它不只省了我的工作，還能造福所有人！</p><p>p.s. 這週在搬家，離開住了 4 年的北投，也總算脫離租屋族身分。本來打算休刊一次，但近期題目豐富，實在捨不得錯過。只好一邊大掃除，一邊看文章。有沒有掃乾淨不知道，但文章品質我是很有把握。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/690">被遺忘的 402，如何成為 AI 時代最重要的支付入口？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/514">Coinbase 打造以太坊第二層網路，將用戶趕出交易所</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/567">BASE 鏈：讓上鏈成為上網、Coinbase 的秘密計劃</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/608">Base：為了留下工程師，Coinbase 意外造出全球第二大以太坊 L2</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/691">比特幣披薩日：花掉，才是真正留下來</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/701">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

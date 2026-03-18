@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:i.urusai.cc)",
+      "Bash(git push origin main)"
+    ]
+  }
+}

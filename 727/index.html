@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#727 USDe 不是穩定幣 — 區塊勢</title>
+<meta name="description" content="上週末是台灣的國慶連假，但加密貨幣市場卻經歷了一場血洗。起因是川普無預警宣布從 11 月 1 日起對中國加徵 100% 關稅。消息一出，全球股市與幣價同步重挫。納斯達克指數單日跌 3.56%，BTC ⋯">
+<meta property="og:title" content="USDe 不是穩定幣">
+<meta property="og:description" content="上週末是台灣的國慶連假，但加密貨幣市場卻經歷了一場血洗。起因是川普無預警宣布從 11 月 1 日起對中國加徵 100% 關稅。消息一出，全球股市與幣價同步重挫。納斯達克指數單日跌 3.56%，BTC ⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/f3e9a3fa-04a1-4c53-aa1f-2fb8b699b838_1123x996.png">
+<meta property="og:url" content="https://share.blocktrend.today/727/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#727</div>
+  <h1>USDe 不是穩定幣</h1>
+</header>
+
+<article class="article-content">
+<p>嗨，早！ </p><p>上週末是台灣的國慶連假，但加密貨幣市場卻經歷了一場血洗。起因是川普無預警宣布從 11 月 1 日起對中國加徵 100% 關稅。消息一出，全球股市與幣價同步重挫。納斯達克指數單日跌 3.56%，BTC 與 ETH 則分別下跌 10% 與 15%。最慘的是全球市值第三大的美元穩定幣 USDe，它的價格在幣安一度脫鉤至 0.65 美元（兌 USDT 約 0.65、兌 USDC 約 0.62）。</p><p>連鎖效應引爆史上最大規模的清算潮。單日超過 160 萬人被強制平倉（斷頭），清算總額高達 190 億美元，是 FTX 倒閉與 COVID 疫情時的 <a href="https://x.com/Ashcryptoreal/status/1976802618833080365">10 倍以上</a>。市場陷入恐慌，甚至傳出有投資人因此輕生。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f3e9a3fa-04a1-4c53-aa1f-2fb8b699b838_1123x996.png" alt="" loading="lazy"></figure><p>有人認為這是演算法穩定幣 Terra/Luna 的翻版；也有人拋出「外部狙擊」的陰謀論，稱是幣安與造市商遭到攻擊。但有越來越多證據顯示，這次 USDe 脫鉤的真正元凶，不是外部攻擊，而是全球最大交易所幣安的自身問題。幣安事後也公開承認錯誤，並罕見地發放補償給受害投資人。要理解這場風暴如何醞釀，得先從 USDe 這款近期成長最快的「合成美元」說起。</p><h2><strong>USDe 不是穩定幣</strong></h2><p>多數人對 USDe 都很陌生。它在 2024 年初才問世，背後運作機制相當複雜。</p><p>雖然 USDe 試圖把價格維持在 1 美元，但嚴格來說根本不是穩定幣。和以美債做為主要儲備的 USDT、USDC 不同，USDe 是靠交易策略把價格「合成」在 1 美元附近的「合成美元」（synthetic dollar）。</p><p>發行方 <a href="https://ethena.fi/">Ethena</a> 讓用戶存入 ETH、BTC 等資產作為抵押品，鑄造出 USDe，同時在永續合約<sup>1</sup>（期貨）市場建立等值空單（short）。這樣一來，如果抵押品上漲、空單會虧；抵押品下跌、空單會賺。兩邊的漲跌會互相抵銷，像是翹翹板，理論上就能讓 USDe 價值穩定維持在 1 美元上下，這就是所謂的「中性對沖」（Delta-Neutral）策略。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/4aaa7d62-e959-49e8-91ab-626819df28eb_1504x714.png" alt="" loading="lazy"></figure><p>Ethena 的收益來源不是儲備收益，而是來自永續合約的「資金費率」（funding rate）。永續合約是沒有到期日的期貨。為了防止期貨價格長期偏離現貨，交易所會定期在多空雙方之間結算資金費率：</p><ul><li><p>當市場<strong>看多</strong>、期貨價格高於現貨時，<strong>做多的人就要付錢給做空的人</strong></p></li><li><p>當市場<strong>看空</strong>、期貨價格低於現貨時，<strong>做空的人就要付錢給做多的人</strong></p></li></ul><p>這筆資金費率就像是按小時計算的「利息」。在牛市裡，做多的人遠多於做空，因此開空單的人可以穩定收取利息。為了維持 USDe 價格「中性對沖」，Ethena 長期在期貨市場站在空頭的一方，透過資金費率持續獲得被動收入，藉此支撐整個 USDe 系統。</p><p>在 2024 年，質押 USDe 的平均年化收益率高達 19%。也因此 USDe 才會問世不到兩年，市值就快速成長至 140 億美元。</p><p>多數人搞不清楚「合成美元」與「穩定幣」的差別，乾脆直接稱它是「收益型穩定幣」。在 9 月底，幣安推出「USDe 年化 12% 獎勵活動」，藉此讓 USDe 接觸到更多投資者。在幣安的包裝之下，複雜的對沖基金交易策略，變成了一般用戶也能理解的「穩定幣存款獎勵」。活動成功吸引大量資金湧入，卻也成為暴跌事件的導火線。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/e07e2ecd-f909-4838-a31d-a14dbec76330_1600x900.png" alt="Binance USDe Reward Distribution is Live – Now with 12% APR Promotion |  Binance Announcements ,Binance News,USDe" loading="lazy"></figure><h2>幣安獎勵活動</h2><p>根據幣安<a href="https://www.binance.com/zh-TC/support/announcement/detail/9eb104f497044e259ad9bd8f259f265c">活動公告</a>（經過改寫）：</p><blockquote><p>平台於 9 月 22 日正式啟動 USDe 獎勵活動，提供高達 12% 年化收益率 … 獎勵無上限，且會以 USDe 形式每週發放至用戶現貨帳戶，期間不需額外鎖倉或操作 … 此外，USDe 可同時作為現貨、槓桿與借貸市場的抵押品，用戶在借款或交易的同時仍可持續領取獎勵 … 活動時間從 9 月 22 日起至 10 月 22 日</p></blockquote><p>幣安在<a href="https://www.binance.com/zh-TC/support/faq/detail/957cdbf56eff4bcf8a974bceab24712c">說明</a>中特別提到，12% 年化收益率是 Ethena 為推廣 USDe 所提供的行銷補貼，且不設有存款上限。這非常特別。過往的補貼活動為了避免行銷預算被少數大戶吸走，普遍都會設置存款上限。而 Ethena 的補貼預算就像無限多一樣。就算幣安用戶一口氣存入 1 億美元，同樣可以獲得 12% 年化收益率。條件好到不可思議，市場大戶爭相參與。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/b2a7213b-9d57-4691-a2df-1203b1016764_1008x760.png" alt="" loading="lazy"></figure><p>根據鏈上數據平台 Dune Analytics 的<a href="https://dune.com/entropy_advisors/ethena-protocol-metrics">統計</a>，活動推出後短短幾天，幣安平台內的 USDe 持有量從原本不到 1 億美元激增至 46 億美元。大家都在搶這一個月的行銷補貼。</p><p>最單純的做法是把手上的美元穩定幣換成 USDe 存入幣安領取年化 12% 的獎勵。但更熟悉金融操作的人，還會注意到公告中明示暗示的槓桿玩法，進一步放大收益。操作方式很簡單：</p><ol><li><p>先把 100 USDT 兌成 100 USDe</p></li><li><p>再把 100 USDe 放在幣安領取 12% 收益</p></li><li><p>用這些 100 USDe 作為抵押品，借出 80 USDT</p></li><li><p>然後再拿借到的 80 USDT 去買 80 USDe 賺得更多收益</p></li></ol><p>這樣一輪循環，扣除借款利息就能將原本 12% 收益拉升到 16%；多重複幾輪後，理論上可逼近 30% 年化報酬，相當誘人！但這實際上就是在開槓桿，最大風險是 USDe 的價格波動。收益疊得越高的投資人，面對 USDe 價格波動的風險承受能力就越差。只要市場有個風吹草動，來不及追加保證金，很可能就會被強制平倉。</p><p>每個槓桿倉位都像是一座小型火藥庫，而幣安就是這些火藥庫的聚集地。只要沒人點火，一個月過後，幣安、用戶和 Ethena 三方都得利。偏偏上週末美國總統川普的社群貼文就像一根火柴，直接炸掉了半個幣安。</p><h2>幣安交易所內爆</h2><p>川普宣布對中國加徵關稅後，全球風險資產同步下跌，市場瞬間由多轉空。USDe 對市場變化尤其敏感，因為它的價格並不是靠儲備支撐，而是靠交易策略「合成」出來的。當市場大跌，資金費率翻轉，Ethena 從收息變成付息的一方，部分投資人開始拋售 USDe，價格出現鬆動。</p><p>多數交易所的 USDe 即使價格下跌，也仍維持在 0.99 美元附近。但幣安不一樣。因為有賺幣活動，平台內許多投資人槓桿開滿，承受風險能力特別差。槓桿開到最大的賭徒最先被清算，大量 USDe 被拋售，價格開始脫鉤。價格一跌又觸發新一輪清算，形成死亡螺旋。</p><p>照理說，這時外部套利者應該要進場買入脫鉤的 USDe，幫助價格回穩。但是在崩盤當下，幣安卻又因為「系統故障」卡死，外部資金進不來，內部用戶也無法補保證金。</p><p>斷了對外聯繫，幣安就像是一座孤島。價格下跌引發清算，清算又讓價格跌得更深。當其他交易所的 USDe 價格仍維持在 0.99 美元以上，幣安的價格卻一路跌到 0.65 美元，形成相當罕見的「交易所內爆」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/e3f7a804-d849-4315-907a-86b1728ed756_1179x1681.png" alt="" loading="lazy"></figure><p>換言之，這次 USDe 價格脫鉤，幣安必須負最大責任。事發後，社群出現兩派說法。一派認為幣安是「預謀犯案」，明知道 USDe 並非真正的穩定幣，卻仍推出 12% 收益活動並鼓勵開槓桿，讓大量資金暴露在高風險環境中。一旦市場出現波動，幣安就能趁機以低價撿便宜，成為最大得利者。</p><p>另一派則認為這不是陰謀，而是一連串產品設計與系統錯誤疊加的結果。幣安的 USDe 報價僅參考自家平台數據，若能提前納入外部市場價格當成參考，或許就不會導致大規模清算。即便獎勵活動推升槓桿、川普突發關稅消息引發市場恐慌，但如果系統沒在關鍵時刻卡死，交易所也不會瞬間成了一座孤島。正是所有防線同時失效，才讓幣安 USDe 價格一路跌到 0.65 美元。</p><p>不論是哪種解釋，幣安都難辭其咎。事後幣安在公告中<a href="https://x.com/heyibinance/status/1977449002116473064?s=46&amp;t=Nz2nc-sGqcLrNk3qtt_UqQ">含糊承認</a>「近期市場波動及平台問題對部分用戶造成影響」，承諾補償受害者，但同時又強調系統「整體穩定，只是個別功能短暫卡頓」。這樣的說法不僅敷衍，也讓外界對幣安的信任大幅下滑。</p><h2>責任歸咎</h2><p>投資人開高槓桿確實是個人選擇，但交易所的產品設計決定了風險的邊界。EtherFi 執行長 Mike Silagadze 就<a href="https://x.com/MikeSilagadze/status/1976823210600710462">指出</a>，自家平台同樣提供借貸功能，卻刻意將借款上限設定為抵押資產的 50%，清算門檻設在 90%。在這波市場暴跌中，EtherFi 沒有任何使用者被清算。這正是透過產品設計保護用戶資產的最佳示範 —— 寧可讓用戶少借一點錢，也不要讓他們玩火自焚。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/c37ecd51-8b2e-4bdb-a9dc-f811f2a35db0_1044x506.png" alt="" loading="lazy"></figure><p>幣安身為全球最大交易所，本應是市場的避風港，但這次事件卻讓人看見另一面。它更像是站在用戶的對立面，以專業知識從用戶身上榨取收益。雖然事後補償用戶，但補得了錢卻補不回生命。</p><p>開槓桿被清算的投資人錯在把「完美」誤認為常態 —— 假設幣安流動性充足、USDe 不會脫鉤、出入金功能不會故障，一切都會照著預期穩定運作。在絕大多數情況下，這些假設都是對的，但完美是脆弱的。收益堆得越高，對完美的要求也就越嚴格。</p><p>加密貨幣波動很大，容易讓人誤以為就是要靠「賺快錢」取勝。經歷過市場暴跌的人更能體會，在幣圈，活得久比賺得快更重要。但只要幣價再創新高，沒有什麼過不去的災難，是吧？（反串要註明）</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/384">永續合約：期貨交易也能替你賺得穩定利息</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/727">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

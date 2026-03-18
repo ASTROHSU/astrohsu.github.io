@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#735 自動兌幣機 — 區塊勢</title>
+<meta name="description" content="下週起是區塊勢的 年終休刊期 ，將暫停 4 篇文章並於 12 月 2 日恢復出刊。這是提前安排好的家庭旅遊，不是因為上週弄丟錢才出國散心。但就順便吧 😂 進入正題。">
+<meta property="og:title" content="自動兌幣機">
+<meta property="og:description" content="下週起是區塊勢的 年終休刊期 ，將暫停 4 篇文章並於 12 月 2 日恢復出刊。這是提前安排好的家庭旅遊，不是因為上週弄丟錢才出國散心。但就順便吧 😂 進入正題。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/f32b48a8-5f6e-4345-bdab-e22cfd5d3514_1064x980.png">
+<meta property="og:url" content="https://share.blocktrend.today/735/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#735</div>
+  <h1>自動兌幣機</h1>
+</header>
+
+<article class="article-content">
+<p>下週起是區塊勢的<a href="https://www.blocktrend.today/p/calendar">年終休刊期</a>，將暫停 4 篇文章並於 12 月 2 日恢復出刊。這是提前安排好的家庭旅遊，不是因為上週弄丟錢才出國散心。但就順便吧 😂 進入正題。</p><p>近期去中心化金融（DeFi）應用連環爆，其中發生在 11 月 3 日的 <a href="https://balancer.fi/">Balancer</a> 駭客事件，讓全球資安專家跌破眼鏡。損失金額約 1.3 億美元，在歷史上僅能<a href="https://rekt.news/zh/leaderboard">排進前 30 名</a>，卻燒出前所未見的 DeFi 信任危機。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f32b48a8-5f6e-4345-bdab-e22cfd5d3514_1064x980.png" alt="" loading="lazy"></figure><p>這是因為 Balancer 是 DeFi 世界的模範生，核心程式碼不僅通過 4 家頂尖資安公司共 11 次的嚴格審計，上線後也有完善的漏洞賞金制度持續監控。如果發現漏洞，只要回報並經確認，就能獲得最高 1,000 顆 ETH 的白帽獎勵。</p><p>網路沒有絕對的安全，但業界普遍相信，只要事先審計、持續監控，就能大幅降低被駭風險。然而這次的 Balancer 事件卻狠狠打臉。人們開始懷疑，連經過層層把關的應用都會出事，還有誰的程式碼是安全的？這篇文章帶你回到事發現場，理解 Balancer 為何會被駭。</p><h2>自動兌幣機</h2><p>想像我今天到越南旅遊，在機場看到一台名為 Balancer 的自動兌幣機。</p><p>我塞入一張新台幣 1,000 元紙鈔。按照當前匯率，它應該要吐出 848,399 越南盾。由於機器當初設計只能吐出百元鈔票，四捨五入後，它給了我 848,400 越南盾。雖然我多賺 1 越南盾，但這筆誤差少到什麼也買不了，小到可以忽略。</p><p>過去五年，兌幣機運作如常。直到近期，有位精明駭客想出一套縝密的犯罪計畫，打算利用這個漏洞，讓兌幣機把所有的錢全都吐出來！</p><p>兌幣機採用自動造市商（AMM）機制<sup>1</sup> —— 各類貨幣的報價會隨著兌幣機內部的供需改變。有越多人拿越南盾換成外幣，越南盾就越便宜；反之，越多人拿外幣換走越南盾，越南盾就越貴。</p><p>於是，駭客先是準備大量外幣，掃購兌幣機裡的越南盾，讓兌幣機裡的越南盾變得稀缺，價格飆升一萬倍。現在新台幣 1,000 元紙鈔，只能買到 84.8399 越南盾。但由於自動兌幣機只有百元紙鈔，機器四捨五入後，竟吐出了 100 越南盾。</p><p>注意到了嗎？越南盾價格飆升後，兌幣機四捨五入誤差也跟著被放大。駭客每換新台幣 1,000 元，就多拿到 15.16 越南盾。兌幣機把這些當成「誤差」，根本沒意識到機器正在被掏空。駭客不斷重複操作，讓兌幣機吐出一大堆越南盾，再用這些偷來的越南盾，換出兌幣機裡的各國貨幣。最終，兌幣機被洗劫一空。</p><p>下圖就是駭客在 11 月 3 日犯罪時留下的鏈上轉帳紀錄。駭客在一筆交易內塞入多次鏈上操作，一口氣把 Balancer 的資金池抽乾，總計竊走約 1.3 億美元。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f19dd5fd-f1e7-484a-a08b-f988eee7c0cf_1456x832.png" alt="" loading="lazy"></figure><p>鏈上立刻警鈴大作。由於每筆轉帳紀錄都是即時公開，資安公司如 Check Point 、PeckShield 的自動化監控系統偵測到 Balancer 出現異常資金外流後，第一時間通知開發團隊。</p><p>程式碼設有「緊急暫停」按鈕，在重大事件發生時暫停運作，防止更多人受害。問題是駭客鎖定的並不是最新的 Balancer V3，而是運行多年的 V2 版本。開發者按下暫停按鈕後才發現，這項功能已經失效 —— 權限過期，根本按不下去。兌幣機就像斷了線的風箏，大家只能眼睜睜地看著資金池被持續掏空。</p><p>在多數駭客事件裡，這已經是最差狀況。但對 Balancer 來說，這還只是連鎖反應的開始。</p><h2>火燒連環船</h2><p>過去幾年，許多新興 DeFi 專案把 Balancer V2 視為模範生，有<a href="https://defillama.com/protocol/balancer-v2">近 30 個應用</a>是基於它的開源程式碼開發。沒想到這也讓駭客事件升級成了「火燒連環船」。</p><p>例如 Sonic 鏈上最大的去中心化交易所 <a href="https://beets.fi/">Beets.fi</a> 在官方文件中就主打，自家程式碼是分叉 Balancer V2 而來。當年 Beets 發行治理代幣時，也曾回溯空投給 Balancer 參與者作為回饋。這些團隊原本想強調自己採用的是經過實戰考驗的程式碼，大家可以放心使用，卻沒想到模範生也有翻車的一天。</p><p>駭客不僅攻擊 Balancer，就連分叉的應用也不放過。Beets 遭受同樣的攻擊手法，造成損失。</p><p>Sonic 區塊鏈的開發者為了逮住駭客，立即<a href="https://x.com/SetteeCh/status/1985323623784054883?ref=bankless.ghost.io">修改</a>鏈上 gas fee 的運作邏輯，凍結駭客錢包地址內的 gas fee。駭客就算成功偷到錢，也沒有 gas fee 可以轉帳。</p><p>新興區塊鏈 Berachain 上第二大的去中心化交易所 BEX 也是分叉 Balancer V2 程式碼，遭到駭客同步入侵。Berachain 的做法更激進，他們擔心損失金額持續擴大，乾脆直接關掉整條區塊鏈，玉石俱焚，最終成功從駭客手上討回 1,280 萬美元。</p><p>Polygon 鏈則選擇主動排除 Balancer V2 交易。駭客就算想轉帳，也沒有驗證者願意替它寫到鏈上。資產形同凍結。</p><p>但並不是每條區塊鏈都願意主動干預。例如以太坊主網根本難以凍結，而 Arbitrum、Base、Optimism 這三條鏈理論上都有凍結交易的能力，但是在事件中選擇不出手。</p><p>這當然也引發去中心化的爭論。有人讚賞這些區塊鏈反應即時，成功阻止駭客轉移資產、保護用戶資產安全；但也有人批評這些行為違背了區塊鏈抗審查的特性，即便是駭客攻擊也不該出手干預。</p><p>坦白說，這真的很難抉擇。如果受影響的是自己辛苦賺來的血汗錢，全世界又有幾個人能堅定捍衛區塊鏈的中立、抗審查特性呢？但如果區塊鏈主動介入，難保未來監管機關在必要時刻也會拍拍這些人的肩膀說：「我們都知道的，配合一點吧」。</p><h2>DeFi 信心危機</h2><p>我認為 Balancer 駭客事件燒出三大議題，也引爆 DeFi 信心危機：</p><ol><li><p>開源反成傳染途徑</p></li><li><p>智慧合約怎樣才安全？</p></li><li><p>抗審查特性該怎麼拿捏？</p></li></ol><p>DeFi 開源文化鼓勵開發者站在巨人的肩膀上，不必從頭造輪胎。但這次事件卻讓大家意識到「火燒連環船」的可怕。</p><p>在傳統金融裡，A 銀行不會直接複製 B 銀行的核心系統。但在 DeFi 領域，分叉既有程式碼稀鬆平常。這讓風險多了一條傳導途徑。也才導致 Balancer 被駭，遠在天邊的 Berachain 竟然要關閉整條區塊鏈來應對。這是和過往其它駭客事件的最大差異。</p><p>以前人們碰到駭客事件，總會有人說：「使用前你得先『DOYR（Do Your Own Research』了解風險啊。」但這次 Balancer 找來 4 家知名資安公司，前後審計 11 次程式碼，竟然還是讓駭客得逞。</p><p>人們回頭翻出過往審計報告才發現，早在 2020 年，資安公司 OpenZeppelin <a href="https://www.openzeppelin.com/news/balancer-contracts-audit#findings-and-recommendations">注意到</a> Balancer 程式碼中四捨五入的誤差設計，只是當時他們評估是：「在大多數正常條件下，這些誤差是可忽略的，且不具利用價值。但在極端條件下，這些誤差可能會獲利。」</p><p>最終 OpenZeppelin 給的整體評價是「Balancer 合約程式碼清楚且寫得不錯」，四捨五入的設計則被認定為「低嚴重性」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/476554da-bea1-40ba-9633-0a3d48ac8db8_1244x1490.png" alt="" loading="lazy"></figure><p>2021 年，另一家知名資安公司 Trail of Bits 在審計報告中<a href="https://github.com/balancer/balancer-v2-monorepo/blob/master/audits/trail-of-bits/2021-10-08.pdf">再度提及</a>相同問題，但他們將這項漏洞歸類為「未確定嚴重性（Undetermined Severity）」。換言之，雖然知道程式碼有潛在風險，但仍無法判定是否真的能被駭客利用。</p><p>兩家資安公司在業界都赫赫有名，看過各種稀奇古怪的程式碼與駭客攻擊。如果連他們都無法確認這項設計是否算致命漏洞，普通使用者又怎麼可能看出問題？</p><p>事發後，有人質疑程式碼審計是不是已經不可靠，但更尷尬的是，至今仍沒人能說清楚，該怎麼做才能避免類似事件重演。看到問題卻沒有解法，正是讓這起駭客事件延燒成 DeFi 信心危機的根本原因。當人們無法預防風險，唯一能做的就是先把錢抽出來，或是轉向那些更願意「主動保護用戶」的區塊鏈。</p><p>多數區塊鏈都是在出事之後，才匆忙地協調節點凍結交易，最後被迫在「去中心化」與「審查」之間取捨。不過，去年我曾寫過的 Zircuit 區塊鏈<sup>2</sup><sup>3</sup>選擇了另一條路。</p><p>Zircuit 兩位創辦人都來自資安審計公司 Quantstamp，或許是看過太多災難現場，更理解當下那種無力感，於是才會在設計之初，就讓 Zircuit 內建「防毒軟體」功能。Zircuit 會學習過往駭客攻擊手法搭配 AI 分析交易行為，主動隔離可疑操作。等於創立時就嗆明，這條鏈跟駭客勢不兩立。</p><p>但究竟該如何權衡風險控管、用戶自主，目前仍沒有標準答案。在紀錄片《Vitalik：以太坊故事》中，主持人問以太坊創辦人 Vitalik Buterin：「你認為自己該為以太坊上的駭客攻擊負責嗎？」 他以火比喻：「火可以用來取暖，但控制不好也可能會受傷。」</p><p>DeFi 開發者已知用火，卻還沒掌握如何安全用火。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/71DtEk1cFdg?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/343">自動造市商（AMM）：交易利潤民主化、如何避免無常損失？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/646?">可預測的空投！Zircuit 打造駭客最討厭的區塊鏈</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep275">Zircuit 用 AI 識別駭客攻擊！鏈上防毒軟體讓 DeFi 玩家安穩入睡 ft. Martinet Lee</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/735">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

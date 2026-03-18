@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穩定幣紅包 — 區塊勢</title>
+<meta name="description" content="除夕夜區塊勢發送限量穩定幣紅包。探討穩定幣的實際使用體驗和日常應用。">
+<meta property="og:title" content="穩定幣紅包">
+<meta property="og:description" content="為什麼每個人的紅包玩法都不一樣？">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5E6D3;--terra:#E8774A;--terra-light:#FBE8DC;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#7C5B8E;--purple-light:#F3EDF8;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#D4A574;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--cream) 0%,#FFD4A3 30%,var(--terra-light) 70%,#FFE5CC 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:radial-gradient(ellipse 800px 200px at 50% 100%, rgba(232,119,74,0.15), transparent);
+  pointer-events:none;
+}
+
+.hero-envelope{
+  width:140px;height:160px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:envelopeReveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+}
+@keyframes envelopeReveal{
+  0%{opacity:0;transform:rotateZ(-15deg) scale(0.8)}
+  60%{transform:rotateZ(5deg)}
+  100%{opacity:1;transform:rotateZ(0deg) scale(1)}
+}
+
+.hero-envelope::before{
+  content:'';position:absolute;top:0;left:0;width:100%;height:70%;
+  background:linear-gradient(180deg, #E8774A 0%, #D85C36 100%);
+  clip-path:polygon(0 0, 50% 30%, 100% 0, 100% 100%, 0 100%);
+  border-radius:4px 4px 0 0;
+}
+
+.hero-envelope::after{
+  content:'';position:absolute;top:0;left:0;width:100%;height:68%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+  clip-path:polygon(0 0, 50% 28%, 100% 0, 100% 100%, 0 100%);
+  border-radius:4px 4px 0 0;
+}
+
+.envelope-body{
+  position:absolute;bottom:0;left:0;width:100%;height:60%;
+  background:linear-gradient(180deg, #FFF5E6 0%, #FFE8D6 100%);
+  border:2px solid #E8774A;
+  border-top:none;
+  border-radius:0 0 4px 4px;
+}
+
+.envelope-flap{
+  position:absolute;top:60%;left:50%;width:0;height:0;
+  border-left:35px solid transparent;border-right:35px solid transparent;
+  border-top:40px solid #E8774A;
+  transform:translateX(-50%);
+}
+
+.envelope-shine{
+  position:absolute;top:8px;left:50%;width:60px;height:12px;
+  background:rgba(255,255,255,0.6);
+  border-radius:50%;
+  transform:translateX(-50%);
+  filter:blur(4px);
+}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(232,119,74,0.08);color:var(--terra)}
+.big-question .option:nth-child(even){background:rgba(45,107,79,0.08);color:var(--green)}
+.big-question .option:nth-child(3n){background:rgba(124,91,142,0.08);color:var(--purple)}
+
+/* Stablecoin use cases chart */
+.use-cases-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0;
+}
+.use-case-card{
+  padding:1.5rem;border-radius:12px;border:1px solid #E8E3D8;
+  background:rgba(232,119,74,0.05);transition:transform 0.3s;
+}
+.use-case-card:hover{transform:translateY(-2px)}
+.use-case-card.green{background:rgba(45,107,79,0.05)}
+.use-case-card.purple{background:rgba(124,91,142,0.05)}
+.use-case-card .emoji{font-size:1.5rem;margin-bottom:0.5rem}
+.use-case-card h3{font-family:'Noto Serif TC',serif;font-size:1rem;margin-bottom:0.5rem;color:var(--text)}
+.use-case-card p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.6}
+
+/* Comparison grid */
+.choice-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0;
+}
+.choice-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.choice-card:hover{transform:translateY(-3px)}
+.choice-card.now{background:var(--terra-light);border-color:#E8A078}
+.choice-card.future{background:var(--green-light);border-color:#A8D4BC}
+.choice-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.choice-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.choice-card.now .tag{background:#E8A078;color:#8B5A3C}
+.choice-card.future .tag{background:#A8D4BC;color:#2D6B4F}
+.choice-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.choice-card .highlight-item{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);margin-bottom:0.6rem;
+}
+.choice-card .highlight-item strong{color:var(--terra);font-weight:500}
+.choice-card.future .highlight-item strong{color:var(--green)}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--terra-light)}
+.q-btn.selected{border-color:var(--text);background:var(--terra-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--terra)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(232,119,74,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .use-cases-grid,.choice-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+  .lang-btn{top:1rem !important;right:1rem !important}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-envelope">
+    <div class="envelope-flap"></div>
+    <div class="envelope-shine"></div>
+    <div class="envelope-body"></div>
+  </div>
+  <h1 class="zh">穩定幣紅包</h1>
+  <h1 class="en" style="display:none">Stablecoin Red Packet</h1>
+  <p class="subtitle zh">為什麼每個人的玩法都不一樣？</p>
+  <p class="subtitle en" style="display:none">Why everyone uses it differently?</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in"><span class="zh">拿到穩定幣紅包，你想做什麼？</span><span class="en" style="display:none">What would you do with a stablecoin red packet?</span></h2>
+  <div class="options fade-in">
+    <span class="option zh">買幣投資</span>
+    <span class="option en" style="display:none">Buy crypto</span>
+    <span class="option zh">轉美股券商</span>
+    <span class="option en" style="display:none">Move to stock broker</span>
+    <span class="option zh">放 DeFi 生息</span>
+    <span class="option en" style="display:none">Yield farming</span>
+    <span class="option zh">日常轉帳</span>
+    <span class="option en" style="display:none">Daily transfer</span>
+    <span class="option zh">長期持有</span>
+    <span class="option en" style="display:none">Long-term holding</span>
+    <span class="option zh">馬上花掉</span>
+    <span class="option en" style="display:none">Spend immediately</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">
+    <span class="zh">這個問題沒有標準答案。每個人的需求都不一樣，穩定幣的真實價值就在這個多樣性裡。</span>
+    <span class="en" style="display:none">There's no standard answer. Stablecoins shine in this diversity of use cases.</span>
+  </p>
+</div>
+
+<!-- STORY: WHAT ARE STABLECOINS -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span><span class="zh">什麼是穩定幣？</span><span class="en" style="display:none">What is a stablecoin?</span></h2>
+
+  <p class="fade-in">
+    <span class="zh">穩定幣是一種區塊鏈上的資產，它的價值與美元（或其他法定貨幣）掛鉤。不像比特幣會暴漲暴跌，穩定幣的目標就是穩定——1 USDC = 1 美元，永遠都是。</span>
+    <span class="en" style="display:none">A stablecoin is a blockchain asset pegged to a currency like the US dollar. Unlike Bitcoin, it stays stable—1 USDC always equals 1 USD.</span>
+  </p>
+
+  <p class="fade-in">
+    <span class="zh">為什麼需要穩定幣？因為傳統金融系統有三個痛點：一、跨境轉帳慢。銀行要審核、要結算、要等。二、進出困難。想把美金換成區塊鏈資產，或從區塊鏈換回美金，流程複雜又昂貴。三、審查。有些地區，你無法自由持有或轉移資金。</span>
+    <span class="en" style="display:none">Why stablecoins? Traditional finance has three pain points: slow cross-border transfers, difficult on/off-ramps, and censorship. Stablecoins solve all three.</span>
+  </p>
+
+  <p class="fade-in">
+    <span class="zh">穩定幣解決了這些問題。它可以在幾秒內跨越國界，手續費只要幾毛錢，沒有中介可以冰結你的資金。</span>
+    <span class="en" style="display:none">Stablecoins cross borders in seconds, cost pennies, and can't be frozen by intermediaries.</span>
+  </p>
+</section>
+
+<!-- STABLECOIN USE CASES -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 2</span><span class="zh">真實的使用場景</span><span class="en" style="display:none">Real-world use cases</span></h2>
+
+  <div class="use-cases-grid fade-in">
+    <div class="use-case-card">
+      <div class="emoji">💱</div>
+      <h3 class="zh">跨國轉帳</h3>
+      <h3 class="en" style="display:none">International transfer</h3>
+      <p class="zh">菲律賓工人在阿拉伯聯合大公國工作，每月只能靠西聯轉帳寄錢回家，手續費 10%。現在改用穩定幣，手續費降到 0.5%，而且即時到帳。</p>
+      <p class="en" style="display:none">A Filipino worker in UAE used to pay 10% in remittance fees. Now with stablecoins, it's 0.5% and instant.</p>
+    </div>
+
+    <div class="use-case-card green">
+      <div class="emoji">📊</div>
+      <h3 class="zh">DeFi 生息</h3>
+      <h3 class="en" style="display:none">Yield farming</h3>
+      <p class="zh">銀行定期存款年利率 0.5%。在穩定幣借貸平台，你可以拿到 5-8% 的年化收益，還能隨時提取，風險自己承擔。</p>
+      <p class="en" style="display:none">Banks offer 0.5% APY. Stablecoin lending protocols offer 5-8%, with full liquidity and self-custody.</p>
+    </div>
+
+    <div class="use-case-card purple">
+      <div class="emoji">🛍️</div>
+      <h3 class="zh">日常支付</h3>
+      <h3 class="en" style="display:none">Everyday payments</h3>
+      <p class="zh">在接受加密支付的商戶，用穩定幣付款比刷卡更快、手續費更低。對於中小商戶，也能即時提現到銀行。</p>
+      <p class="en" style="display:none">At crypto-friendly merchants, stablecoin payments are faster and cheaper than cards, with instant settlement.</p>
+    </div>
+
+    <div class="use-case-card">
+      <div class="emoji">📱</div>
+      <h3 class="zh">應急資金</h3>
+      <h3 class="en" style="display:none">Emergency funds</h3>
+      <p class="zh">在金融控制嚴格的地區，穩定幣可以幫助人們保護資產免受通膨或政治風險。資金不受單一國家控制。</p>
+      <p class="en" style="display:none">In countries with capital controls, stablecoins let people protect wealth from inflation or political risk.</p>
+    </div>
+
+    <div class="use-case-card green">
+      <div class="emoji">💼</div>
+      <h3 class="zh">自由職業結帳</h3>
+      <h3 class="en" style="display:none">Freelancer payouts</h3>
+      <p class="zh">全球遠端工作者接案後拿到穩定幣薪水，可以直接轉入美股券商，或提現到本地銀行，不受地域限制。</p>
+      <p class="en" style="display:none">Global freelancers receive stablecoin payments instantly, then move to brokers or banks without friction.</p>
+    </div>
+
+    <div class="use-case-card purple">
+      <div class="emoji">🔐</div>
+      <h3 class="zh">隱私轉帳</h3>
+      <h3 class="en" style="display:none">Privacy transfer</h3>
+      <p class="zh">用隱身地址技術（如 Fluidkey），轉帳時隱藏發送者和接收者身份，同時保持穩定幣的便利性。</p>
+      <p class="en" style="display:none">Using stealth addresses, you get stablecoin convenience with privacy—sender and receiver are hidden.</p>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">
+    <span class="zh">關鍵是：穩定幣本身沒有「最佳用途」，它的價值在於多樣性。每個人根據自己的需求，發明不同的玩法。</span>
+    <span class="en" style="display:none">The point: stablecoins have no single "best use." Their value lies in the diversity of applications.</span>
+  </p>
+</section>
+
+<!-- THE DECISION -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 3</span><span class="zh">你的選擇</span><span class="en" style="display:none">Your choice</span></h2>
+
+  <blockquote class="fade-in">
+    <span class="zh">穩定幣不是為了讓比特幣變得無用，而是為了讓金融系統變得有用。</span>
+    <span class="en" style="display:none">Stablecoins don't make Bitcoin useless. They make financial systems useful.</span>
+  </blockquote>
+
+  <div class="choice-grid fade-in">
+    <div class="choice-card now">
+      <span class="tag zh">觀點 A ── 實用主義</span>
+      <span class="tag en" style="display:none">View A — Pragmatism</span>
+      <h3 class="zh">我需要它來解決問題</h3>
+      <h3 class="en" style="display:none">I need it to solve problems</h3>
+      <p class="detail zh">你用穩定幣是因為它真的有用。跨國轉帳、DeFi 生息、保護資產……這些都是實實在在的需求。區塊鏈的哲學怎樣都好，最重要的是好用。</p>
+      <p class="detail en" style="display:none">You use stablecoins because they solve real problems. Remittances, yield, censorship resistance. Philosophy can wait; usability comes first.</p>
+      <div class="highlight-item zh"><strong>觀點：</strong>穩定幣的未來在於日常應用，而不是理想主義。</div>
+      <div class="highlight-item en" style="display:none"><strong>View:</strong> Stablecoins' future is in everyday use, not ideology.</div>
+    </div>
+
+    <div class="choice-card future">
+      <span class="tag zh">觀點 B ── 自由主義</span>
+      <span class="tag en" style="display:none">View B — Libertarian</span>
+      <h3 class="zh">我要它來對抗審查</h3>
+      <h3 class="en" style="display:none">I need it to resist censorship</h3>
+      <p class="detail zh">穩定幣最核心的價值是——沒有人能凍結你的錢。在金融審查越來越普遍的時代，擁有一種無法被關掉的貨幣，是一項基本人權。轉帳快不快、收益高不高都是次要的。</p>
+      <p class="detail en" style="display:none">Stablecoins' real value is uncensorability. In an age of financial control, owning money that can't be frozen is a basic right. Speed and yield are secondary.</p>
+      <div class="highlight-item zh"><strong>觀點：</strong>穩定幣是金融自由的工具，是防禦手段。</div>
+      <div class="highlight-item en" style="display:none"><strong>View:</strong> Stablecoins are tools for financial freedom and self-defense.</div>
+    </div>
+  </div>
+
+  <div class="choice-grid fade-in" style="margin-top:2rem">
+    <div class="choice-card">
+      <span class="tag" style="background:#D4A574;color:#fff">觀點 C ── 中間派</span>
+      <span class="tag en" style="display:none; background:#D4A574;color:#fff">View C — Middle ground</span>
+      <h3 class="zh">兩者都重要</h3>
+      <h3 class="en" style="display:none">Both matter</h3>
+      <p class="detail zh">實用性和自由一樣重要。穩定幣最美妙的地方，正是它能同時滿足兩種人的需求——不管你是為了利率還是自由，都能在區塊鏈上找到你想要的。</p>
+      <p class="detail en" style="display:none">Utility and freedom matter equally. Stablecoins beautifully serve both pragmatists and libertarians—one asset for all needs.</p>
+      <div class="highlight-item zh"><strong>觀點：</strong>穩定幣是橋樑，連接理想和現實。</div>
+      <div class="highlight-item en" style="display:none"><strong>View:</strong> Stablecoins are the bridge between ideals and reality.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">
+    <span class="zh">區塊勢除夕夜發的這 200 份紅包，每個人拿到後的玩法都可能不同。有人馬上轉進美股券商，有人放進 DeFi 生息，有人堅定地持有，準備在需要時取出來逃離金融審查。</span>
+    <span class="en" style="display:none">When Blocktrend distributed 200 stablecoin red packets on New Year's Eve, each recipient used them differently. Some moved them to brokers, some farmed yield, some held as financial insurance.</span>
+  </p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">
+    <span class="zh">這種多樣性，正是穩定幣最有趣的地方。它不是在追求唯一的「正確答案」，而是讓每個人找到自己的答案。</span>
+    <span class="en" style="display:none">This diversity is what makes stablecoins fascinating. They don't demand one right answer—they let everyone find their own.</span>
+  </p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in"><span class="zh">讀完了，你屬於哪一派？</span><span class="en" style="display:none">Which perspective is yours?</span></h2>
+  <p class="quiz-intro fade-in"><span class="zh">三個問題，看看你最接近哪一派。</span><span class="en" style="display:none">Three questions to find your perspective.</span></p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text"><span class="zh">你最看重穩定幣的哪個特性？</span><span class="en" style="display:none">What matters most to you in stablecoins?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="pragmatist"><span class="zh">快速轉帳和低手續費</span><span class="en" style="display:none">Speed & low fees</span></button>
+        <button class="q-btn" data-camp="libertarian"><span class="zh">無法被審查或凍結</span><span class="en" style="display:none">Uncensorable & unfreezable</span></button>
+        <button class="q-btn" data-camp="hybrid"><span class="zh">兩者一樣重要</span><span class="en" style="display:none">Both equally</span></button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text"><span class="zh">穩定幣應該優先服務誰？</span><span class="en" style="display:none">Who should stablecoins serve first?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="pragmatist"><span class="zh">有實際需求的普通人和企業</span><span class="en" style="display:none">People & businesses with real needs</span></button>
+        <button class="q-btn" data-camp="libertarian"><span class="zh">被金融審查威脅的人</span><span class="en" style="display:none">People under financial control</span></button>
+        <button class="q-btn" data-camp="hybrid"><span class="zh">同時服務兩群人</span><span class="en" style="display:none">Both groups equally</span></button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text"><span class="zh">如果穩定幣變得更方便但要犧牲隱私（加強監管），你會？</span><span class="en" style="display:none">If stablecoins must trade privacy for regulation, you'd?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="pragmatist"><span class="zh">接受，因為好用很重要</span><span class="en" style="display:none">Accept it, usability is key</span></button>
+        <button class="q-btn" data-camp="libertarian"><span class="zh">拒絕，寧願多不方便也要保護隱私</span><span class="en" style="display:none">Refuse, privacy is non-negotiable</span></button>
+        <button class="q-btn" data-camp="hybrid"><span class="zh">反對妥協，尋找第三條路</span><span class="en" style="display:none">Reject compromise, find third way</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge"><span class="zh">穩定幣紅包體驗</span><span class="en" style="display:none">Your stablecoin perspective</span></div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw"><span class="zh">分享到 𝕏</span><span class="en" style="display:none">Share on X</span></button>
+      <button class="share-btn fb" id="shareFb"><span class="zh">分享到 Facebook</span><span class="en" style="display:none">Share on Facebook</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2><span class="zh">這就是穩定幣的力量。</span><span class="en" style="display:none">That's the power of stablecoins.</span></h2>
+  <p><span class="zh">完整文章探討了穩定幣的歷史、現狀、各種使用場景，以及背後的經濟學原理。</span><span class="en" style="display:none">The full article explores stablecoin history, current state, use cases, and economics.</span></p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/757" target="_blank"><span class="zh">閱讀完整文章 →</span><span class="en" style="display:none">Read full article →</span></a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('我最接近「實用主義」派。拿到穩定幣紅包，你想做什麼？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/757/'),'_blank')"><span class="zh">分享到 𝕏</span><span class="en" style="display:none">Share on X</span></button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/757/'),'_blank')"><span class="zh">分享到 Facebook</span><span class="en" style="display:none">Share on Facebook</span></button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/757/');this.textContent=this.querySelector('.zh') ? '已複製！' : 'Copied!';setTimeout(()=>this.innerHTML='<span class=\"zh\">複製連結</span><span class=\"en\" style=\"display:none\">Copy link</span>',1500)"><span class="zh">複製連結</span><span class="en" style="display:none">Copy link</span></button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+// Language switcher
+let currentLang = 'zh';
+const langToggle = document.createElement('button');
+langToggle.innerHTML = '<span style="font-family:Noto Sans TC;font-size:0.85rem;letter-spacing:0.05em">English</span>';
+langToggle.className = 'lang-btn';
+langToggle.style.cssText = 'position:fixed;top:1.5rem;right:1.5rem;padding:0.5rem 1.2rem;border-radius:2rem;border:1px solid #E8E3D8;background:#fff;cursor:pointer;font-weight:500;z-index:999;transition:all 0.2s;font-family:Noto Sans TC,sans-serif';
+langToggle.onclick = function() {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  document.body.classList.toggle('lang-en');
+  document.body.classList.toggle('lang-zh');
+  langToggle.innerHTML = currentLang === 'zh' ? '<span style="font-family:Noto Sans TC;font-size:0.85rem;letter-spacing:0.05em">English</span>' : '<span style="font-family:Noto Sans TC;font-size:0.85rem;letter-spacing:0.05em">中文</span>';
+};
+document.body.appendChild(langToggle);
+document.body.classList.add('lang-zh');
+
+// Add lang style
+const langStyle = document.createElement('style');
+langStyle.textContent = `
+  body.lang-en .zh { display: none !important; }
+  body.lang-zh .en { display: none !important; }
+`;
+document.head.appendChild(langStyle);
+
+// Intersection observer for fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz logic
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  pragmatist: {
+    emoji: '💼',
+    name_zh: '實用主義者',
+    name_en: 'Pragmatist',
+    desc_zh: '你看重穩定幣的實際應用價值——快速轉帳、低手續費、高收益。對你來說，穩定幣是解決問題的工具。',
+    desc_en: 'You value stablecoins for real utility—speed, low fees, high yields. They\'re problem-solving tools for you.',
+    bg: 'var(--terra-light)',
+    color: 'var(--terra)',
+    share_zh: '我是「實用主義者」💼 穩定幣最大的價值在於它真的好用。你呢？',
+    share_en: 'I\'m a Pragmatist 💼 Stablecoins\' greatest value is their practicality. What\'s your take?'
+  },
+  libertarian: {
+    emoji: '🔐',
+    name_zh: '自由主義者',
+    name_en: 'Libertarian',
+    desc_zh: '你把穩定幣看作金融自由的堡壘——對抗審查、保護資產、保衛隱私。這是一項基本人權。',
+    desc_en: 'You see stablecoins as a bastion of financial freedom—resisting censorship, protecting assets, defending privacy.',
+    bg: 'var(--green-light)',
+    color: 'var(--green)',
+    share_zh: '我是「自由主義者」🔐 穩定幣是防禦金融控制的最後防線。你呢？',
+    share_en: 'I\'m a Libertarian 🔐 Stablecoins are the last line of defense against financial control. Where do you stand?'
+  },
+  hybrid: {
+    emoji: '⚖️',
+    name_zh: '中間派',
+    name_en: 'Middle ground',
+    desc_zh: '你認為實用和自由一樣重要。穩定幣最美妙之處，就是能同時滿足不同需求的人。',
+    desc_en: 'You believe utility and freedom are equally important. Stablecoins\' beauty is serving everyone\'s needs.',
+    bg: 'var(--purple-light)',
+    color: 'var(--purple)',
+    share_zh: '我是「中間派」⚖️ 實用性和自由都很重要，穩定幣正好兩者兼具。你呢？',
+    share_en: 'I\'m Middle ground ⚖️ Both utility and freedom matter—stablecoins deliver both. Your thoughts?'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/757/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { pragmatist: 0, libertarian: 0, hybrid: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  const nameElem = card.querySelector('.r-name');
+  nameElem.innerHTML = `<span class="zh">${camp.name_zh}</span><span class="en" style="display:none">${camp.name_en}</span>`;
+  nameElem.style.color = camp.color;
+
+  const descElem = card.querySelector('.r-desc');
+  descElem.innerHTML = `<span class="zh">${camp.desc_zh}</span><span class="en" style="display:none">${camp.desc_en}</span>`;
+
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    const shareText = currentLang === 'zh' ? camp.share_zh : camp.share_en;
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    const shareText = currentLang === 'zh' ? camp.share_zh : camp.share_en;
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+
+</body>
+</html>

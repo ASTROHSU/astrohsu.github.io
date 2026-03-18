@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#714 兼差挖礦 — 區塊勢</title>
+<meta name="description" content="沒買過加密貨幣的人，多半也聽過「挖礦」。大家都說挖礦很耗電，甚至有人為了挖礦偷電。但挖礦究竟在做什麼？近期門羅幣遭到 51% 攻擊，就是最好教材。">
+<meta property="og:title" content="兼差挖礦">
+<meta property="og:description" content="沒買過加密貨幣的人，多半也聽過「挖礦」。大家都說挖礦很耗電，甚至有人為了挖礦偷電。但挖礦究竟在做什麼？近期門羅幣遭到 51% 攻擊，就是最好教材。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/25b3f740-7f12-4ebd-b800-8aac857111ed_1700x946.png">
+<meta property="og:url" content="https://share.blocktrend.today/714/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#714</div>
+  <h1>兼差挖礦</h1>
+</header>
+
+<article class="article-content">
+<p>沒買過加密貨幣的人，多半也聽過「挖礦」。大家都說挖礦很耗電，甚至有人為了挖礦偷電。但挖礦究竟在做什麼？近期門羅幣遭到 51% 攻擊，就是最好教材。</p><p>門羅幣（Monero）是全球市值最大、最老牌的隱私幣<sup>1</sup>，市值近 60 億美元。它採用與比特幣類似的挖礦機制 —— 工作量證明（Proof of Work，PoW） —— 保障區塊鏈不受駭客入侵。</p><p>但上週，門羅幣卻遭遇一場事先預告的 51% 攻擊。即便社群合力防守，最終駭客仍然成功改寫 6 個區塊內的交易紀錄。攻擊者是一項名為 <a href="https://qubic.org/">Qubic</a> 的小型 AI 專案，一度掌控門羅幣網路 52.7% 算力，是門羅幣成立 11 年以來最接近毀滅的一刻。</p><p>Qubic 更宣布，下一個目標是同樣採用 PoW 機制的狗狗幣。許多人對狗狗幣耳熟能詳，它是特斯拉創辦人馬斯克的最愛。整起事件還在進行，尚未落幕。這篇文章帶你深入這場攻擊，認識 Qubic 是誰、為什麼要發動攻擊，以及同樣採用 PoW 機制的比特幣還安全嗎？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/25b3f740-7f12-4ebd-b800-8aac857111ed_1700x946.png" alt="" loading="lazy"></figure><h2>兼差挖礦</h2><p>今年 5 月，Qubic 提出「有用工作量證明」（<a href="https://qubic.org/blog-detail/what-is-upow-and-why-it-matters">Useful Proof of Work</a>，uPoW）的概念。嫌比特幣 PoW 機制太浪費電，Qubic 主張將加密貨幣挖礦結合 AI 模型訓練才更有效率：</p><blockquote><p>以比特幣為首的 PoW 挖礦機制要人們把電力消耗在沒有實際意義的數學題上，唯一提供的價值是保護區塊鏈安全。但是以「浪費能源換取安全」的概念在 2025 年已經過時 ... Qubic 要重新定義挖礦。與其浪費能源在毫無意義的雜湊運算上，為何不將這種運算能力同時用來訓練鏈上的人工智慧？這就是 Useful Proof of Work (uPoW) 的核心概念 。</p></blockquote><p>Qubic 不是讓礦工打一份工領兩份薪水，更像是兼差。</p><p>訓練 AI 模型通常得分批進行，不是連續不間斷的滿載運算。每跑完一批數據，要停下來更新權重、同步參數。運算過程會是「高峰 — 空檔 — 高峰 — 空檔」的週期性循環。Qubic 將 AI 模型訓練工作外包給全球網友，每位網友算完一部分數據，都要等待其他人回傳結果，才能再進行下一輪訓練。由於有一半時間算力都處於閒置狀態，Qubic 決定將這些閒置算力拿來挖門羅幣。</p><p>這是一件好事！工作量證明是區塊鏈系統的虛擬城牆，越多人挖礦、貢獻算力，城牆就築得越高。駭客想攻擊區塊鏈，就必須擁有更多算力。無論是買電腦或是租用雲端運算，算力都是要錢的。如果目標價值不夠大，發動攻擊根本不划算。</p><p>Qubic 的加入原本是好事一樁，卻演變成門羅幣史上最嚴重的安全危機。關鍵轉折是 6 月份的一紙公告。</p><h2>發動攻擊</h2><p>Qubic 在公告中<a href="https://qubic.org/blog-detail/qubic-mining-evolution-from-cpu-roots-to-gpu-dominance-and-back-again">喊出</a>要讓自家發行的 QUBIC 成為 2025 年最有獲利潛力的代幣。因為接下來，他們打算將挖門羅幣所賺來的收益，一半發給礦工當成獎勵，另一半用來買入自家 QUBIC 並直接銷毀。人們預期 QUBIC 流通量降低，自然有助刺激幣價。這吸引到不少門羅幣礦工帶槍投靠，改為透過 Qubic 挖礦，賺取更有上漲潛力的 QUBIC 代幣。</p><p>社群原本不以為意，直到 7 月底，才有網友<a href="https://x.com/ddadybayo/status/1949510233686003787">意識到事態嚴重</a>。Qubic 在短短 2 個月內就吸引多達 30% 的算力投靠，一度成為全球最大的門羅幣礦池。這位網友發文強調，這不是程式碼漏洞，是一場光明正大發動的經濟攻擊。Qubic 並沒有破解門羅幣的隱私，而是打算直接「買下整條區塊鏈」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/930fa0d2-ed66-4bc0-9188-d298d401f28d_1180x1368.png" alt="" loading="lazy"></figure><p>當大家都在擔心攻勢會越演越烈時，Qubic 卻宣布將不再對門羅幣發動進一步攻擊。因為內部討論後，認為可能會影響門羅幣的價格。哇，真是太貼心了！但門羅幣持有者早就已經嚇爛，幣價前後幾天共暴跌了 33%。雖然社群這邊也有人對 Qubic 的基礎建設發動 DDoS 反擊，但比較兩邊受損程度，門羅幣近乎是站著挨打不還手。</p><p>Qubic 更開始醞釀下一波攻擊，對象除了已經遭到鎖定的狗狗幣，其它同樣採用 PoW 挖礦機制的 Kaspa、Zcash 區塊鏈也在名單上。即便門羅幣社群事後舉出諸多證據，指出 Qubic 聲稱的 51% 攻擊是子虛烏有。但多數人更在意的是，同樣採用 PoW 挖礦的比特幣還安全嗎？</p><h2>比特幣的恐怖平衡</h2><p>先說結論：Qubic 對比特幣沒有威脅。真正的原因有點尷尬，因為比特幣挖礦早就不是人人都能參與的去中心化網路，而是高度中心化的產業。這是比特幣的安全關鍵，為什麼我會這麼說？</p><p>從目前的<a href="https://hashrateindex.com/hashrate/pools">算力分布圖</a>來看，前兩大礦池 —— Foundry USA（30.9%）與 AntPool（20%）—— 合計掌控過半算力。再加上 F2Pool、MARA，前四大礦池合計算力已逼近全球三分之二。換言之，比特幣並不是靠高度分散來維持安全，而是靠幾個挖礦巨頭的共同利益維持恐怖平衡。社群則默認，這些大型礦池是與大家利益一致的守門人。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6b2cbee2-abec-422c-bdd4-15c512ab2bd6_2052x1160.png" alt="" loading="lazy"></figure><p>這是一種囚徒困境。大型礦工購買比特幣專用（ASIC）礦機需要巨額投資，這些硬體如果不用來挖比特幣就等於廢鐵。巨大成本迫使礦工與比特幣的安全利益綁定。加上比特幣市值逾兆美元，「買下整條鏈」的成本是天文數字。所以就算 51% 攻擊理論可行，實務上卻幾乎沒有誘因。</p><p>相較之下，門羅幣更接近人們理想中的去中心化區塊鏈。它禁止專用礦機，只允許以電腦的 CPU 挖礦，就是要讓人人都能參與。但也因為 CPU 用途多元，算力可隨時被租用或轉移，Qubic 才有辦法利用經濟誘因，在短時間內召集大批民間的算力傭兵，對門羅幣發動攻擊。結果有點諷刺：比特幣的中心化成了安全保證，門羅幣的去中心化卻成了致命弱點。</p><p>經過這起事件大家才意識到，要癱瘓一條市值 60 億美元的區塊鏈並沒有想像中困難。有人將問題歸咎於「安全預算」太低 —— 門羅幣發行給礦工的代幣數量有限，加上幣價不高，才讓 Qubic 有機可乘。偏偏區塊鏈要提高安全預算並不容易，若發行更多幣，通膨會壓低幣價，而幣價漲跌更不是單憑技術就能決定。</p><p>差點成功的攻擊最有價值。它既凸顯弱點，又沒有帶來毀滅性傷害。雖然我不完全認同 Qubic 的做法，但從結果來看，這確實就是一場壓力測試。如果守下來，信心更強；如果守不住，也能及早修補。</p><p>挖礦機制則是區塊鏈的經濟城牆。它不像技術漏洞那樣，一旦被發現就會被打穿，而是得透過經濟手段才有機會突破。只是隨著科技發展，網路集結算力的速度越來越快。曾經被視為區塊鏈守護神的 PoW 機制，也更容易遇上新型態的經濟誘因挑戰。Qubic 的攻擊就暴露了這個漏洞。</p><p>主張這次攻擊「根本沒成功」的人是在逃避現實。過程已經證明，去中心化社群在面對迅速集結的經濟攻擊時幾乎毫無招架之力。若門羅幣社群只是急著反駁，而不是正視問題，那麼 Qubic 可能只是第一個來敲門的挑戰者。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/694">他教警察追金流，卻靠 PGP 和門羅幣販毒！台大學霸化身全球最大暗網毒梟，最終竟敗在比特幣</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/714">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

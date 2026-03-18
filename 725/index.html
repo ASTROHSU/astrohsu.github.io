@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#725 出入金：像轉帳一樣簡單 — 區塊勢</title>
+<meta name="description" content="只要你曾經買過加密貨幣，一定會遇到該如何出入金的問題。入金就是把新台幣換成加密貨幣，出金則是反過來。出入金一直是進入區塊鏈世界的最大障礙。在台灣，用戶得註冊中心化交易所，才方便用新台幣買入加密貨幣。但⋯">
+<meta property="og:title" content="出入金：像轉帳一樣簡單">
+<meta property="og:description" content="只要你曾經買過加密貨幣，一定會遇到該如何出入金的問題。入金就是把新台幣換成加密貨幣，出金則是反過來。出入金一直是進入區塊鏈世界的最大障礙。在台灣，用戶得註冊中心化交易所，才方便用新台幣買入加密貨幣。但⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/7cc66990-23d4-4e33-9b49-4dd141348f20_1456x819.png">
+<meta property="og:url" content="https://share.blocktrend.today/725/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#725</div>
+  <h1>出入金：像轉帳一樣簡單</h1>
+</header>
+
+<article class="article-content">
+<p>只要你曾經買過加密貨幣，一定會遇到該如何出入金的問題。入金就是把新台幣換成加密貨幣，出金則是反過來。出入金一直是進入區塊鏈世界的最大障礙。在台灣，用戶得註冊中心化交易所，才方便用新台幣買入加密貨幣。但未來流程還會更簡單！</p><p>最近我把區塊勢的公司帳戶從香港搬到美國。開了美國銀行帳戶後，我才終於體驗到在美國出入金有多麼便利。用戶不僅可以直接把銀行裡的存款匯入錢包變成加密貨幣，還能反過來，將加密貨幣直接匯進個人銀行帳戶。整個過程都不需要經過交易所。這篇文章就是我的親身實測。</p><h2><strong>出入金：像轉帳一樣簡單</strong></h2><p>今年 1 月區塊勢曾寫過〈<a href="https://www.blocktrend.today/p/661">美元存款一步上鏈！Coinbase 打造去中心化的銀行帳戶</a>〉。當時我發現 Coinbase 錢包率先整合了銀行帳號功能，台灣人也可以為自己的 Coinbase 錢包申辦一組專屬銀行帳號，用來接收銀行匯入的美元存款。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/7cc66990-23d4-4e33-9b49-4dd141348f20_1456x819.png" alt="" loading="lazy"></figure><p>最近台灣的冷錢包廠商 CoolWallet 也宣布推出相同功能，根據<a href="https://www.coolwallet.io/zh/blogs/blog/bridge-fiat-deposit">新聞稿</a>：</p><blockquote><p>CoolWallet 攜手 <a href="https://www.bridge.xyz/">Bridge</a>（美國知名支付服務商 <a href="https://stripe.com/">Stripe</a> 旗下公司），正式開放全新「法幣入金」服務。從現在開始，您只需要透過銀行轉帳，就能利用免費創立的銀行帳戶，將美元（USD）或歐元（EUR） 兌換成指定的加密貨幣，並直接、安全、快速地存入您的 CoolWallet 錢包地址。操作簡單、安全合規，讓加密資產入金更直覺。</p></blockquote><p>這項功能的最大亮點就是，讓買加密貨幣變得像銀行轉帳一樣簡單。操作流程完全沒變，只是轉帳到不同銀行帳號，存款就會自動變成加密貨幣出現在錢包裡。簡直是在變魔術！</p><p>CoolWallet 把這個流程說明得相當詳細。實際上你的銀行存款不是直接轉給錢包，而是轉到穩定幣業者 Bridge 合作的銀行帳戶，由他們替你將法定貨幣換成加密貨幣再轉進錢包。把這些步驟串起來而且執行得足夠快，就會讓人產生錢包也能收法定貨幣的錯覺。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/0fbb5e7b-7140-40c4-9e29-a2d514da2631_1600x500.png" alt="" loading="lazy"></figure><p>可惜的是多數台灣人都還無法享受這項便利，關鍵就在中間那個方框。Bridge 合作的銀行帳戶，目前還不接受國際電匯（SWIFT）轉入，只能以美國境內銀行透過 ACH 匯款。如果台灣人要嘗試必須繞遠路，開立支援 ACH 匯款的 <a href="https://wise.com/invite/ihpc/mingenh4">Wise</a> 帳戶當成中介。先將美元電匯到 Wise，再透過 Wise 轉出。但這條路不只要多停一站，也會產生手續費。只適合嚐鮮體驗。</p><p>其實入金本來就有很多不同管道。例如刷卡買幣行之有年，但這只能把銀行裡的錢變成加密貨幣，卻無法反向把幣領回銀行。相比之下，銀行轉帳不只入金手續費更低，還方便出金。以 Coinbase 錢包為例，從銀行匯款 10,000 美元，錢包就會收到 10,000 USDC。完全不收手續費。大幅簡化原本入金流程之外，還省下交易所買幣、提幣的費用。</p><p>不過這次我的實測重點在於出金 —— 直接在錢包的收款人欄位裡輸入銀行帳戶，加密貨幣就會神奇地變成美元存款到帳！</p><h2>Fluidkey：零手續費出金</h2><p>目前多數錢包都還不支援銀行轉帳入金，能直接把加密貨幣出金到銀行帳戶的錢包更是鳳毛麟角。就我所知，目前唯一能做到直接出金的錢包就是 Fluidkey<sup>1</sup>。只要用戶資產在 Base 鏈上，就能直接從錢包將幣提領到美國銀行帳戶（透過 ACH 匯款完成）。</p><p>我實際操作過幾次，把錢包裡的穩定幣、ETH 出金到美國銀行。整個流程和一般鏈上轉帳一模一樣，只是收款人欄位不再是 0x 地址，而是一組銀行帳號。每筆交易一樣會有鏈上的交易流水號（txid），手續費也同樣非常便宜。</p><p>隔天，銀行發來通知：錢已經到帳。讓人驚訝的是，這過程 Fluidkey 完全不收任何手續費，等於零成本就能把鏈上資產換回銀行存款。這一口氣省下好幾個步驟：資產不必轉入交易所、不必手動賣回法幣，也不必提領到銀行。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/c24affd0-c52d-4a0c-9463-5b125e315bd9_1274x1016.png" alt="" loading="lazy"></figure><p>除了便利之外，Fluidkey 主打的另一項特色是隱私保護。如果是使用 CoolWallet 的轉帳入金服務，由於用戶申請的銀行帳號最終是由 Bridge 處理，因此 Bridge 很可能同時掌握用戶的錢包地址與實名認證資料，進而追蹤鏈上行為。相較之下，Fluidkey 設計讓銀行每次入金或出金都會透過一次性的隱身地址（stealth address）進行。自動替用戶隔離出入金與日常的鏈上操作，也就更難被直接關聯和追蹤。</p><p>實測證明「銀行 ↔ 錢包」已經能雙向打通。短期內，這項功能或許只是少數套利者的出入金通道，藉此避免手續費。但未來它可能會直接改變一般投資者進出幣圈的方式 —— 不再需要繞道交易所。</p><h2>直通的意義</h2><p>長期以來，交易所都是法幣與加密貨幣世界的橋樑。但當錢包有了專屬銀行帳號，可以直接收發法定貨幣，代表出入金已經不需要交易所了。</p><p>對用戶來說，錢不用在交易所停留，就不用擔心交易所倒閉。未來有可能演變成只有「需要交易」時才去交易所，出入金則直接走「銀行 ↔ 錢包」通道。</p><p>銀行是這套新模式的最大受益者。大家總說穩定幣會吸走銀行存款。但反過來想，為什麼銀行不能自己發穩定幣呢？理論上銀行也能親自下場，在鏈上推出自家版本的穩定幣。或者與 Bridge 這樣的業者合作，把穩定幣整合到原本業務裡。用戶拿著銀行發的美元穩定幣在鏈上流通，錢實際上還是放在銀行口袋。</p><p>交易所就該緊張了。因為許多人只把台灣的交易所當成「換 U 通道」，買到穩定幣後立刻轉去國際交易所操作。當銀行也能直接「換 U」，交易所就必須說服用戶和資金留下來，例如提供比銀行更多元的幣種選擇、更靈活的理財工具，甚至是更能吸引用戶的空投福利。</p><p>人們早就習慣把錢存放在銀行，交易所很難在這點和銀行競爭。未來中心化交易所可能得更聚焦在特定族群，例如需要合約槓桿、要頻繁交易或者為了參與各種空投活動的人。但對於把交易所當作「出入口」的多數人來說，最佳路徑更可能是「銀行 ↔ 錢包」直通。因為加密貨幣多數的使用場景，都會發生在交易所之外，例如購物、訂閱或抖內。</p><p>交易所就像個人電腦問世之前的大型主機（Mainframe），全球的加密貨幣集中在少數幾家大型交易所，幾乎所有的加密貨幣活動都離不開它。但當銀行也可以處理加密貨幣的出入金，它的意義就像是個人電腦（PC）問世。使用者不必非得透過交易所才能進出幣圈。銀行、錢包和交易所的角色，就會朝向更專業化的分工。</p><p>但出入金變得這麼方便，詐騙、駭客也會跟著升級。如果檢警追查金流的速度沒跟上，犯罪問題可能還會比現在更棘手。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep304">專訪 Fluidkey 共同創辦人：打造最強隱私錢包、整合 DeFi 自動生息、每週精選代幣空投</a></p><p><a href="https://www.blocktrend.today/p/697">最強一次性地址管理工具！Fluidkey 讓鏈上收款不再暴露身分</a></p><p><a href="https://www.blocktrend.today/p/video10">終於不用暴露錢包地址！FluidKey 讓你每筆收款都換新地址 🔐</a></p><p><a href="https://www.blocktrend.today/p/ep296">我的首選收款工具 Fluidkey、終結鏈上肉搜的隱身地址 ft. imToken 首席科學家陳昶吾</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/725">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#728 複委託、海外券商的隱藏成本 — 區塊勢</title>
+<meta name="description" content="正好一年前，Stripe 宣布以 11 億美元收購穩定幣 API 新創 Bridge，成為幣圈史上最大收購案。當時我在文章結尾提到 1 ：">
+<meta property="og:title" content="複委託、海外券商的隱藏成本">
+<meta property="og:description" content="正好一年前，Stripe 宣布以 11 億美元收購穩定幣 API 新創 Bridge，成為幣圈史上最大收購案。當時我在文章結尾提到 1 ：">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/bbd1e108-eb22-4e00-84b9-eaeee2477ce9_936x575.png">
+<meta property="og:url" content="https://share.blocktrend.today/728/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#728</div>
+  <h1>複委託、海外券商的隱藏成本</h1>
+</header>
+
+<article class="article-content">
+<p>正好一年前，Stripe 宣布以 11 億美元收購穩定幣 API 新創 Bridge，成為幣圈史上最大收購案。當時我在文章結尾提到<sup>1</sup>：</p><blockquote><p>現在跨境匯款的模式，都有個錢難以實際移動的前提，穩定幣讓人們的錢總算可以跨越國界，真正動起來。當既有的前提被推翻，未來金融機構會如何管理他們的資產？假如穩定幣真的能成為信用卡、SWIFT 或是銀行匯款，發展成一種獨立的支付類別，那麼 Stripe 現在豪擲 11 億美元把 Bridge 買下來，就是一筆划算的投資。</p></blockquote><p>時隔一年，假設已經成真。人們普遍意識到穩定幣的重要性，但問題是要怎麼在日常生活中使用它？對台灣人來說，投資美股是最好的切入點！</p><h2><strong>複委託、海外券商的隱藏成本</strong></h2><p>我身邊有不少人都是 NVDA、TSLA 或 AAPL 的股東，也有人透過 VT、SPY、QQQ 投資指數。但這些股票都沒在台灣上市，必須靠複委託、海外券商才買得到。</p><p>根據玉山證券的<a href="https://www.esunsec.com.tw/article/post/266?utm_source=chatgpt.com">統計</a>，2024 年全台的美股複委託戶數突破 580 萬、交易金額高達 7.8 兆台幣，雙雙創下歷史新高。複委託雖然方便、安全，但缺點是交易手續費比海外券商高出許多，約 0.1% 到 1% 不等。對於要長期投入的人來說，成本不低。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/bbd1e108-eb22-4e00-84b9-eaeee2477ce9_936x575.png" alt="" loading="lazy"></figure><p>反過來說，直接開立海外券商帳戶（像是第一證券、<a href="https://ibkr.com/referral/mingen182">盈透證券</a>、<a href="https://www.schwab.com/client-referral?refrid=REFERGFZYV4MG">嘉信證券</a>）雖然能節省交易手續費，但代價是要支付跨境電匯成本。跨國轉帳不便宜，每次動輒台幣上千元，處理時間還是以「工作天」為單位。網路上有許多文章在教如何節省電匯成本，建議的做法大多是「一次匯多一點比較划算」。簡單來說，本金小走複委託，本金大才去開海外券商帳戶。</p><p>穩定幣正在打破分界。近期有越來越多加密貨幣錢包開始內建美國的銀行帳戶，而且<strong>直接將美元與穩定幣畫上等號</strong>。錢包既可以「轉入穩定幣、提領美元」，也可以反過來「轉入美元、提領穩定幣」，直接繞過 SWIFT 轉帳系統，不必再支付昂貴的跨境電匯費用。</p><p>如果把這套機制結合美股投資，能替投資人省下 99% 的跨國電匯成本。本金越小，省得越多！</p><h2><strong>當天入帳、手續費 20 元</strong></h2><p>台灣人若要透過海外券商投資美股，最標準的做法是從台灣銀行帳戶透過 SWIFT 跨國電匯到海外券商帳戶。《市場先生》<a href="https://rich01.com/bank-global-transfer-fee/#%E9%9B%BB%E5%8C%AF%E6%96%B9%E6%B3%953%EF%BC%9A%E7%94%A8%E5%9C%8B%E5%A4%96%E7%B6%B2%E8%B7%AF%E9%8A%80%E8%A1%8C%E6%9C%8D%E5%8B%99">實測</a>後發現費用要 1,700 台幣，難怪小資族寧可選擇台灣券商的複委託服務。</p><p>好消息是未來小資族可以改走穩定幣，以極低成本將錢轉到海外券商帳戶。雖然步驟比較多，但不僅到帳的速度更快，還可以把手續費壓到銅板價。下圖是我整理的實際操作流程：</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/c4e08e78-b099-430b-8efa-863103a22e15_1890x1890.png" alt="" loading="lazy"></figure><p>以往跨境電匯又貴又慢，現在透過區塊鏈只要幾分鐘就完成。整個流程分為三大段：</p><ol><li><p>買幣：新台幣 → 美元穩定幣</p></li><li><p>提領：交易所 → 加密貨幣錢包</p></li><li><p>轉入：錢包 → 海外券商帳戶</p></li></ol><p>買幣就不多說。如何把銀行帳戶內的新台幣，變成交易所內的美元穩定幣，各家交易所都有教學。建議買 USDC 方便後續操作。</p><p>下一步是提領。這篇文章我以 <a href="https://app.fluidkey.com/?ref=LCR5RV">Fluidkey</a> 錢包為例<sup>2</sup>，因為它不只可以轉入美元變成穩定幣，也可以將穩定幣以美元形式轉出。但它目前只支援以太坊生態系的區塊鏈，包含 Arbitrum、Base、Ethereum和 Polygon 等。在交易所買入的穩定幣必須走這幾條區塊鏈出來，錢包才收得到。這非常重要！</p><p>在 Fluidkey 收到穩定幣之後，理論上就能直接以美元的形式轉出到券商帳戶。但目前 Fluidkey 限制只有 Base 鏈上的 USDC 才能以美元形式匯出。因此需要用 Fluidkey 內建的跨鏈兌換功能，將 USDC 換到 Base 鏈上，填入海外券商提供的銀行帳號，就算大功告成。</p><p>整個過程主要有三種成本，分別是：</p><ol><li><p>交易所買幣手續費：0.1% 以內。買 10,000 元，手續費 10 元</p></li><li><p>交易所提領手續費：約 0.1 美元。跟提領金額大小無關</p></li><li><p>Fluidkey 跨鏈兌換手續費：約 0.2 美元，跟交易金額大小無關</p></li></ol><p>假如要將 10,000 台幣轉到海外券商買美股的話，過程中的總磨損大約是 20 台幣。大約就是一趟公車錢。從 1,700 變成 20，就是省下將近 99% 匯款成本！</p><p>不僅省錢，理論上也是當天到帳。因為最花時間的跨國轉帳流程，已經被穩定幣、區塊鏈取代。從 Fluidkey 錢包到海外券商這段，是美國國內的銀行轉帳。路徑更短，到帳速度就更快。</p><p>為了確認這條路走得通，過去幾週我接連開了第一證券、<a href="https://ibkr.com/referral/mingen182">盈透證券</a>、<a href="https://www.schwab.com/client-referral?refrid=REFERGFZYV4MG">嘉信證券</a>這 3 家台灣最多人使用的券商帳戶。綜合我自己和幾位讀者的實測，這幾家券商都能成功用穩定幣出入金，只是操作上有一些眉角需要注意。例如有些可以直接填 ACH 帳號就能轉入，有些需要先綁定後才能轉，還有些需要透過國內電匯（FedWire）轉帳。但無論如何，穩定幣已經確定是走得通。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/29dc0bc0-3dbb-49e2-8fbb-2980cb4c1892_1920x1080.png" alt="" loading="lazy"></figure><p>我認為這會是台灣人第一次感受到加密貨幣「有用」的應用場景。</p><h2>金融基礎建設</h2><p>透過穩定幣完成跨國匯款，是人人都能受惠的應用。無論你喜不喜歡加密貨幣，未來都可以透過穩定幣、區塊鏈省下時間和金錢成本。</p><p>或許會有人說：「LINE Bank、將來銀行都有跨境電匯的補貼活動。何必大費周章？」這就像當年有人把電腦拿來與收音機比較<sup>3</sup>。既然便宜的收音機就能聽球賽轉播了，何必要買電腦、拉網路線？但現在肯定不會有人這麼認為。</p><p>跨境電匯成本高昂，而網路沒有國界之分，穩定幣透過區塊鏈把錢直接放到網路上，成本、效率遠高於需要跨國轉帳的金融系統。這也是為什麼現在大家都用 LINE 傳簡訊、打電話，不必像以前一樣，需要計較一封簡訊 3 塊錢。</p><p>量變會產生質變。既然透過穩定幣匯款到海外券商的成本這麼低，未來有一天，本土券商的複委託手續費也會顯得昂貴。短期內，穩定幣這條路看來還是有點崎嶇。多數人可能會擔心自己不擅長操作交易所、鏈上提領、跨鏈轉換等流程，維持既有的選擇。但年輕人更熟悉加密貨幣操作，而且我相信海外券商也會看到穩定幣的潛力。</p><p>以第一證券為例，只要投資人單筆轉入金額超過 10,000 美元，券商會常態性補貼用戶 <a href="https://www.firstrade.com/zh-TW/accounts/wire-fee-rebate">25 美元的電匯手續費</a>。使用的人越多，券商營運開支也就越大。但如果券商效法 Fluidkey，提供美元、穩定幣的自動轉換服務呢？這麼一來，用戶可以直接存入穩定幣，後台會自動換成美元，計入帳戶餘額。券商也就能省下大筆電匯補貼成本。</p><p>加密貨幣有什麼用？對多數台灣人來說，大概都是炒幣賺錢。但未來會有更多人知道，它能省下 99% 跨國電匯成本。終於，加密貨幣不再只是投資工具，而是成為新的金融基礎建設。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/643">幣圈最大收購案！為何 Stripe 砸 11 億美元，買下穩定幣 API 新創 Bridge？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/725">免註冊交易所！銀行直通錢包的零手續費出入金實測</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/413">2021 年終回顧：網路不是收音機、區塊勢不只是媒體</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/728">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

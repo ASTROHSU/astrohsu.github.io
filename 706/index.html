@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#706 股票代幣化 — 區塊勢</title>
+<meta name="description" content="昨天討論 SharpLink 的內容在 文章下方 、 臉書 分別激起一些討論，都是身為金融菜雞的我沒想過的論點。相當有趣，推薦閱讀。另外，現在 podcast 會附上逐字稿，方便大家拿去找 AI 加入⋯">
+<meta property="og:title" content="股票代幣化">
+<meta property="og:description" content="昨天討論 SharpLink 的內容在 文章下方 、 臉書 分別激起一些討論，都是身為金融菜雞的我沒想過的論點。相當有趣，推薦閱讀。另外，現在 podcast 會附上逐字稿，方便大家拿去找 AI 加入⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/e28cb0c0-6ef9-4fbd-9a5f-c308ea2e0577_1178x614.png">
+<meta property="og:url" content="https://share.blocktrend.today/706/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#706</div>
+  <h1>股票代幣化</h1>
+</header>
+
+<article class="article-content">
+<p>昨天討論 SharpLink 的內容在<a href="https://www.blocktrend.today/p/ep297">文章下方</a>、<a href="https://www.facebook.com/share/p/15uTmVfXtv/">臉書</a>分別激起一些討論，都是身為金融菜雞的我沒想過的論點。相當有趣，推薦閱讀。另外，現在 podcast 會附上逐字稿，方便大家拿去找 AI 加入討論。進入正題。</p><p>2020 年，我在 FTX 交易所買過 COIN 和 TSM 股票代幣。後來 FTX 倒了，這些代幣也化為烏有。最近，股票代幣化又捲土重來。從 Robinhood 到 Kraken，大家都開始推股票上鏈。這篇來聊聊，比券商更貴、風險更高的股票代幣，為什麼還有人願意冒險？</p><h2>股票代幣化</h2><p>網路券商 Robinhood 近期舉辦<a href="https://www.youtube.com/watch?v=FBHmAq5lmZQ">產品發表會</a>，高調推出股票代幣（stock tokens），主打非美國投資者也能在 Robinhood App 裡用代幣投資美股和 ETF。但真正吸引媒體目光的，其實是 Robinhood 送給用戶的小禮物。根據 CNBC <a href="https://www.cnbc.com/2025/06/30/robinhood-stock-openai-spacex-tokens.html">報導</a>：</p><blockquote><p>Robinhood 股價創新高並宣布多項加密計畫，包括在 Arbitrum 上推出股票代幣，僅限歐盟加密 App 使用，支援 200 多檔股票和 ETF，讓投資人能全天候交易、免手續費。為慶祝新功能上線，歐盟新註冊用戶可獲得價值 5 歐元的 OpenAI 和 SpaceX 代幣，總金額高達 150 萬美元。</p></blockquote><p>問題來了，OpenAI 和 SpaceX 兩家公司都還沒上市，哪來的股票代幣？對此，立陶宛央行要求 Robinhood 立刻說明。OpenAI 則強調 Robinhood 上的 OpenAI 代幣並不是股權。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/e28cb0c0-6ef9-4fbd-9a5f-c308ea2e0577_1178x614.png" alt="" loading="lazy"></figure><p>這其實是 Robinhood 的「荒謬行銷」手段。就像特斯拉主打的「生化武器防禦模式」，雖然多數車主用不到，但心中馬上建立起鮮明印象：特斯拉的空氣清淨功能很強大。Robinhood 推出 OpenAI 代幣也讓人一聽就懂：「未來什麼都能代幣化。」無論 OpenAI 代幣最終能不能交易，Robinhood 行銷目的都已經達成了。</p><p>除了 Robinhood，近期幾家加密貨幣交易所 Kraken、Bybit、Bitget 也在大力推銷股票代幣產品 xStocks。雖然平台不同，但 xStocks 背後都是由同一家公司 Backed Finance 操作。目前 Backed 已經將 60 檔美國知名公司（像 Apple、Tesla、Google、Meta）和 ETF 代幣化，並直接發行在 Solana 鏈上。例如輝達的 NVDAx、特斯拉的 TSLAx，沒有美股券商帳號的投資人也能直接在鏈上買得到。</p><p>Backed 的角色就像是「股票代購」，負責買股票、託管在第三方受監管機構，最後再發行到 Solana。只是 Backed 不像 Robinhood 這麼調皮，發行的股票代幣都是上市公司。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/4143d911-10c1-46cf-a4c5-c3e8bc05e260_2280x1206.png" alt="" loading="lazy"></figure><p>說穿了，這就是一種實體資產上鏈（RWA）。而身為 2020 年就曾在 FTX 玩過股票代幣（然後血本無歸）的參與者，不免相當好奇這次人們討論的股票代幣化跟過去有什麼不同？</p><h2>弊大於利</h2><p>現在在 Raydium、OKX Web3 這些去中心化市場都能買到股票代幣，不用註冊中心化交易所、做 KYC，確實比以前方便不少。但股票代幣最關鍵還是兩個問題：</p><ol><li><p>權益有沒有保障？</p></li><li><p>價格會不會買貴？</p></li></ol><p>我尤其關心第一點。當年我在 FTX 買的股票代幣，是由德國公司 CM-Equity 負責購買、瑞士公司 Digital Assets 發行代幣，最後上架到 FTX 流通。整套流程跟傳統金融的存託憑證很像，本質上投資人拿到的只是反映這些公司股價的漲跌代幣，真正的股票都還在中間機構手上。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/5634af7e-2bb2-4eb0-8e2b-c6595a5d44bf_1276x823.png" alt="" loading="lazy"></figure></div><p>Backed Finance 這次的做法也差不多。投資人持有的其實是對 Backed 公司的債權，贖回時最多能拿回賣出股票後的現金，還得扣掉手續。萬一發行商或交易平台倒了，這些代幣也一樣會歸零。</p><p>價格問題也還是存在。實際比價會發現，鏈上的股票代幣通常比券商貴。以 NVDA 為例，Google 查的現價是 167.03 美元，NVDAx 代幣卻要 168.2 美元 —— 只買一股就有差距，買多更明顯。這就是流動性不足，市場規模又小，自然產生的價差。</p><p>股票代幣雖然全年無休、免開戶，還能跟 DeFi 應用結合，但對大部分投資人來說，這些都不是剛需，權益和價格才是大家最關心的重點，但這兩點目前都沒有明顯優勢。所以我覺得現階段股票代幣還是弊大於利。</p><p>除非，未來金融世界變得不一樣。</p><h2>假設會變</h2><p>如果未來金融環境跟現在一樣 —— 大家還是透過券商買賣股票、主要參與者也沒換，那股票代幣化說真的沒什麼討論空間。它要有意義，前提是市場結構和玩家必須同時改變。例如大家買股票不再是註冊券商，而是直接用錢包在鏈上交易。</p><p>現在聽起來還很遙遠，畢竟錢包普及率很低，多數人也沒嘗試過鏈上應用。但時代和習慣會變，年輕人學工具的速度也越來越快。當參與者換了世代，股票代幣才有機會出頭。</p><p>最好的例子就是 YouTube。2005 年網友上傳全球第一部 YouTube 影片〈<a href="https://news.tvbs.com.tw/fun/577074">我在動物園</a>〉時，沒人覺得這類素人內容能取代製作精美的電視節目。但 20 年後，YouTube 已經是許多家庭的主流娛樂平台。各家電視臺也紛紛將節目切成片段，搬上網路。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/jNQXAC9IVRw?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>我也認同股票代幣化現在看起來功能雞肋，券商早就把重要的功能都做齊了。必須等待客觀條件轉變，這些「沒什麼用」的創新才有機會翻身。如果要買大額股票，現階段我還是會選擇傳統券商，不會用股票代幣。但我也不會因為它目前沒用，就覺得這是無意義的創新。</p><p>畢竟它就像當年那支〈我在動物園〉影片。需要發揮一點想像力，才能看見未來價值。</p>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/706">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

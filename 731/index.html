@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#731 電商旅宿轉戰支付 — 區塊勢</title>
+<meta name="description" content="過去一個月我嘗試將文章的語音內容從親自朗讀，改為由 AI 生成兩個人的對話。我是明顯比較輕鬆，但不太確定大家的接受程度如何。所以想做個簡單的投票，看看你偏好哪一種👇">
+<meta property="og:title" content="電商旅宿轉戰支付">
+<meta property="og:description" content="過去一個月我嘗試將文章的語音內容從親自朗讀，改為由 AI 生成兩個人的對話。我是明顯比較輕鬆，但不太確定大家的接受程度如何。所以想做個簡單的投票，看看你偏好哪一種👇">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/f1820d95-69b0-4561-857e-b5ca82914c7f_2048x1366.png">
+<meta property="og:url" content="https://share.blocktrend.today/731/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#731</div>
+  <h1>電商旅宿轉戰支付</h1>
+</header>
+
+<article class="article-content">
+<p>過去一個月我嘗試將文章的語音內容從親自朗讀，改為由 AI 生成兩個人的對話。我是明顯比較輕鬆，但不太確定大家的接受程度如何。所以想做個簡單的投票，看看你偏好哪一種👇</p><p>進入正題。區塊勢的老讀者知道，我寫這篇文章會有點法律風險。主角奧丁丁曾在 2020 年對我及另外三位網友提起民、刑事妨害名譽訴訟，只因我在區塊勢評論政府打造的「蚊子鏈」，而奧丁丁正是該案的得標廠商。最後，我與奧丁丁在 2023 年底達成和解。</p><p>當年我評論的那套「<a href="https://qrc.forest.gov.tw/explorer/">區塊鏈溯源系統</a>」如今仍在運作，但林務局官網新增的林產品已經<a href="https://qrc.forest.gov.tw/product/search">沒有任何上鏈紀錄</a>，成了名副其實的蚊子建設。</p><p>最近，奧丁丁因爲赴美國納斯達克上市再度登上媒體版面。開盤第一天，股票代號 OWLS 的奧丁丁就多次觸發熔斷機制。不少媒體以「市值瘋漲 8 倍又慘崩 9 成」下標，也有報導稱它是「台灣穩定幣之光」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f1820d95-69b0-4561-857e-b5ca82914c7f_2048x1366.png" alt="" loading="lazy"></figure><p>原來這幾年奧丁丁已經悄悄從電商、旅宿轉向穩定幣支付。奧丁丁很早就投入區塊鏈，更先後拿到日本 SBI 投資。只是這家公司在區塊鏈領域的成就一直是個謎，沒人知道他們在做什麼，也看不出到底靠什麼賺錢。直到這次赴美上市，我才終於能從他們提交美國證券交易委員會（SEC）的文件窺知一二。</p><h2>電商旅宿轉戰支付</h2><p>奧丁丁是做什麼的？網路上的答案五花八門。有人跟它買過鮮奶，有民宿用它處理訂房，有企業說新聞稿被奧丁丁轉載，創投則會說看好它的區塊鏈前景。奧丁丁母公司名為「歐簿客」（OBOOK），最初要做的是電子書，後來才轉攻小農電商和區塊鏈應用。不過根據奧丁丁提交 SEC 的<a href="https://www.sec.gov/Archives/edgar/data/2025416/000119312525195057/d800443df1.htm#rom800443_25">上市文件</a>，這些都已經是過去式，現在的它是一家金融科技公司。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/e773e10c-1e3a-43ab-9e1a-9ea014e16d33_1206x845.png" alt="" loading="lazy"></figure><p>奧丁丁說，公司最早從小農電商起家，在與農民合作的過程中，碰到供應鏈透明度的問題，於是推出區塊鏈溯源系統，替地方小農<a href="https://www.cw.com.tw/article/5119629">賣區塊鏈米</a>。接著公司發現，區塊鏈技術可以防止「雙重支付」，而同樣機制也能用在飯店預訂，因此順勢進軍旅宿業，開發訂房與庫存管理系統。最後，與公司長期合作的農民和旅宿業者都有收款與跨境結算的需求，奧丁丁又順理成章地走向支付與金流服務，推出公司的旗艦產品 OwlPay。根據<a href="https://udn.com/news/story/6811/9095444">媒體報導</a>：</p><blockquote><p>近年奧丁丁發展金流服務，推出 OwlPay 支付平台，主打讓企業在不同國家間轉帳與付款更快速、手續費更低，跨足穩定幣及跨境支付市場。傳統跨國匯款往往需數天、經過多層銀行，OwlPay 主打讓這過程幾乎能即時完成，也能自動記錄每筆交易。</p></blockquote><p>用穩定幣完成跨境支付，是當前投資人最愛聽的故事。奧丁丁引用研究機構 CB Insights 的<a href="https://www.cbinsights.com/research/stablecoin-market-map/">報告</a>，指出公司在「企業與 B2B」類別中名列全球前二。這是想讓投資人相信，自己正在打造「亞洲版 Stripe」。從文件到官網，奧丁丁幾乎都照著 Stripe 的模式撰寫。單看文字介紹還真會讓人心動，既然 Stripe 不上市、買不到，不如買個「台灣之光」支持一下吧？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/130774cf-abac-4be3-987f-6c476f04a5ff_1024x694.png" alt="" loading="lazy"></figure><p>多數投資人買的是故事，但我喜歡動手嘗試。看奧丁丁把故事說得這麼漂亮，讓我相當好奇營收數字、產品究竟表現如何。說不定，它真是台版的 Stripe？</p><h2><strong>數字說話</strong></h2><p>翻開奧丁丁的財報，我看到三大重點：</p><ol><li><p>營收高度集中</p></li><li><p>虧損逐年擴大</p></li><li><p>直接掛牌而非 IPO</p></li></ol><p>有網友說：「奧丁丁在國外很紅，所以選擇在美國上市。台灣人不知道，是因為公司不做台灣生意」。但翻開上市文件，這套說法不攻自破。奧丁丁四度坦承，公司風險之一是有 99% 收入都來自台灣境內：</p><blockquote><p>我們於 2023 年推出 OwlPay，截至 2024 年 12 月 31 日，支付服務的收入中有超過 99% 來自台灣。截至 2024 年 12 月 31 日，我們在海外市場的非支付服務收入亦不到 1%</p></blockquote><p>會不會奧丁丁在國外很紅，但都賺台灣人的錢？我不知道。但我敢說 Stripe 的收入不會 99% 集中在美國。</p><p>也有人拿出知名幣圈媒體 CoinDesk 為奧丁丁<a href="https://www.coindesk.com/research/owlting-stablecoin-infrastructure-for-the-future">撰寫的研究報告</a>，標題稱奧丁丁是未來穩定幣的基礎建設。如果公司不夠有份量，難道會有知名媒體大費周章替它寫報告嗎？</p><p>但仔細一看，這份研究報告根本就是奧丁丁出資的「業配文」。雖然 CoinDesk 聲稱撰寫過程完全獨立、不受干預，但如果 CoinDesk 還要繼續做這門廣編稿的生意，隱惡揚善只是基本功。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/0308d542-bcc5-4c38-a71e-480b90b97a7a_1672x1044.png" alt="" loading="lazy"></figure><p>翻開財報，奧丁丁的財務狀況並不樂觀。2024 年公司營收雖然成長到 757 萬美元（+18%），但賺到的錢卻比去年更少。毛利率從 19.8% 掉到 13.3%，每賺 100 元，能留下的只剩 13 元。更糟的是，公司的開銷還在持續增加。光是「管理與行政」費用就比前一年多了 55%。結果是雖然營收變多，但整體虧損卻擴大到 1,027 萬美元（年增 51%）。</p><p>換句話說，這家公司賺錢速度越來越慢，花錢速度卻越來越快。若按照相同速度燒錢、又沒有新的募資，公司帳上現金只剩下不到 12 個月。在財務分析裡，這種情況被稱為 「持續經營風險」（going concern risk）。意思是如果公司無法在一年內改善現金流、或找到新的資金來源，審計人員可能就得在財報上加註警語，提醒投資人公司可能撐不過下一個會計年度。</p><p>以一間號稱全球第二的「穩定幣支付基礎建設」公司來說，這樣的財務狀況相當諷刺。與其說奧丁丁是因為業務高速成長而選擇上市，不如說它是被現金流逼得必須上市。一般公司上市，是因為業務穩定、需要更多資金擴張版圖。奧丁丁的情況完全相反：業務沒賺錢、現金快燒完，只好趕著上市。只不過包裝得像是企業的國際化里程碑。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/eb871d6f-2db9-475a-95da-649ff25b2d5b_2044x1518.png" alt="" loading="lazy"></figure><p>奧丁丁還相當懂得說故事，向媒體宣稱選擇直接掛牌（Direct Listing）而非發行新股 IPO 上市，是因為財務健全、不需要外部資金。這彷彿是說「我們不缺錢才敢不募資」，但看過財報的人都知道真正原因 —— 這就是一種技術性出場（technical exit），讓投資人能順利出脫持股，讓公司換取一點流動性。這種包裝和真實的落差，也呈現在奧丁丁的產品上。</p><h2>說故事才是核心能力</h2><p>在 OwlPay 的<a href="https://www.owlting.com/owlpay/?lang=zh_tw">四大產品線</a>中，Wallet Pro 是專為個人打造的支付產品，也是一般使用者最容易接觸到的工具。產品主打「直接串接錢包與銀行就能完成出入金」，聽起來和區塊勢近期介紹的 Fluidkey 有點像。</p><p>Wallet Pro 把場景放在「移工匯款」，並找來跨境匯款巨頭速匯金（MoneyGram）合作。原本我也期待未來移工能直接用穩定幣匯款回家，但實際打開 Wallet Pro，會發現它就是一款普通的加密貨幣錢包。</p><p>介面設計特別把「入金、出金」功能獨立出來，但台灣用戶會因地區限制無法使用。理論上，使用者要在速匯金門市以現金購買 USDC，透過區塊鏈跨境轉帳，再請對方到店領現。我實測後發現，單筆存款上限只有約 900 美元，且手續費高達 20 美元，根本不比傳統匯款便宜。不是說好用穩定幣可以大幅降低成本嗎？這凸顯奧丁丁最大的問題，故事總是脫離現實。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/47749593-817e-4b1b-a793-ffb23e8570d0_1494x880.png" alt="" loading="lazy"></figure><p>成功赴美上市是一家公司的重要里程碑。從財報到產品，奧丁丁從不缺亮眼的敘事，實際上卻經不起檢驗。它還懂得在不同市場講不同的故事，對美國投資人說「我們在台灣很有名」，對台灣媒體說「我們在國外很受歡迎」。結果兩邊都信了，卻沒人知道它到底在做什麼。</p><p>面對近期的網路批評，奧丁丁執行長更再度搬出法條警告：「若媒體或個人刻意選擇性披露、歪曲公開資訊而影響投資人決策，可能構成誤導市場或操縱行為，依法可受調查與追責」。多數人會因此少說幾句，理論上我在經歷過那場訴訟之後，也應該「學乖」才對。但這正是它想達到的效果。</p><p>奧丁丁就像是穿著新衣的國王，害怕被天真的小孩指出其實什麼都沒穿。</p>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/731">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

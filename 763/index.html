@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linux 的抉擇 — 區塊勢</title>
+<meta name="description" content="以太坊基金會選擇了未來的使用者，而不是現在的使用者。這是以太坊的 Linux 時刻。">
+<meta property="og:title" content="Linux 的抉擇">
+<meta property="og:description" content="穩定幣出走、應用層流失，以太坊面臨 Linux 當年一樣的抉擇。">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#4E4788;--purple-light:#EEEDF8;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,var(--green-light) 60%,#1A4A35 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(13,46,32,0.3));pointer-events:none;
+}
+.hero-diamond{
+  width:120px;height:180px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:diamondReveal 1.5s ease 0.3s forwards;
+}
+@keyframes diamondReveal{to{opacity:1}}
+.hero-diamond .top-left{position:absolute;top:0;left:50%;width:0;height:0;
+  border-bottom:40px solid #D4805A;border-left:60px solid transparent;transform:translateX(-100%)}
+.hero-diamond .top-right{position:absolute;top:0;left:50%;width:0;height:0;
+  border-bottom:40px solid #E09060;border-right:60px solid transparent}
+.hero-diamond .bot-left{position:absolute;top:40px;left:50%;width:0;height:0;
+  border-top:140px solid #2D7A5E;border-left:60px solid transparent;transform:translateX(-100%)}
+.hero-diamond .bot-right{position:absolute;top:40px;left:50%;width:0;height:0;
+  border-top:140px solid #4AA07A;border-right:60px solid transparent}
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(45,107,79,0.08);color:var(--green)}
+.big-question .option:nth-child(3){background:rgba(78,71,136,0.08);color:var(--purple)}
+
+/* Linux comparison */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.compare-side{padding:2rem}
+.compare-side.lose{background:var(--terra-light)}
+.compare-side.win{background:var(--green-light)}
+.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem}
+.compare-side .year{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.3rem}
+.bar-chart{margin:1rem 0}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem;font-size:0.8rem}
+.bar-row .label{min-width:80px;color:var(--text-secondary);font-size:0.75rem;flex-shrink:0}
+.bar-row .bar-track{flex:1;height:22px;position:relative;background:rgba(0,0,0,0.04);border-radius:4px}
+.bar-row .bar{height:100%;border-radius:4px;transition:width 1.5s ease;position:absolute;left:0;top:0}
+.bar-row .bar.win{background:var(--green)}
+.bar-row .bar.lose{background:var(--purple);opacity:0.7}
+.bar-row .bar.gray{background:#B4B2A9;opacity:0.4}
+.bar-row .pct{font-weight:500;font-size:0.75rem;min-width:36px;flex-shrink:0}
+
+/* Value chain */
+.chain-visual{
+  display:flex;gap:2rem;align-items:stretch;margin:3rem 0;
+}
+.chain-stack{flex:1;display:flex;flex-direction:column;gap:0.8rem}
+.chain-box{
+  padding:1.5rem;border-radius:12px;border:1px solid #E8E3D8;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+.chain-box:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.chain-box.app{background:var(--terra-light);border-color:#DBBFAD}
+.chain-box.base{background:var(--green-light);border-color:#A8D4BC}
+.chain-box h4{font-weight:500;font-size:0.95rem;margin-bottom:0.3rem}
+.chain-box p{font-size:0.8rem;color:var(--text-secondary);margin:0;line-height:1.6}
+.chain-arrow{
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  color:var(--terra);min-width:40px;opacity:0.4;
+}
+.departing{flex:1}
+.departing-item{
+  padding:1rem 1.2rem;border-radius:10px;background:#fff;
+  border:1px solid #DBBFAD;margin-bottom:0.6rem;
+}
+.departing-item h4{font-weight:500;font-size:0.85rem;color:var(--terra)}
+.departing-item p{font-size:0.75rem;color:var(--text-muted);margin:0.2rem 0 0}
+
+/* Two paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.path-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.path-card:hover{transform:translateY(-3px)}
+.path-card.up{background:var(--terra-light);border-color:#DBBFAD}
+.path-card.down{background:var(--green-light);border-color:#A8D4BC}
+.path-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.path-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.path-card.up .tag{background:#DBBFAD;color:#8B5A3C}
+.path-card.down .tag{background:#A8D4BC;color:#2D6B4F}
+.path-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.path-card .risk{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);
+}
+.path-card .risk strong{color:var(--terra);font-weight:500}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
+.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--green)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(192,106,58,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .compare-grid,.paths,.chain-visual{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .chain-arrow{transform:rotate(90deg);min-width:auto;min-height:30px}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-diamond">
+    <div class="top-left"></div>
+    <div class="top-right"></div>
+    <div class="bot-left"></div>
+    <div class="bot-right"></div>
+  </div>
+  <h1>Linux 的抉擇</h1>
+  <p class="subtitle">以太坊面臨的市場定位之爭</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">以太坊的市場定位是什麼？</h2>
+  <div class="options fade-in">
+    <span class="option">穩定幣轉帳系統</span>
+    <span class="option">世界電腦</span>
+    <span class="option">數位價值儲存</span>
+    <span class="option">DeFi 結算層</span>
+    <span class="option">避難所科技</span>
+    <span class="option">超音波貨幣</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">每個人的答案都不一樣。連 Vitalik 自己的答案也一直在變。上週以太坊基金會發表 38 頁的「承諾宣言」試圖釐清，卻讓社群吵成一團。</p>
+</div>
+
+<!-- LINUX STORY -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>Linux 的抉擇</h2>
+
+  <p class="fade-in">1991 年，芬蘭大學生 Linus Torvalds 自己寫了一套作業系統，並把原始碼公開到網路上。「開放原始碼」成為 Linux 的最大特色。</p>
+
+  <p class="fade-in">但 35 年來，Linux 在桌面市場始終敗給 Windows。一般人不需要開放原始碼，他們只需要能用。微軟前執行長甚至公開稱 Linux 為「癌症」。</p>
+
+  <p class="fade-in">有人努力讓 Linux 變好用，想跟 Windows 抗衡。但另一批人選擇接受——在「寫報告」這個場景，Windows 就是更好的選擇。不過他們相信，未來一定會有某些場景，人們必須看得到原始碼，才能確保不受制於人。</p>
+
+  <p class="fade-in" style="font-weight:500;color:var(--green)">事後證明，Linux 的堅持很有遠見。</p>
+
+  <p class="fade-in">十多年後，雲端運算爆發。各家廠商都需要一套不被微軟綁定的作業系統。Linux 成了首選。2008 年 Google 以 Linux 為基礎打造 Android。現在資料中心幾乎全都跑在 Linux 上。Linux 沒有贏得桌面，卻贏得了更大的賽局。</p>
+</section>
+
+<!-- LINUX COMPARISON -->
+<section class="wide">
+  <div class="compare-grid fade-in">
+    <div class="compare-side lose">
+      <div class="year">1995 — 桌面市場</div>
+      <h3>Linux 是輸家</h3>
+      <div class="bar-chart">
+        <div class="bar-row"><span class="label">Windows</span><div class="bar-track"><div class="bar lose" style="width:0%" data-w="95%"></div></div><span class="pct">95%</span></div>
+        <div class="bar-row"><span class="label">Linux</span><div class="bar-track"><div class="bar lose" style="width:0%" data-w="4%"></div></div><span class="pct">4%</span></div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:1rem 0 0;font-style:italic">「太理想主義，一般人不在乎開源。」</p>
+    </div>
+    <div class="compare-side win">
+      <div class="year">2025 — 桌面以外的世界</div>
+      <h3>Linux 是隱形冠軍</h3>
+      <div class="bar-chart">
+        <div class="bar-row"><span class="label">伺服器</span><div class="bar-track"><div class="bar win" style="width:0%" data-w="90%"></div></div><span class="pct">90%</span></div>
+        <div class="bar-row"><span class="label">雲端</span><div class="bar-track"><div class="bar win" style="width:0%" data-w="90%"></div></div><span class="pct">90%</span></div>
+        <div class="bar-row"><span class="label">手機</span><div class="bar-track"><div class="bar win" style="width:0%" data-w="72%"></div></div><span class="pct">72%</span></div>
+        <div class="bar-row"><span class="label">超級電腦</span><div class="bar-track"><div class="bar win" style="width:0%" data-w="100%"></div></div><span class="pct">100%</span></div>
+        <div class="bar-row"><span class="label">桌面</span><div class="bar-track"><div class="bar gray" style="width:0%" data-w="4%"></div></div><span class="pct">4%</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="highlight fade-in">Linux 沒有去追 Windows 的市場。它等到了一個更大的賽局，然後贏了。</p>
+</section>
+
+<!-- TRANSITION -->
+<section>
+  <p class="fade-in lead" style="text-align:center;font-family:'Noto Serif TC',serif;font-size:1.2rem;color:var(--text-secondary)">以太坊正面對幾乎一模一樣的選擇。</p>
+</section>
+
+<!-- VALUE CHAIN -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>價值流失</h2>
+
+  <p class="fade-in">以太坊的價值分為基礎層（共識機制、虛擬機、抗審查）和應用層（穩定幣、DeFi、支付、NFT）。過去這兩層天然綁定。</p>
+
+  <p class="fade-in">但 2025 年美國總統川普簽署《天才法案》後，穩定幣取得法律地位。Circle、Tether、Stripe 隨即意識到——真正有價值的是穩定幣本身，使用者根本不在乎底層是什麼區塊鏈。他們紛紛自建專屬區塊鏈，主打速度快、成本低、能配合監管。</p>
+
+  <p class="fade-in">眼見應用層快速流失，以太坊基金會有兩條路。第一是<strong>往上整合</strong>——主動滿足穩定幣和華爾街需求。第二是<strong>往下鞏固</strong>——放棄應用層生意，專注強化底層獨有特色，就像當年的 Linux。</p>
+
+  <div class="chain-visual fade-in">
+    <div class="chain-stack">
+      <div class="chain-box app">
+        <h4>應用層</h4>
+        <p>穩定幣・DeFi・支付</p>
+      </div>
+      <div class="chain-box base">
+        <h4>基礎層</h4>
+        <p>共識・虛擬機・抗審查</p>
+      </div>
+    </div>
+    <div class="chain-arrow">→</div>
+    <div class="departing">
+      <div class="departing-item"><h4>Circle → Arc</h4><p>自建穩定幣結算鏈</p></div>
+      <div class="departing-item"><h4>Stripe → Tempo</h4><p>支付專用鏈</p></div>
+      <div class="departing-item"><h4>Tether</h4><p>自建區塊鏈出走</p></div>
+    </div>
+  </div>
+
+  <p class="fade-in">去年基金會選了第一條路。直到上週發布「承諾宣言」，180 度大轉彎——強調抗審查、開源、隱私、安全，明顯走上第二條路。這樣選對嗎？</p>
+</section>
+
+<!-- TWO PATHS -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>理想與現實</h2>
+
+  <blockquote class="fade-in">
+    羅盤能告訴你北方在哪，但它不會提醒你沿途會遇到沼澤、沙漠和深淵。如果你只顧著羅盤，卻一頭栽進沼澤裡，知道北方在哪又有什麼用？
+    <cite>— 電影《林肯》</cite>
+  </blockquote>
+
+  <div class="paths fade-in">
+    <div class="path-card up">
+      <span class="tag">路線 A ── 往上整合</span>
+      <h3>追上去，正面對決</h3>
+      <p class="detail">加快速度、壓低手續費、內建合規功能。主動滿足穩定幣發行商和華爾街機構的需求。</p>
+      <div class="risk"><strong>致命傷：</strong>通用平台在特定場景上永遠打不過專用工具。妥協不會只有一次。到最後，以太坊恐怕只會變成一條「比較慢的 Tempo」。既無法成為別人，還認不得自己。</div>
+    </div>
+    <div class="path-card down">
+      <span class="tag">路線 B ── 基金會的選擇</span>
+      <h3>不追了，往下鑽</h3>
+      <p class="detail">專注成為無法被關掉、沒人能審查的區塊鏈。賭去中心化終有一天會變成必需品。</p>
+      <div class="risk"><strong>致命傷：</strong>如果上層全部搬走，基礎層再怎麼去中心化也只是一座空城。在等待的過程中，ETH 持有者的耐心會被一點一點磨光。</div>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">說穿了，基金會照顧的是未來的使用者，而不是現在已經在用以太坊的這批人。</p>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">這個抉擇跟 Linux 當年如出一轍。堅持一個現在看起來不切實際的原則，然後相信需求終究會出現。但那一天要等多久？沒人知道。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">Linux 沒有代幣，可以心平氣和等十幾年。基金會或許等得起——但 ETH 持有者撐得了那麼久嗎？</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">讀完了，你站在哪一邊？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你最接近哪一派。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">穩定幣市場正在爆發，Circle、Tether、Stripe 紛紛自建區塊鏈。以太坊應該？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">全力追上去，錯過就沒了</button>
+        <button class="q-btn" data-camp="pragmatist">選擇性跟進，但守住底線</button>
+        <button class="q-btn" data-camp="ef">讓他們去，以太坊做自己的事</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">基金會發了宣言，強調抗審查、開源、隱私、安全不可妥協。你覺得？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">不食人間煙火，市場不等人</button>
+        <button class="q-btn" data-camp="pragmatist">方向沒錯，但時機不對</button>
+        <button class="q-btn" data-camp="ef">終於想清楚了，這才是以太坊</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">Linux 等了十幾年才等到雲端爆發。以太坊也可能需要這麼久。你？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">等不了，我的資產不能陪它實驗</button>
+        <button class="q-btn" data-camp="pragmatist">可以等，但得看到一些進展</button>
+        <button class="q-btn" data-camp="ef">願意等，有些東西急不來</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">Linux 的抉擇</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>這是以太坊的 Linux 時刻。</h2>
+  <p>文章裡有完整的 Linux 類比、價值鏈拆解，以及兩條路各自的賭注與風險。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/763" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('以太坊基金會選擇了未來的使用者，而不是現在的使用者。Linux 沒有代幣，可以心平氣和等十幾年。但 ETH 持有者撐得了那麼久嗎？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/763/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/763/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/763/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar').forEach(bar => {
+        bar.style.width = bar.dataset.w;
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.compare-grid').forEach(el => barObserver.observe(el));
+
+// Quiz
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  ef: {
+    emoji: '🪴', name: '北極星守護者',
+    desc: '你相信以太坊應該堅守去中心化，即使要等很久。基金會選擇了未來的使用者，你願意陪它等。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    share: '我是「北極星守護者」🪴 以太坊應該堅守去中心化，就像 Linux 堅持開放原始碼一樣。你呢？'
+  },
+  pragmatist: {
+    emoji: '⚖️', name: '務實的理想主義者',
+    desc: '你認同北極星的方向，但覺得以太坊不能無視現實。理想要有，路也要走得下去。',
+    bg: 'var(--terra-light)', color: '#8B5A3C',
+    share: '我是「務實的理想主義者」⚖️ 北極星沒有錯，但前面有沼澤。以太坊得先活著走到那裡。你呢？'
+  },
+  efficiency: {
+    emoji: '🏃', name: '效率至上主義者',
+    desc: '你覺得穩定幣市場正在爆發，以太坊不追就是放棄。誰快誰贏，底層是什麼不重要。',
+    bg: 'var(--purple-light)', color: 'var(--purple)',
+    share: '我是「效率至上主義者」🏃 穩定幣大爆發，以太坊不追就是放棄。過了這個村就沒那個店。你呢？'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/763/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { ef: 0, pragmatist: 0, efficiency: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>

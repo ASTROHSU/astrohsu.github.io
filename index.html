@@ -444,6 +444,26 @@
     .articles-list.empty {
       border: none;
     }
+
+    /* Loading state */
+    .loading-state {
+      padding: var(--spacing-xl);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Experience badge */
+    .experience-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: var(--accent);
+      color: white;
+      font-size: 0.7rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -494,20 +514,14 @@
   </div>
 
   <script>
-    // Article Data
-    const articles = [
-      { id: 765, title: "兆豐實測穩定幣！卻沒發現銀行才是最大贏家？", desc: "穩定幣取代的不是銀行，而是 SWIFT", tags: ["穩定幣", "銀行"], featured: true, url: "./765/" },
-      { id: 744, title: "2025 年終回顧：幣圈已死，工具萌芽", desc: "幣價再創新高，但大場面遲遲沒來。區塊鏈正悄悄潛入日常", tags: ["產業趨勢"], featured: true, url: "./744/" },
-      { id: 743, title: "數位憑證皮夾不只是超商領貨 app", desc: "數位部推出的不是超商 app，而是國家數位基礎建設", tags: ["數位身分"], url: "./743/" },
-      { id: 742, title: "盈透證券開放穩定幣入金！潘朵拉的盒子打開了", desc: "投資人對金流速度的期待，回不去了", tags: ["券商", "穩定幣"], url: "./742/" },
-      { id: 741, title: "AI 駭客來了！智慧合約的義和團時刻", desc: "每份合約的攻擊成本僅 $1.22，數位戰場進入熱兵器時代", tags: ["AI", "資安"], url: "./741/" },
-      { id: 740, title: "穩定幣手續費是智商稅？Stripe 省下 94% 金流成本", desc: "Stripe 穩定幣收款的第一手實測：從 2.9% 降到 1.5%", tags: ["穩定幣", "金流"], url: "./740/" },
-    ];
+    // Article Data (loaded from JSON)
+    let articles = [];
 
-    // All unique tags
-    const allTags = ["全部", "穩定幣", "AI", "資安", "數位身分", "券商", "金流", "產業趨勢"];
+    // Predefined tags
+    const predefinedTags = ["全部", "穩定幣", "AI", "DeFi", "NFT", "資安", "數位身分", "券商", "金流", "產業趨勢", "監管", "以太坊", "比特幣"];
 
     // State
+    let allTags = [...predefinedTags];
     let selectedTags = new Set();
     let searchQuery = "";
 
@@ -534,6 +548,53 @@
       return `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
         ${pattern}
       </svg>`;
+    }
+
+    // Extract tags from article title and description
+    function extractTagsFromArticle(article) {
+      const text = (article.title + " " + article.desc).toLowerCase();
+      const matchedTags = [];
+
+      // Check predefined tags (excluding "全部")
+      for (let i = 1; i < predefinedTags.length; i++) {
+        const tag = predefinedTags[i];
+        if (text.includes(tag.toLowerCase())) {
+          matchedTags.push(tag);
+        }
+      }
+
+      return matchedTags.length > 0 ? matchedTags : [];
+    }
+
+    // Load articles from JSON
+    async function loadArticles() {
+      try {
+        const response = await fetch('./articles-data.json');
+        if (!response.ok) {
+          throw new Error('Failed to load articles');
+        }
+        const data = await response.json();
+
+        // Process articles and extract tags
+        articles = data.map(article => ({
+          ...article,
+          tags: extractTagsFromArticle(article)
+        }));
+
+        // Initialize app after articles loaded
+        initializeApp();
+      } catch (error) {
+        console.error('Error loading articles:', error);
+        const container = document.getElementById("articlesList");
+        container.classList.add("empty");
+        container.innerHTML = '<div class="empty-state">載入文章失敗，請重新整理頁面</div>';
+      }
+    }
+
+    // Initialize app
+    function initializeApp() {
+      renderTags();
+      render();
     }
 
     // Render tag filters
@@ -584,9 +645,10 @@
       });
     }
 
-    // Render featured section
+    // Render featured section (first 2 items = newest/highest ID)
     function renderFeatured() {
-      const featured = getFilteredArticles().filter(a => a.featured);
+      const filtered = getFilteredArticles();
+      const featured = filtered.slice(0, 2); // Take first 2 articles (newest)
       const container = document.getElementById("featuredGrid");
       const section = document.getElementById("featuredSection");
 
@@ -602,7 +664,7 @@
             <div class="featured-icon">${generateIcon(article.id)}</div>
             <div class="featured-content">
               <div class="featured-id">#${article.id}</div>
-              <div class="featured-title">${article.title}</div>
+              <div class="featured-title">${article.title}${article.has_experience ? '<span class="experience-badge">互動版</span>' : ''}</div>
               <div class="featured-desc">${article.desc}</div>
             </div>
           </a>
@@ -627,7 +689,7 @@
           <a href="${article.url}">
             <div class="article-id">#${article.id}</div>
             <div class="article-content">
-              <div class="article-title">${article.title}</div>
+              <div class="article-title">${article.title}${article.has_experience ? '<span class="experience-badge">互動版</span>' : ''}</div>
               <div class="article-desc">${article.desc}</div>
             </div>
             <div class="article-arrow">→</div>
@@ -642,15 +704,21 @@
       renderArticles();
     }
 
+    // Show loading state
+    function showLoading() {
+      const container = document.getElementById("articlesList");
+      container.innerHTML = '<div class="loading-state">載入中...</div>';
+    }
+
     // Search input handler
     document.getElementById("searchInput").addEventListener("keyup", (e) => {
       searchQuery = e.target.value;
       render();
     });
 
-    // Initial render
-    renderTags();
-    render();
+    // Load articles and initialize
+    showLoading();
+    loadArticles();
   </script>
 </body>
 </html>

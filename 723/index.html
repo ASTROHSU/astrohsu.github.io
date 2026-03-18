@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#723 交易隱私外洩 — 區塊勢</title>
+<meta name="description" content="美國通過 GENIUS 法案後 1 ，穩定幣成為最熱門的創業題目。有人發行穩定幣，將收益留在自己口袋 2 。也有人打造專用區塊鏈，滿足日常支付的速度需求 3 。但對台灣人來說，最有感的還是一張好用的穩⋯">
+<meta property="og:title" content="交易隱私外洩">
+<meta property="og:description" content="美國通過 GENIUS 法案後 1 ，穩定幣成為最熱門的創業題目。有人發行穩定幣，將收益留在自己口袋 2 。也有人打造專用區塊鏈，滿足日常支付的速度需求 3 。但對台灣人來說，最有感的還是一張好用的穩⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/6437f936-39f6-48ca-b32a-0f6f8c7d07d2_1232x804.png">
+<meta property="og:url" content="https://share.blocktrend.today/723/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#723</div>
+  <h1>交易隱私外洩</h1>
+</header>
+
+<article class="article-content">
+<p>美國通過 GENIUS 法案後<sup>1</sup>，穩定幣成為最熱門的創業題目。有人發行穩定幣，將收益留在自己口袋<sup>2</sup>。也有人打造專用區塊鏈，滿足日常支付的速度需求<sup>3</sup>。但對台灣人來說，最有感的還是一張好用的穩定幣支付卡。</p><p>之前我推薦的 Etherfi 支付卡主打資產自託管，還有全通路 3% 加密貨幣回饋<sup>4</sup>，迅速成為許多人的支付首選。但近期我發現它有個致命缺點：隱私保護不足。這篇文章主角 Payy 推出的 Payy Card 同樣是自託管 Visa 卡，最大差異在於運用了零知識證明保護人們的消費隱私。辦卡推薦連結在這裡，歡迎自行取用：<a href="https://payy.link/invite/12DUCH">https://payy.link/invite/12DUCH</a></p><h2>交易隱私外洩</h2><p>近期有網友根據鏈上公開數據，整理出一份 Etherfi 支付卡的<a href="https://dune.com/bayes6/etherfi-card-users">消費排行榜</a>。雖然沒有指名道姓，但只要進一步分析鏈上金流，再搭配 ENS 域名或社交帳號，有心人士很容易就能找出錢包地址與用戶真實身分的關聯。以後不用等銀行寄對帳單，網友就能替你即時做消費分析。這是赤裸裸的隱私外洩，也是穩定幣支付普及路上的最大障礙。更糟的是，隱私外洩還容易引起針對式的釣魚詐騙，甚至是人身威脅。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6437f936-39f6-48ca-b32a-0f6f8c7d07d2_1232x804.png" alt="" loading="lazy"></figure><p>穩定幣的另一個使用情境是企業發薪水。我曾經有一份工作的薪水就是以加密貨幣支付。為了避免員工透過公開的鏈上紀錄比對彼此薪資，公司會先將資金存進中心化交易所，再從交易所內轉給不同員工。至今這仍是許多加密貨幣新創的標準作法，可見鏈上隱私工具有多匱乏。</p><p>好消息是現在終於有一款好用且能兼顧隱私與合規的鏈上工具。未來企業要以穩定幣發薪水，只要先將資金存入 Payy 錢包裡，再分別把每位員工的「薪水連結」發出去就完成了。員工如果申請了 Payy 近期推出的 Visa 卡，還可以直接把加密貨幣用在日常消費。相當方便！</p><h2>零知識證明</h2><p>Payy 以「鏈上銀行」自居。核心產品是一款內建隱私功能的自託管錢包，加上一張能直接用於日常消費的 Visa 卡。根據 Payy 的<a href="https://docs.payy.network/">介紹</a>：</p><blockquote><p>Payy 把穩定幣、具隱私保護的區塊鏈、法幣出入金、支付卡以及跨鏈 DeFi 垂直整合在一起，透過單一介面就能同時服務企業與消費者。穩定幣普及化將把數兆美元資金推上鏈，但也帶來巨大隱憂：所有交易將永久公開。隨著鏈上資料被分析與利用，隱私需求會日漸迫切。</p></blockquote><p>Payy 的 app 設計相當直覺漂亮，推薦你動手嘗試。雖然 Payy 的基本功能與其他加密貨幣錢包一樣，都是接收、發送，但背後的運作機制卻大不相同。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/642bc084-1d31-47f5-97a3-a61da2fb71dc_1600x793.png" alt="" loading="lazy"></figure><p>以發送為例，Payy 不會要求使用者輸入對方的錢包地址，而是會自動產生一串支付連結（或 QR code）。對方只要點開連結，資金就會直接入帳到個人的 Payy 錢包。反過來，使用者也可以發送請款連結，要求對方付款。多數情況下，Payy 的使用者完全不需要碰到 0x 開頭的錢包地址。</p><p>下方我實際創造 3 組「支付連結」，送給前 3 位領取的人當成零錢空投。每組連結只能領取一次，也請手腳比較快的人把機會留給其它讀者。不要通通領完 😂</p><ul><li><p><a href="https://payy.link/s/#5nwCv6BcC9Mmv5tPYU2mKPQvye8AfezciDKFY8nvQqXfDsgvCP">https://payy.link/s/#5nwCv6BcC9Mmv5tPYU2mKPQvye8AfezciDKFY8nvQqXfDsgvCP</a></p></li><li><p><a href="https://payy.link/s/#6EayLuEyAZRAiGpHd2SHaNMLVbduYAfSEhyubVoZUBBC5N6jgj">https://payy.link/s/#6EayLuEyAZRAiGpHd2SHaNMLVbduYAfSEhyubVoZUBBC5N6jgj</a></p></li><li><p><a href="https://payy.link/s/#4w8uX8mfkcBhcGttJ4sNzroeqYA8h4oGexUqMMmrQpqAXREuZh">https://payy.link/s/#4w8uX8mfkcBhcGttJ4sNzroeqYA8h4oGexUqMMmrQpqAXREuZh</a></p></li></ul><p>這樣的設計與 Payy 創辦人 Sid Gandhi 的<a href="https://youtu.be/4oLZYJzljEU?si=d4w33c0JePTICiKp">親身經驗</a>有關。走訪過土耳其、阿根廷等高通膨國家後，Sid Gandhi 發現，當地人領到薪水後，會立刻把當地貨幣換成穩定幣，避免貶值，日後再依照開銷慢慢換回來。相較之下，在歐美，穩定幣的主要用途幾乎只侷限於交易所，沒有人為日常支付設計應用，遑論考慮隱私問題。而 Payy 的初衷，就是要做一款真正能拿來支付，同時守護消費隱私的錢包。</p><p>Payy 錢包背後藏了不少「技術魔法」。想像我去買一杯咖啡，用銀行帳戶付款，從帳戶轉出 100 元給咖啡店並留下紀錄，等下再去買一雙鞋子，又是從同個帳戶再轉一筆錢。只要知道我的帳戶號碼，就能把過去所有的消費紀錄逐一列出。這就是目前大多數加密貨幣錢包的運作模式 —— 帳戶模型（Account-based）。</p><p>為了增加追蹤難度，Payy 自建主打隱私的 L2 區塊鏈 <a href="https://docs.payy.network/product/payy-network">Payy Network</a> 並改採 UTXO（Unspent Transaction Output）模型。它用起來比較像現金，每一筆錢都是一張獨立的數位鈔票。錢花掉之後鈔票就會自動作廢，換成新的鈔票在市場流通。換言之，鈔票不會直接轉手，系統會頻繁地銷毀舊鈔、發行新鈔。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/04c5a2d0-5c7a-4e1a-9869-6666ead81568_2400x1274.png" alt="" loading="lazy"></figure><p>Payy 把產品重心放在隱私，這點長期來看非常重要。但短期內，能推動用戶的往往是補貼。Etherfi 支付卡是最典型的例子。它之所以能迅速打開市場，因為主打兩點：</p><ol><li><p>資產自託管：解決了大家最怕的「交易所倒閉」問題</p></li><li><p>消費正回饋：全通路 3% 消費回饋，比所有信用卡都划算</p></li></ol><p>對多數人來說，隱私、自託管都是屬於「防禦性功能」，只要沒出事，大家就不會在意。但回饋補貼是「進攻性功能」，能立刻改變消費行為。Payy 辦卡沒有推薦獎勵，消費回饋也只有一次性的 10 美元。要我選，日常消費還是會繼續刷 Etherfi 卡。只在需要確保隱私的特定使用情境，例如發薪水，才會改用 Payy。</p><p>Payy 當然也意識到這點，打算補齊「進攻性功能」，其中一個方式是推出 0 摩擦力、0 手續費的法幣出入金。用戶可以直接透過銀行轉帳，轉入 10 美元就能在 Payy 錢包收到 10 USDC，反之亦然。這等於是正面挑戰中心化交易所，把 Payy 定位成進入市場的第一哩路，也是離開市場的最後一哩路。未來 Pay 還計劃整合 DeFi 收益服務、推出基於零知識證明的 zkKYC 實名認證服務<sup>5</sup>，讓用戶真的能把它當成是一家鏈上銀行。</p><p>在這波穩定幣熱潮之初，我總想著穩定幣不是早就能用了嗎？隨著討論升溫，我才發現原來要以穩定幣進行日常支付，有一籮筐問題。無論是穩定幣收益被少數發行商壟斷，或是交易確認時間不符合支付需求，再到交易隱私會被直接公開上網，要解決這些問題大概還要花一點時間。但相較於原本的監管禁令，技術問題相對容易克服。</p><p>Payy 還提到，為了做到交易隱私，必須在手機端即時生成零知識證明，而這個過程需要大量運算，如果使用的是低階手機，運算過程可能會讓手機發燙。真是沒想到連用戶的手機，都要跟著穩定幣一起升級才行。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/705">美國通過穩定幣法案！為何不發 CBDC，反而贏了？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/721">穩定幣通路戰開打！Hyperliquid 逼出美債儲備收益</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/719">Stripe 自幹區塊鏈！支付效率與去中心化的矛盾</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/696">全通路 4% 消費回饋！Ether.fi Cash：全球首張直接從錢包扣款的加密支付卡</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/641">你知道我是誰，但你不知道我是誰：zkKYC 的零知識證明魔法</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/723">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

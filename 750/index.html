@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#750 家庭記帳工具 — 區塊勢</title>
+<meta name="description" content="一個月前，太太約我一起玩直覺式開發（vibe coding），打造家庭記帳工具。從那之後，我就迷上了「自己動手做」的感覺。無論是 演講分享的投影片 、 實體課程的報名頁面 ，都是我用 AI 從頭打造。⋯">
+<meta property="og:title" content="家庭記帳工具">
+<meta property="og:description" content="一個月前，太太約我一起玩直覺式開發（vibe coding），打造家庭記帳工具。從那之後，我就迷上了「自己動手做」的感覺。無論是 演講分享的投影片 、 實體課程的報名頁面 ，都是我用 AI 從頭打造。⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/95c8a795-06a5-4e7c-9e29-7fafa6edaa67_1982x1508.png">
+<meta property="og:url" content="https://share.blocktrend.today/750/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#750</div>
+  <h1>家庭記帳工具</h1>
+</header>
+
+<article class="article-content">
+<p>一個月前，太太約我一起玩直覺式開發（vibe coding），打造家庭記帳工具。從那之後，我就迷上了「自己動手做」的感覺。無論是<a href="https://xuedao-zkevm-etherfi.vercel.app/">演講分享的投影片</a>、<a href="https://workshop.blocktrend.today/">實體課程的報名頁面</a>，都是我用 AI 從頭打造。就連上週家人臨時生病住院，我也做了一個資訊儀表板，統合各方訊息方便溝通。</p><p>AI 用得越多，我反而越能理解區塊鏈存在的意義。這也正好呼應了 Vitalik Buterin 最近為以太坊設下的 2026 年度目標：通過「閃人測試」（<a href="https://x.com/VitalikButerin/status/2010621884811845708">walkaway test</a>）。簡單說，萬一開發者「閃人了」，使用者還能不能把自己的東西帶著走？先從我跟太太一起打造的家庭記帳工具說起。</p><h2>家庭記帳工具</h2><p>太太習慣每月把個人資產餘額記錄在 Google Sheet，方便日後追蹤。我曾經問她：「市面上選擇這麼多，為什麼不用現成的記帳 app 就好？」</p><p>原來她需要的功能分散在不同應用，Google Sheet 雖然最陽春但彈性最大。因此，我們的目標是做出一套最符合她使用需求的記帳服務。Gemini Canvas 很快就替我們做出漂亮的前端網頁，但問題馬上就來了。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/95c8a795-06a5-4e7c-9e29-7fafa6edaa67_1982x1508.png" alt="" loading="lazy"></figure><p>每次重開網頁，之前輸入的資料就通通不見。我的任務變成串後端資料庫，把每一筆輸入資料都放進 Firebase 保存，讓它能記住歷史。</p><p>我們興奮地把記帳服務分享給家人使用，卻又發現如果沒有帳號系統區分使用者，大家的記帳就會混在一起。幸好 Firebase 內建的 Authentication 支援各種登入機制，用帳號密碼或是社交登入都行。有了前端、後端和登入，這套家庭記帳服務總算是大功告成。</p><p>只不過，目前這套記帳工具高度仰賴中心化服務。如果開發者忘了繳帳單（我還差得遠），或是使用者的社交帳號被撤銷，可能都會無法使用。於是我開始想，該怎麼確保這套記帳工具可以「設後不理」—— 即便我忽然消失、沒人維護，家人還是能把資料完整留下來，甚至繼續用下去？</p><p>這就是 Vitalik Buterin 近期提倡的「閃人測試」（<a href="https://x.com/VitalikButerin/status/2010621884811845708">walkaway test</a>）。</p><h2>閃人測試</h2><p>軟體圈有個概念，稱為公車指數（Bus Factor）。意思是，如果團隊成員走在路上不幸被公車撞到，整個專案會不會立刻癱瘓？如果那個人正好是靈魂人物、對專案有巨大影響，公車指數就是 1。公車指數越低，專案就越脆弱。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f1fbca7a-6d25-49b9-b4cd-4f110358b855_2752x1536.png" alt="" loading="lazy"></figure><p>閃人測試（walkaway test）只是把對象從「人」換成「服務」。如果帳號沒了、公司倒了或伺服器關了，這個產品還能不能繼續運作？使用者能不能把自己的資料帶著走？Vitalik Buterin 就<a href="https://x.com/VitalikButerin/status/2006737662942871574">主張</a>，Web3 的終極目標是要讓這個指數越大越好：</p><blockquote><p>我們想打造的去中心化應用是不會被審查，也不會因為某個第三方服務出問題就整個停擺。這些應用必須能通過「閃人測試」—— 就算原本的開發團隊消失了，服務還是能繼續跑。對使用者來說，你完全不會察覺某個基礎服務（例如 Cloudflare）當機；就算 Cloudflare 被北韓駭客攻破，也不影響你正常使用。去中心化應用的穩定性不依賴某家公司、某種意識形態，或哪個政黨還在不在位；同時，它還能保障你的隱私。這不只適用在金融，也適用在身分驗證、治理，以及人們想建立的各種文明基礎建設。</p></blockquote><p>我第一個想到的是為家庭記帳工具加上錢包登入（Sign-In with Ethereum<sup>1</sup>）功能。錢包地址是用數學公式算出來的，無法被單方面撤銷；只要私鑰還在，什麼公司倒閉都跟它沒關係。至於前端、後端，可以引入星際檔案系統（IPFS）<sup>2</sup>或去中心化硬碟 Arweave <sup>3</sup>提升系統韌性。</p><p>Vitalik 也點名，他愛用的文件編輯器 Fileverse<sup>4</sup> 已經通過「閃人測試」。即便 Fileverse 倒閉、應用程式當機或開發者消失，使用者仍然可以取回自己的文件。因為 Fileverse 的應用跑在以太坊上，資料是端對端加密後存放於 IPFS，並且以錢包作為使用者帳號。只要使用者妥善保管備份鑰匙（backup key），未來就可以循著事前規劃好逃生路線離開。</p><p>使用者可以透過<a href="https://walkaway.fileverse.io/">這個復原網站</a>，輸入備份鑰匙後，就能成功還原所有文件，並以 PDF 或 Markdown 格式下載帶走。即便沒有原本的應用介面，也能把 <code>.md</code> 檔案重新上傳到 HackMD 或 Notion，繼續編輯。就像電扶梯故障，也還是能當樓梯使用。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/969be7a6-c7b8-4237-8ffd-fc976241ce4c_2554x1416.png" alt="" loading="lazy"></figure><p>或許有人會說，<a href="https://takeout.google.com/">Google Takeout</a> 或 Notion 也能把文件匯出成 Markdown。這些做法的前提都是「服務還在」。在 Google 或 Notion 正常營運時，要匯出資料一點都不難；但如果你是在服務關閉的五年後才忽然想起來，檔案還能不能帶走？Fileverse 可以。這就是兩者的最大差別。</p><p>沒人希望自己的回憶跟著平台石沈大海，但問題是如何說服創業者讓產品通過「閃人測試」？</p><h2>可以離開，才選擇留下</h2><p>「閃人測試」違反多數 Web2 平台的基本邏輯：養、套、殺。看看臉書就知道。</p><p>許多人口中的「產品護城河」，往往等同於格式不相容、遷移代價巨大。帳號一旦被停用，所有東西就會一併消失。平台刻意設計得讓使用者難以離開，就是為了榨出最大價值。</p><p>對創業者來說，產品通過「閃人測試」代表套不到也殺不了，何必自找麻煩？也很難說服股東：為什麼要花力氣，替使用者預先規劃「逃生路線」？難道不該是由你獨占資料、主宰關係，並從中獲利嗎？</p><p>這是一種「人定勝天」的世界觀，假設平台能夠長久存在。但現實恰好相反。企業的生命週期越來越短，誰敢保證自己的產品十年後仍然存在。說到底，「閃人測試」是在為自己買棺材。這是一種對未來的樂觀 —— 你知道之後還會更好，才願意對未來下注並放棄眼前回報。</p><p>我不認為這在短期內會是主流想法，但我會對於願意實踐「閃人測試」的產品多一分信任。因為他最能反映開發團隊的信心 —— 使用者不是被困在平台走不了。而是明知可以隨時離開，卻主動選擇留下來。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep237">以太坊登入：Web3 原生的身分認證機制 ft. SpruceID 創辦人 Wayne Chang</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/467">星際檔案系統：如何以 Web3 應對網路攻擊消耗戰？</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/371">Arweave：《蘋果》的啟示、網路的亞歷山大圖書館</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/638">Fileverse 深度解析：Vitalik 也愛用的去中心化版 Notion</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/750">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#733 Coinbase 法說會 — 區塊勢</title>
+<meta name="description" content="近期是美股財報週，美國加密貨幣交易所 Coinbase 也在上週舉辦法說會。會議進行到尾聲，執行長 Brian Armstrong 先是表示自己有點分心，隨後唸出一串關鍵字：「比特幣」、「以太坊」、「⋯">
+<meta property="og:title" content="Coinbase 法說會">
+<meta property="og:description" content="近期是美股財報週，美國加密貨幣交易所 Coinbase 也在上週舉辦法說會。會議進行到尾聲，執行長 Brian Armstrong 先是表示自己有點分心，隨後唸出一串關鍵字：「比特幣」、「以太坊」、「⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/35730bba-4d52-4dd9-8b49-3c75bd3c1fe1_1704x1292.png">
+<meta property="og:url" content="https://share.blocktrend.today/733/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#733</div>
+  <h1>Coinbase 法說會</h1>
+</header>
+
+<article class="article-content">
+<p>近期是美股財報週，美國加密貨幣交易所 Coinbase 也在上週舉辦法說會。會議進行到尾聲，執行長 Brian Armstrong 先是表示自己有點分心，隨後唸出一串關鍵字：「比特幣」、「以太坊」、「區塊鏈」、「質押」和「Web3」。</p><p>正當大家還一頭霧水，主持人馬上接過麥克風，倉促地結束會議。不過這段 20 秒的插曲，已經成為整場法說會最大亮點，影片還被網友剪接瘋傳。有人歡呼 Armstrong 是「傳奇」，也有人批評這是「對機構信任的公然嘲弄」。</p><p>為什麼這幾個字會引起這麼大爭議？得先從那天的狀況說起。</p><h2>Coinbase 法說會</h2><p>Coinbase 是美國第一家公開上市的加密貨幣交易所，今年也正式被納入標普 500 指數。</p><p>上週 Coinbase 公布 2025 年第三季財報，成績相當亮眼。單季營收接近 19 億美元，年增超過 50%；每股盈餘 1.44 美元，高於分析師預估的 1.1 美元；淨利 4.3 億美元，是去年同期的兩倍。整體交易量比上一季成長 24%，其中機構交易更暴增 122%。</p><p>幾家華爾街券商看到這份財報後，立刻上調股票目標價。照理說，這場法說會只要照著流程走完，幾個小時後，正面報導就都出刊了。但就在會議最後兩分鐘、財務長回答完關於市場競爭的問題後，Armstrong 忽然<a href="https://s27.q4cdn.com/397450999/files/doc_financials/2025/q3/Q3-25-Earnings-Call-Transcript.pdf">脫稿演出</a>：</p><blockquote><p>希望我們剛剛有回答到你的問題。我剛才有點分心，因為我在看一個預測市場，內容是猜 Coinbase 會在這次法說會上說些什麼。所以我想在會議結束前，特別補上幾個關鍵字：比特幣（Bitcoin）、以太坊（Ethereum）、區塊鏈（Blockchain）、質押（Staking）和 Web3，確保這些都有被提到。</p></blockquote><p>Armstrong 語畢，現場安靜了幾秒。身兼會議主持人的 Coinbase 投資關係副總 Anil Gupta 趕緊接過麥克風：「好，我們已經回答完所有問題了，今天會議到此結束。」相信是已經意識到老闆說錯話了。</p><p>原來，在法說會當下，Coinbase 內部群組有人分享了 Kalshi 和 Polymarket 兩個預測市場上的「賭盤」。裡面有一種玩法叫「提及市場（Mention Market）」，專門在猜某家公司高層，在法說會上會不會說出特定關鍵字。</p><p>舉例來說，下圖是 Polymarket 上關於 Palantir（PLTR） 法說會的提及市場。針對各個關鍵字，例如國際業務（International），投資人可以押「會」或「不會」提及。如果法說會上真的有人講了這些詞，押「會」的一方就獲勝，該選項會以 1 美元結算；反之若關鍵字沒被提到，押「不會」的一方會拿到 1 美元，另一邊則歸零。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/35730bba-4d52-4dd9-8b49-3c75bd3c1fe1_1704x1292.png" alt="" loading="lazy"></figure><p>從上圖來看，參與者認為 Palantir 主打國防科技，不可能不提到「國際業務」。市場價格反映出<strong>當前參與者的判斷</strong>，押「會」顯得風險極低。如果有人想挑戰當前市場共識、押「不會」，潛在報酬就高得多，但這也是在賭 Palantir 的高層會一改本性、整場避開那個關鍵字。</p><p>Coinbase 的法說會也有類似的<a href="https://polymarket.com/event/earnings-mentions-coinbase-2025-10-29?tid=1762156702414">預測市場</a>，關鍵字包含 SEC、託管、穩定幣、交易量等。但金額和參與的人數都不多，總交易量僅為 <a href="https://cointelegraph.com/news/coinbase-ceo-stirs-predictions-markets-in-earnings-call">8.4 萬美元</a>。不過 Armstrong 看到這個市場後，發現自己沒有提到比特幣、以太坊、區塊鏈、質押和 Web3 這些關鍵字，臨時決定把它們通通唸出來。</p><p>或許 Armstrong 只是想開個玩笑，送大家一個「小彩蛋」，卻意外引爆爭議。</p><h2>張忠謀偷茶葉蛋？</h2><p>有人認為 Armstrong 這舉動「太酷了」，<a href="https://x.com/APompliano/status/1984047346926440450">稱讚</a>他敢於打破法說會的沉悶氣氛；而 Armstrong 本人<a href="https://x.com/brian_armstrong/status/1984048706220609998">也說</a>，這純粹只是好玩。</p><p>但數位資產投資公司 Arca 的投資長 Jeff Dorman 可不這麼想，嚴厲譴責這是「公然的市場操縱」。他主張 Arca 長期投入大量資源，就是為了讓加密貨幣成為被主流機構法人接受、可以投資的合法資產類別。Armstrong 的輕率，卻可能讓這些努力功虧一簣。</p><p>有這麼嚴重嗎？換成職業運動比賽，這就像是「職棒簽賭」。有位球員看到場外有賭盤在押自己那場比賽的結果，決定以自身表現影響最終比分。這種行為背後通常都有明確動機 —— 球員自己有下注或能從中獲利，才會刻意操縱比賽。不然改變結果對他有什麼好處？</p><p>Coinbase 法說會的狀況卻不太一樣。Armstrong 表示自己沒有參與預測市場，也沒有從中獲利。況且整個預測市場的交易量才 8.4 萬美元，操縱幾個關鍵字頂多賺幾百美元。對照 Armstrong 的個人財富，就像張忠謀在超市拿了顆茶葉蛋沒結帳，大概只是忘了，而不是貪圖那顆蛋。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1f5d043f-313e-41a5-a788-38643e687507_1340x948.png" alt="" loading="lazy"></figure><p>Armstrong 更有可能是看到有人在猜他會講什麼，乾脆「成全」他們，順手開個玩笑。但也有人認為，這暴露了「預測市場」的根本缺陷，不僅會出現明目張膽的「內線交易」，甚至還可能演變成「自證預言」。</p><p>這些人主張，預測市場應該要像民調一樣，是客觀的觀察機制，能夠集合眾人的判斷、反映集體智慧，而不該回頭影響結果。一旦被預測的人或事件可以介入並改變結果，市場的「預測性」就崩壞了。就像選舉開票，不該因為你下注誰會贏，結果就改變。</p><p>Armstrong 的玩笑也讓人們意識到預測市場的複雜性。預測市場既不是民調，只觀察而不介入；參與者用錢下注後，卻又不像在玩傳統賭盤。因為在預測市場裡，每一次的下注都會立刻反映在價格上，而價格又成為新的訊號，影響更多人的判斷與行為。預測市場同時在觀察事件，也在形塑事件的未來走向。</p><p>不少人把矛頭指向 Armstrong，認為他破壞了預測市場的公平性。也有人主張這反映出監管機制仍不夠完善。但我認為這些都只是表象，真正的原因在於科技讓反身性（reflexivity）變得更容易發生。</p><h2>科技加劇反身性</h2><p>量子基金（Quantum Fund）創辦人索羅斯（George Soros）在 1980 年代提出「<a href="https://www.ft.com/content/0ca06172-bfe9-11de-aed2-00144feab49a">反身性</a>」理論，主張市場價格不只反映現實，還會回頭形塑現實。當投資人認為某間公司的股價會上漲，於是搶先買進，價格因此真的上漲。這是一種信念與現實之間的正向增強回饋（positive feedback loop）。</p><p>比特幣每 4 年一次的「減半行情<sup>1</sup>」就是經典案例。比特幣的產出速率大約每 4 年減半一次，這是 2008 年中本聰在白皮書中明確寫下的規則。雖然大家早就知道，市場卻在每次減半後的隔年迎來一波牛市，為「減半」慶祝。但這並不是因為新資訊出現，而是因為「大家相信減半會帶來牛市」，於是提前買入，最終讓這種信念成真。換言之，減半行情是人類集體信念的自我實現。</p><p>預測市場讓反身性能夠量化，也因此更容易被觀察。過去人們談「減半行情」，頂多只能歸因於媒體炒作或話題效應 —— 有人討論，結果就成真了。但預測市場更進一步，讓信念有了具體的機率、價格。你不只知道大家在討論什麼，還能看到市場上有多少人「用錢押注」它會成真。</p><p>當看到預測市場顯示 Palantir 法說會提到「國際業務」的機率高達 98%，你是否會因此覺得這件事更有可能發生？甚至，反過來影響 Palantir 執行長真的說出這個關鍵字。</p><p>科技大幅縮短正向增強回饋的迴路。區塊鏈與加密貨幣讓資金與資訊的流通比以往更即時。人們不僅能隨時下注，還能馬上看到價格變化與市場反應。這加劇了反身性，讓它變得更強、更極端。</p><p>「鄉民的華爾街起義」GameStop 是另一知名案例。原本經營困頓、乏人問津的老牌遊戲商，在 Reddit 鄉民與 Robinhood 散戶的集體信念之下，一夕成為華爾街最熱話題。信念帶動行動，行動改變現實 —— 股價暴漲讓 GameStop 手握現金，獲得資源做數位轉型，原本的「空氣炒作」最後竟讓公司真的起死回生。</p><p>Armstrong 的一句玩笑話，足以讓整個市場價格出現波動。這和當年的「馬投顧<sup>2</sup>」現象相似 —— 一個人的言行，就能牽動數萬人的投資決策。預測市場把這種現象從幕後搬上檯面，讓人們看見科技如何放大集體的判斷，讓反身性變得可被量化也變得更赤裸。</p><p>這是眾志成城、眾口鑠金的新時代。預測市場不只能賭未來，懂得善用這股力量的人，還要知道該如何用信念召喚未來。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/246">比特幣減半倒數計時：幣價上漲的傳統、誰是被淘汰的礦工？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/362">比特幣暴跌：馬投顧與反脆弱系統</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/733">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

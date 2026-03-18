@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>明恩幣 — 區塊勢</title>
+<meta name="description" content="作者預告穩定幣紅包。探討個人代幣/社群代幣的概念和可能性。">
+<meta property="og:title" content="明恩幣">
+<meta property="og:description" content="2026 年堪稱紅包元年。">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FEF9F3;--cream:#F5EDE4;--gold:#D4A574;--gold-light:#F9F4E6;
+  --terra:#C06A3A;--terra-light:#F5E9E0;--terra-deep:#8B5A3C;
+  --green:#2D6B4F;--green-light:#E8F3ED;
+  --purple:#6B5B95;--purple-light:#EEE9F5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+.en { display:none; }
+body.lang-en .zh { display:none; }
+body.lang-en .en { display:inline; }
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.lang-toggle{position:fixed;top:20px;right:20px;z-index:999;background:#fff;border:1px solid #E8E3D8;border-radius:2rem;padding:0.4rem 0.8rem;font-size:0.7rem;cursor:pointer;font-family:'Noto Sans TC',sans-serif;font-weight:500;letter-spacing:0.1em;transition:all 0.2s}
+.lang-toggle:hover{background:var(--cream)}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,var(--gold-light) 60%,#FFF8E7 100%)}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(180deg,transparent,rgba(212,165,116,0.15));pointer-events:none}
+.hero-coin{width:140px;height:140px;position:relative;margin-bottom:3rem;animation:coinSpin 3s ease-in-out infinite}
+@keyframes coinSpin{0%,100%{transform:rotateY(0deg) rotateZ(0deg)}25%{transform:rotateY(90deg) rotateZ(5deg)}50%{transform:rotateY(180deg) rotateZ(0deg)}75%{transform:rotateY(270deg) rotateZ(-5deg)}}
+.coin-circle{width:100%;height:100%;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,#E8B95C 50%,var(--terra-deep) 100%);box-shadow:0 10px 40px rgba(212,165,116,0.3),inset -2px -2px 8px rgba(0,0,0,0.1),inset 2px 2px 8px rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-size:3rem}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.6s forwards}
+.hero .subtitle{font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards}
+.hero .scroll-hint{position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards}
+.hero .scroll-hint::after{content:'';display:block;width:1px;height:40px;background:var(--text-muted);margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+h2{font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;margin-bottom:2rem;letter-spacing:0.05em}
+h2 .label{display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;text-transform:uppercase}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+.big-question{text-align:center;padding:6rem 2rem;background:linear-gradient(180deg,var(--warm),var(--gold-light))}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem}
+.big-question .option{padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);cursor:default;letter-spacing:0.05em}
+.big-question .option:nth-child(odd){background:rgba(212,165,116,0.15);color:var(--terra-deep)}
+.big-question .option:nth-child(3){background:rgba(107,91,149,0.1);color:var(--purple)}
+.timeline{margin:3rem 0;position:relative}
+.timeline-item{display:grid;grid-template-columns:100px 1fr;gap:2rem;margin-bottom:2.5rem;align-items:flex-start}
+.timeline-item .year{font-weight:700;color:var(--gold);font-size:0.95rem}
+.timeline-item .content{padding:1.5rem;border-radius:12px;background:rgba(212,165,116,0.08);border-left:3px solid var(--gold)}
+.timeline-item .content h3{font-size:1rem;margin-bottom:0.5rem;font-weight:600}
+.timeline-item .content p{font-size:0.9rem;color:var(--text-secondary);margin:0}
+.contrast-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.contrast-card{padding:2rem;border-radius:12px;border:1px solid #E8E3D8;transition:transform 0.3s}
+.contrast-card:hover{transform:translateY(-3px)}
+.contrast-card.past{background:var(--terra-light)}
+.contrast-card.future{background:var(--green-light)}
+.contrast-card h3{font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:1rem;font-weight:600}
+.contrast-card .metric{margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(0,0,0,0.05)}
+.contrast-card .metric-label{font-size:0.8rem;color:var(--text-muted);margin-bottom:0.3rem;letter-spacing:0.05em}
+.contrast-card .metric-value{font-size:1.3rem;font-weight:700;color:var(--text)}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0}
+.feature-box{padding:1.5rem;border-radius:10px;background:#fff;border:1px solid #E8E3D8}
+.feature-box h4{font-weight:600;margin-bottom:0.5rem;font-size:0.95rem}
+.feature-box p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.6}
+.stack-visual{display:flex;gap:2rem;align-items:stretch;margin:3rem 0}
+.stack-column{flex:1;display:flex;flex-direction:column;gap:1rem}
+.stack-box{padding:1.5rem;border-radius:10px;border:1px solid #E8E3D8;background:rgba(212,165,116,0.05);text-align:center}
+.stack-box h4{font-weight:600;margin-bottom:0.3rem}
+.stack-box p{font-size:0.8rem;color:var(--text-secondary);margin:0}
+.arrow-down{text-align:center;font-size:1.2rem;color:var(--terra);flex:0 0 30px;display:flex;align-items:center;justify-content:center}
+.challenge-pair{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:2rem 0}
+.challenge-card{padding:2rem;border-radius:12px;border:1px solid #E8E3D8}
+.challenge-card.solution{background:var(--green-light)}
+.challenge-card.problem{background:var(--terra-light)}
+.challenge-card h3{font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:1rem;font-weight:600}
+.challenge-card .tag{display:inline-block;font-size:0.65rem;letter-spacing:0.15em;padding:0.3rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500}
+.challenge-card.solution .tag{background:#A8D4BC;color:var(--green)}
+.challenge-card.problem .tag{background:#DEB8A7;color:var(--terra-deep)}
+.challenge-card p{font-size:0.9rem;line-height:1.7}
+.highlight{padding:2rem;border-radius:12px;margin:2rem 0;background:var(--gold-light);border:1px solid #DEC99F;font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;text-align:center}
+.cta{text-align:center;padding:6rem 2rem;background:linear-gradient(180deg,#F5F3ED,var(--cream))}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{display:inline-block;padding:1rem 3rem;border-radius:2rem;background:var(--text);color:#fff;text-decoration:none;font-weight:500;letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;font-family:'Noto Sans TC',sans-serif;border:none;cursor:pointer}
+.cta-btn:hover{transform:scale(1.03)}
+.quiz-section{background:linear-gradient(180deg,var(--warm),#F5F3ED);padding:5rem 1.5rem;text-align:center}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-text{font-size:0.95rem;font-weight:500;margin-bottom:1rem;line-height:1.7}
+.q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{padding:0.8rem 1.2rem;border-radius:10px;border:1px solid #E8E3D8;background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);font-weight:400}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--gold-light)}
+.q-btn.selected{border-color:var(--text);background:var(--gold-light);font-weight:600;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--gold)}
+.result-card{display:none;max-width:420px;margin:2rem auto 0;padding:2rem;border-radius:16px;text-align:center;background:var(--gold-light);border:1px solid #DEC99F}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{font-size:0.6rem;letter-spacing:0.2em;color:var(--text-muted);margin-bottom:1rem}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;color:var(--terra-deep)}
+.result-card .r-desc{font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem}
+.share-row{display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap}
+.share-btn{padding:0.6rem 1.4rem;border-radius:2rem;border:none;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;transition:transform 0.2s,opacity 0.2s}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--cream);color:var(--text);border:1px solid #E8E3D8}
+footer{text-align:center;padding:3rem 2rem;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em}
+footer img{height:28px;opacity:0.6;transition:opacity 0.2s}
+footer img:hover{opacity:0.8}
+blockquote{border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin:2rem 0;background:rgba(212,165,116,0.08);border-radius:0 8px 8px 0;font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8}
+@media(max-width:700px){html{font-size:16px}section{padding:3rem 1.2rem}.contrast-cards,.challenge-pair,.features-grid{grid-template-columns:1fr}.stack-visual{flex-direction:column}.hero h1{font-size:2rem}.lang-toggle{top:10px;right:10px;font-size:0.65rem}}
+</style>
+</head>
+<body>
+<button class="lang-toggle" onclick="toggleLanguage()"><span class="zh">繁中</span><span class="en">English</span></button>
+<div class="hero">
+  <div class="hero-coin"><div class="coin-circle">💱</div></div>
+  <h1><span class="zh">明恩幣</span><span class="en">Ming'en Coin</span></h1>
+  <p class="subtitle"><span class="zh">2026 年堪稱紅包元年。</span><span class="en">The Year of On-Chain Red Packets Begins.</span></p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+<div class="big-question">
+  <h2 class="fade-in"><span class="zh">為什麼鏈上發紅包這麼難？</span><span class="en">Why Is Sending Crypto Red Packets So Hard?</span></h2>
+  <div class="options fade-in">
+    <span class="option"><span class="zh">Gas 費太高</span><span class="en">High Gas Fees</span></span>
+    <span class="option"><span class="zh">隱私被曝露</span><span class="en">Privacy Issues</span></span>
+    <span class="option"><span class="zh">使用者體驗差</span><span class="en">Poor UX</span></span>
+    <span class="option"><span class="zh">沒有人領</span><span class="en">No One Claims</span></span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)"><span class="zh">2019 年發「明恩幣」時，全都是問題。七年後，這些問題終於有了解決方案。</span><span class="en">Seven years ago, every problem existed. Today, they're finally solved.</span></p>
+</div>
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span><span class="zh">七年前的實驗</span><span class="en">The 2019 Experiment</span></h2>
+  <p class="fade-in"><span class="zh">2019 年農曆新年，區塊勢正值最徬徨的熊市。BTC 跌到 3,000 美元，ETH 跌破 100 美元。當時最流行的就是發行全新代幣再寫份白皮書「賦能」。</span><span class="en">In 2019, during the darkest bear market, crypto was obsessed with issuing new tokens. So I created Ming'en Coin: a personal token for my parents as a lunar new year red packet.</span></p>
+  <p class="fade-in"><span class="zh">我想：既然手上的 ETH 已經跌爛了，不如拿來發個「明恩幣」，當成新春紅包送給爸媽？只要填寫發行總量、代幣名稱、代號，花個台幣 40 元 gas fee，就能獲得客製化加密貨幣。</span><span class="en">I minted 7,200 Ming'en Tokens—3,600 for each parent. They installed a wallet, accepted the gift, and politely asked: "What can I use this for?"</span></p>
+  <p class="fade-in"><span class="zh">事後他們只問我，這些「明恩幣」有什麼用？顯然不能換現金，我只好胡扯一些洗碗、倒垃圾的使用場景。說穿了，明恩幣就是我先發出去的「債」，之後再以勞務慢慢還。但七年過去，那些幣還靜靜地躺在爸媽的錢包裡。</span><span class="en">I improvised scenarios: washing dishes, taking out trash. Basically, I created a personal debt token. Seven years later, those tokens still sit unused in their wallets.</span></p>
+  <p class="fade-in" style="font-weight:500;color:var(--terra-deep)"><span class="zh">現在回頭看根本就是鬧劇一場。但那次發紅包的經驗，反而成了最好的記憶錨點，用來對照過去七年區塊鏈有哪些具體進展。</span><span class="en">It was ridiculous. But it became the perfect measuring stick to track blockchain progress.</span></p>
+</section>
+<section class="wide">
+  <div class="timeline fade-in">
+    <div class="timeline-item">
+      <div class="year"><span class="zh">2019</span><span class="en">2019</span></div>
+      <div class="content">
+        <h3><span class="zh">明恩幣 1.0</span><span class="en">Ming'en v1</span></h3>
+        <p><span class="zh">手動發幣、手動轉帳、自己買 gas fee、全額曝露金流</span><span class="en">Manual minting, manual transfer, I pay gas, all transactions visible on-chain</span></p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="year"><span class="zh">2026</span><span class="en">2026</span></div>
+      <div class="content">
+        <h3><span class="zh">穩定幣紅包</span><span class="en">Stablecoin Red Packet</span></h3>
+        <p><span class="zh">一鍵發放、隱身地址、錢包補貼 gas fee、金流隱私</span><span class="en">One-click distribution, stealth addresses, wallet subsidizes gas, privacy by default</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span><span class="zh">七年的障礙與突破</span><span class="en">Seven Years of Obstacles & Breakthroughs</span></h2>
+  <p class="fade-in"><span class="zh">交易所紅包早就成熟得不行。錢在平台裡流動，沒有 gas fee，也不用擔心錢包曝光。但如果想在鏈上發紅包，事情就複雜得多。</span><span class="en">Centralized platforms handle red packets flawlessly. But on-chain? There were three brutal problems.</span></p>
+  <div class="contrast-cards fade-in">
+    <div class="contrast-card past">
+      <h3><span class="zh">2019 年的困境</span><span class="en">2019: The Obstacles</span></h3>
+      <div class="metric"><div class="metric-label"><span class="zh">GAS FEE</span><span class="en">GAS FEE</span></div><div class="metric-value"><span class="zh">用戶自付</span><span class="en">User Pays</span></div></div>
+      <div class="metric"><div class="metric-label"><span class="zh">隱私</span><span class="en">PRIVACY</span></div><div class="metric-value"><span class="zh">零保護</span><span class="en">None</span></div></div>
+      <div class="metric"><div class="metric-label"><span class="zh">錢包</span><span class="en">WALLET</span></div><div class="metric-value"><span class="zh">自己裝</span><span class="en">DIY Setup</span></div></div>
+    </div>
+    <div class="contrast-card future">
+      <h3><span class="zh">2026 年的解決</span><span class="en">2026: The Solutions</span></h3>
+      <div class="metric"><div class="metric-label"><span class="zh">GAS FEE</span><span class="en">GAS FEE</span></div><div class="metric-value"><span class="zh">錢包補貼</span><span class="en">Wallet Covers</span></div></div>
+      <div class="metric"><div class="metric-label"><span class="zh">隱私</span><span class="en">PRIVACY</span></div><div class="metric-value"><span class="zh">隱身地址</span><span class="en">Stealth Addr</span></div></div>
+      <div class="metric"><div class="metric-label"><span class="zh">錢包</span><span class="en">WALLET</span></div><div class="metric-value"><span class="zh">Email 開戶</span><span class="en">Email Signup</span></div></div>
+    </div>
+  </div>
+  <h3 class="fade-in" style="margin-top:3rem;margin-bottom:1.5rem;font-size:1.1rem;font-weight:600"><span class="zh">隱身地址是關鍵創新</span><span class="en">Stealth Addresses: The Game Changer</span></h3>
+  <p class="fade-in"><span class="zh">隱身地址就像是把每一筆錢分開放在不同口袋，各自獨立保管，只有使用者自己知道這些口袋加總起來的餘額是多少。使用者每次領紅包，系統都會自動建立一個新的「口袋」單獨存放，兼顧隱私和合規。</span><span class="en">Each transaction gets its own "pocket." Unlike mixing services, funds never blend with others, so there's no money laundering risk. Privacy without compliance concerns.</span></p>
+  <div class="features-grid fade-in">
+    <div class="feature-box"><h4><span class="zh">✓ 隱私</span><span class="en">✓ Privacy</span></h4><p><span class="zh">資金流向無法追蹤，只有你知道自己有多少錢</span><span class="en">Fund flows can't be traced. Only you know your balance.</span></p></div>
+    <div class="feature-box"><h4><span class="zh">✓ 合規</span><span class="en">✓ Compliance</span></h4><p><span class="zh">資金獨立存管，沒有洗錢疑慮</span><span class="en">Funds are siloed, no AML red flags</span></p></div>
+    <div class="feature-box"><h4><span class="zh">✓ 標準化</span><span class="en">✓ Standardized</span></h4><p><span class="zh">走 Base 區塊鏈，用 USDC 穩定幣</span><span class="en">Built on Base using USDC stablecoin</span></p></div>
+    <div class="feature-box"><h4><span class="zh">✓ 無縫</span><span class="en">✓ Seamless</span></h4><p><span class="zh">Email 開戶，一鍵領紅包，沒有 gas fee</span><span class="en">Email signup, one-click redemption, no gas worries</span></p></div>
+  </div>
+</section>
+<section>
+  <h2 class="fade-in"><span class="label">PART 3</span><span class="zh">樂高的魔法：可組合性</span><span class="en">The Lego Magic: Composability</span></h2>
+  <p class="fade-in"><span class="zh">Fluidkey 的紅包產品更像是在「拼樂高」。底層用的是 Base，穩定幣是 USDC，錢包由 Privy 提供，只有隱身地址是 Fluidkey 自己打造。每塊積木各自獨立發展，終於它們現在都成熟到能組裝出一款全新應用。</span><span class="en">Fluidkey doesn't build everything from scratch. Base provides the blockchain, Privy handles wallet, USDC is the stablecoin. Fluidkey only built stealth addresses. Each component matured separately, then snapped together.</span></p>
+  <div class="stack-visual fade-in">
+    <div class="stack-column">
+      <div class="stack-box" style="flex:0 0 auto"><h4><span class="zh">🏗️ 底層基礎</span><span class="en">🏗️ Base Layer</span></h4><p><span class="zh">Base 區塊鏈</span><span class="en">Base Blockchain</span></p></div>
+      <div class="arrow-down">↓</div>
+      <div class="stack-box" style="flex:0 0 auto"><h4><span class="zh">💰 穩定幣</span><span class="en">💰 Stablecoin</span></h4><p><span class="zh">USDC</span><span class="en">USDC</span></p></div>
+      <div class="arrow-down">↓</div>
+      <div class="stack-box" style="flex:0 0 auto"><h4><span class="zh">🔐 錢包</span><span class="en">🔐 Wallet</span></h4><p><span class="zh">Privy + Fluidkey</span><span class="en">Privy + Fluidkey</span></p></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;flex:0 0 60px;font-size:2rem;color:var(--gold)">= ✨</div>
+    <div class="stack-column">
+      <div class="stack-box" style="background:var(--gold-light);border-color:var(--gold);flex:1;display:flex;align-items:center;justify-content:center;text-align:center">
+        <div><h4 style="font-size:1.3rem;margin-bottom:0.3rem">🧧</h4><h4><span class="zh">鏈上紅包</span><span class="en">Red Packets</span></h4><p style="font-size:0.8rem;"><span class="zh">隱私、無縫、無 Gas</span><span class="en">Private, seamless, no gas</span></p></div>
+      </div>
+    </div>
+  </div>
+  <p class="fade-in"><span class="zh">這就像當年的 GPS、4G 網路和智慧型手機的組合。GPS 原本是為了導航，4G 是為了上網，手機是為了通訊。直到某個時間點，這些技術同時成熟，人們才赫然發現：將它們組裝在一起，可以變出 Uber。</span><span class="en">It's like how GPS, 4G, and smartphones were invented separately. GPS for navigation, 4G for data, phones for calls. But when they matured together, Uber happened. Red packets are the "Uber" of these crypto components.</span></p>
+</section>
+<section>
+  <h2 class="fade-in"><span class="label">實踐挑戰</span><span class="en">The Real Challenge</span></h2>
+  <p class="fade-in"><span class="zh">看起來簡單，但要讓一般人爽快領紅包，其實需要跨越兩個鴻溝。</span><span class="en">Sounds simple, but there are two big gaps to bridge.</span></p>
+  <div class="challenge-pair fade-in">
+    <div class="challenge-card problem"><span class="tag"><span class="zh">難點 1</span><span class="en">Challenge 1</span></span><h3><span class="zh">心理障礙</span><span class="en">Mental Block</span></h3><p><span class="zh">一般人根本不知道什麼是「隱身地址」或「stealth address」。他們需要的就是「掃 QR code、領紅包、看到錢」，完成。</span><span class="en">Nobody cares about stealth addresses. Users just want: scan QR → claim → see money. Done.</span></p></div>
+    <div class="challenge-card solution"><span class="tag"><span class="zh">解法</span><span class="en">Solution</span></span><h3><span class="zh">極度簡化</span><span class="en">Extreme Simplicity</span></h3><p><span class="zh">隱身地址的複雜度完全隱藏在錢包裡。使用者根本不需要懂，就能體驗到「隱私」的好處。</span><span class="en">Wallet handles all complexity. Users get privacy benefits without understanding it.</span></p></div>
+  </div>
+  <div class="challenge-pair fade-in">
+    <div class="challenge-card problem"><span class="tag"><span class="zh">難點 2</span><span class="en">Challenge 2</span></span><h3><span class="zh">可用性</span><span class="en">Accessibility</span></h3><p><span class="zh">過去鏈上紅包必須自己裝錢包、要知道什麼是 gas fee、還要有 ETH。光想像就能勸退 99% 的人。</span><span class="en">Past on-chain red packets: install wallet, understand gas, buy ETH. 99% stop before trying.</span></p></div>
+    <div class="challenge-card solution"><span class="tag"><span class="zh">解法</span><span class="en">Solution</span></span><h3><span class="zh">移除摩擦</span><span class="en">Frictionless</span></h3><p><span class="zh">Email 開戶、錢包補貼 gas fee、穩定幣就是現金。整個流程就像領 Venmo，不像用密碼學。</span><span class="en">Email signup, wallet pays gas, USDC is just cash. Like Venmo, not cryptography.</span></p></div>
+  </div>
+</section>
+<section>
+  <p class="fade-in lead" style="text-align:center;font-family:'Noto Serif TC',serif;font-size:1.2rem;color:var(--text-secondary)"><span class="zh">所以，發個紅包這件事，本質上是在測試區塊鏈的「實用性進步」。</span><span class="en">A red packet sounds small, but it's actually a test of whether blockchain finally works for normal people.</span></p>
+</section>
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in"><span class="zh">讀完了，你的代幣觀是什麼？</span><span class="en">Which Token Philosophy Matches You?</span></h2>
+  <p class="quiz-intro fade-in"><span class="zh">三個問題，看看你最接近哪一派。</span><span class="en">Three questions, three token philosophies.</span></p>
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1"><div class="q-step"><span class="zh">1 / 3</span><span class="en">1 / 3</span></div><div class="q-text"><span class="zh">個人代幣（像明恩幣）最重要的特徵是什麼？</span><span class="en">What's the core value of personal tokens like Ming'en Coin?</span></div><div class="q-options"><button class="q-btn" data-camp="activist"><span class="zh">⚙️ 它代表一個特定的承諾或債務</span><span class="en">⚙️ Represents a specific promise or debt</span></button><button class="q-btn" data-camp="pragmatist"><span class="zh">💰 它是發行人信譽的衍生品</span><span class="en">💰 Reflects the creator's reputation</span></button><button class="q-btn" data-camp="futurist"><span class="zh">🌐 它開啟社群經濟新的可能性</span><span class="en">🌐 Opens new possibilities for community economics</span></button></div></div>
+    <div class="q-card" data-q="2"><div class="q-step"><span class="zh">2 / 3</span><span class="en">2 / 3</span></div><div class="q-text"><span class="zh">看到 Fluidkey 的隱身地址讓發紅包變簡單，你的想法是？</span><span class="en">What do you think about stealth addresses making red packets easy?</span></div><div class="q-options"><button class="q-btn" data-camp="activist"><span class="zh">✊ 隱私被正視，代表密碼朋克精神還活著</span><span class="en">✊ Privacy finally matters. Cypherpunk spirit lives!</span></button><button class="q-btn" data-camp="pragmatist"><span class="zh">🤝 好技術，但隱私對大多數人不是首要需求</span><span class="en">🤝 Good tech, but privacy isn't most people's priority</span></button><button class="q-btn" data-camp="futurist"><span class="zh">🚀 這就是 crypto 的優勢──技術可以無縫隱藏</span><span class="en">🚀 This is crypto's superpower—seamless tech integration</span></button></div></div>
+    <div class="q-card" data-q="3"><div class="q-step"><span class="zh">3 / 3</span><span class="en">3 / 3</span></div><div class="q-text"><span class="zh">未來五年，社群代幣最有機會的應用場景是？</span><span class="en">Where will community tokens have the biggest impact?</span></div><div class="q-options"><button class="q-btn" data-camp="activist"><span class="zh">📍 小型社群內部的信用系統</span><span class="en">📍 Credit systems within small communities</span></button><button class="q-btn" data-camp="pragmatist"><span class="zh">🏢 和現有企業結合的忠誠度方案</span><span class="en">🏢 Loyalty programs for existing businesses</span></button><button class="q-btn" data-camp="futurist"><span class="zh">🌍 全球規模的組織治理與協作</span><span class="en">🌍 Global-scale DAOs and coordination</span></button></div></div>
+  </div>
+  <div class="result-card" id="resultCard"><div class="r-badge"><span class="zh">明恩幣與代幣哲學</span><span class="en">Your Token Philosophy</span></div><div class="r-emoji"></div><div class="r-name"></div><div class="r-desc"></div><div class="share-row"><button class="share-btn tw" id="shareTw"><span class="zh">分享到 𝕏</span><span class="en">Share on 𝕏</span></button><button class="share-btn fb" id="shareFb"><span class="zh">分享到 Facebook</span><span class="en">Share on Facebook</span></button></div></div>
+</div>
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">七年前的笑話，現在變成了現實。明恩幣只是一個記憶錨點，真正的進展是 Base、USDC、Privy 和 Fluidkey 這些組件終於成熟到能一起用。當技術夠成熟、使用體驗夠簡單，「發紅包」就不再是密碼朋克的黑暗實驗，而是普通人的日常活動。</span><span class="en">Seven years later, the joke became real. Ming'en Coin was just a reference point. The real progress is that Base, USDC, Privy, and Fluidkey finally matured enough to work together. When tech is invisible and UX is simple, red packets aren't cypherpunk experiments anymore—they're everyday life.</span></p>
+</section>
+<div class="cta">
+  <h2><span class="zh">這是區塊勢今年最特別的紅包。</span><span class="en">This Is Blocktrend's Most Special Red Packet.</span></h2>
+  <p><span class="zh">不只是現金，而是親身體驗「隱私」如何改變了你領紅包的體驗。</span><span class="en">Not just money, but experiencing how privacy changes everything.</span></p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/756" target="_blank"><span class="zh">閱讀完整文章 →</span><span class="en">Read Full Article →</span></a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="shareToTwitter()"><span class="zh">分享到 𝕏</span><span class="en">Share on 𝕏</span></button>
+    <button class="share-btn fb" onclick="shareToFacebook()"><span class="zh">分享到 Facebook</span><span class="en">Share on Facebook</span></button>
+    <button class="share-btn copy" onclick="copyLink(this)"><span class="zh">複製連結</span><span class="en">Copy Link</span></button>
+  </div>
+</div>
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" style="height:28px;opacity:0.6"></a></footer>
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+function toggleLanguage() {
+  const body = document.body;
+  if (body.classList.contains('lang-en')) {
+    body.classList.remove('lang-en');
+    localStorage.setItem('language', 'zh');
+  } else {
+    body.classList.add('lang-en');
+    localStorage.setItem('language', 'en');
+  }
+}
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('language') || 'zh';
+  if (saved === 'en') {
+    document.body.classList.add('lang-en');
+  }
+});
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  activist: {emoji:'✊',name_zh:'密碼朋克',name_en:'Cypherpunk',desc_zh:'你相信代幣的核心價值在於隱私、自主和個人主權。小到紅包、大到全球金融，都應該由個人控制。',desc_en:'You believe tokens are fundamentally about privacy, autonomy, and individual sovereignty. From red packets to global finance.',bg:'var(--terra-light)',color:'var(--terra-deep)',share_zh:'我是「密碼朋克」✊ 代幣的力量在於隱私和自主。你呢？',share_en:'I\'m a Cypherpunk ✊ Tokens are about privacy & sovereignty. You?'},
+  pragmatist: {emoji:'⚖️',name_zh:'務實主義者',name_en:'Pragmatist',desc_zh:'你看重實用性和易用性。好技術應該無感融入日常，而不是強迫人們學習密碼學。',desc_en:'You value practicality and usability. Good tech should be invisible, not require understanding cryptography.',bg:'var(--gold-light)',color:'var(--terra-deep)',share_zh:'我是「務實主義者」⚖️ 隱身地址很棒，但簡單體驗更重要。你呢？',share_en:'I\'m a Pragmatist ⚖️ Great tech matters less than simple UX. You?'},
+  futurist: {emoji:'🚀',name_zh:'願景派',name_en:'Visionary',desc_zh:'你對代幣經濟的未來充滿期待。社群、治理、新組織形式——代幣開啟了全新的可能。',desc_en:'You\'re excited about token economics and new forms of organization. This is just the beginning.',bg:'var(--purple-light)',color:'var(--purple)',share_zh:'我是「願景派」🚀 代幣經濟將重塑社群。你呢？',share_en:'I\'m a Visionary 🚀 Token economics will reshape everything. You?'}
+};
+const articleUrl = 'https://share.blocktrend.today/756/';
+let currentQ = 0;
+function showResult() {
+  const counts = { activist: 0, pragmatist: 0, futurist: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const isZh = !document.body.classList.contains('lang-en');
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = isZh ? camp.name_zh : camp.name_en;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = isZh ? camp.desc_zh : camp.desc_en;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+  const shareText = isZh ? camp.share_zh : camp.share_en;
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+function shareToTwitter() {
+  const text = document.body.classList.contains('lang-en')
+    ? 'Seven years ago I gave my parents "Ming\'en Coin" as a red packet. Now on-chain red packets finally work. 🧧\n\n'
+    : '七年前我給爸媽發了「明恩幣」當紅包，現在終於能發真正的鏈上紅包了。🧧\n\n';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(articleUrl), '_blank');
+}
+function shareToFacebook() {
+  window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl), '_blank');
+}
+function copyLink(btn) {
+  navigator.clipboard.writeText(articleUrl);
+  const original = btn.textContent;
+  const lang = document.body.classList.contains('lang-en') ? 'Copied!' : '已複製！';
+  btn.textContent = lang;
+  setTimeout(() => { btn.textContent = original; }, 1500);
+}
+</script>
+</body>
+</html>

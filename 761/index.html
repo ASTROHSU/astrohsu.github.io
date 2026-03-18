@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>查稅機動隊 — 區塊勢</title>
+<meta name="description" content="韓國政府把冷錢包私鑰以新聞稿公開上網，導致 500 萬美元加密貨幣被盜。探討政府如何查扣加密資產、私鑰管理的荒謬現狀。">
+<meta property="og:title" content="查稅機動隊">
+<meta property="og:description" content="政府查扣的加密貨幣遭駭，發現於新聞稿上公開的私鑰。">
+<meta property="og:image" content="cover.png">
+<meta property="og:url" content="https://share.blocktrend.today/761/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#4E4788;--purple-light:#EEEDF8;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,#FFE8D6 60%,#FF8C42 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(192,106,58,0.3));pointer-events:none;
+}
+
+.hero-lock{
+  width:140px;height:180px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:lockReveal 1.5s ease 0.3s forwards;
+}
+@keyframes lockReveal{to{opacity:1}}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(192,106,58,0.08);color:var(--terra)}
+.big-question .option:nth-child(3){background:rgba(78,71,136,0.08);color:var(--purple)}
+
+/* Comparison Grid */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.compare-side{padding:2rem}
+.compare-side.lose{background:var(--terra-light)}
+.compare-side.win{background:var(--green-light)}
+.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem}
+.compare-side .year{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.3rem}
+.bar-chart{margin:1rem 0}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.8rem;font-size:0.8rem}
+.bar-row .label{min-width:140px;color:var(--text-secondary);font-size:0.75rem;flex-shrink:0}
+.bar-row .bar-track{flex:1;height:22px;position:relative;background:rgba(0,0,0,0.04);border-radius:4px}
+.bar-row .bar{height:100%;border-radius:4px;transition:width 1.5s ease;position:absolute;left:0;top:0}
+.bar-row .bar.lose{background:var(--terra)}
+.bar-row .bar.win{background:var(--green)}
+.bar-row .bar.gray{background:#B4B2A9;opacity:0.4}
+.bar-row .pct{font-weight:500;font-size:0.75rem;min-width:40px;flex-shrink:0}
+
+/* Process flow */
+.process-flow{
+  display:flex;flex-direction:column;gap:1.2rem;margin:3rem 0;
+}
+.process-step{
+  padding:1.5rem;border-radius:12px;border-left:4px solid var(--terra);
+  background:#fff;border:1px solid #E8E3D8;
+}
+.process-step.error{border-left-color:#E74C3C;background:#FADBD8}
+.process-step .step-num{
+  display:inline-block;font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;
+  margin-bottom:0.5rem;font-weight:500;
+}
+.process-step h4{font-weight:600;margin-bottom:0.5rem;font-size:0.95rem}
+.process-step p{font-size:0.85rem;color:var(--text-secondary);margin:0}
+
+/* Two paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.path-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.path-card:hover{transform:translateY(-3px)}
+.path-card.right{background:var(--terra-light);border-color:#DBBFAD}
+.path-card.wrong{background:var(--green-light);border-color:#A8D4BC}
+.path-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.path-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.path-card.right .tag{background:#DBBFAD;color:#8B5A3C}
+.path-card.wrong .tag{background:#A8D4BC;color:#2D6B4F}
+.path-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.path-card .risk{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);
+}
+.path-card .risk strong{color:var(--terra);font-weight:500}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
+.q-btn.selected{border-color:var(--text);background:var(--terra-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--terra)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(192,106,58,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .compare-grid,.paths{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-lock" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 30 60 A 30 30 0 0 1 90 60" stroke="var(--terra)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <rect x="25" y="55" width="70" height="65" rx="8" fill="var(--terra)" opacity="0.9"/>
+    <circle cx="60" cy="85" r="8" fill="var(--cream)"/>
+    <circle cx="60" cy="85" r="5" fill="none" stroke="var(--terra-light)" stroke-width="1.5"/>
+    <rect x="35" y="65" width="15" height="40" rx="3" fill="var(--terra-light)" opacity="0.3"/>
+  </svg>
+  <h1>查稅機動隊</h1>
+  <p class="subtitle">政府把冷錢包私鑰公開上網</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">政府應該如何查扣加密貨幣？</h2>
+  <div class="options fade-in">
+    <span class="option">把冷錢包設備扣走</span>
+    <span class="option">轉入官方控制的錢包</span>
+    <span class="option">凍結交易所帳戶</span>
+    <span class="option">部署監控智慧合約</span>
+    <span class="option">公開私鑰作為證據</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">韓國國稅廳剛學會這堂昂貴的一課。上週末他們在新聞稿裡公開了加密資產的私鑰照片，導致 500 萬美元被駭走。這是有史以來最荒謬的政府烏龍。</p>
+</div>
+
+<!-- CONTEXT STORY -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>查稅機動隊的出現</h2>
+
+  <p class="fade-in">韓國因連續 3 年稅收短缺，累積欠稅總額超過 110 兆韓元。新任國稅廳長林光炫在 2025 年底上任，主張查稅必須到現場確認。為此籌組 2,000 人規模的「查稅機動隊」，鎖定數百名高額欠稅者。</p>
+
+  <p class="fade-in">效果顯著。今年 1 月知名男星被追繳超過 200 億韓元，創下娛樂圈史上最高紀錄。上週機動隊再度出動，查扣 124 名欠稅者的 81 億韓元資產。為了展示成果，他們拍照並透過新聞稿公開現場查扣的現金、名錶與加密貨幣冷錢包。</p>
+
+  <p class="fade-in">但眼尖網友發現，新聞稿附圖怪怪的。圖中不只有 4 支 Ledger 冷錢包，旁邊還擺著 2 張絕對不能被外人看到的「助記詞卡片」。新聞稿附圖雖然模糊，但國稅廳還向記者提供了高解析度原始照片。</p>
+
+  <div class="compare-grid fade-in">
+    <div class="compare-side lose">
+      <div class="year">2026 年 2 月 26 日</div>
+      <h3>查扣時</h3>
+      <div class="bar-chart">
+        <div class="bar-row"><span class="label">冷錢包內資產</span><div class="bar-track"><div class="bar lose" style="width:0%" data-w="100%"></div></div><span class="pct">$5M</span></div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:1rem 0 0;font-style:italic">「我們有實體設備，資產應該很安全」</p>
+    </div>
+    <div class="compare-side win">
+      <div class="year">2026 年 2 月 27 日 凌晨</div>
+      <h3>被駭後</h3>
+      <div class="bar-chart">
+        <div class="bar-row"><span class="label">冷錢包內資產</span><div class="bar-track"><div class="bar gray" style="width:0%" data-w="0%"></div></div><span class="pct">$0</span></div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:1rem 0 0;font-style:italic">「原來助記詞比設備還重要」</p>
+    </div>
+  </div>
+
+  <p class="fade-in">漢城大學教授趙載雨看到新聞稿，公開質疑國稅廳怎麼會把助記詞直接拍給大家看。幾小時之後，錢包裡 500 萬美元的 PRTG 代幣果然就在眾目睽睽之下被轉走。</p>
+</section>
+
+<!-- THE PROBLEM -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>加密資產查扣的困境</h2>
+
+  <p class="fade-in">傳統查扣流程是扣押實體資產——現金、珠寶、房產。但加密資產完全不同。一串 12 或 24 個單詞（助記詞）就能控制數百萬美元。只要有人掌握助記詞，就擁有完全的絕對控制權。</p>
+
+  <p class="fade-in">韓國國稅廳犯的最根本錯誤，就是把查扣加密資產的流程當成傳統實體資產。他們以為扣走冷錢包設備就夠了，沒有意識到助記詞——才是真正的金鑰。</p>
+
+  <div class="process-flow fade-in">
+    <div class="process-step">
+      <span class="step-num">1. 查扣當下</span>
+      <h4>錯誤做法：扣走設備</h4>
+      <p>國稅廳拍照冷錢包、公開私鑰。以為實體在手就安心。結果整個查扣過程都在做無用功。</p>
+    </div>
+    <div class="process-step">
+      <span class="step-num">2. 資金轉出</span>
+      <h4>幾小時內被清空</h4>
+      <p>駭客掌握助記詞，在區塊鏈上發動轉帳。實體冷錢包完全無法阻止。國稅廳卻是看新聞報導才知道資產被盜。</p>
+    </div>
+    <div class="process-step error">
+      <span class="step-num">3. 應急措施</span>
+      <h4>（什麼都沒做）</h4>
+      <p>國稅廳沒有部署任何智慧合約監控。事後只能公開道歉。</p>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">關鍵差異：有形資產靠「物理控制」，無形資產靠「密碼控制」。混淆這兩者，就會掉進這個陷阱。</p>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>正確的查扣方式</h2>
+
+  <blockquote class="fade-in">
+    理想的扣押流程應該是，在查扣當下，就由執法人員將加密貨幣轉入政府控制的錢包保管。因為助記詞可以多方備份，即便冷錢包裝置被扣走也沒關係。
+  </blockquote>
+
+  <div class="paths fade-in">
+    <div class="path-card right">
+      <span class="tag">正確方式</span>
+      <h3>立即轉入官方錢包</h3>
+      <p class="detail">查扣當下就用政府控制的私鑰，將資產轉出到安全地址。助記詞可備份多份，安全性更高。</p>
+      <div class="risk"><strong>優點：</strong>主動權掌握在政府，駭客無法轉出資產。資產追蹤也更容易。</div>
+    </div>
+    <div class="path-card wrong">
+      <span class="tag">韓國的做法</span>
+      <h3>扣走冷錢包設備</h3>
+      <p class="detail">只扣走 Ledger 硬體，以為實體在手就是安全。完全忽視數位資產不受物理控制約束。</p>
+      <div class="risk"><strong>致命傷：</strong>任何掌握助記詞的人都能輕易轉出資產。實體設備形同虛設。</div>
+    </div>
+  </div>
+
+  <p class="fade-in" style="font-size:0.95rem;margin-top:2rem">除此之外，韓國政府可以部署智慧合約做自動監控：只要有錢轉入、就即時轉出到安全地址。即便私鑰再次外洩，也能避免連環遭駭。但國稅廳事發至今什麼都沒做。</p>
+</section>
+
+<!-- WHAT ACTUALLY HAPPENED -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 4</span>兩名駭客的反轉故事</h2>
+
+  <p class="fade-in">鏈上追蹤發現了奇怪現象：500 萬美元轉走後，3 小時內又被原封不動轉回冷錢包。直到警方記者會才揭露真相。</p>
+
+  <p class="fade-in">第一位駭客之所以主動投案，並把錢轉回，理由令人哭笑不得：「那些 PRTG 代幣根本賣不掉，就像撿廢紙一樣簡單。」</p>
+
+  <p class="fade-in">原因很簡單：PRTG 是垃圾幣。市場上只在 MEXC 交易所買賣，過去 24 小時交易量僅 31 美元。駭客偷到的 400 萬顆代幣帳面 500 萬美元，實際根本無法變現。發財夢破滅，加上警方循著鏈上金流容易追查，嫌犯乾脆主動投案。</p>
+
+  <p class="fade-in">至於第二位駭客，八成也是沒搞清楚狀況。他把代幣轉到新錢包，透過去中心化交易所換掉部分資產，但被逮住後也只能放棄。為了偷一批毫無價值的垃圾幣被檢警鎖定，堪稱全天下最蠢的賊。</p>
+
+  <blockquote class="fade-in">
+    幸虧傻人有傻福，奇蹟似地用 0 元學費上了一課。就怕人性通常是學費越貴，才會更認真？
+  </blockquote>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">這起事件凸顯韓國政府在管理加密貨幣的漏洞有多大。不僅連最基本的「私鑰不能公開」都不知道，更沒有任何緊急應對措施。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">韓國副總理為此出面，要求儘速擬訂數位資產管理方針。但政府學到的教訓，也許就只是：「下次不要讓媒體看到私鑰照片」。真正的系統性改革，恐怕還要再過幾次烏龍。</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">讀完了，你會怎麼處理？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你的加密資產管理哲學。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">如果你是政府單位查扣加密資產，最優先的做法是？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="security">立即轉入自己控制的錢包，斷絕任何盜竊可能</button>
+        <button class="q-btn" data-camp="pragmatic">先扣押設備，之後再慢慢研究如何管理</button>
+        <button class="q-btn" data-camp="careless">拍照存證，公開展示查扣成果</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">對待加密資產的私鑰/助記詞，哪個態度最重要？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="security">比實體資產更機密，絕不能外洩</button>
+        <button class="q-btn" data-camp="pragmatic">在安全地點備份，定期檢查</button>
+        <button class="q-btn" data-camp="careless">只要物理設備安全就沒問題</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">政府機構應該具備什麼技能，才能安全管理加密資產？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="security">區塊鏈基礎知識、智慧合約、密碼學</button>
+        <button class="q-btn" data-camp="pragmatic">請區塊鏈專家顧問，邊做邊學</button>
+        <button class="q-btn" data-camp="careless">像管理傳統資產一樣，應該差不多</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">查稅機動隊</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>政府把冷錢包私鑰公開上網。</h2>
+  <p>完整文章深入探討加密資產查扣的困境、正確方式，以及韓國政府的荒謬烏龍。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/761" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('韓國政府把冷錢包私鑰以新聞稿公開上網，導致 500 萬美元加密貨幣被盜。探討政府如何查扣加密資產、私鑰管理的荒謬現狀。\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/761/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/761/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/761/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar').forEach(bar => {
+        bar.style.width = bar.dataset.w;
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.compare-grid').forEach(el => barObserver.observe(el));
+
+// Quiz logic
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  security: {
+    emoji: '🔐', name: '密碼學衛士',
+    desc: '你深知加密資產的本質是密碼，而非物理。政府應該優先掌握密鑰控制權，部署多層防禦。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    share: '我是「密碼學衛士」🔐 加密資產的安全，取決於私鑰管理，不是物理設備。你呢？'
+  },
+  pragmatic: {
+    emoji: '⚙️', name: '務實的改革者',
+    desc: '你認同加密資產需要特殊處理，但政府畢竟是新手。先扣住資產，邊學邊做才是務實之道。',
+    bg: 'var(--terra-light)', color: '#8B5A3C',
+    share: '我是「務實的改革者」⚙️ 政府需要學習曲線，邊做邊改進加密資產管理流程。你呢？'
+  },
+  careless: {
+    emoji: '😅', name: '不幸的象徵',
+    desc: '你還沒意識到加密與傳統資產的根本差異。但別擔心，韓國國稅廳已經為你們全體上過課。',
+    bg: '#FADBD8', color: '#E74C3C',
+    share: '我是「不幸的象徵」😅 還把加密資產當傳統資產管理？韓國政府已經為我們示範了後果。你呢？'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/761/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { security: 0, pragmatic: 0, careless: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#718 創新與區塊鏈無關 — 區塊勢</title>
+<meta name="description" content="上個月我在〈 給董瑞斌董事長：悠遊卡不是穩定幣，關鍵差異在這裡 〉這篇文章討論悠遊卡和穩定幣在本質上的區別。我將文章設為公開，希望成為台灣討論穩定幣的基礎。文章刊出後，至今已經看到兩則回音。">
+<meta property="og:title" content="創新與區塊鏈無關">
+<meta property="og:description" content="上個月我在〈 給董瑞斌董事長：悠遊卡不是穩定幣，關鍵差異在這裡 〉這篇文章討論悠遊卡和穩定幣在本質上的區別。我將文章設為公開，希望成為台灣討論穩定幣的基礎。文章刊出後，至今已經看到兩則回音。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/60b3f1eb-8e16-421c-82dc-73b880f483af_2240x1260.jpeg">
+<meta property="og:url" content="https://share.blocktrend.today/718/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#718</div>
+  <h1>創新與區塊鏈無關</h1>
+</header>
+
+<article class="article-content">
+<p>上個月我在〈<a href="https://www.blocktrend.today/p/710">給董瑞斌董事長：悠遊卡不是穩定幣，關鍵差異在這裡</a>〉這篇文章討論悠遊卡和穩定幣在本質上的區別。我將文章設為公開，希望成為台灣討論穩定幣的基礎。文章刊出後，至今已經看到兩則回音。</p><p>首先是董瑞斌董事長<a href="https://youtu.be/hKCsOwnQZaA?si=6Kahj8frKaeWZw6x">親自登上 YouTube 節目</a>，進一步闡述他對於穩定幣的看法，以及銀行該如何協助企業應對。而另一邊，《曲博科技教室》創辦人曲建仲則投書《關鍵評論網》發表萬字長文〈<a href="https://www.thenewslens.com/article/258025">曲博反駁「區塊勢」：兆豐金控董事長說的對，穩定幣就是儲值卡</a>〉。內容不僅支持董事長最初的說法，更延伸出「麥當勞發行的儲值卡也是穩定幣」的全新論調。</p><p>曲博是加密貨幣的懷疑論者，但並非不懂區塊鏈。他的影響力不容小覷，論點確實也反映許多人對這個領域的誤解。我完整讀完曲博的文章後，整理出「三大迷思」並逐一拆解。我會先說明曲博的論點，再點出問題在哪並用具體事實佐證。希望透過這種方式，讓讀者不僅能看熱鬧，也能自行判斷對錯。這篇照例全文公開，歡迎分享。先從曲博每場活動必定會提到的穩定幣「OO 幣」說起。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/60b3f1eb-8e16-421c-82dc-73b880f483af_2240x1260.jpeg" alt="" loading="lazy"></figure><h2>創新與區塊鏈無關</h2><p>曲博指出，「穩定幣跨境匯款三秒鐘免手續費」根本與區塊鏈無關，只要一台電腦就能做到。</p><p>他舉例，在台灣的小王以新台幣買了 OO 幣，要匯款給人在美國的小美。整個過程實際不需要什麼區塊鏈，只要有一台電腦負責從小王的 APP 帳戶扣除 OO 幣，再從小美的 APP 帳戶增加 OO 幣就能輕鬆完成。既然都是同一台電腦，當然能即時到帳，過程哪需要什麼手續費。這種模式，就連速食店的儲值卡也可以做。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/083f834e-5e17-4e6a-85fa-855556a9d268_624x277.png" alt="" loading="lazy"></figure><p>不可否認加密貨幣常被用來犯罪。只是主因不是業者忽視合規，而是加密貨幣不必每筆金流都經過中心化交易所。加密貨幣雖然是數位型態的資產，卻可以像現金一樣，由個人持有，不必存入金融機構。新模式衍生出新問題，這也是曲博對區塊鏈的第二項批評：加密貨幣缺乏監管。</p><h2>加密貨幣缺乏監管</h2><p>曲博認為，穩定幣之所以方便又快速，是因為缺乏監管。未來監管介入後，穩定幣就會變成悠遊卡的樣子。</p><p>曲博舉例，雖然 USDT 能做到金融普惠，卻也等於販毒、詐騙集團都可以使用它。只有不受監管的穩定幣，才會容許這些事情發生。反觀已經受到妥善監管的悠遊卡公司，就會要求店家實名認證並限制交易金額。悠遊卡並不是技術落後穩定幣，而是為了在系統遭駭或盜刷時，能將風險控制在合理範圍。區塊鏈完全不設防，等於假設「世界上沒有駭客」。</p><p>曲博也不認同美國的穩定幣監管作為。他認為現在美國的監管機關就是由加密產業人士主導，法規表面上看起來很有道理，但所謂保留彈性，實際上就是大開後門。換言之，從政府到法規都已經被滲透。曲博點出關鍵原因：美國政府內部少了<strong>天地良心</strong>。他們缺一位像曲博這樣既了解區塊鏈原理、願意說實話，又能拆穿加密產業炒作手法的專家。上下交相賊。結果就是整個國家，甚至全世界就這樣被唬弄過去了！</p><h3>飛機不停紅綠燈</h3><p>我把這段論述稱為「飛機不停紅綠燈」。飛機之所以快，是因為沒停紅綠燈嗎？顯然不是。而且空中並不是毫無章法，遵循的是航管、雷達系統等規則。曲博主張穩定幣好用，是因為沒有監管，就像主張空中沒有紅綠燈，飛機才能跑得快。不僅忽略上一段討論的共識機制，更錯把陸地上的交通規則搬到空中。</p><p>此外，曲博的論點也與美國監管者的實戰經驗相反。美國證券主管機關 SEC 委員 Hester Peirce 近期受訪時表示，這些年來加密貨幣領域中那些糟糕事件，很多根本就不是加密貨幣本身的問題（not actually crypto）。監管者每天都在見證的事情 —— 中心化機構對客戶做出糟糕的行為 —— 詐騙、販毒、走私早在加密貨幣問世之前就已經出現，並不是因為加密貨幣才有。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/2OFzH92_DwI?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>該如何拿捏風險與創新？Hester Peirce 的觀點是：</p><blockquote><p>如果不允許創新發生，你其實剝奪了那些你聲稱要保護的人，獲得更好產品和服務的機會 ... 作為監管者，我們必須承擔允許創新發生的風險 (we as regulators have to take the risk of allowing innovation to happen)... 如果你把創新拒於門外，沒人會怪你；但如果你讓創新進來而出錯，人們就會怪你。所以我們監管者需要承擔這種風險。」</p></blockquote><p>顯見美國政府並不像曲博所言那般天真，以為世界上沒有駭客，而是早就認知到風險，但認為推動創新利大於弊，因此願意鼓起勇氣承擔。到底是在台灣寫文章、拍影片、開課程的曲博比較了解監管實務，還是專責的美國政府官員更懂得拿捏個中分寸，相信大家心中都有一把尺。</p><p>最後，曲博還大膽地揭穿整個加密貨幣產業鏈其實是一場精心策劃的騙局。從挖礦、交易所、發行穩定幣，到近期看到的 OO 幣公司（Circle）上市，都是靠利益串起來的「詐騙循環」。</p><h2>不能說的利益</h2><p>曲博分析，比特幣原本是個沒價值的空氣幣。卻因為有人要買，出現了供需市場。礦工很聰明，既然挖到比特幣都要賣掉，何不自己開一家交易所還能兼賺手續費？成為交易所老闆後，他又發現既然加密貨幣和現金都在自己手上，何不發行穩定幣、自己憑空印鈔比較快？最後，這些印鈔公司為了獲得監管機關認可，決定在股票市場公開掛牌上市，直接從投資人手中吸走更多現金。</p><p>這個劇本目前已經演到「第四階段」。曲博預言，未來還會有更多穩定幣發行商爭相掛牌，藉此將虛擬的加密貨幣和實體的傳統金融結合。當這個泡泡被越吹越大、故事再也掰不下去，最終就會出現下一輪的金融海嘯。因為加密貨幣已經嵌入傳統金融，就連不買幣的股市投資人也可能受到幣圈波及。而現在鼓吹你投資加密貨幣、看好區塊鏈發展的人，很可能都是因為他們的共同利益已經綁定在同一艘船上，只是不告訴你而已。</p><h3>一定有人騙你</h3><p>我把這段論述稱為「一定有人騙你」。曲博擅長說故事，卻常常把真實和虛構混為一談。這段故事裡包含許多事實，也有許多腦補片段。例如多數礦工確實都是靠賣幣來維持挖礦成本，但究竟是哪一家交易所的成立契機是礦工想賣幣我還真不知道。也確實有人同時開交易所（Bitfinex）、又發行穩定幣（USDT），但它和現在美股上市的公司根本是不同人。把這些不同時空背景下發生的獨立事件串成一場陰謀論，確實令人印象深刻。</p><p>但最大的邏輯破綻在於，為什麼曲博最信賴的監管機構，竟然都沒有看出來這場天大的陰謀？難道是他們不夠懂區塊鏈？還是不敢講真話？甚至已經被加密產業吸收，成了詐騙產業鏈的一環？相信大家看到這裡，會發現曲博把自己設在「唯一敢講真話」的制高點。只要論述與他不同，要嘛是共犯，要嘛是無知。只有他「天地良心」能夠獨排眾議，勇敢戳破產業的真相。就連他信賴的監管機構，也被打成了智商忽高忽低的形象。有時能制定最完善的規則，有時卻會被輕易唬弄過去。</p><p>會不會有一種可能是這些人都不是騙子，反而是曲博在自欺欺人？加密貨幣問題不少，但若是缺乏理解就難以進步。</p><p>p.s. 麥當勞推出的甜心卡根本沒有儲值功能，只能秀出 A + B ...</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/960e6c89-ee15-4503-b001-8685b9c8add3_736x1200.png" alt="" loading="lazy"></figure></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/718">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#715 穩定幣軍火商 — 區塊勢</title>
+<meta name="description" content="全球最多人使用的加密貨幣錢包 MetaMask 終於發幣了！但推出的不是治理代幣，而是美元穩定幣 MetaMask USD（代號 mUSD）。市場上已經有 USDT、USDC 兩大霸主，為什麼 Met⋯">
+<meta property="og:title" content="穩定幣軍火商">
+<meta property="og:description" content="全球最多人使用的加密貨幣錢包 MetaMask 終於發幣了！但推出的不是治理代幣，而是美元穩定幣 MetaMask USD（代號 mUSD）。市場上已經有 USDT、USDC 兩大霸主，為什麼 Met⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/6fe12e06-c898-4ee0-9d1c-9c7aecb6e6ad_2880x1620.avif">
+<meta property="og:url" content="https://share.blocktrend.today/715/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#715</div>
+  <h1>穩定幣軍火商</h1>
+</header>
+
+<article class="article-content">
+<p>全球最多人使用的加密貨幣錢包 <a href="https://metamask.io/">MetaMask</a> 終於發幣了！但推出的不是治理代幣，而是美元穩定幣 MetaMask USD（代號 mUSD）。市場上已經有 USDT、USDC 兩大霸主，為什麼 MetaMask 還要自己發一款？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6fe12e06-c898-4ee0-9d1c-9c7aecb6e6ad_2880x1620.avif" alt="MetaMask announces stablecoin, MetaMask USD" loading="lazy"></figure><p>這篇文章要告訴你，發行穩定幣的背後邏輯以及商機在哪。我大膽預言，未來市場上的穩定幣肯定會多到讓人眼花撩亂，現在還只是剛開始而已。</p><h2>穩定幣軍火商</h2><p>MetaMask 是全球最多人使用的加密貨幣錢包，2024 年月活躍用戶數<a href="https://blockworks.co/news/metamask-monthly-active-users-blockaid?ref=thisweekinfintech.com">高達 3,000 萬</a>。MetaMask 表示，自家的美元穩定幣 mUSD 不僅是首款由錢包廠商推出的原生穩定幣，未來還計畫發行一張萬事達卡，預設 mUSD 為首選支付貨幣。但<a href="https://metamask.io/news/metamask-announces-stablecoin-metamask-usd">整份新聞稿</a>中，最重要的其實是這句話：</p><blockquote><p>mUSD 是由 MetaMask 與 Stripe 旗下公司 <a href="https://www.bridge.xyz/">Bridge</a> 以及 <a href="https://www.m0.org/">M0</a> 協作打造。</p></blockquote><p>2025 年發行穩定幣的模式已經和以往完全不同了。當年 Circle 發行穩定幣，得自己拿牌照、管儲備<sup>1</sup>、調水位，凡事親力親為，現在 MetaMask 只要請工程師串上 Bridge 最新推出的穩定幣 API，幾週內就能上線。換言之，企業發行穩定幣不再需要高度金融專業，因為它已經被簡化為單純的工程問題 —— 只要會串 API 就好！</p><p>把複雜的金融「API 化」，是 Stripe 的看家本領。Stripe 能成為全球線上刷卡機的領導品牌，就是因為解決了小型商家收信用卡的困境。以前區塊勢如果要開放大家刷卡訂閱，得先開公司、跟 Visa 簽約，還要遵守支付安全規範。小型商家根本玩不起。Stripe 把這些繁瑣的流程包裝成一支 API，主打「只要 7 行程式碼就能收款」，徹底改變了網路收款的模式。</p><p>去年 Stripe 收購穩定幣新創 Bridge 之後<sup>2</sup>，外界以為它要發自己的美元穩定幣。但 Stripe 兩位共同創辦人在 5 月的一場 AMA 裡親自打破傳言，說他們要當的是「穩定幣的軍火商」，讓任何應用都能透過 API 發行自家的穩定幣。換言之，未來是穩定幣大亂鬥的時代。MetaMask 推出 mUSD 就是這個「軍火商模式」的第一個代表案例。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1eb211c3-1b76-4c47-9c93-4128e4e90bf3_1554x1196.png" alt="" loading="lazy"></figure><p>但為什麼 MetaMask 要發穩定幣？</p><h2>建構鏈上銀行</h2><p>答案很簡單：肥水不落外人田。</p><p>MetaMask 已經不是當年那個只能收發代幣的陽春錢包，現在的它更像是一家鏈上銀行。打開 MetaMask 除了有基本功能，還能直接刷卡買幣、跨鏈換幣、透過 DeFi 賺收益。未來還能串接支付卡，應付日常消費。這已經囊括了銀行的核心功能：存款、換匯、轉帳和理財。</p><p>錢包雖然是人們進入 Web3 的入口，但因為資產不在自己口袋，至今沒有找到穩定的賺錢方式。轉帳 gas fee 又難以抽成，MetaMask 只能靠換匯和理財產品收點佣金。但用戶也很聰明，知道在 MetaMask 做這些不划算，根本不會使用。</p><p>就算 MetaMask 是最多人使用的錢包，那又如何？多數的錢包開發商若不是咬牙苦撐，就是被併購收場。直到 Bridge 大幅降低發行穩定幣的門檻，MetaMask 才終於找到一條新出路：發行美元穩定幣。</p><p>發穩定幣是全世界最賺錢的生意，Tether、Cricle 是代表性的例子。以往 MetaMask 沒有自己的資產，工具做得再好，也是替別人抬轎。用戶透過 MetaMask 持有 USDC，穩定幣儲備收益都被 Circle 賺走。但有了 mUSD 之後，MetaMask 不僅能把儲備收益留在自己口袋，甚至還能反過來補貼用戶。這讓 MetaMask 從錢包搖身一變，成為真正的鏈上銀行。</p><p>用戶持有 mUSD 背後的美元儲備，是由 Bridge 委託貝萊德和富達兩大資產管理機構保管，再透過短期美債、貨幣市場基金產生收益<sup>3</sup>。Bridge 承諾，大部分的儲備收益將還給發行者，而 MetaMask 會再用補貼將利息回饋給持有者。這就是一套完整的鏈上美元存款功能，讓 MetaMask 在沒有銀行牌照的情況下也能提供類似的金融服務。如果這套模式大規模普及，首當其衝的就是銀行，因為存款水位將會下降。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/03adc29a-dae9-45e3-b099-94aa93573d8a_3963x1820.png" alt="" loading="lazy"></figure><p>以往數位的存款只能以中心化的方式保管。政府因此訂定嚴格規範，只有持牌的金融機構才能合法保管用戶資金。不管錢怎麼流動，最後還是會回到銀行帳戶。但 MetaMask 發行 mUSD 之後，非常巧妙地繞過了這條限制。MetaMask 並不直接持有用戶資產、不需要銀行牌照，卻還是能提供和銀行相同的「美元存款 + 利息」服務。</p><p>假如未來任天堂、星巴克都依循相同模式發行自己的穩定幣，銀行存款就可能外流到一個又一個應用的錢包裡。但 MetaMask 發行 mUSD 不只影響傳統銀行體系，也挑戰穩定幣市場目前 USDT、USDC 兩強鼎立的現狀。</p><h2>USDC 的優劣勢</h2><p>Circle 是這波穩定幣浪潮的最大贏家。美國的穩定幣法案出爐後，身為投資人心中的「穩定幣第一股<sup>4</sup>」，Circle 股價在短時間內翻倍。USDC 的使用場景從原本的 DeFi 協議、交易所，逐步延伸到 Shopify 這樣的 Web2 支付場景<sup>5</sup>。Circle 成功掌握先發優勢，即便是 PayPal 發行的穩定幣也很難與它抗衡。</p><p>但 USDC 最大的劣勢是沒有直接掌握用戶。Circle 沒有錢包或支付場景，只能靠交易所和合作夥伴分發。這也是為什麼今年 Circle 大動作<a href="https://www.blocktrend.today/p/685">投資基礎建設</a>，更不惜在 Coinbase、幣安等交易所砸錢補貼。因為 Circle 知道 USDC 需要靠通路支撐。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/16e0b1d9-5952-46f3-89a0-a5be351b97ec_1600x900.png" alt="" loading="lazy"></figure><p>現在 Stripe 帶著「穩定幣 API」加入戰局，把穩定幣發行權直接交到應用手裡。原本投資人看好，這些應用都可能是 USDC 的潛在通路，沒想到 Stripe 打亂了一池春水。「軍火商模式」讓穩定幣百花齊放，未來每一家企業都得捫心自問：「既然要接受穩定幣支付，為什麼我不自己發行一款？」</p><p>Stripe 不只會侵蝕 USDC 市占率，還會逼得 Circle 思考是否該讓利。過去小型穩定幣也嘗試過回饋收益，但因為沒有通路、無法打入日常應用，對 USDC 幾乎沒有威脅。但如果未來人們最熟悉的應用會發放穩定幣收益，就會改變人們心理預期 —— 有補貼的穩定幣才是常態。</p><p>當然 USDC 也沒那麼脆弱，Stripe 最先撬動的是封閉式場景，例如幫助 XBOX、Amazon、臉書發幣。但如果要存入交易所買賣或是在 DeFi 應用流通，USDT、USDC 很可能仍是最普遍的標準。</p><p>如同上週在討論 Circle 自建區塊鏈時所說<sup>6</sup>，打敗網咖的不是另一家更大的網咖，而是接到每個人家中的寬頻網路。今天的故事也一樣。挑戰 USDC 的不是另一個更大的穩定幣，而是讓每個應用都能自己發幣的 API。當管錢的權力從少數幾個金融機構，下放到成千上萬的應用程式手中時。未來的金融很可能會像是雲端運算一樣，被無縫地嵌入到我們的網路生活之中。但在那之前，用戶應該會先被這些名稱各異的穩定幣搞瘋了。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/516">USDC 脫鉤：銀行拖累穩定幣、不連續的金融系統</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/643">幣圈最大收購案！為何 Stripe 砸 11 億美元，買下穩定幣 API 新創 Bridge？</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/677">比穩定幣更穩！貝萊德將美債代幣化、發行 BUIDL 成為幣圈銀行</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/684">Circle 申請上市！穩定幣第一股、護城河在哪？</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/701">電商龍頭 Shopify 接入 USDC：定義穩定幣支付標準、加密貨幣不再只能買披薩</a></p></div></div><div class="footnote"><a id="footnote-6" href="#footnote-anchor-6" class="footnote-number" contenteditable="false" target="_self">6</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/713">Circle、Tether 自建區塊鏈，對以太坊有何影響？</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/715">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

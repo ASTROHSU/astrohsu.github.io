@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#736 DeFi 自動救援機器人上線 — 區塊勢</title>
+<meta name="description" content="這篇文章與公眾利益相關，全文公開，歡迎分享。如同近幾篇區塊勢文章提到，上週我發現自己有兩筆資產卡在 DeFi 1 2 3 ：">
+<meta property="og:title" content="DeFi 自動救援機器人上線">
+<meta property="og:description" content="這篇文章與公眾利益相關，全文公開，歡迎分享。如同近幾篇區塊勢文章提到，上週我發現自己有兩筆資產卡在 DeFi 1 2 3 ：">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/703039e1-2edd-4451-b710-cd17fedf594f_2114x1518.png">
+<meta property="og:url" content="https://share.blocktrend.today/736/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#736</div>
+  <h1>DeFi 自動救援機器人上線</h1>
+</header>
+
+<article class="article-content">
+<p>這篇文章與公眾利益相關，全文公開，歡迎分享。如同近幾篇區塊勢文章提到，上週我發現自己有兩筆資產卡在 DeFi<sup>1</sup><sup>2</sup><sup>3</sup>：</p><ol><li><p>Euler Finance（<a href="https://app.euler.finance/earn/0xE1A62FDcC6666847d5EA752634E45e134B2F824B?network=avalanche">K3 USDT Earn Vault - Avalanche</a>）</p></li><li><p>Silo Finance（xUSD/USDC - Arbitrum）</p></li></ol><p>其中 Euler Finance 那筆幸運救回來，少繳了 7,000 美元的學費。我要特別感謝 <a href="https://defihacklabs.io/">DeFiHackLabs</a> 的創辦人 Sun，以及 <a href="https://ethtaipei.org/">ETHTaipei</a> 社群成員 Anton 在第一時間的大力幫忙。其中 Anton 二話不說就動手 vibe coding，寫出一套<a href="https://github.com/antoncoding/auto-redeem">自動救援工具</a>，由機器人代替我監控鏈上動態、贖回資產。我也才能專心完成文章，更在幾小時後就順利把所有資產抽回來。</p><p>過去幾天，許多人和我一樣 —— 以為 Balancer 被駭、Stream Finance 壞帳跟自己無關，直到要提領時才發現資金被卡住。Anton 的工具救回了不少人的錢。但這套工具沒有前端介面，必須以終端機操作，門檻不低。好消息是，現在它已經有網頁版了。我會先說明這套工具如何使用，再分享背後的開源接力故事。</p><h2>DeFi 自動救援機器人上線</h2><p>DeFi 自動救援機器人現在有兩個前端網站，大家可以挑選自己喜歡的介面（超級奢侈）。這兩個版本分別由兩位開發者獨立打造，背後功能相同，我都親自測試過，確實能用。此外，程式碼也公開在網路上，可以自行檢查是否有風險或漏洞。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/703039e1-2edd-4451-b710-cd17fedf594f_2114x1518.png" alt="" loading="lazy"></figure><p>DeFi 自動救援機器人的原理很簡單。它會持續監控指定資金池（Vault）的鏈上動態，只要偵測到有新資金進來，就會立即幫你發起「贖回」交易，將你持有的資金池份額（shares）兌換回原始資產，並自動送回你指定的錢包地址。</p><p>操作上，你只需要準備：</p><ol><li><p>臨時錢包：專門用來執行這項任務，避免主錢包的私鑰外流</p></li><li><p>資金池地址：例如 Euler、Silo 等協議的資金池</p></li><li><p>RPC 網址：指定你要操作的鏈，例如 Avalanche、Arbitrum</p></li><li><p>接收錢包地址：資金贖回後要轉入的錢包</p></li></ol><p>按下「啟動」鈕後，機器人就會自動開始監控。一旦資金池補回流動性，它就會立刻搶先執行贖回；若沒有補錢，機器人會持續等待下一次機會。你也可以隨時停止運作。整個過程不需要人工干預，也不必守在瀏覽器前。</p><p>上週事件剛爆發時，資金池每次補進來的錢幾乎在 30 秒內就被領光。那時我心想：「這些人是都沒在睡覺嗎？」但現在，有了這個機器人，他們都不是你的對手。你可以照常過生活，把最煩人的工作交給機器人。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/776478e4-1489-45c3-88e2-81db13d35a1c_1930x1482.png" alt="" loading="lazy"></figure><p>如果有使用上的問題，可以在文章底下留言，或直接聯絡開發者 <a href="https://github.com/antoncoding/">Anton</a>、<a href="https://github.com/gcake119">GCAKE</a> 或 <a href="https://onesavie.com/">OneSavieLabs</a> 的 <a href="https://github.com/ricklindev">Rick</a>。他們是 DeFi 自動救援機器人的幕後英雄。</p><h2>開源接力協作</h2><p>事發後第一時間我找 DeFiHackLabs 的創辦人 Sun 哭訴 😂 他建議我用 <a href="https://cielo.finance/">Cielo Finance</a> 的免費 Telegram 機器人監控鏈上動態，只要資金池有任何動靜，就會在 Telegram 收到訊息通知，再手動執行贖回操作。雖然還是得自己動手，但至少不必再一直重整網頁。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/df9cece4-cdb3-4a70-ac68-3f3e71ceeb9b_2440x1508.png" alt="" loading="lazy"></figure><p>後來 Anton 打造的 DeFi 自動救援機器人，把這套流程自動化。他先是問我還有多少錢沒贖回，緊接著就開始 vibe coding，前後只花一小時就做出第一版。讓我能在背景監控鏈上動態，同時繼續工作。幾小時後，我的資金全數贖回，成為機器人救出的第一筆資產！</p><p>幾天後，有越來越多人發現自己意外成了 DeFi 受災戶，紛紛私訊我如何使用這套工具贖回資金。由於絕大多數人都不懂得使用終端機操作機器人，於是我在社群發文：「如果有人願意幫忙做前端，讓不懂命令行的人也能使用，歡迎聯絡我。」</p><p>我隨即收到 4 封信。其中 3 位開發者主動表示願意基於 Anton 的程式碼開發前端網頁，另一位則提出可以出資贊助幫忙。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/319fe9ae-1c6c-4e8c-95c1-05c28aba264a_1394x1294.png" alt="" loading="lazy"></figure><p>中文網頁的開發者 GCAKE 動作最快，當晚就完成第一版並成功部署。隔天還寫了一份<a href="https://substack.com/home/post/p-178574313">詳細說明文件</a>，讓不懂程式的人也能上手。不過他也笑說，初版畫面「有點醜」，因為自己才剛開始學 vibe coding，對 CSS 不熟。</p><p>沒想到社群成員 <a href="https://github.com/BrianHuang813">Brian</a> 看到後立刻接棒，在開源程式碼的基礎上補充資安警示、重新調整排版，讓整體更安全也更好看。</p><p>同時，來自 OneSavieLabs 的 Rick 也分頭進行。他基於相同的核心程式碼，打造英文版介面，並在前端加入 RPC 設定、即時提示與操作教學。</p><p>短短一天，原本只能用終端機命令行跑的機器人，變成兩個完整的網頁應用。甚至還有人主動幫忙檢查程式碼，協助修正安全提醒與使用指引。整個過程沒有人討論分工。就這樣靠著開源協作，一個接一個，讓這套工具變成所有人都能上手的版本。我現在寫這篇文章，是負責把這套工具散播出去，免費提供給需要的人。</p><h2>社群的力量</h2><p>這幾天有 KOL 在社群發文，公開嘲諷那些受到 DeFi 事件影響的人。說他們就是因為貪婪，才會把本金交出去換取收益。內文引用我文章當中的句子，推測是在影射我。坦白說，那篇貼文讓我心率飆升。怎麼會有人利用他人傷口，來為自己搏版面？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/89feb691-cb6d-4d34-9966-bbff680b4f5e_1206x1411.png" alt="" loading="lazy"></figure><p>後來想想，如果他沒這麼壞，那就是我們對風險的理解完全不同。他把風險當成「應該避免的錯誤」，認為只要發生意外，就代表判斷失誤。因此會用「你看吧，早說過這東西很危險」的語氣，警告大家要遠離風險、保全資產。</p><p>但加密貨幣對我而言，從來就不是囤在錢包裡的財富，而是能實際使用的工具。我當然也希望財務穩定，但「靠加密貨幣發財」對我沒什麼吸引力。我會真的在日常生活中使用它，然後把這些過程寫成文章，和大家分享。這樣才好玩，也更有成就感。</p><p>正因為我喜歡動手嘗試，就算再小心，也難免會踩雷受傷。但這就是實踐的一部分。經驗是我付出的代價，也可以成為別人的養分。所以我把自己踩到的坑寫出來，提醒那些和我一樣願意嘗試的人注意，同時也希望激發出更好的做法，讓整個環境變得更安全。</p><p>批評者把風險當作終點，但實踐者把風險視為起點。批評者關心的是正確性，想透過災難事件證明自己是對的。但行動者想讓事情變好，哪怕中間會犯錯，那也不代表付諸行動是錯的。</p><p>這次 DeFi 自動救援機器人的協作經驗，讓我更堅定這個信念。不要操作就沒有風險，不出門就不會發生車禍。有人寧可待在家裡，但我選擇勇敢出門。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep308">DeFi 痛失百萬後，太太說話了！網友留言怎麼說？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/734">一次踩到 DeFi 三大坑！被駭、壞帳、流動性枯竭，損失百萬的教訓 😭</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/735">去中心化交易所 Balancer 遭駭！火燒連環船、DeFi 信心危機</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/736">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

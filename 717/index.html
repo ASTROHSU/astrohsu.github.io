@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#717 Amazon 的中立承諾 — 區塊勢</title>
+<meta name="description" content="過去 5 年，每篇區塊勢文章都會附上一段朗讀音檔。那是我在寫完文章、編輯改完定稿之後，深夜再花半小時錄製的內容。累積下來，已經有四百多篇了。這週開始，我想嘗試一個新做法：用 Google 的 AI 工⋯">
+<meta property="og:title" content="Amazon 的中立承諾">
+<meta property="og:description" content="過去 5 年，每篇區塊勢文章都會附上一段朗讀音檔。那是我在寫完文章、編輯改完定稿之後，深夜再花半小時錄製的內容。累積下來，已經有四百多篇了。這週開始，我想嘗試一個新做法：用 Google 的 AI 工⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/cdcc3644-973d-433b-be18-d2947a738670_1080x1350.jpeg">
+<meta property="og:url" content="https://share.blocktrend.today/717/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#717</div>
+  <h1>Amazon 的中立承諾</h1>
+</header>
+
+<article class="article-content">
+<p>過去 5 年，每篇區塊勢文章都會附上一段朗讀音檔。那是我在寫完文章、編輯改完定稿之後，深夜再花半小時錄製的內容。累積下來，已經有四百多篇了。這週開始，我想嘗試一個新做法：用 Google 的 AI 工具 NotebookLM，把每篇文章轉成繁體中文的「對話音檔」，暫時取代我的真人朗讀。對內容創作者來說，這是一種榮耀 —— 內容不只是被讀，還能被「討論」。一個月後，我會再來問大家感受，看看要不要繼續。</p><p>另外提醒一下，很多人可能不知道可以用 RSS Feed <a href="https://www.blocktrend.today/p/ep299">把區塊勢連到 Apple Podcasts 或 Spotify</a>。以後開車、運動的時候，就能直接用聽的追文章，比較方便。這週的主題也與 Google 有關。</p><p>上週 Google <a href="https://www.linkedin.com/posts/rich-widmann-a816a54b_all-this-talk-of-layer-1-blockchains-has-activity-7366124738848415744-7idA?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADrlBIUBh7n2f1DY16wvtmbWkT2_uC9YY6I">宣布推出</a>自家研發的獨立區塊鏈 Google Cloud Universal Ledger（簡稱 GCUL）。有趣的是，Google 的 Web3 主管就像是有在讀區塊勢一樣，對於時事的見解相同。他說：「Tether 不會用 Circle 推出的區塊鏈，而 Adyen 也可能不會用 Stripe 的區塊鏈。但任何金融機構都可以建立在 Google 鏈上」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/cdcc3644-973d-433b-be18-d2947a738670_1080x1350.jpeg" alt="圖片" loading="lazy"></figure><p>Google 稱全球最大的商品期貨交易所 —— 芝加哥商品交易所（CME）—— 就選擇將代幣化、支付實驗跑在 Google 鏈上。Google 鏈主打三大特色：高效能、支援 Python 以及可信中立（credibly neutral）。相信沒人會懷疑 Google 達成前兩項特色的技術實力，這篇文章只討論最後一點，也就是 Google 如何做到可信中立，以及它對區塊鏈有多重要？但我要先從全球最大電商平台 Amazon 的故事說起。</p><h2>Amazon 的中立承諾</h2><p>Amazon 成立於 1995 年，公司原本取名為 Cadabra，因為律師一度聽成 cadaver（屍體），才改名為 Amazon。創辦人 Jeff Bezos 選擇這個名字有兩個原因：「A」在字母當中排序最前面，最容易被看見；此外，亞馬遜河是世界上流域最廣的河流，Bezos 希望 Amazon 也能成為世界上最大的網路書店。</p><p>創立初期，Amazon 是書店和出版社的「好朋友」，就是幫忙把書放到網路上賣。網站的運作模式也很輕量，Amazon 收到網路訂單後才向出版商採購，再寄給消費者。這套模式很快就吸引其他類型的賣家，拜託 Amazon 幫忙開拓線上通路。可以說 Amazon 早期的成功秘訣就是專心協助賣家做生意，更把自己定位成中立的電商平台，不和賣家直接競爭。</p><p>但隨著生意越做越大，這個「不競爭」承諾在 2009 年開始動搖。那年 Amazon 推出自有品牌 Amazon Basics，產品設計雖然不搶眼，但勝在便宜、實用。最經典的例子就是電池。電池是日常必需品、銷量穩定，Amazon Basics 電池「俗擱大碗」，平台搜尋結果常常排在金頂（Duracell）、勁量（Energizer）等知名品牌之前。憑藉低價、曝光雙重優勢，Amazon Basics 電池 銷售額一路攀升，甚至在 2018 年拿下美國線上電池市場 30% 市占率。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/54e00fde-c3dd-4d8f-8851-9a40a6635b55_1500x1500.png" alt="" loading="lazy"></figure></div><p>這時平台上的商家才驚覺 Amazon 當年的承諾早已不在。更殘酷的是 Amazon 不只下場競爭，還透過平台的銷售數據精準判斷，決定下一個 Amazon Basics 要複製哪款熱銷商品。</p><p>平台變卦不是新鮮事，承諾不變才是新聞。上週 Google 宣布推出區塊鏈 Google Cloud Universal Ledger，號稱是「可信中立」（credibly neutral）的公共基礎建設。Google 承諾不會下場競爭，而是要專心幫助金融機構把錢搬到鏈上。</p><h2>Google 鏈的意義</h2><p>要理解 Google 鏈，必須先從 Google Cloud 說起。Google 的 Web3 業務長期隸屬於 Google Cloud 部門，這直接決定了 Google 看待區塊鏈的方式，不是怎麼從零打造鏈上的去中心化應用，而是怎麼做區塊鏈生意，幫 Google Cloud 賺錢。</p><p>過去幾年 Google 提供各家區塊鏈的節點託管、區塊鏈 API 服務，並協助交易所、DeFi 開發者以 Google Cloud 運行應用，本質上是「軍火商」。但現在 Google 推出 Google Cloud Universal Ledger（GCUL），等於自己下場。對於這樣的轉折，Google 在官方部落格<a href="https://cloud.google.com/startup/beyond-stablecoins">解釋</a>，現有金融系統零碎、昂貴且緩慢，而未來的金融基礎建設很可能會建立在區塊鏈上，因此 Google 要做的就是這個新基礎建設的供應商。</p><p>這是一種彎道超車策略。雲端市場有三大供應商：亞馬遜 AWS、微軟 Azure 和 Google Cloud，Google 市占率落後前兩者。恰好現在各家金融機構都在思考是否應該上鏈。如果要，那該上什麼鏈？以往 Google 會攤開一張他們支援的區塊鏈列表，要金融機構從中選一條。但同樣的問題被問久了，Google 自然也會想：「為什麼我不自己來做一條區塊鏈？」</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1ecfe785-ab2f-4883-b797-927f50afdebb_1125x558.png" alt="" loading="lazy"></figure></div><p>對金融機構來說，選擇也變得簡單許多。以 CME 為例，他們本來就跟 Google Cloud 簽了 10 年的雲端合約。既然本來就是用 Google 的服務，現在要使用由 Google 推出的鏈測試代幣化也就順理成章。相較之下，若要搬去以太坊、Solana，不僅技術環境和運作模式都和 Web2 雲端天差地遠，要說服主管同意更是難上加難。理解這些背景後，再來看 Google 鏈的定位就會清楚許多。</p><p>Google 將 GCUL <a href="https://cloud.google.com/startup/beyond-stablecoins">定義為</a>一套受監管、許可制的區塊鏈。既然不是開放式的公有鏈，就不必設計代幣經濟模型，也不用考慮「如何激勵礦工」這類難題。因此 Google 很可能不會發行自己的加密貨幣，用戶只要按照原本的雲端計價模式付費即可。而 GCUL 最主打的賣點是「可信中立」，意思是不會像 Circle、Stripe 的區塊鏈一樣獨厚自己人。Google 承諾 GCUL 會是中立的結算平台。只專注在降低成本、提高效率，不會和金融客戶搶生意。</p><p><strong>這是把鏈當成雲來賣</strong>。金融業是雲端市場利潤最豐厚，且最不輕易換基礎建設的金雞母。對 Google 而言，推出 GCUL 的核心目標是要擴張 Google Cloud 在金融業的市占率，而不是去中心化。Google 批評傳統金融緩慢、效率低落，可能只是因為 Google Cloud 在那裡的市占率不夠高、沒有包袱罷了。雖然 Google 承諾自己不會偏心，但誰能保證它未來不會切入金融領域？</p><h2>不作惡</h2><p>Google 沒有銀行牌照，短期內能涉足的金融業務確實有限。但科技與金融結合卻是大勢所趨。</p><p>知名創投 a16z 的合夥人 Angela Strange 曾預言「<a href="https://a16z.com/every-company-will-be-a-fintech-company/">所有公司終將成為金融科技公司</a>」，提供金融服務不僅可以提升公司獲利，還能夠提升客戶黏著度。例如 Shopify 原本只是幫商家在網路上開店並收取月費<sup>1</sup>，後來發現做生意最重要的就是收錢、借錢，於是推出支付、貸款服務。如今金融業務已占 Shopify 收入將近一半，商家也更加依賴平台。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/DjUMfhT0o64?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>Uber 則是推出司機專屬的金融帳戶和 <a href="https://www.uber.com/us/en/drive/uber-pro/debit-card/">Uber Pro 借記卡</a>，能享有現金回饋、加油折扣與維修優惠。這些服務不只增加司機對平台的滿意度，也降低他們跳槽到競爭對手的可能性。近期 Stripe 宣布推出「穩定幣即服務<sup>2</sup>」更是關鍵。任何公司只要串上 API 就能發行自家穩定幣，進一步降低參與門檻。</p><p>假如未來蘋果、臉書、亞馬遜都開始發行穩定幣，Google 是否還能維持「不與客戶競爭」的界線？GCUL 掌握的龐大金融交易數據，會不會成為下一個 Amazon Basics？</p><p>以太坊創辦人 Vitalik Buterin 曾提出「<a href="https://balajis.com/p/credible-neutrality">可信中立</a>」的定義：不偏袒任何人，而且公開透明、人人可驗證。Google 所強調的「可信中立」則完全不同，它不是一套制度化的規則，而是科技公司的承諾。這更像是 Google 早期喊出的口號「不作惡」（Don’t be evil），要大家相信 Google 會在關鍵時刻做對的事。但公司使命是為股東創造利潤，而不是維護公共利益。</p><p>雖然 GCUL 號稱是 L1 區塊鏈，但競爭場域其實是 Stripe、Circle 這些由企業打造的「區域網路<sup>3</sup>」，而不是以太坊這樣的「網際網路」。這個差異非常關鍵，我們未來使用的金融基礎建設等於是有兩個完全不同的走向，一個是由企業承諾維護的區域網路，另一個則是制度設計下、任何人都能驗證的公共基礎建設。</p><p>由私人公司建造的公共建設，或許能蓋出社區的中庭花園，但終究無法成為通往世界的道路與橋梁。</p><p>p.s. 音檔裡面有時候會說 GCUL 有時候是 GCLU，但他們都在說同一件事 😂</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/701">電商龍頭 Shopify 接入 USDC：定義穩定幣支付標準、加密貨幣不再只能買披薩</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/715">MetaMask 發幣了！Stripe 成為穩定幣軍火商，對 USDC 影響在哪？</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/713">Circle、Tether 自建區塊鏈，對以太坊有何影響？</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/717">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

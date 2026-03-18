@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#732 Bybit 被駭 — 區塊勢</title>
+<meta name="description" content="根據週二投票結果，這篇文章開始恢復真人朗讀。我自己也比較喜歡親自朗讀，只是要額外花時間錄音不像 AI 生成這麼輕鬆 😂 我還是會持續探索 AI 工具，看看能不能兼顧效率與人味。進入正題。">
+<meta property="og:title" content="Bybit 被駭">
+<meta property="og:description" content="根據週二投票結果，這篇文章開始恢復真人朗讀。我自己也比較喜歡親自朗讀，只是要額外花時間錄音不像 AI 生成這麼輕鬆 😂 我還是會持續探索 AI 工具，看看能不能兼顧效率與人味。進入正題。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/a2a1fbe2-8371-4378-81cf-f1dab346d57d_856x752.png">
+<meta property="og:url" content="https://share.blocktrend.today/732/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#732</div>
+  <h1>Bybit 被駭</h1>
+</header>
+
+<article class="article-content">
+<p>根據週二投票結果，這篇文章開始恢復真人朗讀。我自己也比較喜歡親自朗讀，只是要額外花時間錄音不像 AI 生成這麼輕鬆 😂 我還是會持續探索 AI 工具，看看能不能兼顧效率與人味。進入正題。</p><p>冷錢包大廠 Ledger 又炎上了。Ledger 曾因<a href="https://www.ithome.com.tw/news/141809">用戶個資外洩</a>、推出雲端備份服務<sup>1</sup>遭到社群抵制，最近又因多重簽署（<a href="https://www.ledger.com/blog-enterprise-multisig-new-era">Ledger Multisig</a>）這項新功能引起反彈。</p><p>新功能主打更方便的多簽整合體驗，但使用卻要「按筆收費」。每筆轉帳會被 Ledger 收取 10 美元，或是交易額 0.05% 手續費。</p><p>雖然多數使用者不會用到多簽功能、不受影響，但這套收費模式仍引發不滿。對進階用戶來說，這就像是「被剝了兩層皮」。買冷錢包已經付過一次錢，現在每次轉帳竟然還要再付一筆錢給 Ledger。而且原本離線、自主管理的冷錢包，怎麼忽然變成了一個會在你發送交易時跳出來收過路費的雲端服務？這篇文章要帶你一起瞭解 Ledger 為什麼這樣做、它實際解決了什麼問題，以及未來我們該怎麼選擇冷錢包。</p><h2>Bybit 被駭</h2><p>時間回到 2025 年 2 月 21 日深夜，全球第二大交易所 Bybit 的多簽冷錢包遭到北韓駭客入侵，超過 40 萬顆 ETH，市價高達 14 億美元的資產遭竊<sup>2</sup>。損失金額不僅創下史上最高紀錄，更是第二大駭客事件的 2.5 倍。到目前為止，只有 6,300 萬美元資金被凍結，換言之，仍有 95.5％ 的資產在駭客手上，且大多早已不知去向。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/a2a1fbe2-8371-4378-81cf-f1dab346d57d_856x752.png" alt="" loading="lazy"></figure><p>事後調查發現，Bybit 的私鑰並沒有被偷，真正的問題出在「產品組合」本身。Bybit 採用的是當時業界公認最安全的配置：Safe 多簽系統<sup>3</sup>搭配 Ledger 冷錢包。然而兩者之間卻有一個關鍵漏洞。</p><p>當時 Bybit 執行長 Ben 正在操作例行性的資金調度。Safe 是操作介面，負責在電腦上發起交易；Ledger 則是離線裝置，在簽署時提供第二層確認。Ben 先是在 Safe 的網頁上輸入轉帳資訊，接著手動連接 Ledger，並在獨立螢幕上再次確認後才能簽署。</p><p>問題是，當時的 Ledger 還沒有「清晰簽名」（Clear Signing）功能<sup>4</sup>。冷錢包的獨立螢幕無法顯示複雜的多簽交易資訊，只會呈現一串亂碼。Ben 等於是「盲簽」（blind signing），看不懂也只能按下「確認」。</p><p>雖然每筆交易都由電腦上的 Safe 介面與 Ledger 獨立螢幕雙重呈現，但因為前者被駭、後者又顯示一串亂碼，簽署流程等於是變成「駭客竄改 Safe 網站 → 簽署者誤信畫面 → 冷錢包照常簽下去」。於是，Ben 親手把那 40 萬顆 ETH 送給了北韓駭客。</p><p>事件粉碎了多年來多簽冷錢包的黃金標準，也讓「盲簽」成為整個產業急需解決的問題。事發後，錢包廠商紛紛推出「清晰簽名」更新，讓個人用戶在簽署時能完整看到交易細節。</p><p>但這些更新多半只針對單純的轉帳操作，對於使用 Safe 多簽機制的企業來說，問題仍未解決。因為多簽交易涉及智慧合約與多個簽名者，Ledger 裝置當時仍無法正確解析內容，只能顯示亂碼。這個漏洞直到上週才終於補上。</p><h2>Ledger 多重簽署</h2><p>Ledger <a href="https://www.ledger.com/blog-enterprise-multisig-new-era">宣布</a>推出多重簽署功能，主打使用者可以直接在 Ledger 裝置上完成完整的多簽操作，不再需要打開 Safe 網站。官方表示，這是解決盲簽問題的根本方法，也代表 Ledger 正式從單純的硬體錢包，走向軟硬整合的安全平台。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/7qe5_iV2gX0?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>直接對照 Bybit 被駭的情況最清楚。Ben 之所以會把 40 萬顆 ETH 轉給駭客，問題出在簽名流程太依賴使用者的安全意識。操作者必須主動檢查 Safe 與 Ledger 兩邊的資訊是否一致。資安專家會說，兩套系統彼此獨立、可以交叉比對，當然最安全；但 UX 設計師知道，操作起來太麻煩就容易出錯。Ben 就是敗在這一步。</p><p>Ledger 的新功能把原本「需要自己懂」的環節全都整合起來 —— 相信 Ledger 就好！過去使用者得先在 Safe 上建立交易，再切換到 Ledger 裝置上簽名。現在 Ledger 直接把 Safe 的多簽機制搬進自家的介面裡。使用者在同一個 Ledger 裝置就能發起並簽署交易，所有資訊都顯示在同一個螢幕上。</p><p>少了一層切換，就少了一次出錯的機會。但這也表示 Ledger 把所有風險全都攬在自己身上。冷錢包是靠「信任」累積的生意。會買冷錢包的人，多半是相信這家公司能守好防線。</p><p>只是新功能並非免費，也不是訂閱制，而是相當罕見的「按筆收費」，使用 Ledger 多簽功能轉帳每筆收費 10 美元，或依交易金額抽取 0.05% 手續費。</p><p>公告一出，社群立刻炸鍋。其中 GnosisDAO 技術副總 Sebastian Bürgel 的<a href="https://x.com/SCBuergel/status/1982782753025249666">評論</a>最有代表性，他認為安全性不該是付費升級的選項，否則就是對使用者的安全權利課稅。此外，他還發現 Ledger 的前端頁面未經使用者同意，就向第三方傳送追蹤資料。也有人批評，Ledger 背離了密碼龐克精神，把多簽用戶當成搖錢樹。我認為爭議核心不是那筆 10 美元的手續費，而是背後的文化衝突。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1b698af0-1c6b-4286-9434-2bec188ff646_1056x882.png" alt="" loading="lazy"></figure><h2>文化衝突</h2><p>我對於 Ledger 的收費方式沒那麼排斥。就像特斯拉一樣，車子本身能開，但要享受更進階的功能，就得付費升級。</p><p>實際上，絕大多數 Ledger 用戶都不受影響，只有懂得使用 Safe 多簽機制的進階用戶需要留意。如果不想付錢，也可以照舊，在電腦上操作 Safe、再用 Ledger 簽名。但若想體驗一站式服務，Ledger 的新服務肯定會更方便。</p><p>偏偏 Web3 世界裡的「便利」與「自主」往往顯得衝突。買冷錢包的人就是為了自己掌控資產，不想被任何平台收費或審核。如今 Ledger 開啟了另一種新可能，使用者依然自己保管私鑰，但若想更便利就得額外付費。</p><p>這就像是從油車升級成電動車。以往買車，車子就完全屬於你。購車當下就是它的巔峰狀態，未來只會越來越老舊。但是電動車就像手機一樣，是軟硬體整合的產品，製造商會持續更新，也能決定哪些功能要額外收費。</p><p>我認為這幾年 Ledger 之所以會惹出這些爭議，就是它們試圖把冷錢包從單純的硬體，轉化爲軟硬整合的平台。付費模式也從一次性買斷，到新增更多可以持續收費的服務。</p><p>這麼一來，新功能不僅能為公司創造經常性收入，使用者也能夠獲得更完整的體驗。可惜這與 Web3 的文化衝突。冷錢包原本象徵「我不信任任何人」，如今用戶得再次信任 Ledger。也難怪有人批評 Ledger 是在發災難財，畢竟這是 Bybit 被駭之後才誕生的功能。當社群的焦慮變成了商機，雖然合理，卻會讓人覺得不舒服。</p><p>我認為 Web3 不完全等於凡事去中心化，而是讓人們能夠根據自身的需求，選擇更方便的中心化，或是更自主的去中心化方案。我佩服 Ledger 探索新模式的勇氣，讓「便利」與「自主」不再非黑即白。未來大家挑選冷錢包時，討論的可能不只是技術開源與否，更是收費模式與信任關係。同樣都是冷錢包，<a href="https://www.ledger.com/">Ledger</a> 信任品牌，<a href="https://trezor.io/">Trezor</a> 強調開源。</p><p>但你問我的話，我個人是沒那麼信任 Ledger，也還沒看到讓人忍不住想付錢的殺手級功能。我 OK，你先買。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/533">Ledger Recover：冷錢包的熱備份矛盾</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/671">史上最嚴重！Bybit 交易所遭駭 15 億美元、北韓駭客如何破解多簽冷錢包？</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/667">Safe 多簽錢包：比冷錢包更安全的智慧金庫</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep285">Bybit 為何被駭？冷錢包盲簽風險全解析 ft. CoolWallet 執行長歐仕邁</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/732">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

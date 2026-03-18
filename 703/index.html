@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#703 網路社會契約 — 區塊勢</title>
+<meta name="description" content="很開心回到工作崗位。過去兩週我接受了一場 媒體訪談 、錄了兩集 Podcast，也清空了一堆待辦事項。乍看之下不像在休息，但對我來說，能把積壓許久的工作處理完，就是最放鬆的休息。">
+<meta property="og:title" content="網路社會契約">
+<meta property="og:description" content="很開心回到工作崗位。過去兩週我接受了一場 媒體訪談 、錄了兩集 Podcast，也清空了一堆待辦事項。乍看之下不像在休息，但對我來說，能把積壓許久的工作處理完，就是最放鬆的休息。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/24812ad0-c478-4913-a5be-c1ccbddb8e61_1200x628.png">
+<meta property="og:url" content="https://share.blocktrend.today/703/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#703</div>
+  <h1>網路社會契約</h1>
+</header>
+
+<article class="article-content">
+<p>很開心回到工作崗位。過去兩週我接受了一場<a href="https://www.wealth.com.tw/articles/1fa2b43d-fdce-4dbe-8732-1cec09384c71">媒體訪談</a>、錄了兩集 Podcast，也清空了一堆待辦事項。乍看之下不像在休息，但對我來說，能把積壓許久的工作處理完，就是最放鬆的休息。</p><p>進入正題。</p><p>只要你曾在網路上發表內容，從今天起都應該要認識 <a href="https://www.cloudflare.com/">Cloudflare</a> 這家公司。Cloudflare 是網路防火牆龍頭，掌管全球超過 20% 的 HTTP 流量。各國政府、企業都仰賴它抵禦網路駭客的 DDoS 攻擊。</p><p>近期 Cloudflare 宣布推出「按爬取收費」（<a href="https://www.cloudflare.com/zh-tw/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large/">Pay per Crawl</a>）機制，相當於告訴 AI 爬蟲：「不付錢，就滾蛋」。執行長 Matthew Prince 更透露未來不排除支援穩定幣付款，甚至可能發行自家穩定幣作為支付工具。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/24812ad0-c478-4913-a5be-c1ccbddb8e61_1200x628.png" alt="Introducing pay per crawl: Enabling content owners to charge AI crawlers for  access" loading="lazy"></figure><p>單方面的掠奪顯然不可持續，但問題是 AI 爬蟲會願意付費嗎？最終還是得回歸你生產的是什麼內容。</p><h2>爬蟲會付錢嗎？</h2><p>Matthew <a href="https://blog.cloudflare.com/content-independence-day-no-ai-crawl-without-compensation/">比喻</a>，每個 AI 就像一塊有許多孔洞的瑞士起司，只有能夠填補起司孔洞的全新、原創內容，才是 AI 爬蟲願意付錢的東西。這個論點與我在〈<a href="https://www.blocktrend.today/p/693">AI 不看廣告，誰來為網路內容買單？</a>〉的分析相同：</p><blockquote><p>大量生產、搶佔搜尋排名、吸引點擊是多數內容網站的經營策略。生成式 AI 問世之後，進一步讓「內容農場」的競爭更血腥 ... 人們總說，在這個時代，會使用 AI 的人將取代不會使用的人，如果不以 AI 快速生產內容，流量就會先被別人賺走。但這是飲鴆止渴。AI 用得越多，原創性就越少。對 AI 來說，重複的內容一文不值。以前廣告主是為了點擊與注意力付錢，但現在 AI 要買的卻是內容本身。</p><p>AI 要的是結構清晰、觀點明確、資料可引用的內容。它既不會被聳動標題吸引，還能一眼識破「萬字長文」是不是廢話連篇。換句話說，品質穩定的原創內容，將會成為 AI 首選資料庫。只要 AI 判斷「這篇值得讀」，它就會直接付款。製作讓 AI 願意花錢購買的內容創作者，將會成為新的贏家。</p></blockquote><p>理解 AI 爬蟲為何願意付錢，接下來才是該怎麼付錢的問題。目前 Cloudflare 並沒有採用加密貨幣，而是要求 AI 爬蟲與網站都必須在 Cloudflare 創建帳戶並填寫銀行付款細節。每隔一段時間 Cloudflare 會向爬蟲收費，再將收益分配給內容創作者。但只要任一方沒有設定好，交易就無法進行。</p><p>我推測這只是權宜之計。Cloudflare 的本業是阻擋機器人，不是做金流服務，隨著規模擴大，勢必會面臨跨境支付、合規等複雜問題，況且世界各地的創作者也不見得都有銀行帳戶。到了那個時候，穩定幣會是最輕量的自然解方。</p><p>Cloudflare 不只是擋下了網路爬蟲，更是在重新改寫網路社會契約。作為每篇都是原創內容的創作者，我對這個改變充滿期待。「按爬取收費」機制，象徵著網路正在從「流量為王」轉向「價值為重」的新時代。那些能持續產出高品質原創內容的創作者，將不再需要為流量焦慮，而是直接從內容本身的價值獲得回報。</p><p>至於 AI 爬蟲如果都避開收費網站怎麼辦？我的答案是，就讓它們避開吧。就像不是每個人都願意付費訂閱區塊勢，AI 爬蟲也是反映使用者的價值選擇。區塊勢希望服務的是那些願意為好內容付費的人類讀者，和他們的 AI 爬蟲。</p><p>p.s. 加密支付卡 <a href="https://www.blocktrend.today/p/696">EtherFi Cash</a> 正在舉辦為期 14 天（7/11 - 7/25）的推薦競賽，總獎金為 20,000 顆 $ETHFI 代幣。獎金將分給推薦數量最多，或是帶來最多消費額的前 4 名推薦人。</p><p>雖然我至今已推薦 423 位讀者辦卡、<a href="https://www.ether.fi/app/cash/referral-leaderboard?tab=your-referrals">暫居全球推薦王</a>，但這次競賽只計算活動期間的新增推薦。規則相當奸詐，所以我決定佛系參加。如果你剛好想辦卡，歡迎使用<a href="https://www.ether.fi/refer/7c8b3870">我的推薦連結</a>註冊。或是努力刷卡，也能讓我多一點積分。感謝支持！</p>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/703">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

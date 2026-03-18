@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#734 離家出走 — 區塊勢</title>
+<meta name="description" content="這篇本來打算臨時停刊，因為心情太糟了。但想想既然百萬學費都付了，更應該要跟大家分享自己踩坑 DeFi 的第一手經驗。">
+<meta property="og:title" content="離家出走">
+<meta property="og:description" content="這篇本來打算臨時停刊，因為心情太糟了。但想想既然百萬學費都付了，更應該要跟大家分享自己踩坑 DeFi 的第一手經驗。">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/2eb14ceb-9ff0-45c4-a51e-0018534fed6d_1206x1122.png">
+<meta property="og:url" content="https://share.blocktrend.today/734/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#734</div>
+  <h1>離家出走</h1>
+</header>
+
+<article class="article-content">
+<p>這篇本來打算臨時停刊，因為心情太糟了。但想想既然百萬學費都付了，更應該要跟大家分享自己踩坑 DeFi 的第一手經驗。</p><p>開頭先提醒，如果你現在有錢放在 DeFi 平台，建議先確認是否還能夠提領。因為這兩天 DeFi 市場有超過 2 億美元不翼而飛，而且損失規模還在擴大。</p><p>先是知名去中心化交易所 Balancer V2 <a href="https://x.com/Balancer/status/1985390307245244573">遭到駭客入侵</a>，隨後 DeFi 收益服務 <a href="https://streamprotocol.money/">Stream Finance</a> 突然宣布有 9,300 萬美元壞帳。一開始我以為這跟自己沒什麼關係，因為我並不是 Balancer 或 Stream Finance 的用戶。不過就在前天晚上，我打算把放在 DeFi 的穩定幣領出來避避風頭，畫面卻顯示無法提領，這時我才意識到自己也成了受災戶 😭</p><p>這篇文章我會先說明我的錢原本放在哪，再討論從事件中能夠學到哪些教訓。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/2eb14ceb-9ff0-45c4-a51e-0018534fed6d_1206x1122.png" alt="" loading="lazy"></figure><h2>離家出走</h2><p>我自認是加密貨幣的保守投資者，不碰高風險交易，把心力放在寫作。奇怪的是，每隔一段時間，總會有一筆錢「離家出走」。</p><p>先回到 2022 年的 FTX 事件。當時我放在交易所的資產因平台倒閉，無法提領。好在放在錢包裡的資產安然無恙，讓我度過最艱難的那段日子。從那之後，我盡可能把錢放在自己的錢包管理。我會把 ETH 放在 Lido 參與質押，並把美元穩定幣投入相對單純的放貸服務，藉此產生收益。</p><p>這次出事的是後者。我使用兩款 DeFi 收益服務：</p><ul><li><p><a href="https://www.harvest.finance/">Harvest Finance</a> 收益聚合器</p></li><li><p><a href="https://www.euler.finance/">Euler Finance</a> 借貸平台</p></li></ul><p>雖然他們不算是最知名的 DeFi 應用，但我也不是把錢隨便亂丟。Harvest Finance 曾有台灣開發者參與，我放的是 USDC；Euler Finance 則由 OKX 錢包推薦，近期還有活動獎勵加成，我放的是 USDT。看似穩健，結果現在兩個地方都領不出來 😂</p><p>Harvest Finance 的「自動導航金庫」（Autopilot）會自動把資金分散到不同借貸平台。就像把錢交給基金經理，使用者只需支付績效費，經理就會替你監控哪裡收益率更高，並馬上把資金挪過去。這解決了 DeFi 的一大麻煩 —— 收益率每秒都在變，而且不定期會有補貼活動，手動調整不可能跟得上機器人，交給「自動導航金庫」管理最省心。此外，金庫介面會披露資金分配與收益來源。平均年化報酬落在 10% 左右，算是中規中矩。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/a2e68418-5474-444b-b088-6b17b942783e_1618x1336.png" alt="" loading="lazy"></figure><p>Euler Finance 更是單純，我是透過 OKX 錢包推薦發現它。不僅介面與 OKX 錢包整合，連存入、提領按鈕都設計好。再加上 OKX 最近和 Euler 合作推出補貼活動，收益率也在 10% 左右。平凡無奇讓我不疑有他，沒想到我放在這兩款應用的 USDC、USDT 現在通通領不出來。為什麼？</p><h2>壞帳、被駭、流動性枯竭</h2><p>這兩天 DeFi 世界接連發生兩起「大地震」，隨即引發市場海嘯。</p><p>首先是知名去中心化交易所 Balancer V2 遭到駭客入侵，損失約 1.3 億美元。接著，DeFi 收益服務 Stream Finance 突然宣布另一筆 9,300 萬美元壞帳，並即刻停止收益穩定幣 xUSD 的贖回功能。原本我以為自己沒踩到這兩個坑，可以鬆一口氣，卻沒意識到 DeFi 風險已經開始蔓延到整個市場。</p><p>DeFi 的特色是樂高積木般的「可組合性」。我可以在 A 平台存入穩定幣，拿到「存款憑證」，再拿著這張憑證到 B 平台當成抵押品，借出其他資產。一層包一層後，抵押品的風險就越來越高。一旦其中一層出問題，就會像是當年的次級房貸一樣，引發金融海嘯。</p><p>這次的狀況就是這樣。Stream Finance 發行的收益穩定幣 xUSD，號稱只要存入美元就能換得 xUSD 開始領取收益。至於 Stream Finance 去哪裡產生這些收益，多數人無從得知。因此，也很少人真的會把錢交給 Stream Finance。既然沒有互動，那就沒有風險了吧？錯。</p><p>以我使用的 Harvest Finance 為例，它的「自動導航金庫」會將我的 USDC 存入借貸市場 Silo 產生收益。而 Silo 又接受 xUSD 作為抵押品，借出我的 USDC。意思是我間接相信，如果借走我 USDC 的那些人不還錢，我可以把他抵押的 xUSD 拿去賣掉變現。然而最大問題是，誰來保證 xUSD 是有價值的？</p><p>漏洞就出在這裡。前天 Stream Finance 在社群平台上發佈公告，稱「外部管理者」告知他們有多達 9,300 萬美元的壞帳。所謂「壞帳」就是錢已經不知去向。市場上 xUSD 持有者換不回美元，xUSD 價值一夕崩盤。但最糟的還在後頭。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/4e2db055-707c-40ad-95e3-bab9f5f2ac35_1048x860.png" alt="" loading="lazy"></figure><p>在 Silo 上，那些憑 xUSD 借錢的人知道如今抵押品一文不值，當然不會主動還款。壞帳就一路傳導到最後那群把錢存進去 Silo 賺利息的人 —— 也就是我。諷刺的是，這群人離「震央」最遠、最不追求高收益，甚至是可能根本沒聽過 Stream Finance 的無辜（無知）使用者。</p><p>原本我以為自己只是 Harvest Finance 的使用者，但其實我同時暴露在三層風險之下：</p><ol><li><p>Harvest Finance 程式碼</p></li><li><p>Silo Finance 抵押品</p></li><li><p>Stream Finance 財務狀況</p></li></ol><p>Harvest 把錢拿去 Silo 產生收益，我就成為 Silo 的間接使用者。當 Silo 接受 xUSD 作為借款抵押品，那我就等於相信 Stream Finance 不會出狀況。這樣操作下來收益並不高，風險倒是滿高的。</p><p>Balancer 的狀況也類似。先不談被駭原因，只要借貸平台接受 Balancer V2 代幣作為抵押品，使用者就會被駭客事件「傳染」。抵押品變壁紙，最後承擔風險的是末端那群「存幣領利息」的放貸者。當大家爭相把池子裡剩餘的資金領出來，卻又沒人要還錢，最後就是流動性枯竭。放貸的人想領錢，卻沒錢可領。</p><h2>百萬學費</h2><p>經過這起事件，能學到什麼？我歸納為三點。</p><h4>可組合性的一體兩面</h4><p>DeFi 風險會自然外溢。離得越遠，風險未必越低。</p><p>我不是 Stream Finance 的使用者，甚至在出事前沒聽過這款服務，但因為 DeFi 資產層層堆疊，我的錢在不知情的狀況下，被放在了最終要承擔壞帳的那端。我以為自己距離震央超遠，然而金融系統先天就是一體的，如果產品、法規沒有風險隔離，一旦出事，就會擴散到天涯海角。</p><h4><strong>抵押品是借貸的核心</strong></h4><p>以前參與 DeFi 借貸，我看的只有 APY 高低、平台名聲好壞以及有多少資金停泊。例如 Aave 和 Morpho 都是名聲不錯，且有許多資金停泊的借貸平台。但光看這些仍然會踩雷。</p><p>像 Morpho 或是這次我踩坑的 Silo、Euler 都沒有全平台統一的抵押品規範，而是交由每個子借貸市場的管理者自行決定要接受哪種抵押品。優點是風險隔離，但缺點是不知情的用戶容易踩雷。挑選借貸市場，APY 或許決定收益多寡，但抵押品才決定本金有無。</p><h4>經驗都是錢買來的</h4><p>上週我受邀到金管會分享 DeFi，當時沒想到，一週之後我就花了大錢自費進修這堂課。</p><p>弄丟錢當然很煩躁，損失金額還是幾年的工作收入。但換個角度想，這可能也是自己能夠站在台上分享的原因。這幾年我因為各種原因向市場交了數百萬學費，但沒有因此退出，而是想利用這些經驗，把學費賺回來。</p><p>既然都要交學費，而學校也還沒開始教這些東西，市場就是最好的老師。只是有時候我真希望跟老師說：「下次學費可以便宜一點嗎？」</p>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/734">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

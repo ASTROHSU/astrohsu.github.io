@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#719 支付專用鏈 — 區塊勢</title>
+<meta name="description" content="上週支付巨頭 Stripe 與幣圈創投 Paradigm 正式宣布 將聯手推出支付專用 L1 區塊鏈 Tempo，成為繼穩定幣發行商 Tether 與 Circle 1 ，以及 Google 2 之後⋯">
+<meta property="og:title" content="支付專用鏈">
+<meta property="og:description" content="上週支付巨頭 Stripe 與幣圈創投 Paradigm 正式宣布 將聯手推出支付專用 L1 區塊鏈 Tempo，成為繼穩定幣發行商 Tether 與 Circle 1 ，以及 Google 2 之後⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/ae961d5a-7c78-4644-aabd-678dc688086e_1172x708.png">
+<meta property="og:url" content="https://share.blocktrend.today/719/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#719</div>
+  <h1>支付專用鏈</h1>
+</header>
+
+<article class="article-content">
+<p>上週支付巨頭 Stripe 與幣圈創投 Paradigm <a href="https://x.com/patrickc/status/1963638753752420407">正式宣布</a>將聯手推出支付專用 L1 區塊鏈 Tempo，成為繼穩定幣發行商 Tether 與 Circle<sup>1</sup>，以及 Google<sup>2</sup> 之後，第四起大型企業自建區塊鏈的案例。</p><p>必須要說，這次 Stripe 和 Paradigm 找來的陣容相當豪華。Tempo 鏈的創始節點包含 Visa、OpenAI、Shopify、Revolut、酷澎、渣打銀行，可說是各產業一方霸主，頗有當年臉書籌組 Libra 協會的大團結氣勢。若是未來這些平台都可以使用穩定幣，世界會變得很不一樣。</p><p>只不過，Tempo 鏈推出後，政府都還沒說話，網路上就已經罵聲一片。立場和曲博類似的外國網友（<a href="https://x.com/patrickc/status/1964119986227806502">真有不少！</a>）認為，Stripe 是在用穩定幣規避監管。就連幣圈自己人也批評，自建區塊鏈就像在重新發明輪胎。</p><p>雖然 Tempo 主打中立，更承諾未來會逐步邁向去中心化，不過 Stripe 卻再次讓大家看到企業跨足區塊鏈時的「地心引力」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/ae961d5a-7c78-4644-aabd-678dc688086e_1172x708.png" alt="" loading="lazy"></figure><h2>支付專用鏈</h2><p>什麼是 <a href="https://tempo.xyz/launch-announcement">Tempo</a> 鏈？人比技術更重要。</p><blockquote><p>Tempo 是由 Stripe 和 Paradigm 共同建構，以支付為優先的區塊鏈。Tempo 為穩定幣和真實支付需求量身打造，結合了 Stripe 在全球的支付經驗與 Paradigm 在加密貨幣的專業知識。</p></blockquote><p>Stripe 是線上刷卡機領導品牌，全球超過三分之一的網路商店都用 Stripe 收錢。區塊勢的會員訂閱機制也是由 Stripe 提供。</p><p>Stripe 不僅是支付領域的專家，採用加密貨幣的態度也相當務實。早在 2014 年，Stripe 率先開通線上購物以 BTC 付款，轟動一時。後來因為 BTC 價格波動劇烈且鏈上手續費飆升，這項功能在 2018 年終止。直到 2024 年中，Stripe 評估區塊鏈的基礎建設已經成熟且看好穩定幣的發展潛力，宣布重返加密貨幣<sup>3</sup>！</p><p>過去一年，Stripe 不僅再次開通加密貨幣付款，還陸續收購穩定幣新創 Bridge<sup>4</sup>、隱形錢包 Privy<sup>5</sup>，更推出貼牌穩定幣服務協助 MetaMask 發幣<sup>6</sup>。是全球最積極佈局穩定幣的金融科技公司。</p><p>Paradigm 的來頭也不小，由 Coinbase 共同創辦人 Fred Ehrsam 和前紅杉資本合夥人 Matt Huang 在 2018 年共同成立。Matt Huang 不僅身兼 Stripe 董事會成員，也是以太坊生態系的長期投資者與建設者。Paradigm 在幣圈的形象一向正面，經常被評為最受信賴的幣圈創投。</p><p>Paradigm 不僅有一支由區塊鏈專家、白帽駭客組成的團隊為投資公司提供技術支援，近期還<a href="https://thedefiant.io/news/people/zachxbt-joins-paradigm-incident-response-advisor-returning-over-350-million-to-2af46c0e">延攬</a>鏈上偵探 ZachXBT 成為顧問。因此，要說 Paradigm 不懂以太坊，就像在說 a16z 不懂網路一樣奇怪。</p><p>但矛盾的是，Paradigm 曾在 2022 年發表過〈底層的中立性〉（<a href="https://www.paradigm.xyz/2022/09/base-layer-neutrality">Base Layer Neutrality</a>）文章，強調公鏈保持中立的重要性，如今卻選擇和 Stripe 共同打造一條新的 L1 區塊鏈，還找來 Visa、OpenAI 這些大公司擔任節點，完全是踩在他們當初自己提醒過的陷阱上，讓人看得一頭霧水。</p><p>Stripe 的誘因比較好理解。誰能掌握穩定幣的結算層，誰就拿到下一代的「全球清算網路」主導權。但 Paradigm 的角色就讓人困惑。既然他們這麼清楚以太坊的價值與去中心化的必要性，為什麼不是說服 Stripe 將 Tempo 建立在既有區塊鏈之上，而是另起爐灶？Bridge 創辦人 Zach Abrams 在一場訪談裡點出關鍵：「現在的區塊鏈，在日常支付場景下其實都還不堪用」。</p><div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/kBA1UF-b74A?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0" frameborder="0" loading="lazy" allowfullscreen style="width:100%;aspect-ratio:16/9;border-radius:8px"></iframe></div><p>換言之，如果現有區塊鏈已經夠好用，Stripe 也不必自己做。原本我還半信半疑，聽完他解釋才豁然開朗。</p><h2>原地乾等 12 秒</h2><p>Tempo 鏈號稱要建構「支付等級」的基礎設施，主打三大特色：</p><ol><li><p><strong>次秒級確定性</strong>：不到一秒就能確認交易不可逆轉</p></li><li><p><strong>內建交易隱私</strong>：避免所有消費紀錄都被公開追蹤</p></li><li><p><strong>穩定的手續費</strong>：原生支援以穩定幣支付 gas fee</p></li></ol><p>這些特色都是老生常談，但現有公鏈真的都辦不到嗎？Abrams 在訪談裡舉了兩個例子：Solana、Stellar。</p><p>他說 Solana 雖然速度快，但用戶建立錢包時需要預先存入 0.002 顆 SOL 作為押金（市價約新台幣 12 元）才能使用。如果 Stripe 要替數千萬用戶建立錢包，光押金就要燒掉上億元。雖然這筆錢對 Stripe 來說並非不可負擔。但如果跟其他區塊鏈相比，就成了非必要花費。被視為對企業不友善。</p><p>Stellar 則是 Abrams 的切身之痛。他說 2022 年 Bridge 曾協助美國政府發放數萬筆小額補助，當時選擇的就是 Stellar 鏈，原本以為會一切順利，結果前後不僅花了 18 小時才處理完，過程中還有大批失敗交易，導致大量客訴。他稱這樣的效能、穩定性無法滿足即時支付的真實需求。</p><p>Abrams 沒有直接點名，但以太坊確實也還做不到 Tempo 主打的三大特色。雖然以太坊已經把跨境支付的清算時間，從原本的一天縮短到幾個區塊，大約 12 分鐘就能完成。但日常支付消費對最終確定性的要求更高，最好是能一手交錢一手交貨。總不可能要消費者結帳後，原地乾等 12 分鐘才能離開吧？</p><p>以太坊創辦人 Vitalik Buterin 也<a href="https://x.com/VitalikButerin/status/1964407261801173312">承認</a>可以做得更好。但瓶頸在於各個國家的網路速度不同，若大幅縮短交易確認時間，就可能會帶來中心化疑慮。例如第三世界國家的網路速度可能沒有歐美國家那麼快，導致以太坊上的交易不是全球共識而只是歐美共識。這就是地理上的中心化風險。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/052e5dc1-5c26-4dab-a32d-72236b2131f0_1170x1040.png" alt="" loading="lazy"></figure><p>隱私更是大問題。多數區塊鏈的交易都是公開透明，哪個地址在什麼時候花了多少錢，在鏈上一清二楚。這週就有人做出<a href="https://x.com/tzedonn/status/1964051341099344311"> EtherFi Cash 消費排行榜</a>，直接點名哪些錢包地址是「大戶」。只要進一步透過鏈上分析工具，就有可能拼湊出這些用戶的真實身分。Tempo 主打的內建隱私模式，正是要在區塊鏈層級解決這個問題。</p><p>當 Stripe 把這些問題逐條列出來攤在檯面上，就算是 Paradigm 也不得不承認以太坊很難在短期內完全解決。</p><p>過去 Stripe 還能以基礎建設不成熟為由直接蓋牌，停止支援 BTC 支付。現在穩定幣大戰已經開打，Stripe 若想在最短的時間解決問題，最快的方法不是等既有的區塊鏈慢慢開發，而是自幹一條區塊鏈出來。</p><p>雖然我理解 Stripe 推出 Tempo 鏈的理由，卻不認同他們的做法。我認為最好的方法應該是 Stripe 協助區塊鏈加速發展，而不是另起爐灶。</p><h2>控制的地心引力</h2><p>Tempo 鏈追求效率。但為什麼現有的區塊鏈做不到？難道研究員、開發者都是薪水小偷嗎？我認為問題不在技術，而在價值取捨。企業對區塊鏈的最大誤解，就是把它當成替自己賺錢的科技工具，而不是數位世界的公共基礎建設。就像遊樂園是某家公司收費經營的生意，而公園則是任何人都能自由使用的公共設施。兩者的設計邏輯完全不同。</p><p>Tempo 認為去中心化是相對容易的事。先找幾家大型公司來當節點，等交易都上鏈後，再慢慢放權給更多參與者。重點是「現在就要解決問題」，去中心化可以留到將來再說。</p><p>以太坊的邏輯正好相反。Vitalik 會攤開路線圖告訴你，技術問題總有一天能被解決，不管是更快的最終確定性、更低的手續費，或更隱私的鏈上交易。但如果一開始就犧牲去中心化，等到某天真的需要它時，就已經沒有機會補回來。對以太坊而言，技術可以慢慢做，但去中心化必須從第一天就堅守到底。</p><p>誰對誰錯？曾是臉書 Libra 團隊創始成員的 Christian Catalini 近期<a href="https://www.forbes.com/sites/christiancatalini/">投書媒體指出</a>，真正扼殺 Libra 的關鍵不是政府監管，而是內部對去中心化的分歧：</p><blockquote><p>外界以為 Libra 失敗是因為監管，但真正扼殺它的，其實是內部的價值衝突。我們始終沒能說服其他同事讓 Libra 網路無需許可（permissionless）。企業區塊鏈的問題，不在於程式碼，而在於誘因。科技公司總是先承諾公平，等市場依賴後再把規則往自己方向傾斜。只要還有能被掐住的喉嚨，系統就不可能真正改變。任何有「建築師」的網路，終將背棄隱私、開放性與中立性──這就是控制的地心引力。</p></blockquote><p>Catalini 透露，Libra 工程師相信自己擅長打造全球最高效的中心化系統，不僅對開放網路沒有理想，還經常質疑「為什麼要把資料庫去中心化？」在他看來，是 Libra 內部先放棄了去中心化，才讓監管者有了更大介入空間。Tempo 會不會重蹈覆轍？關鍵在於能不能逃脫「控制的地心引力」。我對此相當悲觀。歷史上想要從中心化過渡到去中心化的區塊鏈案例多不勝數，但至今沒有任何成功例子。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/85bdbc4d-7ac5-4088-8446-20ba46abade0_1154x1224.png" alt="" loading="lazy"></figure><p>Tempo 在官網上主打「<a href="https://tempo.xyz/">內建合規機制</a>」，就是失敗的第一步。不是我支持違法，而是各國法規不會一致。當你把合規寫進區塊鏈，就註定要在不同司法管轄下反覆妥協。最後 Tempo 鏈要嘛被迫分裂成不同版本，要嘛只能服從最大監管者的意志。這跟 Tempo 強調的「底層中立性」背道而馳。區塊鏈就像是升空的火箭。參與者越大咖，就越難脫離地心引力的控制。</p><p>更現實的是打造中立的區塊鏈，本來就和 Stripe、Paradigm 這種營利企業的使命不符。如果未來競爭對手在 Tempo 上做得比他們更成功，難保他們不會透過技術手段「背刺」這些企業。因此 Google 的 Web3 負責人才會<a href="https://www.linkedin.com/posts/rich-widmann-a816a54b_all-this-talk-of-layer-1-blockchains-has-activity-7366124738848415744-7idA?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADrlBIUBh7n2f1DY16wvtmbWkT2_uC9YY6I">說出</a>，Tether 不會使用 Circle 鏈，Adyen 不會使用 Stripe 鏈。因為這些「中立的承諾」太廉價。反觀現在北韓駭客利用以太坊洗錢，美國政府已經知道不該去抓 Vitalik，而是要從應用層下手。但如果駭客透過 Tempo 犯罪呢？難道 Stripe 可以說「現在可以找我，但以後不行」嗎？</p><p>我佩服 Stripe 總是以務實態度面對科技發展。許多金融專家喜歡嘲笑幣圈太理想。但理想就像指南針，用來確定方向。企業不談理想未必是好事，因為在他們的世界裡，免費開放的公園根本不該存在。這就是為什麼企業做區塊鏈往往註定失敗。Stripe 如果認為公共建設不夠好，應該是出錢出力幫忙改進，而不是自己跳下場蓋一座私人的收費遊樂園。雖然 Paradigm 長年被評為頂級幣圈創投，但看來還不夠理解區塊鏈最難的不是技術，而是如何實踐去中心化。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/713">Circle、Tether 自建區塊鏈，對以太坊有何影響？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/717">Google 自建金融區塊鏈：公共建設的私人生意</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/603">Stripe 重返加密貨幣支付：開通 USDC 付款、中間人的必要</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/643">幣圈最大收購案！為何 Stripe 砸 11 億美元，買下穩定幣 API 新創 Bridge？</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/699">搶占 AI 支付入口！Stripe 收購隱形錢包 Privy，終結加密貨幣的撥接時代</a></p></div></div><div class="footnote"><a id="footnote-6" href="#footnote-anchor-6" class="footnote-number" contenteditable="false" target="_self">6</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/715?">MetaMask 發幣了！Stripe 成為穩定幣軍火商，對 USDC 影響在哪？</a></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/719">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

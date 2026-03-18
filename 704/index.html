@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#704 起死回生 — 區塊勢</title>
+<meta name="description" content="微策略（MSTR）自 2020 年起買入 BTC，更帶起一波企業買幣熱潮 1 。連近期準備上市的設計公司 Figma 也在招股書中 揭露 ，公司持有價值高達 7,000 萬美元的比特幣 ETF。上市公⋯">
+<meta property="og:title" content="起死回生">
+<meta property="og:description" content="微策略（MSTR）自 2020 年起買入 BTC，更帶起一波企業買幣熱潮 1 。連近期準備上市的設計公司 Figma 也在招股書中 揭露 ，公司持有價值高達 7,000 萬美元的比特幣 ETF。上市公⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/2d2e7866-11b5-4500-89dc-ae4284434e4b_2414x1262.png">
+<meta property="og:url" content="https://share.blocktrend.today/704/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#704</div>
+  <h1>起死回生</h1>
+</header>
+
+<article class="article-content">
+<p>微策略（MSTR）自 2020 年起買入 BTC，更帶起一波企業買幣熱潮<sup>1</sup>。連近期準備上市的設計公司 Figma 也在招股書中<a href="https://cryptobriefing.com/bitcoin-corporate-treasury-figma/">揭露</a>，公司持有價值高達 7,000 萬美元的比特幣 ETF。上市公司持有加密貨幣已經不是新聞，許多與幣圈毫無關聯的企業也在低調進場。說不定在未來，完全沒持有加密貨幣的公司才會上新聞。</p><p>BTC 一直是企業買幣的首選，微策略已經替大家肉身測試，效果擺在眼前。不過近期有幾家公司開始將目光轉向 ETH，其中最積極的就是線上博弈公司 <a href="https://www.sharplink.com/">SharpLink Gaming</a>（SBET）。</p><p>SharpLink 被稱為「以太幣版微策略」，從宣布買入 ETH 至今還不到兩個月，持幣數量就已經超越以太坊基金會，<a href="https://investors.sharplink.com/sharplink-becomes-largest-eth-holder/">成為</a>全球持有最多 ETH 的組織。先從這家公司的歷史說起。</p><h2>起死回生</h2><p>美國公司 SharpLink Gaming（SBET）成立於 2019 年，最初業務是為線上博弈平台導流。SharpLink 本身不開賭場，而是經營網路內容，吸引一批有下注需求的玩家後，再將他們引導到合法博弈平台，並從中賺取推薦分潤。</p><p>雖然 SharpLink 曾獲選為「最佳聯盟行銷網站」，核心產品卻無法獲得市場認可。公司連年虧損，股價自 2021 年起一路下滑，甚至曾跌破每股 1 美元。</p><p>2024 年，SharpLink 收到納斯達克下市警告，限期半年內拉回價格，否則將遭除牌。直到 2025 年 5 月的一紙公告，SharpLink 命運才徹底翻轉。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/2d2e7866-11b5-4500-89dc-ae4284434e4b_2414x1262.png" alt="" loading="lazy"></figure></div><p>SharpLink 宣布與以太坊開發商 <a href="https://consensys.io/">Consensys</a> 達成私募協議，以每股 6.15 美元出售普通股，預計募得 4.25 億美元。這筆投資的主導者是 Consensys 執行長，同時也是以太坊共同創辦人 Joseph Lubin。交易完成後，Joseph Lubin 正式出任 SharpLink 董事長，目標是將這家公司「變成以太坊的形狀」。</p><p>新聞稿<a href="https://investors.sharplink.com/sharplink-gaming-announces-425000000-private-placement-to-initiate-ethereum-treasury-strategy/">指出</a>，SharpLink 計畫將募得資金用於購買 ETH 作為資產儲備，Consensys 則協助制定以太坊儲備策略。消息公布隔天，SharpLink 股價從 7 美元暴漲至 35 美元，漲幅高達 500%。又過幾天，SharpLink 股價一飛沖天衝上 80 美元。但不久後碰上 ETH 幣價下跌，股價也再次跌落至 10 美元左右。想要投資的人，心臟得夠大顆才行。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6958700a-d601-4627-8b09-80af9dd39196_2446x1494.png" alt="" loading="lazy"></figure></div><p>到目前為止，SharpLink 就是把微策略的劇本搬過來用：一家股價表現不佳的公司引入加密貨幣，再透過傳統企業融資工具借錢買幣，然後創造奇蹟。SharpLink 也模仿微策略，提出每股 ETH 含量（ETH Concentration）的全新指標。為的是說服投資人，買 SharpLink 就<strong>幾乎</strong>等於買入 ETH。</p><p>不過，微策略創辦人 Michael Saylor 是透過買入 BTC 創造股價波動、吸引投資人興趣，SharpLink 的故事恰好相反。這是以太坊生態系主動出擊，刻意找一家上市公司成為「以太坊的微策略」，藉此扭轉 ETH 幣價的頹勢。</p><h2>靠以太奇襲</h2><p>BTC 近期突破 12 萬美元、再創歷史新高，ETH 卻遠遠落後，距離 2021 年創下的高點 4,891 美元還有一段路。</p><p>為什麼 ETH 漲不動？最常見的說法是：ETH 不像 BTC 那麼單純。從實用性來看，ETH 的確更佔優勢，但問題也出在這裡 —— 太實用導致敘事太多、意見太雜。</p><p>有人認為區塊鏈最終會顛覆金融，ETH 是核心基礎設施。但也有人認為傳統金融不會被撼動，因此 ETH 沒什麼用。大家都在討論應用、代幣經濟與發展潛力，反而稀釋了最關鍵的價值 —— 信仰。</p><p>BTC 恰好相反。BTC 只有陽春的轉帳功能，手續費又高，社群還很分散，軟體升級也不如以太坊頻繁。只有不懂的人，才會拿功能來解釋 BTC 有多厲害。</p><p>但比特幣的敘事也很簡單，靠的就是信仰，而這套信仰恰好回應當前宏觀經濟發展。通膨壓力來襲、美元購買力下滑、央行貨幣政策搖擺不定，都讓比特幣「數位黃金」的地位更穩固。微策略創辦人 Michael Saylor 便主張，「美元會持續貶值，比特幣是避險資產」，不只自己買，還發債借錢「歐印」。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/9bf7055f-242b-4561-a3b6-3f1b393f4e01_1637x2048.png" alt="" loading="lazy"></figure></div><p>技術強、應用多的以太坊，卻也意味著背負龐大的營運成本。基金會要養研究員、發補助、辦會議。在確保技術與社群雙軌並進的同時，卻出現大家最不爽的情況：一邊看著微策略大買 BTC，另一邊看著以太坊基金會持續賣出 ETH。久而久之，「以太幣」變成了「已汰幣」。社群出現檢討聲浪，基金會也在近幾個月大幅改革。</p><p>以太坊基金會曾是全球持有最多 ETH 的組織，動見觀瞻。偏偏它就是個成本單位，哪天變成囤幣機構反而才令人擔憂。SharpLink 的價值就由此顯現 —— 它要把以太坊的成就轉譯成金融敘事。</p><p>SharpLink 不是真的要打造什麼具體應用，而是要扮演財務代理人，讓 ETH 能在資本市場發聲。當人們看到全球持有最多 ETH 的公司持續買入，就更有動力將信仰轉化成可見的資產配置，再回頭增強信仰。</p><p>Joseph Lubin 在接受媒體訪談時<a href="https://youtu.be/a3qBhGO1Vik?si=tP5FLRjc0yPW6SCQ">表示</a>，他不需要說服華爾街投資人，只要讓他們看見 ETH 連續幾個季度上漲，大家就會自動靠近。</p><p>過去幾年，大家常聽見「微策略又買幣了」，Joseph Lubin 要建立「SharpLink 又買幣」的新常態。不同的是，SharpLink 買入的是 ETH，財務操作也與微策略的槓桿不太一樣。</p><h2>成為信仰中心</h2><p>第一時間我看到 SharpLink 採取類似微策略的「無腦買幣」操作，難免有點擔心。畢竟這套劇本在幣價上漲時固然奏效，但如果市場反轉、價格下跌，槓桿反而會成為壓垮企業的最大風險。我向來不喜歡這種純靠財務工程堆出來的繁榮假象。</p><p>但深入研究後才發現，SharpLink 採取的策略其實比想像中保守許多。他們不像微策略那樣發債借錢來買幣，而是透過按市價增發（At-The-Market）機制，在公開市場上發行普通股，向投資人募資，再分批買進 ETH。本質不是借錢買幣，而是讓對公司沒信心的原有股東出場，換成一批對 ETH 有長期信仰的新股東。少了槓桿，風險也就低得多。</p><p>至今 SharpLink 已經購入約 28 萬顆 ETH，市值約 8.8 億美元，正式超越以太坊基金會，成為全球持有 ETH 數量最多的組織。但這些 ETH 並不是買來囤，SharpLink 幾乎全部拿去參與 PoS 質押 —— 一邊賺收益，一邊強化以太坊安全。這是與微策略持有 BTC 的最大差別。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/efbde92d-8904-4c8b-a3bd-f68198987001_1164x1008.png" alt="" loading="lazy"></figure></div><p>SharpLink 將這套做法稱為「以太坊儲備策略」（Ethereum Reserve Strategy），說穿了就是兩件事：</p><ol><li><p>買入並長期持有 ETH</p></li><li><p>透過質押為公司創造穩定現金流</p></li></ol><p>SharpLink 表示，已有 99.7% 的 ETH 進入質押，以目前約 3% 的年化報酬率計算，每年能為公司帶來約 2,600 萬美元收入。這還只是剛開始。未來 SharpLink 持有更多 ETH，產生的現金流就會更多。</p><p>過去 ETH 投資人總會緊盯基金會錢包，搞得基金會為了營運需求賣幣時就像是一種背叛。但要做事怎麼可能不花錢？SharpLink 的出現，替基金會分擔了這份壓力 —— 它就像是以太坊的「微策略」，不只從不賣幣，還會不時跳出來提醒大家：「我們又買幣了！」</p><p>當年我聽人說 BTC 是一種信仰，總覺得那只是開玩笑。現在我總算理解，那都是真的。微策略的商業模式就是「開廟<sup>2</sup>」，成為人們的信仰中心。即便微策略持有的 BTC 價值只有公司市值的一半<sup>3</sup>，依然可以持續下去。多出來的溢價，就是信眾們捐贈的香油錢。</p><p>過去以太坊不玩信仰，就連行銷也很少，靠的是技術實力。但這幾年 ETH 幣價萎靡不振，讓許多人的熱情快要消磨殆盡。即便是最不在乎幣價的開發者也需要信心支撐 —— 一間在最壞的時候會挺身而出、持續買幣的公司 —— SharpLink 就是要成為這樣的存在。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/651">微策略暴漲 10 倍！槓桿比特幣、死亡螺旋的風險</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/668">微策略升級槓桿：比特幣金庫公司、機構背書的陷阱</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/687">比特幣新妖股 Twenty One</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/704">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

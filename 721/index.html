@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#721 最大鏈上期貨市場 — 區塊勢</title>
+<meta name="description" content="發行穩定幣曾是全世界最賺錢的生意。只要把美元存進銀行、發行穩定幣給用戶，發行方就能坐收美債利息，成為名副其實的「睡後收入」。Tether 和 Circle 靠著這套模式，每年輕鬆進帳數十億美元。但這門⋯">
+<meta property="og:title" content="最大鏈上期貨市場">
+<meta property="og:description" content="發行穩定幣曾是全世界最賺錢的生意。只要把美元存進銀行、發行穩定幣給用戶，發行方就能坐收美債利息，成為名副其實的「睡後收入」。Tether 和 Circle 靠著這套模式，每年輕鬆進帳數十億美元。但這門⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/d566731a-560a-4370-b6e7-c005629d8b6b_2468x1514.png">
+<meta property="og:url" content="https://share.blocktrend.today/721/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#721</div>
+  <h1>最大鏈上期貨市場</h1>
+</header>
+
+<article class="article-content">
+<p>發行穩定幣曾是全世界最賺錢的生意。只要把美元存進銀行、發行穩定幣給用戶，發行方就能坐收美債利息，成為名副其實的「睡後收入」。Tether 和 Circle 靠著這套模式，每年輕鬆進帳數十億美元。但這門「躺賺」生意在上週出現關鍵轉折：全球最大的鏈上永續合約交易平台 <a href="https://app.hyperliquid.xyz/trade">Hyperliquid</a> 宣布舉辦「穩定幣選商」，開放各家業者競爭貼牌穩定幣 USDH 的發行權。</p><p>消息一出，全球最知名的穩定幣發行商全數到齊。為了搶下 USDH 的發行資格，業者不惜放棄原本的儲備收益，甚至讓利高達 95% 還只是基本門檻。這是穩定幣發展至今最重要的分水嶺。發行商從過去獨享儲備收益，到現在必須交出幾乎所有利息收入，才能換取一張進入通路的門票。要理解這場割喉戰，必須先從 Hyperliquid 在產業裡的地位說起。</p><h2>最大鏈上期貨市場</h2><p>Hyperliquid 是全球最大的鏈上永續合約交易平台，交易量約佔鏈上市場七成，有時甚至能超越幣安，稱霸鏈上與鏈下市場。Hyperliquid 年營收預估 11 億美元，團隊卻只有 11 個人，人均產值全世界最高。旗下平台幣 HYPE 目前市值更高居全球第 11 名，超越一眾知名加密貨幣。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/d566731a-560a-4370-b6e7-c005629d8b6b_2468x1514.png" alt="" loading="lazy"></figure><p>Hyperliquid 本質上做的是「賭場」生意。用戶交易的不是現貨，而是永續合約<sup>1</sup> —— 沒有到期日的期貨。投資者只要存入穩定幣當保證金，就能透過做多或做空賭價格漲跌。現貨只能做多，但永續合約不只能做空，還能開槓桿放大報酬（同時放大風險），因此成了許多人追逐暴利的工具，而 Hyperliquid 則靠交易手續費賺進大筆收益。</p><p>雖然 Hyperliquid 支援數十種加密貨幣，但平台上真正流通的其實只有一種資產：美元穩定幣。其它加密貨幣都只是市場報價，沒有現貨流通，既無法存入也不能提領。換言之，穩定幣就是 Hyperliquid 賭場的籌碼，沒有穩定幣就上不了賭桌。正是因為如此，在 Hyperliquid 發行穩定幣的利益相當可觀。</p><p>目前平台流通的穩定幣約 58 億美元，其中 95% 都是 USDC。但這帶來兩大隱憂：</p><ol><li><p>過度依賴單一穩定幣</p></li><li><p>龐大的利息收益外流</p></li></ol><p>一旦 USDC 出問題，Hyperliquid 也會被拖下水。除此之外，55 億美元每年能產生超過 2.2 億美元利息收入，Hyperliquid 卻分不到任何好處。明明「鏈上賭場」交易需求龐大，Hyperliquid 卻發現不僅安全性沒保障，就連穩定幣收益的肥水也流入外人田，因此才打算自己發行穩定幣 USDH 並「公開選商」，讓外部業者競爭發行權。誰的提案對 Hyperliquid 生態更有利，誰就能拿到「USDH」的金字招牌。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/42d9196f-b908-40bb-b100-1d94149b0fc0_1736x1510.png" alt="" loading="lazy"></figure></div><h2>讓利 95% 搶通路</h2><p>消息一出，全球最知名的穩定幣發行商幾乎全員到齊！預測市場 Polymarkert 更開出賭盤，即時追蹤各家業者的勝率。根據 Hyperliquid 公告：</p><blockquote><p>任何有意願發行「Hyperliquid 原生穩定幣 USDH」的團隊，都可以公開發表計畫與背景。接著將由驗證者在鏈上投票，決定哪個團隊能獲得「USDH」的發行權。投票過程完全上鏈 ... 未來仍會有多種穩定幣在 Hyperliquid 上並存，USDH 只是其中之一 ... 各團隊必須在 9 月 10 日前提交提案；驗證者在 9 月 11 日前公開表態；最終投票結果在 9 月 14 日出爐。</p></blockquote><p>Hyperliquid 的公開選商時程非常趕，從公告到截止只有短短 5 天。原本外界預期由於時間緊迫，不會有太多業者投標，沒想到公告發出後 1.5 小時，就出現了第一份提案，接下來 5 天，更湧入超過 20 家發行商參戰。盛況空前。</p><p>競爭的激烈程度也遠超預期。原本大家以為重點在業者「願意讓利多少」，但很快就發現，讓利 95% 只是入場券，許多業者幾乎把所有利息收益回饋給 Hyperliquid，甚至還有人開出「100% 讓利＋數千萬美元補貼」的超優渥條件。發行商不只要秀出誘人的分潤比例，還得端出自己的「特色才藝」：有人強調全球支付網路，有人打出與大型交易所合作關係，有人乾脆砸錢補貼。</p><p>最有代表性的是 Paxos、Ethena 和 Native Market 這 3 家廠商：</p><ul><li><p><strong>Paxos </strong>主打監管合規與機構背書，不僅是 PayPal 貼牌穩定幣 PYUSD 的發行商，還曾替幣安發行過 BUSD。開出 95% 收益回購 HYPE 代幣，加上 PayPal 承諾 2,000 萬美元補貼，在第一天就投下震撼彈。</p></li><li><p><strong>Ethena</strong> 挾著全球第三大穩定幣 USDe 氣勢參戰。同樣讓利 95%，還額外祭出上億美元獎勵池。交由貝萊德（BlackRock）管理儲備資產，未來還要結合 Pendle 擴大 DeFi 整合。</p></li><li><p><strong>Native Markets</strong> 主打原生對齊。由 Hyperliquid 顧問 Max Fiege 臨時組隊成立，雖然毫無發幣經驗，卻最早送出提案。條件是 100% 讓利，雖沒有補貼，但強調與 Hyperliquid 利益綁定，反而贏得社群支持。</p></li></ul><p>其它參賽者還包括 Curve、BitGo、Frax 以及 DAI 發行方 Sky（原 MakerDAO），結果你猜是哪家業者脫穎而出？Native Markets 在預測市場的勝率一路領先，最終也獲得驗證者青睞，成功拿下 USDH 的發行權。</p><div class="captioned-image-container"><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/abf8e640-cdc5-4e6d-b8a2-61e6e19e134d_1688x900.png" alt="" loading="lazy"></figure></div><p>在強敵環伺的情況下，竟然是由毫無穩定幣經驗的業者勝出，結果自然引發爭議。有人批評 Hyperliquid 根本早已屬意「自己人」，公開選商只是形式；也有人認為這凸顯了「誘因對齊」的重要性，甚至比專業經驗更關鍵。不過對多數旁觀者來說，過程比結果更有意義。畢竟這些提案多半還只是藍圖。</p><p>最耐人尋味的是 Circle 的反應。Hyperliquid 公布選商後，Circle 執行長 Jeremy Allaire 只是在社群上<a href="https://x.com/jerallaire/status/1964837574167658870">轉貼</a>一份 7 月底的公告，聲稱 Circle「即將」在 Hyperliquid 上<a href="https://www.circle.com/blog/native-usdc-cctp-v2-are-coming-to-hyperliquid-what-you-need-to-know">發行</a>原生 USDC。但一個多月過去仍未兌現，也沒有提出補貼或分潤。相比其他業者搶破頭的積極姿態，Circle 顯得被動許多。這正好凸顯了近期市場的劇烈變化 —— 穩定幣已從「產品稀缺」轉向「通路稀缺」。以前是交易所拜託 Circle 來發幣，甚至還拖拖拉拉。現在已經變成是發行商主動排隊競標、甚至拱手讓利，只為了搶進 Hyperliquid。</p><p>為什麼競爭忽然變得這麼激烈？法規明確是最關鍵的因素。</p><h2>逼出儲備收益</h2><p>過去發行穩定幣是高風險行業。因為缺乏明確規則，法遵成本像個無底洞。直到美國《天才法案<sup>2</sup>》通過，有了明確的標準，發行門檻大幅降低。於是像 Hyperliquid 這種能創造龐大穩定幣需求的平台，自然成了兵家必爭之地，也迫使發行商必須「主動鋪貨」。</p><p>過去 Tether、Circle 之所以能稱霸，是因為他們有「先發優勢」。交易所或 DeFi 應用若不引入 USDT、USDC，就沒有美元穩定幣可用。發行商幾乎不用花成本推廣，就能坐收利息收益。但現在情勢已經翻轉。如果 Circle 不積極應對，馬上就會被其他業者以更優沃條件取代。為了守住地位，Circle 也不得不開始讓利或是強化生態綁定，例如砸錢補貼幣安用戶<sup>3</sup>、推出 CCTP 協議鎖定 DeFi 應用<sup>4</sup>，甚至跨足支付市場挑戰 SWIFT<sup>5</sup>。</p><p>對挑戰者來說，既有發行商的利潤就是機會所在。Hyperliquid 的 USDH 選商就是縮影 —— 95% 分潤只是基本門檻，發行商還得端出自家特色：監管合規、DeFi 整合、資金補貼，才有機會勝出。透過公開選商，Hyperliquid 不只擺脫了對 USDC 的依賴、避免收益全被 Circle 吸走，更進一步「反客為主」把主導權收回自己手中。非常高明！</p><p>另一方面，穩定幣收益正在民主化。以往發行商能賺走穩定幣的所有利潤，其它人一毛都分不到。但隨著發行風險下降，穩定幣收益正在轉移到能創造穩定幣需求、掌握顧客關係的通路口袋。假如通路之間競爭加劇，平台為了留住使用者，收益未來還會進一步透過交易回饋、空投補貼、流動性獎勵，下放到使用者手上。最終穩定幣的贏家，將是有特色的發行商、能掌握用戶的通路，以及懂得跳槽的使用者。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/384">永續合約：期貨交易也能替你賺得穩定利息</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/705">美國通過穩定幣法案！為何不發 CBDC，反而贏了？</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/715">MetaMask 發幣了！Stripe 成為穩定幣軍火商，對 USDC 影響在哪？</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/528">Circle 推出跨鏈傳輸協議：成為鏈上 Visa、終結跨鏈橋駭客</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/685">Circle 打造支付網路：挑戰 SWIFT 轉帳系統、顛覆錢不會跑的現況</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/721">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

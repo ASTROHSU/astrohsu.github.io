@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 不刷卡 — 區塊勢</title>
+<meta name="description" content="AI 代理人需要自己的支付方式。目前 AI 無法刷信用卡，因為信用卡是為人類設計的。穩定幣可能成為 AI 的原生支付方式。">
+<meta property="og:title" content="AI 不刷卡">
+<meta property="og:description" content="AI 代理人需要自己的支付方式。穩定幣可能成為 AI 的原生支付方式。">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#4E4788;--purple-light:#EEEDF8;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,#E8F3ED 60%,#1A4A35 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(13,46,32,0.3));pointer-events:none;
+}
+.hero-card{
+  width:140px;height:140px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:cardReveal 1.5s ease 0.3s forwards;
+  background:white;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);
+  display:flex;align-items:center;justify-content:center;font-size:4rem;
+}
+@keyframes cardReveal{to{opacity:1}}
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+ul{margin-left:2rem;margin-bottom:1.5rem}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(45,107,79,0.08);color:var(--green)}
+.big-question .option:nth-child(3){background:rgba(78,71,136,0.08);color:var(--purple)}
+
+/* Payment layers */
+.layers-visual{
+  display:flex;flex-direction:column;gap:1rem;margin:3rem 0;
+}
+.layer{
+  padding:1.5rem;border-radius:12px;border:1px solid #E8E3D8;
+  display:flex;align-items:center;gap:1.5rem;
+}
+.layer-num{
+  font-size:2rem;font-weight:700;color:var(--text-muted);min-width:50px;text-align:center;
+}
+.layer-content h4{font-weight:600;margin-bottom:0.3rem;color:var(--text)}
+.layer-content p{margin:0;font-size:0.9rem;color:var(--text-secondary)}
+.layer.top{background:var(--terra-light);border-color:#DBBFAD}
+.layer.middle{background:var(--green-light);border-color:#A8D4BC}
+.layer.bottom{background:var(--purple-light);border-color:#C4BBD9}
+
+/* Cost chart */
+.cost-chart{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0;
+  padding:2rem;background:#F9F3E6;border-radius:12px;border:1px solid #E4D5B8;
+}
+.cost-item h4{font-size:0.9rem;font-weight:600;margin-bottom:0.5rem;color:var(--text)}
+.cost-item .metric{font-size:1.4rem;font-weight:700;color:var(--gold);margin-bottom:0.2rem}
+.cost-item .label{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em}
+
+/* Two paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.path-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.path-card:hover{transform:translateY(-3px)}
+.path-card.up{background:var(--terra-light);border-color:#DBBFAD}
+.path-card.down{background:var(--green-light);border-color:#A8D4BC}
+.path-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.path-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.path-card.up .tag{background:#DBBFAD;color:#8B5A3C}
+.path-card.down .tag{background:#A8D4BC;color:#2D6B4F}
+.path-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.path-card .risk{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);
+}
+.path-card .risk strong{color:var(--terra);font-weight:500}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
+.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--green)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(192,106,58,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .paths,.cost-chart{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+  .layer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-card">💳</div>
+  <h1>AI 不刷卡</h1>
+  <p class="subtitle">AI 需要自己的支付方式</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">未來 AI 會用什麼方式付款？</h2>
+  <div class="options fade-in">
+    <span class="option">信用卡（Visa / Mastercard）</span>
+    <span class="option">穩定幣（Stablecoin）</span>
+    <span class="option">銀行轉帳（ACH / SWIFT）</span>
+    <span class="option">虛擬卡號</span>
+    <span class="option">專有智能錢包</span>
+    <span class="option">都可能</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">Circle、Stripe、Coinbase 都在押注一個大膽的假設：AI 的交易方式必定與人類不同。<br>問題是，它們的理由真的站得住腳嗎？</p>
+</div>
+
+<!-- FRICTION STORY -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>摩擦成本的悖論</h2>
+
+  <p class="fade-in">想像兩家線上商店在你面前：</p>
+
+  <blockquote class="fade-in">
+    A 商店：售價 2,000 元，只能銀行轉帳<br>
+    B 商店：售價 2,050 元，可用信用卡 / Apple Pay
+  </blockquote>
+
+  <p class="fade-in">你會選誰？許多人寧願多付 50 元，也懶得打開銀行 app 手動轉帳。研究機構 Citrini Research 把這叫做「習慣性的中介化」（habitual intermediation）：<strong>人願意為了方便而多付錢</strong>。這正是信用卡公司 3% 手續費的底氣。</p>
+
+  <p class="fade-in">但 AI 不會這樣想。對 AI 來說，打開銀行 app 或使用穩定幣一樣簡單，卻能省下 50 元。<strong>沒有習慣，只有邏輯</strong>。AI 會自動尋找交易成本最低的支付方式。無論是銀行轉帳還是加密貨幣，都只是幾行指令的功夫。</p>
+
+  <p class="fade-in" style="font-weight:500;color:var(--green)">這套邏輯聽起來完全無敵。</p>
+
+  <p class="fade-in">但 Circle 執行長 Jeremy Allaire 都在問一個尷尬的問題：如果穩定幣即將取代信用卡，為什麼幣圈人現在人手一張穩定幣 Visa 卡，而不直接用穩定幣付款？</p>
+</section>
+
+<!-- PAYMENT LAYERS -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>三層支付架構</h2>
+
+  <p class="fade-in">Crossmint 創辦人 Alfonso 一句話戳破了整個辯論的破綻：</p>
+
+  <blockquote class="fade-in">
+    人們一直在進行錯誤的辯論。穩定幣正在取代的是 ACH 和 SWIFT，而不是 Visa 和 Mastercard。
+  </blockquote>
+
+  <p class="fade-in">支付可以分成三個層次，各司其職：</p>
+
+  <div class="layers-visual fade-in">
+    <div class="layer top">
+      <div class="layer-num">1</div>
+      <div class="layer-content">
+        <h4>支付介面層</h4>
+        <p>消費者用的付款方式：Apple Pay、實體卡、LINE Pay</p>
+      </div>
+    </div>
+    <div class="layer middle">
+      <div class="layer-num">2</div>
+      <div class="layer-content">
+        <h4>發卡網路層</h4>
+        <p>授權交易：Visa、Mastercard、AMEX</p>
+      </div>
+    </div>
+    <div class="layer bottom">
+      <div class="layer-num">3</div>
+      <div class="layer-content">
+        <h4>結算網路層</h4>
+        <p>資金移動：ACH、SWIFT、穩定幣</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">當你刷信用卡買東西時，POS 機只是發出授權請求，Visa / Mastercard 傳遞訊息，背後的銀行確認額度後回覆核准。這個過程幾秒完成。</p>
+
+  <p class="fade-in">真正的資金轉移發生在第三層，透過 ACH、SWIFT 等系統，需要一到三個工作天才能結算。</p>
+
+  <div class="cost-chart fade-in">
+    <div class="cost-item">
+      <h4>傳統 SWIFT 轉帳</h4>
+      <div class="metric">1-3 天</div>
+      <div class="label">結算時間</div>
+    </div>
+    <div class="cost-item">
+      <h4>穩定幣鏈上轉帳</h4>
+      <div class="metric">幾秒鐘</div>
+      <div class="label">結算時間</div>
+    </div>
+  </div>
+
+  <p class="fade-in">穩定幣的威力在於它把結算時間壓低到幾秒，成本從近千元台幣降到近乎免費。這為什麼對 Visa、Mastercard 不是威脅，反而是升級？因為當結算成本下降 99%，完成時間快 100 倍，它們可以用穩定幣改造後端系統，同時保持前端介面不變。</p>
+
+  <p class="fade-in">所以 Visa 和 Mastercard 在 2025 年宣布用以太坊、Solana 上的穩定幣處理部分結算。MoneyGram、Western Union 也積極採用穩定幣處理跨境資金。</p>
+
+  <p class="highlight fade-in">結算層可以換，支付介面不一定要換。</p>
+</section>
+
+<!-- TWO SCENARIOS -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>AI 支付的兩種未來</h2>
+
+  <div class="paths fade-in">
+    <div class="path-card up">
+      <span class="tag">情景 A ── 虛擬卡號</span>
+      <h3>AI 走傳統路線</h3>
+      <p class="detail">背後有人就發虛擬卡號給 AI，讓它在授權範圍內付款。Visa 全球加密貨幣主管 Cuy Sheffield 指出：如果人有信用卡，何不直接發卡給 AI 代理人？</p>
+      <div class="risk"><strong>優勢：</strong>無須改變現有支付習慣，AI 無縫融入。Visa / Mastercard 樂見其成，既不失市占，又能推高交易量。</div>
+    </div>
+    <div class="path-card down">
+      <span class="tag">情景 B ── 穩定幣原生</span>
+      <h3>AI 走新興路線</h3>
+      <p class="detail">AI 代理人擁有穩定幣錢包，直接用最低成本的支付方式付款。不依賴銀行、不受 Visa 控制。</p>
+      <div class="risk"><strong>優勢：</strong>純成本驅動，無需中介。但需要足夠多人願意用穩定幣才能啟動。</div>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">關鍵問題不在「成本有多低」，而在「流通性有多廣」。</p>
+</section>
+
+<!-- REAL DRIVER -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 4</span>商家端的冷啟動</h2>
+
+  <p class="fade-in">消費端的辯論也許多餘。真正撼動現狀的，反而來自商家端。</p>
+
+  <p class="fade-in">Cuy Sheffield 觀察到，越來越多沒有寫過程式的人，靠 AI 做出產品就開始收費。這群人通常：</p>
+
+  <ul class="fade-in">
+    <li>沒有公司登記</li>
+    <li>產品可能是「坐在馬桶上」寫出來的</li>
+    <li>要用 Stripe 收款？先去美國開公司、請會計師報稅</li>
+  </ul>
+
+  <p class="fade-in">要他們用傳統方式收款太麻煩了。但穩定幣不同——只需要一個錢包地址，立刻開始接收全球支付，無須銀行帳戶、無須稅務程序。</p>
+
+  <p class="fade-in">這群「AI 開發者」（vibe coder）只會越來越多。當穩定幣開始在他們手上流通，使用場景自然跟著擴大：</p>
+
+  <blockquote class="fade-in">
+    這些錢要放哪裡？換回法幣出金？用穩定幣卡消費？還是放在鏈上生利息？
+  </blockquote>
+
+  <p class="fade-in">這正是 Visa 積極和 Stripe 聯手擴大穩定幣支付卡合作的理由。2026 年底計畫在全球 100 個國家推出。它們不是被動應對，而是主動搶佔新興支付場景。</p>
+
+  <p class="highlight fade-in">穩定幣的流通性決定 AI 的支付方式，而不是相反。</p>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">Circle、Stripe、Coinbase 都在講一個故事：未來 AI 會用穩定幣。但他們忽略了一個細節——這一切取決於穩定幣是否真的像信用卡一樣普遍。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">你也許不需要選擇。當穩定幣和信用卡一樣隨處可得，AI 自然兩種都用。只有小孩才在做選擇。</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">看完了，你的立場是？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你最接近哪一派。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">Citrini Research 說 AI 會自動選最低成本的支付方式，因此會拋棄信用卡。你同意嗎？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="agree">完全同意，邏輯無懈可擊</button>
+        <button class="q-btn" data-camp="hesitate">有道理，但遺漏了什麼</button>
+        <button class="q-btn" data-camp="disagree">不同意，現實更複雜</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">支付分三層（介面、發卡、結算），穩定幣改變結算層，不必改變介面層。這個說法？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="agree">一針見血，解釋了一切</button>
+        <button class="q-btn" data-camp="hesitate">有一定道理，但不完整</button>
+        <button class="q-btn" data-camp="disagree">過度簡化，現實沒那麼分明</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">未來更可能：AI 用虛擬卡號（傳統路線），還是用穩定幣錢包（新興路線）？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="hesitate">應該會都用，取決於流通性</button>
+        <button class="q-btn" data-camp="agree">穩定幣，終將取代傳統支付</button>
+        <button class="q-btn" data-camp="disagree">虛擬卡號，傳統支付更穩定</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">AI 不刷卡</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>AI 支付大戰才剛開始。</h2>
+  <p>文章裡有 Circle、Stripe、Visa 的完整戰略分析，以及為什麼穩定幣可能不是 AI 的原生支付方式的深入討論。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/762" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 不會像人一樣刷卡。Circle、Stripe、Coinbase 說穩定幣是 AI 的原生支付方式，但 Visa 全球主管說，有人的話直接發虛擬卡號給 AI 就好。\n\n')+'&url='+encodeURIComponent('https://astrohsu.github.io/762/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://astrohsu.github.io/762/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://astrohsu.github.io/762/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz — one question at a time, auto-advance
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  agree: {
+    emoji: '⚡', name: '優化論者',
+    desc: '你相信 AI 的成本邏輯無法抗拒。既然穩定幣更便宜、更快，AI 終將做出理性選擇。',
+    bg: 'var(--terra-light)', color: '#8B5A3C',
+    share: '我是「優化論者」⚡ AI 的邏輯驅動著支付革命。成本最低的方式，必定成為未來的支付方式。你呢？'
+  },
+  hesitate: {
+    emoji: '⚖️', name: '實用主義者',
+    desc: '你認同穩定幣有潛力，但也看到現實的複雜性。流通性、監管、用戶習慣——都很重要。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    share: '我是「實用主義者」⚖️ AI 支付的未來不只關乎成本，還有流通性、可用性、使用習慣。三者缺一不可。你呢？'
+  },
+  disagree: {
+    emoji: '🛡️', name: '穩健論者',
+    desc: '你認為傳統支付有深厚基礎，Visa / Mastercard 不會輕易退出。虛擬卡號會是更現實的過渡。',
+    bg: 'var(--purple-light)', color: 'var(--purple)',
+    share: '我是「穩健論者」🛡️ AI 支付的未來仍在傳統框架內。Visa 和虛擬卡號的組合最務實。你呢？'
+  }
+};
+const articleUrl = 'https://astrohsu.github.io/762/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { agree: 0, hesitate: 0, disagree: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>

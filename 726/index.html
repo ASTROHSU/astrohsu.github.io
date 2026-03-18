@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#726 左位數偏誤 — 區塊勢</title>
+<meta name="description" content="最近比特幣再度創下歷史新高，但你知道現在的 ATH（All-Time High）是多少嗎？">
+<meta property="og:title" content="左位數偏誤">
+<meta property="og:description" content="最近比特幣再度創下歷史新高，但你知道現在的 ATH（All-Time High）是多少嗎？">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/23ae44a1-17b9-47ac-9439-1a80c978f33c_3340x2058.png">
+<meta property="og:url" content="https://share.blocktrend.today/726/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#726</div>
+  <h1>左位數偏誤</h1>
+</header>
+
+<article class="article-content">
+<p>最近比特幣再度創下歷史新高，但你知道現在的 ATH（All-Time High）是多少嗎？</p><p>我也記不清楚了 😂 自從比特幣突破 10 萬美元之後，價格就開始「變得模糊」。以前我會關心 3.6 萬或 7.4 萬了，但現在看到 11 萬、12 萬都只覺得是「十幾萬」。反正很貴就對了！這是心理學上的常見現象，稱為左位數偏誤（<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3681893">Left Digit Bias</a>）。</p><h2>左位數偏誤</h2><p>不知道你有沒有注意過，Uniqlo 的服飾無論有沒有特價，標價幾乎都是以「90」當成結尾。下圖這件褲子原價 1,290 元，特價 990 元。當消費者看到價格從四位數變成三位數，就會忍不住下單。這是企業運用「左位數偏誤」提升銷量的經典案例。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/23ae44a1-17b9-47ac-9439-1a80c978f33c_3340x2058.png" alt="" loading="lazy"></figure><p>關鍵在於大腦不是計算機，而是分類器。它不會去計算「從 1,290 元到 990 元是省了 24%」，而是一看見最左邊的那個位數 ── 從 1 變成 9 —— 就自動切換「類別」，認爲肯定省下很多錢。</p><p>研究發現，當數字跨過整數級距，人腦就會認定差距很大。這在消費決策裡最明顯：價格從 100 元降到 99 元，明明只少 1%，卻更容易讓人掏錢。諾貝爾經濟學獎得主丹尼爾・康納曼（Daniel Kahneman）在《<a href="https://readmoo.com/book/210002429000101">快思慢想</a>》書中指出，這是因為我們在日常判斷時啟動的是「系統一」思考 ── 快速、直覺、懶得深想的腦。它擅長分類，不擅長計算。</p><p>在購物情境裡，左位數偏誤會讓我們認為商品更便宜，需要趕快買入。但在投資市場裡，情況恰好相反 —— 我們可能因為左位數沒有變動，錯過買入或賣出時機。對抗人性，是所有頂尖金融交易者的必修課。但身為一般人，其實有更簡單的方法：靠機器。</p><h2>機器對抗人性</h2><p>「比特幣現在還能買嗎？」</p><p>這句話幾乎每次幣價大漲時都會出現。以前我會回答：「拿 5 年內用不到的錢，矇著眼睛買就對了」。我沒去追蹤成效，但敢肯定真正執行的人少之又少。因為幣圈熊市太漫長，沒有信仰的人很難熬過寒冬。</p><p>嚴格說起來，要不要買比特幣只是寒暄話題，根本不必當真。不過確實也有人想認真研究。這時我會引用 LikeCoin 創辦人高重建的<a href="https://nowherebookstore.io/product/cr004">建議</a>：定期定額買入（Dollar Cost Averaging）。每天買 100 元，幣值任選，台幣還是美金都行。但當幣價穩定突破歷史新高，就改為定期定額賣出。這不僅降低一次性買入的風險，還解答了比買入時機點更難的問題：何時賣出？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/885a045e-646a-494e-8da2-1115b9c3d38c_1156x824.png" alt="" loading="lazy"></figure><p>但坦白說，這也不容易執行。畢竟追高殺低是人性，定期定額需要時間和紀律。更何況還有一些人手上根本沒有比特幣，此刻正躍躍欲試。從去年開始，我會推薦他們<a href="https://www.blocktrend.today/p/652">進階版 DCA 機器人</a>。看到幣價再度 ATH，用它就對了！</p><p>進階版 DCA 機器人在各大交易所都有，只是名稱和機制不同。MaiCoin 稱它為 DCA 機器人，在 OKX、幣安則稱為馬丁格爾機器人。我以 MaiCoin 舉例，它專治「看到 ATH 就手癢」的症頭。</p><p>進階版 DCA 機器人的投資行為與所有人相同 —— 買低賣高 —— 但它不追求在最低點買入，也不執著在最高點賣出。而是成本夠低，獲利夠高就收手。這是（缺乏紀律的）人類很難做到的事。</p><p>開啟機器人後，系統會立即以當時價格為基準買入第一筆，並往下每隔一段距離掛一張買入訂單。間隔多少、掛多少張，可以自行設定。</p><p>下圖是我一個多月前設定的參數。每筆訂單 910 美元、每下跌 1% 買入一次、總共 10 筆、獲利 10% 賣出。假如幣價在我啟動機器人後一路上漲，那些訂單就不會成交。但我也不會 FOMO，因為我已經不是兩手空空。當手上 910 美元 BTC 變成 1,001 美元，賺了 10% 達成目標，機器人就自動賣出。結束這回合。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/ef89e171-a7ea-44bf-b334-327b0eb49d8f_1414x1234.png" alt="" loading="lazy"></figure><p>但當時我碰到的情況恰好相反。幣價在我啟動機器人的那刻一路下跌。從 11.5 萬跌到 10.7 萬，機器人按照設定，分批替我買入 7 筆、每筆 910 美元的 BTC。直到近期漲回 12.2 萬，達到 10% 目標後自動賣出。並連同本金與獲利，重新投入下一回合。</p><p>回頭看歷史訂單，人腦的「左位數偏誤」更加明顯。11.5 萬、10.7 萬和 12.2 萬，不都是「十幾萬」嗎？如果不靠機器人，我大概到現在都還不知道自己跌了 6%，又賺了 10%。雖然進階版 DCA 機器人能治療「看到 ATH 就手癢」的症頭，但它也有明顯的副作用 —— 萬一幣價一路下跌怎麼辦？</p><h2><strong>用市場對抗直覺</strong></h2><p>進階版 DCA 機器人預設價格終將回升，因此它只適合用在牛市。一旦進入熊市，依照設定，機器人會一路加碼買進，卻不會意識到前方可能是無底洞。我的做法是在牛市接近尾聲時關閉機器人，並手動賣出。但當下究竟是牛市還是熊市，由誰說了算？</p><p>有些人會看媒體引用「傳奇投資人」的發言，我更信任 Polymarket 的預測市場<sup>1</sup>。人們押注「美國聯準會是否會降息」，以「價格」呈現市場對總體經濟的預期。如果要說自己經歷兩輪牛熊循環後最大的體悟，那就是不要和總體經濟作對。</p><p>2021 年我曾<a href="https://www.blocktrend.today/p/ep105?">邀請</a>總體經濟專家王伯達錄音。他分享的投資邏輯非常簡單，買賣時機都跟美國聯準會的利率政策有關。聯準會宣布降息就像打開水龍頭，銀行資金流向市場，股市與加密貨幣等風險資產自然上漲；反之，若開始升息，資金被回收，價格也會下跌。</p><p>未來升息或降息的機率到底有多高，一般人根本無從得知。Polymarket 預測市場成了即時的風向球。以目前為例，Polymarket 預測聯準會 10 月降息一碼（25bps）的機率高達 89%。而上個月，聯準會才剛啟動今年的第一次降息。這代表市場資金正在從銀行流出。我不會在這種時候賣出加密貨幣，更不會關掉 DCA 機器人，因為行情很可能還不會這麼快結束。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/cd168513-35c1-49c5-834c-fe8d08c59a2c_1908x1734.png" alt="" loading="lazy"></figure><p>那要漲到什麼時候？我自己的觀察指標是 Polymarket 預測「下次降息機率」跌破 60%，這代表市場開始出現分歧，可能意味著降息循環的尾端、升息循環的開始。即便我再喜歡 BTC、ETH，此時我也會賣出大部分資產，趁熊市來臨時再加碼買入。</p><h2>靠工具也靠自己</h2><p>比特幣漲破 10 萬美元後，左位數偏誤變得更加明顯，也讓主動投資變得更難。現在如果「傳奇投資人」喊上看 15 萬，媒體可能連報都不報，因為聽起來太近了。於是市場開始出現上看 50 萬、甚至百萬的喊價。說穿了，這些數字只是迎合人腦分類器的結果。否則怎麼沒人喊上看 49 萬呢？</p><p>區塊勢很少談投資，因為我主要的時間都不在那裡。寫這篇也不是要變身投資老師，而是分享一套人人都能複製的決策流程。我不敢說這是最賺錢的策略，但它確實能幫助我在幣價上漲時盡可能保持冷靜、專注工作。</p><p>沒有投資方法能快速致富。就算有機器人幫忙執行，也還是需要搭配自己的判斷。這輪牛市我嘗試用機器對抗人性，用市場對抗直覺。剩下的就交給時間。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/622">鏈上預測市場爆紅！Polymarket 在混亂中賭出未來</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/726">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>

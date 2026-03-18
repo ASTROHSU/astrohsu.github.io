@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#708 你用對了嗎？ — 區塊勢</title>
+<meta name="description" content="今天這篇換個口味，回來聊一個大家日常會碰到的工具。最近冷錢包大廠 Ledger 推出了新的助記詞備份方案：Ledger Recovery Key 數位備份卡。台灣冷錢包廠商庫幣科技也同步推出了類似的新⋯">
+<meta property="og:title" content="你用對了嗎？">
+<meta property="og:description" content="今天這篇換個口味，回來聊一個大家日常會碰到的工具。最近冷錢包大廠 Ledger 推出了新的助記詞備份方案：Ledger Recovery Key 數位備份卡。台灣冷錢包廠商庫幣科技也同步推出了類似的新⋯">
+<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/1e9dad1c-0a16-40f6-a6bc-1ce3eb687bb2_1920x1080.webp">
+<meta property="og:url" content="https://share.blocktrend.today/708/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+/* Header */
+.article-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  background:linear-gradient(180deg,var(--cream),var(--warm));
+  border-bottom:1px solid var(--border);
+}
+.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
+.article-header .num{
+  font-size:0.8rem;color:var(--accent);font-weight:700;
+  letter-spacing:0.15em;margin-bottom:0.8rem;
+}
+.article-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
+  font-weight:700;letter-spacing:0.03em;line-height:1.5;
+  max-width:680px;margin:0 auto;
+}
+
+/* Content */
+.article-content{
+  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
+}
+.article-content p{margin-bottom:1.5rem}
+.article-content h2{
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
+  margin:3rem 0 1.5rem;padding-top:1rem;
+  border-top:1px solid var(--border);letter-spacing:0.03em;
+}
+.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
+.article-content blockquote{
+  border-left:3px solid var(--accent);padding:1rem 1.5rem;
+  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);
+}
+.article-content blockquote p{margin-bottom:0.8rem}
+.article-content blockquote p:last-child{margin-bottom:0}
+.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
+.article-content a:hover{border-bottom-color:var(--accent)}
+.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
+.article-content li{margin-bottom:0.5rem}
+.article-content sup{font-size:0.7em;color:var(--accent)}
+
+/* Images */
+.article-img{margin:2rem 0;text-align:center}
+.article-img img{
+  max-width:100%;height:auto;border-radius:8px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Video */
+.video-embed{margin:2rem 0}
+
+/* Footnotes */
+.footnote{
+  font-size:0.85rem;color:var(--text-secondary);
+  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+}
+.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+
+/* CTA */
+.cta-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:var(--cream);border-top:1px solid var(--border);
+}
+.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:0.8rem 2rem;
+  background:var(--accent);color:#fff;text-decoration:none;
+  border-radius:8px;font-weight:500;font-size:0.95rem;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Footer */
+.site-footer{text-align:center;padding:2rem 1.5rem}
+.site-footer img{height:28px;opacity:0.4}
+.site-footer .back{
+  display:inline-block;margin-top:1rem;font-size:0.85rem;
+  color:var(--text-muted);text-decoration:none;
+}
+.site-footer .back:hover{color:var(--text)}
+
+@media(max-width:600px){
+  .article-header{padding:3rem 1.5rem 2rem}
+  .article-content{padding:2rem 1.5rem 3rem}
+  html{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<header class="article-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <div class="num">#708</div>
+  <h1>你用對了嗎？</h1>
+</header>
+
+<article class="article-content">
+<p>今天這篇換個口味，回來聊一個大家日常會碰到的工具。最近冷錢包大廠 Ledger 推出了新的助記詞備份方案：Ledger Recovery Key 數位備份卡。台灣冷錢包廠商庫幣科技也同步推出了類似的新產品。兩者的產品定位卻完全不同。我也才意識到，原來冷錢包的備份方法，已經從手寫紙條進化到更聰明、更安全的數位工具了。</p><h2>你用對了嗎？</h2><p>你有冷錢包嗎？現在廠商真的很會做生意。我身邊就有不少人買了冷錢包卻從來沒打開，開箱後就晾在一旁的也大有人在。冷錢包還很難二手轉賣。近期就有<a href="https://x.com/evilcos/status/1950008342187036698">中國用戶</a>從非官方管道買到來路不明的冷錢包，結果 4.35 顆 BTC 直接被駭客轉走。</p><p>過去我都是把冷錢包當金庫，很少跟手機、電腦連線。但最近我開始嘗試將冷錢包與 MetaMask、Rabby Wallet 這些熱錢包連接。不要誤會，我不是把助記詞匯入熱錢包，而只是把地址加入熱錢包的帳戶頁面，簽署交易仍然是要靠冷錢包。這就能兼顧熱錢包的便利，以及冷錢包的安全。</p><p>很多人以為冷錢包壞了就沒救，卻忽略助記詞備份的重要性。冷錢包一個動輒數千元台幣，但其實盒裝裡面附的那張助記詞小卡才是真正的「救命符」。硬體裝置再耐用，螢幕、按鈕終有故障的一天，到時候那張魔法小卡，就是決定你能否救回資產的關鍵。助記詞的備份方式也在不斷進化，Ledger 剛推出的數位備份卡最有代表性。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1e9dad1c-0a16-40f6-a6bc-1ce3eb687bb2_1920x1080.webp" alt="" loading="lazy"></figure><h2>數位備份卡</h2><p>如果你之前有在 Ledger 官網買過觸控螢幕的「高級冷錢包」（像 Ledger Stax、Ledger Flex），現在只要上網填資料，就可以免費領取這張新的 Ledger Recovery Key 數位備份卡。官方把它定位為「數位資產的備份鑰匙」，根據<a href="https://www.ledger.com/blog-consumer-ledger-recovery-key">產品介紹</a>：</p><blockquote><p>大家第一次接觸冷錢包，最常問的問題都是：「萬一冷錢包弄丟了怎麼辦？」現實生活裡，房子、車子我們都會準備備用鑰匙，重要文件也會留副本。那為什麼關鍵的財富鑰匙不能有備用方案？Ledger Recovery Key 就是這把備份鑰匙。小小一張卡片，剛好補齊了過去備份流程裡那塊最麻煩的拼圖，讓恢復錢包變得比過往容易許多。</p></blockquote><p>下面這張圖，是 Ledger 目前推出的幾種備份助記詞的方法，依序是紙本備份卡、數位備份卡、線上備份服務，以及金屬備份板。光從產品種類就能看出來，要妥善備份助記詞真的不容易。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6eb85781-39eb-425a-b26c-23ffad9be689_2412x1360.png" alt="" loading="lazy"></figure><p>當然，CoolWallet Go 會被歸類在入門級冷錢包，是因為它沒有獨立螢幕。萬一發生像 Bybit 交易所被駭的狀況<sup>2</sup>，有駭客竄改網站前端顯示，再加上你手機也中毒，就有可能遇到「盲簽」的風險。因為 CoolWallet Go 簽名只是 NFC 感應，沒有冷錢包的獨立螢幕驗證，安全性還是比進階款的 CoolWallet Pro 低一些。該怎麼選，要看每個人怎麼權衡操作體驗和安全性。</p><p>或許 CoolWallet Go 算不上最頂級的冷錢包，但已經能擋下絕大多數外部攻擊，也大幅降低自己遺失助記詞的機率。對我來說保管資產像是「乘法」：得同時守住外部威脅、避免自己搞丟備份，才算是真的安全。</p><p>p.s. 寫出這個結論，我應該要寄一張發票去給庫幣科技才對。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/533">Ledger Recover：冷錢包的熱備份矛盾</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/671">史上最嚴重！Bybit 交易所遭駭 15 億美元、北韓駭客如何破解多簽冷錢包？</a></p><p></p></div></div>
+</article>
+
+<div class="cta-section">
+  <p>想閱讀完整文章？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/708">前往區塊勢閱讀全文 →</a>
+</div>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <br><a class="back" href="../">← 回到文章列表</a>
+</footer>
+
+</body>
+</html>
