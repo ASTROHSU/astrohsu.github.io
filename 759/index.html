@@ -3,605 +3,833 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>夜市套圈圈 — 區塊勢</title>
-<meta name="description" content="為什麼股票代幣比真股票便宜又快速？用夜市套圈圈的故事說起。">
-<meta property="og:title" content="夜市套圈圈">
-<meta property="og:description" content="股票代幣開啟了什麼新可能？">
-<meta property="og:image" content="cover.png">
+<title>美股代幣上架幣安！像夜市套圈圈一樣刺激 — 區塊勢</title>
+<meta name="description" content="Ondo Finance 宣布美股代幣在幣安上架。從夜市套圈圈的故事開始，探討為什麼區塊鏈上的代幣股票會改變全球投資的格局。">
+<meta property="og:title" content="美股代幣上架幣安！像夜市套圈圈一樣刺激">
+<meta property="og:description" content="代幣化股票改變全球投資模式。24/7 交易、無國界轉讓、極低手續費。">
+<meta property="og:image" content="https://astrohsu.github.io/759/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://astrohsu.github.io/759/cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#D4805A;--terra-light:#F5EBE5;
-  --green:#4A7C5C;--green-light:#E8F3ED;--green-deep:#2D5A42;
-  --purple:#6B5B9F;--purple-light:#EEEDF8;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#B8960F;--gold-light:#F9F3E6;
+  --warm:#FAFAF7;
+  --cream:#EDE0D4;
+  --terra:#C06A3A;
+  --terra-light:#F5EBE5;
+  --green:#2D6B4F;
+  --green-light:#E8F3ED;
+  --blue:#2563EB;
+  --blue-light:#EFF4FF;
+  --yellow:#8B6914;
+  --yellow-light:#FDF8EC;
+  --text:#2C2A25;
+  --text-secondary:#6B6860;
+  --text-muted:#9E9A90;
+  --gold:#8B7340;
+  --gold-light:#F9F3E6;
 }
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
 
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+html{scroll-behavior:smooth;font-size:18px}
+body{
+  font-family:'Noto Sans TC',sans-serif;
+  color:var(--text);
+  background:var(--warm);
+  line-height:1.9;
+  font-weight:400;
+  overflow-x:hidden;
+}
+
+.fade-in{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.8s ease,transform 0.8s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* Hero */
 .hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:2rem;position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#FFF8DC 0%,#FFE4C4 50%,#F5DEB3 100%);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:2rem;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(180deg,#F5EBE5 0%,var(--warm) 40%,#E8F3ED 60%,#2D6B4F 100%);
 }
 .hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:30%;
-  background:radial-gradient(circle at 20% 80%, rgba(212,128,90,0.15), transparent 50%),
-             radial-gradient(circle at 80% 60%, rgba(74,124,92,0.1), transparent 50%);
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:40%;
+  background:linear-gradient(180deg,transparent,rgba(45,107,79,0.15));
   pointer-events:none;
 }
 
-/* Ring toss game visualization */
-.hero-rings{
-  position:relative;width:180px;height:180px;margin-bottom:3rem;
-  opacity:0;animation:ringsReveal 1.2s ease 0.3s forwards;
+.hero-logo{
+  height:50px;
+  margin-bottom:2rem;
+  opacity:0;
+  animation:visualReveal 1.5s ease 0.3s forwards;
 }
-.ring{
-  position:absolute;border:3px solid;border-radius:50%;animation:ringBounce 0.8s ease infinite;
+.hero-logo img{
+  height:100%;
+  object-fit:contain;
 }
-.ring-1{width:140px;height:140px;top:20px;left:20px;border-color:var(--terra);animation-delay:0s}
-.ring-2{width:100px;height:100px;top:40px;left:40px;border-color:var(--green);animation-delay:0.1s}
-.ring-3{width:60px;height:60px;top:60px;left:60px;border-color:var(--purple);animation-delay:0.2s}
-.bottle{
-  position:absolute;width:40px;height:60px;top:80px;left:70px;
-  background:radial-gradient(ellipse at 30% 20%, rgba(100,100,100,0.3), transparent);
-  border-radius:0 0 8px 8px;border:2px solid #888;opacity:0.4;
-}
-@keyframes ringsReveal{to{opacity:1}}
-@keyframes ringBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+@keyframes visualReveal{to{opacity:1}}
 
 .hero h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
-  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
-  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2.2rem,6vw,3.8rem);
+  font-weight:700;
+  letter-spacing:0.08em;
+  color:var(--text);
+  position:relative;
+  z-index:1;
+  opacity:0;
+  animation:fadeUp 1s ease 0.6s forwards;
+  line-height:1.3;
 }
+
 .hero .subtitle{
-  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
-  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+  font-size:1.1rem;
+  color:var(--text-secondary);
+  margin-top:1rem;
+  letter-spacing:0.15em;
+  position:relative;
+  z-index:1;
+  opacity:0;
+  animation:fadeUp 1s ease 0.9s forwards;
 }
+
 .hero .scroll-hint{
-  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
-  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+  position:absolute;
+  bottom:3rem;
+  z-index:1;
+  font-size:0.75rem;
+  color:var(--text-muted);
+  letter-spacing:0.2em;
+  opacity:0;
+  animation:fadeUp 1s ease 1.5s forwards;
 }
+
 .hero .scroll-hint::after{
-  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
-  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+  content:'';
+  display:block;
+  width:1px;
+  height:40px;
+  background:var(--text-muted);
+  margin:0.8rem auto 0;
+  opacity:0.4;
+  animation:scrollPulse 2s ease infinite;
 }
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
-@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+  from{transform:translateY(20px)}
+}
+
+@keyframes scrollPulse{
+  0%,100%{opacity:0.2;height:40px}
+  50%{opacity:0.6;height:50px}
+}
 
 /* Sections */
-section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
-section.wide{max-width:960px}
-section.full{max-width:100%;padding:5rem 0}
+section{
+  padding:5rem 1.5rem;
+  max-width:720px;
+  margin:0 auto;
+}
+
+section.wide{
+  max-width:960px;
+}
 
 h2{
-  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
-  margin-bottom:2rem;letter-spacing:0.05em;
+  font-family:'Noto Serif TC',serif;
+  font-size:1.8rem;
+  font-weight:700;
+  margin-bottom:2rem;
+  letter-spacing:0.05em;
 }
+
 h2 .label{
-  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
-  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  display:block;
+  font-family:'Noto Sans TC',sans-serif;
+  font-size:0.7rem;
+  font-weight:500;
+  letter-spacing:0.3em;
+  color:var(--text-muted);
+  margin-bottom:0.5rem;
   text-transform:uppercase;
 }
-p{margin-bottom:1.5rem}
-p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 
-/* Question section */
-.big-question{
-  text-align:center;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+p{margin-bottom:1.5rem}
+
+/* Key quote section */
+.key-quote{
+  background:linear-gradient(135deg,var(--terra-light),#FFEEE0);
+  border:1px solid #D4C4A8;
+  border-radius:12px;
+  padding:3rem 2rem;
+  margin:3rem 0;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(192,106,58,0.08);
 }
-.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
-.big-question .options{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+
+.key-quote p{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.3rem,3vw,1.8rem);
+  font-weight:700;
+  color:var(--terra);
+  margin:0;
+  letter-spacing:0.02em;
+  line-height:1.6;
 }
-.big-question .option{
-  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
-  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
-  cursor:default;letter-spacing:0.05em;
-}
-.big-question .option:nth-child(odd){background:rgba(74,124,92,0.08);color:var(--green)}
-.big-question .option:nth-child(3){background:rgba(107,91,159,0.08);color:var(--purple)}
 
 /* Comparison grid */
 .compare-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
-  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  margin:3rem 0;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid #E8E3D8;
 }
-.compare-side{padding:2rem}
-.compare-side.left{background:var(--terra-light)}
-.compare-side.right{background:var(--green-light)}
-.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem}
-.compare-side .label{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.3rem}
 
-.flow-step{
-  display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;
+.compare-side{
+  padding:2rem;
 }
-.flow-step .num{
-  flex-shrink:0;width:32px;height:32px;border-radius:50%;
-  background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:0.9rem;
-}
-.compare-side.right .flow-step .num{background:var(--green)}
-.flow-step .text{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
 
-/* Time bar chart */
-.time-bar{
-  margin:1.5rem 0;padding:1rem;border-radius:8px;background:rgba(0,0,0,0.04);
+.compare-side.traditional{
+  background:var(--terra-light);
 }
-.time-bar .label{font-size:0.75rem;color:var(--text-muted);margin-bottom:0.4rem}
-.time-bar .bar-track{width:100%;height:24px;background:rgba(0,0,0,0.08);border-radius:4px;position:relative;overflow:hidden}
-.time-bar .bar{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:600}
-.compare-side.left .bar{background:var(--terra)}
-.compare-side.right .bar{background:var(--green)}
 
-/* Two sides comparison */
-.two-sides{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0;
+.compare-side.tokenized{
+  background:var(--green-light);
 }
-.side-card{
-  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
-  transition:transform 0.3s;
-}
-.side-card:hover{transform:translateY(-3px)}
-.side-card.traditional{background:var(--terra-light);border-color:#DBBFAD}
-.side-card.blockchain{background:var(--green-light);border-color:#A8D4BC}
-.side-card h3{
-  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
-}
-.side-card .tag{
-  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
-  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
-}
-.side-card.traditional .tag{background:#DBBFAD;color:#8B5A3C}
-.side-card.blockchain .tag{background:#A8D4BC;color:#2D5A42}
-.side-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
-.side-card .highlight-list{font-size:0.85rem;color:var(--text-secondary);line-height:1.8}
-.side-card .highlight-list li{margin-bottom:0.5rem;margin-left:1.5rem}
 
-/* Trade-off box */
-.tradeoff{
-  padding:1rem;border-radius:8px;background:rgba(0,0,0,0.03);
-  border-left:3px solid var(--terra);font-size:0.8rem;color:var(--text-secondary);margin-top:1rem;
+.compare-side h3{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.2rem;
+  margin-bottom:1.5rem;
+  font-weight:600;
 }
-.side-card.blockchain .tradeoff{border-left-color:var(--green)}
 
-/* CTA */
+.compare-item{
+  padding:0.8rem;
+  background:rgba(0,0,0,0.03);
+  border-radius:8px;
+  margin-bottom:0.8rem;
+}
+
+.compare-item .label{
+  font-weight:500;
+  font-size:0.85rem;
+  color:var(--text);
+  display:block;
+  margin-bottom:0.2rem;
+}
+
+.compare-item .value{
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  display:block;
+}
+
+/* Feature cards */
+.features-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  margin:3rem 0;
+}
+
+.feature-card{
+  padding:1.5rem;
+  border-radius:12px;
+  border:1px solid #E8E3D8;
+  background:#fff;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 16px rgba(0,0,0,0.08);
+}
+
+.feature-card .icon{
+  font-size:2rem;
+  margin-bottom:0.8rem;
+  display:block;
+}
+
+.feature-card h4{
+  font-weight:600;
+  font-size:0.95rem;
+  margin-bottom:0.5rem;
+  color:var(--text);
+}
+
+.feature-card p{
+  font-size:0.8rem;
+  color:var(--text-secondary);
+  margin:0;
+  line-height:1.6;
+}
+
+/* Strategic advantage boxes */
+.advantage-box{
+  background:var(--gold-light);
+  border:1px solid #E4D5B8;
+  border-radius:12px;
+  padding:2rem;
+  margin:2rem 0;
+}
+
+.advantage-box h3{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.1rem;
+  color:var(--gold);
+  margin-bottom:1rem;
+  font-weight:600;
+}
+
+.advantage-box ul{
+  list-style:none;
+  padding:0;
+}
+
+.advantage-box li{
+  padding:0.6rem 0;
+  padding-left:1.8rem;
+  position:relative;
+  color:var(--text);
+  font-size:0.9rem;
+  line-height:1.7;
+}
+
+.advantage-box li::before{
+  content:'✓';
+  position:absolute;
+  left:0;
+  color:var(--green);
+  font-weight:bold;
+}
+
+/* Interactive section */
+.interactive-section{
+  background:linear-gradient(180deg,var(--warm),#F5EBE5);
+  padding:5rem 1.5rem;
+  text-align:center;
+}
+
+.interactive-section h2{
+  margin-bottom:1.5rem;
+}
+
+.interactive-intro{
+  color:var(--text-secondary);
+  font-size:0.95rem;
+  margin-bottom:2.5rem;
+  line-height:1.8;
+}
+
+.choice-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:1rem;
+  max-width:900px;
+  margin:0 auto 3rem;
+}
+
+.choice-btn{
+  padding:2rem 1.5rem;
+  border-radius:12px;
+  border:2px solid transparent;
+  background:#fff;
+  cursor:pointer;
+  transition:all 0.3s;
+  text-align:center;
+  font-family:'Noto Sans TC',sans-serif;
+}
+
+.choice-btn:nth-child(1){
+  border-color:var(--terra);
+  background:linear-gradient(135deg,transparent,var(--terra-light));
+}
+
+.choice-btn:nth-child(2){
+  border-color:var(--blue);
+  background:linear-gradient(135deg,transparent,var(--blue-light));
+}
+
+.choice-btn:nth-child(3){
+  border-color:var(--green);
+  background:linear-gradient(135deg,transparent,var(--green-light));
+}
+
+.choice-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.choice-btn .emoji{
+  font-size:2.5rem;
+  display:block;
+  margin-bottom:0.5rem;
+}
+
+.choice-btn .title{
+  font-weight:600;
+  font-size:0.95rem;
+  color:var(--text);
+  margin-bottom:0.3rem;
+  display:block;
+}
+
+.choice-btn .desc{
+  font-size:0.75rem;
+  color:var(--text-secondary);
+  line-height:1.5;
+}
+
+.result-card{
+  display:none;
+  max-width:600px;
+  margin:2rem auto;
+  padding:2.5rem;
+  border-radius:16px;
+  background:#fff;
+  border:1px solid #E8E3D8;
+  text-align:center;
+  animation:fadeUp 0.5s ease;
+}
+
+.result-card.show{
+  display:block;
+}
+
+.result-card .emoji{
+  font-size:3rem;
+  margin-bottom:1rem;
+}
+
+.result-card h3{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.4rem;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:1rem;
+}
+
+.result-card .content{
+  font-size:0.9rem;
+  color:var(--text-secondary);
+  line-height:1.8;
+  margin-bottom:1.5rem;
+}
+
+.share-buttons{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:1.5rem;
+}
+
+.share-btn{
+  padding:0.8rem 1.5rem;
+  border-radius:8px;
+  border:none;
+  font-size:0.85rem;
+  font-weight:500;
+  cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;
+  letter-spacing:0.05em;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+
+.share-btn:hover{
+  transform:scale(1.05);
+}
+
+.share-btn.twitter{
+  background:#0f1419;
+  color:#fff;
+}
+
+.share-btn.facebook{
+  background:#1877f2;
+  color:#fff;
+}
+
+/* CTA section */
 .cta{
-  text-align:center;padding:6rem 2rem;
+  text-align:center;
+  padding:5rem 2rem;
   background:linear-gradient(180deg,#F5F3ED,var(--cream));
 }
-.cta h2{font-size:1.5rem;margin-bottom:1rem}
-.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:1rem 3rem;border-radius:2rem;
-  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
-  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
-}
-.cta-btn:hover{transform:scale(1.03)}
 
-/* Share buttons */
-.share-row{
-  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+.cta h2{
+  margin-bottom:1rem;
 }
-.share-btn{
-  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
-  font-size:0.8rem;font-weight:500;cursor:pointer;
-  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
-  transition:transform 0.2s,opacity 0.2s;
-}
-.share-btn:hover{transform:scale(1.03)}
-.share-btn.tw{background:#0f1419;color:#fff}
-.share-btn.fb{background:#1877f2;color:#fff}
-.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
 
-/* Quiz */
-.quiz-section{
-  background:linear-gradient(180deg,var(--warm),#F5F3ED);
-  padding:5rem 1.5rem;text-align:center;
+.cta p{
+  color:var(--text-secondary);
+  margin-bottom:2rem;
+  font-size:0.95rem;
 }
-.quiz-section h2{margin-bottom:0.5rem}
-.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
-.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
-.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
-.q-card.active{display:block;opacity:1;transform:translateY(0)}
-.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
-.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
-.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
-.q-btn{
-  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
-  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
-  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
-}
-.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
-.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
-.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
-.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
-.q-dot.active{background:var(--text);transform:scale(1.2)}
-.q-dot.done{background:var(--green)}
 
-/* Result card */
-.result-card{
-  display:none;max-width:420px;margin:2rem auto 0;
-  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+.cta-link{
+  display:inline-block;
+  padding:1rem 3rem;
+  border-radius:2rem;
+  background:var(--text);
+  color:#fff;
+  text-decoration:none;
+  font-weight:500;
+  letter-spacing:0.1em;
+  transition:transform 0.2s;
+  font-size:1rem;
 }
-.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
-.result-card .r-badge{
-  font-size:0.6rem;letter-spacing:0.2em;
-  color:var(--text-muted);margin-bottom:1rem;
-}
-.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
-.result-card .r-name{
-  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
-}
-.result-card .r-desc{
-  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+
+.cta-link:hover{
+  transform:scale(1.03);
 }
 
 /* Footer */
 footer{
-  text-align:center;padding:3rem 2rem;font-size:0.75rem;
-  color:var(--text-muted);letter-spacing:0.15em;
+  text-align:center;
+  padding:3rem 2rem;
+  font-size:0.75rem;
+  color:var(--text-muted);
+  letter-spacing:0.15em;
 }
 
-/* Highlight */
-.highlight{
-  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
-  background:var(--gold-light);border:1px solid #E4D5B8;
-  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
-  text-align:center;
+.footer-logo{
+  height:44px;
+  margin-bottom:1.5rem;
+  opacity:0.5;
+}
+
+.footer-logo img{
+  height:100%;
+  object-fit:contain;
 }
 
 /* Responsive */
-@media(max-width:700px){
+@media(max-width:768px){
   html{font-size:16px}
   section{padding:3rem 1.2rem}
-  .compare-grid,.two-sides{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .compare-grid,
+  .features-grid{grid-template-columns:1fr}
+  .choice-buttons{grid-template-columns:1fr}
   .hero h1{font-size:2rem}
+  .key-quote{padding:2rem 1.5rem}
+  .key-quote p{font-size:1.3rem}
 }
-
-.zh { display: block; }
-.en { display: none; }
-body.lang-en .zh { display: none; }
-body.lang-en .en { display: block; }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-rings">
-    <div class="ring ring-1"></div>
-    <div class="ring ring-2"></div>
-    <div class="ring ring-3"></div>
-    <div class="bottle"></div>
+  <div class="hero-logo">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
   </div>
-  <h1><span class="zh">夜市套圈圈</span><span class="en">Night Market Ring Toss</span></h1>
-  <p class="subtitle"><span class="zh">用區塊鏈改變股票轉讓方式</span><span class="en">How Blockchain Changes Stock Transfers</span></p>
+  <h1>美股代幣上架幣安<br>像夜市套圈圈一樣刺激</h1>
+  <p class="subtitle">區塊鏈讓股票轉讓變得像轉帳一樣簡單</p>
   <div class="scroll-hint">SCROLL</div>
-</div>
-
-<!-- THE QUESTION -->
-<div class="big-question">
-  <h2 class="fade-in"><span class="zh">股票代幣真的比真股票更好嗎？</span><span class="en">Are tokenized stocks really better than real stocks?</span></h2>
-  <div class="options fade-in">
-    <span class="option"><span class="zh">便宜快速，但失去權益</span><span class="en">Faster but fewer rights</span></span>
-    <span class="option"><span class="zh">區塊鏈流動性更好</span><span class="en">Better liquidity on chain</span></span>
-    <span class="option"><span class="zh">傳統股票仍然最安全</span><span class="en">Traditional stocks are safer</span></span>
-  </div>
-  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)"><span class="zh">答案沒有絕對對錯。這取決於你看重的是「股東身分」還是「股票價值」。</span><span class="en">There's no clear answer. It depends on whether you care more about shareholder status or stock value.</span></p>
 </div>
 
 <!-- PART 1: THE STORY -->
 <section>
-  <h2 class="fade-in"><span class="label"><span class="zh">故事</span><span class="en">PART 1</span></span><span class="zh">夜市的 100 股台積電</span><span class="en">100 TSMC Shares at the Night Market</span></h2>
+  <h2>
+    <span class="label">問題</span>
+    夜市套圈圈的啟發
+  </h2>
 
-  <p class="fade-in"><span class="zh">今年過年，一名高中生在夜市套圈圈贏得大獎：100 股台積電。台積電股價逼近 2,000 元，換算下來這個獎品市值接近 20 萬元。</span><span class="en">This Lunar New Year, a high school student won the ring toss game at a night market. The prize: 100 shares of TSMC, worth nearly NT$200,000 at ~NT$2,000 per share.</span></p>
+  <p class="fade-in">
+    過年期間，一名高中生在高雄夜市套中大獎：100 股台積電。當時台積電股價每股 2,000 元，這 100 股相當於 20 萬元的驚人獎品。消息曝光後，立即引發網路討論——「這樣的股票要怎麼過戶？」攤位老闆表示會協助辦理，但整個轉讓過程卻隱藏著令人意想不到的複雜性。
+  </p>
 
-  <p class="fade-in"><span class="zh">但這也帶來一個實際問題：「夜市套圈圈贏的股票，要怎麼過戶？」</span><span class="en">But it raised a practical question: "How do you transfer stock won at a night market game?"</span></p>
+  <p class="fade-in">
+    攤老闆必須向稅務機關申請完稅或免稅證明，耗時 3 到 5 個工作天。由於高中生未成年，還需父母陪同、攜帶身分證與印鑑，到券商填寫轉讓申請書。券商再將文件送交集中保管結算所，才能完成帳本變更。整個流程需要一週左右，每個步驟都收取手續費。若轉讓金額太小，未必划算。正因為轉讓流程如此繁瑣，儘管許多店家都知道「送台積電股票」能吸引顧客上門，但即便是大型連鎖超商辦活動，也只敢抽幾個名額。光處理後續的股票轉讓就忙死了。
+  </p>
 
-  <p class="fade-in"><span class="zh">多數人不知道的是，股票可以轉贈，但流程繁瑣。攤位老闆必須向稅務機關申請完稅證明（3-5 個工作天），高中生必須在父母陪同下到券商辦理過戶申請，券商再將文件送交集保，整個流程至少一週，每個步驟還有手續費。</span><span class="en">Few know that stocks can be transferred, but it's cumbersome. The booth operator must request tax clearance (3-5 business days), the student must visit a broker with parents, documents go to the central custodian, and the whole process takes at least a week with multiple fees.</span></p>
-
-  <p class="fade-in" style="font-weight:500;color:var(--green)"><span class="zh">問題不在技術，而在於流程本身被設計得太複雜。</span><span class="en">The problem isn't technology—it's the process itself being unnecessarily complex.</span></p>
-
-  <p class="fade-in"><span class="zh">為什麼要這麼複雜？因為股票轉讓需要更新股東名冊，確保那位高中生也能在股東會參與表決、領股息。但他真的在乎嗎？100 股對公司治理毫無影響。他只關心那 20 萬元的價值。</span><span class="en">Why so complex? Because stock transfers require updating shareholder records, ensuring voting rights and dividends. But does he care? 100 shares have no real say in governance. He only cares about the NT$200,000 value.</span></p>
-</section>
-
-<!-- COMPARISON -->
-<section class="wide">
-  <div class="compare-grid fade-in">
-    <div class="compare-side left">
-      <h3><span class="zh">傳統股票過戶</span><span class="en">Traditional Transfer</span></h3>
-
-      <div class="flow-step">
-        <div class="num">1</div>
-        <div class="text"><span class="zh">申請完稅證明</span><span class="en">Tax clearance</span></div>
-      </div>
-
-      <div class="flow-step">
-        <div class="num">2</div>
-        <div class="text"><span class="zh">到券商填申請書</span><span class="en">Visit broker</span></div>
-      </div>
-
-      <div class="flow-step">
-        <div class="num">3</div>
-        <div class="text"><span class="zh">送至集保更新</span><span class="en">Central custodian update</span></div>
-      </div>
-
-      <div class="time-bar">
-        <div class="label"><span class="zh">需時</span><span class="en">Time</span></div>
-        <div class="bar-track"><div class="bar" style="width:100%"><span class="zh">1-2 週</span><span class="en">1-2 weeks</span></div></div>
-      </div>
-    </div>
-
-    <div class="compare-side right">
-      <h3><span class="zh">區塊鏈代幣轉讓</span><span class="en">Blockchain Transfer</span></h3>
-
-      <div class="flow-step">
-        <div class="num">1</div>
-        <div class="text"><span class="zh">打開錢包</span><span class="en">Open wallet</span></div>
-      </div>
-
-      <div class="flow-step">
-        <div class="num">2</div>
-        <div class="text"><span class="zh">輸入收款地址</span><span class="en">Enter recipient address</span></div>
-      </div>
-
-      <div class="flow-step">
-        <div class="num">3</div>
-        <div class="text"><span class="zh">按下發送鍵</span><span class="en">Press send</span></div>
-      </div>
-
-      <div class="time-bar">
-        <div class="label"><span class="zh">需時</span><span class="en">Time</span></div>
-        <div class="bar-track"><div class="bar" style="width:20%"><span class="zh">幾秒</span><span class="en">Seconds</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <p class="highlight fade-in"><span class="zh">區塊鏈為什麼快得多？因為它只轉移「價值」，不轉移「股東身分」。</span><span class="en">Why is blockchain so much faster? Because it transfers "value," not "shareholder status."</span></p>
+  <p class="fade-in">
+    傳統股票市場的效率限制，讓股票無法像日常禮物一樣被「贈送」。但如果攤商改用區塊鏈上的美股代幣完成贈與，流程就大不相同。他可以瞬間將代幣轉送給贏家，無須任何法律文書、無須等待清算。整個過程就像傳送電子郵件一樣簡單。
+  </p>
 </section>
 
 <!-- PART 2: THE INNOVATION -->
 <section>
-  <h2 class="fade-in"><span class="label"><span class="zh">創新</span><span class="en">PART 2</span></span><span class="zh">股票代幣如何改變一切</span><span class="en">How Tokenized Stocks Change Everything</span></h2>
+  <h2>
+    <span class="label">創新</span>
+    美股代幣上架幣安
+  </h2>
 
-  <p class="fade-in"><span class="zh">美國公司 Ondo Finance 發行的股票代幣，採用「即時鑄造與贖回」機制。當有人想買美股代幣時，Ondo 在傳統券商同步下單，並在鏈上鑄造代幣。反之亦然。這樣就能確保價格永遠與市場同步。</span><span class="en">Ondo Finance tokenizes US stocks using "real-time minting and redemption." When someone buys a stock token, Ondo simultaneously orders from brokers and mints the token on-chain. This keeps prices perfectly aligned.</span></p>
+  <p class="fade-in">
+    Ondo Finance 宣布其美股代幣已在全球流動性最大的加密交易所幣安正式上線。首批 10 檔標的包括 AAPLon（蘋果）、GOOGLon（谷歌）、TSLAon（特斯拉）、NVDAon（輝達）、QQQon（納斯達克 100）、CRCLon（Clorox）、METAon（Meta）、AMZNon（亞馬遜）、SPYon（標普 500）與 MSFTon（微軟）。這是美股代幣在全球流動性擴張的重要一步，象徵傳統證券正式跨入區塊鏈。
+  </p>
 
-  <p class="fade-in"><span class="zh">最近幣安上線了 Ondo 的美股代幣，包括蘋果（AAPLon）、谷歌（GOOGLon）、特斯拉（TSLAon）、輝達（NVDAon）等。用戶可以直接用美元穩定幣（USDC/USDT）買入，幾秒內完成鏈上轉移，手續費少到可以忽略。</span><span class="en">Binance recently launched Ondo's stock tokens including Apple (AAPLon), Google (GOOGLon), Tesla (TSLAon), and NVIDIA (NVDAon). Users can buy directly with stablecoins (USDC/USDT), transfer on-chain in seconds, with negligible fees.</span></p>
+  <p class="fade-in">
+    Ondo Finance 的美股代幣採取「即時鑄造與贖回」機制，這是其技術創新的核心。當鏈上市場出現買賣需求時，Ondo 會同步在傳統券商下單，並在區塊鏈上鑄造或銷毀相同數量的代幣。換句話說，Ondo 把傳統券商的流動性搬到區塊鏈上。即便初期代幣交易需求不大，報價也不至於與納斯達克或紐約證交所的實時報價脫鉤。用戶可以用 USDC 或 USDT 穩定幣直接買入，也能將代幣提領至個人錢包。整個流程幾秒內完成，提領手續費便宜到可以忽略不計。
+  </p>
 
-  <p class="fade-in"><span class="zh">那對夜市攤商而言意味著什麼？假設下次改用區塊鏈，攤商只需掃 QR code 轉帳，一瞬間就把台積電代幣送給那位高中生。不用稅局、不用券商、不用律師。</span><span class="en">What does this mean for the booth operator? Instead of using tax authorities, brokers, and lawyers, they can simply scan a QR code and send TSMC tokens on-chain in an instant.</span></p>
-
-  <div class="highlight fade-in"><span class="zh">效率差別不只是時間。它改變了人們使用股票的方式——從「嚴肅的投資工具」變成「日常流動性資產」。</span><span class="en">The difference isn't just speed. It transforms how people use stocks—from "serious investment tools" to "everyday liquid assets."</span></div>
+  <p class="fade-in">
+    這項創新最精妙之處在於，它改變了股票的本質屬性。傳統股票代表「股東身分」，轉讓時必須更新股東名冊，確保股東能參與公司治理與股東會。但代幣只代表「價格曝險」，持有者沒有股東身分，無需參與股東會也沒有表決權。省去這些法律程序，流程自然可以輕量化——就像轉帳一樣簡單。
+  </p>
 </section>
 
-<!-- PART 3: THE TRADE-OFF -->
+<div class="key-quote fade-in">
+  <p>股票代幣讓「股東身分」與「股票價格」分開處理，股票從此有機會離開券商帳戶、融入日常生活。</p>
+</div>
+
+<!-- PART 3: THE COMPARISON -->
 <section class="wide">
-  <h2 class="fade-in"><span class="label"><span class="zh">權衡</span><span class="en">PART 3</span></span><span class="zh">速度與權利的交易</span><span class="en">The Trade-off Between Speed and Rights</span></h2>
+  <h2>
+    <span class="label">差異</span>
+    傳統轉讓 vs 代幣轉讓
+  </h2>
 
-  <div class="two-sides fade-in">
-    <div class="side-card traditional">
-      <span class="tag"><span class="zh">傳統模式</span><span class="en">Traditional</span></span>
-      <h3><span class="zh">完整的股東身分</span><span class="en">Full Shareholder Rights</span></h3>
-      <p class="detail"><span class="zh">你擁有完整的股東身分，包括參與股東會、行使投票權、領取股息。</span><span class="en">You own complete shareholder rights: attend meetings, vote, receive dividends.</span></p>
-      <ul class="highlight-list">
-        <li><span class="zh">✓ 股東會投票權</span><span class="en">✓ Voting rights</span></li>
-        <li><span class="zh">✓ 股息與配息</span><span class="en">✓ Dividend payments</span></li>
-        <li><span class="zh">✓ 法律保障</span><span class="en">✓ Legal protection</span></li>
-        <li><span class="zh">✗ 流程繁瑣</span><span class="en">✗ Cumbersome process</span></li>
-        <li><span class="zh">✗ 手續費高</span><span class="en">✗ High fees</span></li>
-      </ul>
-      <div class="tradeoff"><span class="zh"><strong>代價：</strong>為了得到「完整身分」，必須接受複雜流程與高成本。對只想要股票價值的人來說，這些是浪費。</span><span class="en"><strong>Cost:</strong> For complete rights, you must accept complexity and fees. If you only want stock value, this is wasteful.</span></div>
+  <div class="compare-grid fade-in">
+    <div class="compare-side traditional">
+      <h3>傳統股票過戶</h3>
+      <div class="compare-item">
+        <span class="label">申請時間</span>
+        <span class="value">3-7 天</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">所需步驟</span>
+        <span class="value">稅務、券商、集保各一次</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">手續費</span>
+        <span class="value">各環節累計手續費</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">適用時間</span>
+        <span class="value">交易時段限制</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">地理限制</span>
+        <span class="value">需開當地券商帳戶</span>
+      </div>
     </div>
 
-    <div class="side-card blockchain">
-      <span class="tag"><span class="zh">區塊鏈模式</span><span class="en">Blockchain</span></span>
-      <h3><span class="zh">純粹的價值轉移</span><span class="en">Pure Value Transfer</span></h3>
-      <p class="detail"><span class="zh">你只擁有股票的「價格曝險」，沒有股東身分。但轉移快速、便宜、流動性好。</span><span class="en">You own "price exposure" only, not shareholder status. But transfers are instant, cheap, and liquid.</span></p>
-      <ul class="highlight-list">
-        <li><span class="zh">✓ 秒級轉移</span><span class="en">✓ Instant transfer</span></li>
-        <li><span class="zh">✓ 極低手續費</span><span class="en">✓ Minimal fees</span></li>
-        <li><span class="zh">✓ 高流動性</span><span class="en">✓ High liquidity</span></li>
-        <li><span class="zh">✗ 無投票權</span><span class="en">✗ No voting rights</span></li>
-        <li><span class="zh">✗ 無股東身分</span><span class="en">✗ No shareholder status</span></li>
-      </ul>
-      <div class="tradeoff"><span class="zh"><strong>代價：</strong>為了得到效率，放棄了股東身分。但 Ondo 宣稱已做好風險隔離，代幣價值不會受公司倒閉影響。還需市場驗證。</span><span class="en"><strong>Cost:</strong> For efficiency, you lose shareholder rights. Ondo claims risk isolation—time will tell if that holds in crises.</span></div>
+    <div class="compare-side tokenized">
+      <h3>代幣股票轉讓</h3>
+      <div class="compare-item">
+        <span class="label">申請時間</span>
+        <span class="value">幾秒鐘</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">所需步驟</span>
+        <span class="value">一筆區塊鏈交易</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">手續費</span>
+        <span class="value">極低（gas fee）</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">適用時間</span>
+        <span class="value">24/7 全天候</span>
+      </div>
+      <div class="compare-item">
+        <span class="label">地理限制</span>
+        <span class="value">全球無縫轉移</span>
+      </div>
     </div>
   </div>
-
-  <p class="highlight fade-in"><span class="zh">關鍵問題：你投資股票，是為了參與公司治理？還是單純追求價值增長？</span><span class="en">Key question: Do you invest for governance participation, or just for value appreciation?</span></p>
 </section>
 
-<!-- ENDING -->
+<!-- PART 4: HOW IT WORKS -->
 <section>
-  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">股票代幣最有趣的地方，是它打開了一扇新的大門——不再是「只能去券商買股票」，而是「股票可以在日常生活中流轉」。</span><span class="en">The most fascinating thing about tokenized stocks is opening a new door: stocks are no longer confined to brokers but can flow through everyday life.</span></p>
+  <h2>
+    <span class="label">機制</span>
+    為什麼代幣股票這麼高效
+  </h2>
 
-  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">夜市攤商可以用它當行銷獎品，朋友間可以轉帳贈送，甚至可以在去中心化交易所交易。這不是傳統股票的簡單複製，而是一種全新的資產形式。</span><span class="en">Booth operators can use it as a prize, friends can gift it to each other, and it can be traded on decentralized exchanges. This isn't copying traditional stocks—it's creating an entirely new asset form.</span></p>
+  <p class="fade-in">
+    股票代幣的高效率並非源自技術創新，而是對股東權益的「輕量化」。傳統股票轉讓涉及股東身分的完整移轉。接收者自動獲得股東身分，可以參與股東大會投票、領取股息、行使所有股東權益。集中保管結算所必須更新股東名冊確保一切合規，這個過程本質上是「重」的。
+  </p>
+
+  <p class="fade-in">
+    代幣股票持有者則沒有股東身分，只有價格曝險。你持有 SPYon 並不意味著你是 SPY 基金的股東，而是持有一份標普 500 指數走勢的憑證。這樣做的好處是轉讓流程可以極度輕量化——就像轉移任何其他加密資產一樣簡單。缺點是什麼？持有者完全無法獲得股東權益。但對絕大多數零售投資者而言，這其實不是損失——他們買股票本來就只想參與價格上漲，根本不在乎股東會發言權。
+  </p>
+
+  <div class="advantage-box fade-in">
+    <h3>代幣模式的關鍵優勢</h3>
+    <ul>
+      <li><strong>即時清算：</strong>從購買到資金確認只需秒級時間，無須等待 T+2 清算週期</li>
+      <li><strong>全天候交易：</strong>傳統股市休市時，區塊鏈上的代幣依然可以交易，跨越時區障礙</li>
+      <li><strong>全球無縫轉移：</strong>無須經過各地監管部門，代幣可以像電子郵件一樣全球傳輸</li>
+      <li><strong>最小化交易單位：</strong>不受「1 股」的限制，可以購買 0.001 份股票</li>
+      <li><strong>簡化贈送流程：</strong>夜市攤商可以瞬間將股票代幣轉送給贏家，無須任何法律文書</li>
+    </ul>
+  </div>
 </section>
 
-<!-- QUIZ -->
-<div class="quiz-section" id="quiz">
-  <h2 class="fade-in"><span class="zh">讀完了，你的立場是？</span><span class="en">Where do you stand?</span></h2>
-  <p class="quiz-intro fade-in"><span class="zh">三個問題，看看你最看重什麼。</span><span class="en">Three questions to reveal your priority.</span></p>
+<!-- PART 5: THE RISKS -->
+<section>
+  <h2>
+    <span class="label">風險</span>
+    看似簡單卻暗藏挑戰
+  </h2>
 
-  <div class="quiz-wrap fade-in">
-    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+  <p class="fade-in">
+    高效率一定有代價。Ondo 失去了傳統股票的監管庇護。當你持有真正的台積電股票時，台灣政府與集中保管結算所確保你的權益無法被侵犯。但當你持有 TSMon 代幣時，保障來自 Ondo 的風險隔離設計。Ondo 宣稱即便公司倒閉，持有者手上的代幣也會受到保護。這套機制是否能挺過極端市場情況，還有待市場考驗——往往需要經過幾次危機和倒閉案例才會知道。
+  </p>
 
-    <div class="q-card active" data-q="1">
-      <div class="q-step"><span class="zh">1 / 3</span><span class="en">1 / 3</span></div>
-      <div class="q-text"><span class="zh">如果可以在夜市直接得到一份股票代幣作為獎品，你覺得？</span><span class="en">If you could win tokenized stocks as a night market prize, would you prefer that to cash?</span></div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="efficiency"><span class="zh">很好啊，比現金更有價值</span><span class="en">Great, more valuable than cash</span></button>
-        <button class="q-btn" data-camp="pragmatist"><span class="zh">可以，但要確保真的能賣得出去</span><span class="en">Maybe, if I can actually sell it</span></button>
-        <button class="q-btn" data-camp="ef"><span class="zh">不行，我要股東身分才安心</span><span class="en">No, I need shareholder rights</span></button>
-      </div>
+  <p class="fade-in">
+    第二個風險是監管不確定性。各國政府對於「股票代幣」這種新資產的監管態度各不相同。某些國家可能會要求 Ondo 獲得金融機構牌照，甚至禁止其發行代幣股票。一旦監管政策改變，代幣的流動性可能瞬間蒸發。第三個風險是交易對手風險。Ondo 作為中介，需要在傳統券商端持有真實股票以支撐代幣流通。如果 Ondo 的券商帳戶被凍結或遭黑客攻擊，整個代幣系統都可能受到威脅。
+  </p>
+
+  <p class="fade-in">
+    儘管有這些風險，代幣股票仍代表著金融系統的一次重要轉變。它證明了「股東身分」與「資產價值」可以被分開定價和交易。傳統金融業花了幾百年才建立的「股票」概念，正在被區塊鏈重新定義成一個更靈活、更高效但風險也更複雜的產品。這個過程就像夜市套圈圈一樣——看似簡單，但實際上每一步都暗藏複雜性。
+  </p>
+</section>
+
+<!-- INTERACTIVE CHOICE -->
+<div class="interactive-section">
+  <h2>你對代幣股票的看法是？</h2>
+  <p class="interactive-intro">這不是測驗，只是想聽聽你的想法。選擇最符合你的立場，並在社群分享你的觀點。</p>
+
+  <div class="choice-buttons">
+    <button class="choice-btn" onclick="selectChoice(1)">
+      <span class="emoji">🚀</span>
+      <span class="title">效率改革</span>
+      <span class="desc">終於有方法能突破傳統金融的低效，我很期待</span>
+    </button>
+
+    <button class="choice-btn" onclick="selectChoice(2)">
+      <span class="emoji">⚖️</span>
+      <span class="title">觀望等待</span>
+      <span class="desc">有潛力但風險不小，先看看市場如何發展</span>
+    </button>
+
+    <button class="choice-btn" onclick="selectChoice(3)">
+      <span class="emoji">🛑</span>
+      <span class="title">謹慎保留</span>
+      <span class="desc">失去股東身分就失去保護，不太放心</span>
+    </button>
+  </div>
+
+  <div id="resultCard1" class="result-card">
+    <div class="emoji">🚀</div>
+    <h3>效率改革派</h3>
+    <div class="content">
+      <p>你看到了代幣股票突破傳統金融束縛的潛力。你的直覺是對的——這個模式確實可能改變全球股票交易的格局，尤其是對非美國投資者而言。下一步的挑戰在於監管。如果主要國家都接納這項技術，傳統券商將面臨前所未有的競爭壓力。區塊鏈正在重新定義金融效率的標準。</p>
     </div>
-
-    <div class="q-card" data-q="2">
-      <div class="q-step"><span class="zh">2 / 3</span><span class="en">2 / 3</span></div>
-      <div class="q-text"><span class="zh">股票代幣雖然快速便宜，但沒有投票權和股息。你認為？</span><span class="en">Tokenized stocks are fast and cheap but lack voting rights and dividends. Your view?</span></div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="efficiency"><span class="zh">股息對我沒用，只要價格漲就好</span><span class="en">Dividends don't matter, just need price appreciation</span></button>
-        <button class="q-btn" data-camp="pragmatist"><span class="zh">各有各的用途，看情況選</span><span class="en">Both have their uses, depends on the situation</span></button>
-        <button class="q-btn" data-camp="ef"><span class="zh">股東身分不能放棄，那才是股票的本質</span><span class="en">Shareholder rights are essential, that's what stocks really are</span></button>
-      </div>
-    </div>
-
-    <div class="q-card" data-q="3">
-      <div class="q-step"><span class="zh">3 / 3</span><span class="en">3 / 3</span></div>
-      <div class="q-text"><span class="zh">如果區塊鏈上的股票代幣發行商倒了，你的代幣可能歸零。能接受嗎？</span><span class="en">If a tokenized stock issuer goes bankrupt, your tokens could become worthless. Acceptable?</span></div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="efficiency"><span class="zh">能接受，只要有機會翻倍就值得</span><span class="en">Yes, the upside is worth the risk</span></button>
-        <button class="q-btn" data-camp="pragmatist"><span class="zh">能接受，但只用小額資金試</span><span class="en">Yes, but only with small amounts</span></button>
-        <button class="q-btn" data-camp="ef"><span class="zh">不能接受，傳統股票至少有監管保護</span><span class="en">No, traditional stocks have regulatory protection</span></button>
-      </div>
+    <div class="share-buttons">
+      <button class="share-btn twitter" onclick="share(1, 'twitter')">分享到 𝕏</button>
+      <button class="share-btn facebook" onclick="share(1, 'facebook')">分享到 Facebook</button>
     </div>
   </div>
 
-  <div class="result-card" id="resultCard">
-    <div class="r-badge"><span class="zh">夜市套圈圈</span><span class="en">Night Market Ring Toss</span></div>
-    <div class="r-emoji"></div>
-    <div class="r-name"></div>
-    <div class="r-desc"></div>
-    <div class="share-row">
-      <button class="share-btn tw" id="shareTw"><span class="zh">分享到 𝕏</span><span class="en">Share to X</span></button>
-      <button class="share-btn fb" id="shareFb"><span class="zh">分享到 Facebook</span><span class="en">Share to Facebook</span></button>
+  <div id="resultCard2" class="result-card">
+    <div class="emoji">⚖️</div>
+    <h3>觀望等待派</h3>
+    <div class="content">
+      <p>你的謹慎態度非常理智。代幣股票確實帶來了全新的可能性，但任何金融創新都需要經過時間考驗。著名經濟學家海曼·明斯基曾說：「穩定孕育不穩定。」在市場還沒有經歷極端壓力測試前，觀望是明智的選擇。當有足夠的案例與經驗累積時，再做決定也不晚。</p>
+    </div>
+    <div class="share-buttons">
+      <button class="share-btn twitter" onclick="share(2, 'twitter')">分享到 𝕏</button>
+      <button class="share-btn facebook" onclick="share(2, 'facebook')">分享到 Facebook</button>
+    </div>
+  </div>
+
+  <div id="resultCard3" class="result-card">
+    <div class="emoji">🛑</div>
+    <h3>謹慎保留派</h3>
+    <div class="content">
+      <p>你抓住了代幣股票最關鍵的弱點——失去股東身分意味著失去機制保護。這是真實的風險。傳統股票的安全來自於政府監管和集中清算機制，而代幣股票的安全則取決於 Ondo 公司的信譽與風控能力。這是一次監管保護向商業信譽的權力轉移，並非所有人都願意接受這個交易。</p>
+    </div>
+    <div class="share-buttons">
+      <button class="share-btn twitter" onclick="share(3, 'twitter')">分享到 𝕏</button>
+      <button class="share-btn facebook" onclick="share(3, 'facebook')">分享到 Facebook</button>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
-<div class="cta">
-  <h2><span class="zh">區塊鏈正在改變股票轉讓的方式。</span><span class="en">Blockchain is changing how stocks are transferred.</span></h2>
-  <p><span class="zh">文章裡有完整的夜市故事、股票代幣機制、傳統股票與區塊鏈的完整對比，以及權衡分析。</span><span class="en">The full article includes the night market story, tokenization mechanics, traditional vs. blockchain comparison, and trade-off analysis.</span></p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/759" target="_blank"><span class="zh">閱讀完整文章 →</span><span class="en">Read Full Article →</span></a>
-  <div class="share-row">
-    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('股票代幣比真股票便宜又快速，但代價是什麼？用夜市套圈圈的故事說起。')+'&url='+encodeURIComponent('https://share.blocktrend.today/759/'),'_blank')"><span class="zh">分享到 𝕏</span><span class="en">Share to X</span></button>
-    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/759/'),'_blank')"><span class="zh">分享到 Facebook</span><span class="en">Share to Facebook</span></button>
-    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/759/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)"><span class="zh">複製連結</span><span class="en">Copy Link</span></button>
-  </div>
-</div>
+<section class="cta">
+  <h2>想深入了解全部細節？</h2>
+  <p>閱讀完整文章，了解為什麼代幣股票會改變全球投資的未來，以及你需要知道的所有風險。</p>
+  <a href="https://www.blocktrend.today/p/759" class="cta-link">閱讀完整文章 →</a>
+</section>
 
-<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" style="height:28px;opacity:0.6"></a></footer>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  </div>
+  <p>BLOCKTREND.TODAY</p>
+</footer>
 
 <script>
+// Fade-in animation
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.15 });
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// Language toggle
-function getLanguage() {
-  const lang = localStorage.getItem('blocktrend-lang') || 'zh';
-  document.body.className = 'lang-' + lang;
-  return lang;
-}
-getLanguage();
-
-// Quiz logic
-const answers = {};
-const cards = document.querySelectorAll('.q-card');
-const dots = document.querySelectorAll('.q-dot');
-const camps = {
-  ef: {
-    emoji: '📚',
-    name_zh: '傳統守護者',
-    name_en: 'Traditional Guardian',
-    desc_zh: '你相信股東身分和完整權益才是股票的本質。區塊鏈快速，但失去的太多。',
-    desc_en: 'You believe shareholder rights are fundamental. Blockchain is fast but costs too much.',
-    bg: 'var(--terra-light)',
-    color: 'var(--terra)',
-    share_zh: '我是「傳統守護者」📚 股票代幣再快也無法取代股東身分。你呢？',
-    share_en: 'I\'m a "Traditional Guardian" 📚 Speed can\'t replace shareholder rights. You?'
-  },
-  pragmatist: {
-    emoji: '⚖️',
-    name_zh: '務實主義者',
-    name_en: 'Pragmatist',
-    desc_zh: '你認同區塊鏈的效率，但也理解傳統股票的價值。兩者都有用，端看場景。',
-    desc_en: 'You appreciate blockchain efficiency but understand traditional value. Both matter.',
-    bg: 'var(--purple-light)',
-    color: 'var(--purple)',
-    share_zh: '我是「務實主義者」⚖️ 股票代幣和傳統股票各有所長。你呢？',
-    share_en: 'I\'m a "Pragmatist" ⚖️ Both have their strengths. You?'
-  },
-  efficiency: {
-    emoji: '⚡',
-    name_zh: '效率追求者',
-    name_en: 'Efficiency Seeker',
-    desc_zh: '你看重的是速度、便宜、流動性。股東身分對你來說無關緊要。',
-    desc_en: 'You value speed, cost, and liquidity. Shareholder status doesn\'t matter to you.',
-    bg: 'var(--green-light)',
-    color: 'var(--green)',
-    share_zh: '我是「效率追求者」⚡ 股票的本質是價值，不是身分。你呢？',
-    share_en: 'I\'m an "Efficiency Seeker" ⚡ Stocks are about value, not identity. You?'
-  }
-};
-
-const articleUrl = 'https://share.blocktrend.today/759/';
-let currentQ = 0;
-
-function showResult() {
-  const counts = { ef: 0, pragmatist: 0, efficiency: 0 };
-  Object.values(answers).forEach(c => counts[c]++);
-  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-  const camp = camps[winner];
-  const lang = document.body.className.includes('lang-en') ? 'en' : 'zh';
-
-  const card = document.getElementById('resultCard');
-  card.querySelector('.r-emoji').textContent = camp.emoji;
-  card.querySelector('.r-name').textContent = lang === 'en' ? camp.name_en : camp.name_zh;
-  card.querySelector('.r-name').style.color = camp.color;
-  card.querySelector('.r-desc').textContent = lang === 'en' ? camp.desc_en : camp.desc_zh;
-  card.style.background = camp.bg;
-  card.classList.add('show');
-  document.querySelector('.quiz-wrap').style.display = 'none';
-
-  const shareText = lang === 'en' ? camp.share_en : camp.share_zh;
-  document.getElementById('shareTw').onclick = function() {
-    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
-  };
-  document.getElementById('shareFb').onclick = function() {
-    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(shareText), '_blank');
-  };
-  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function advanceQuiz() {
-  dots[currentQ].classList.remove('active');
-  dots[currentQ].classList.add('done');
-  currentQ++;
-
-  if (currentQ >= 3) {
-    setTimeout(showResult, 400);
-    return;
-  }
-
-  dots[currentQ].classList.add('active');
-  cards[currentQ - 1].classList.remove('active');
-  setTimeout(() => {
-    cards[currentQ].classList.add('active');
-    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 200);
-}
-
-document.querySelectorAll('.q-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.q-card');
-    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
-    this.classList.add('selected');
-    answers[card.dataset.q] = this.dataset.camp;
-    setTimeout(advanceQuiz, 500);
+// Choice selection
+function selectChoice(choice) {
+  document.querySelectorAll('.result-card').forEach(card => {
+    card.classList.remove('show');
   });
-});
+  const resultCard = document.getElementById('resultCard' + choice);
+  if (resultCard) {
+    resultCard.classList.add('show');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+// Share function
+function share(choice, platform) {
+  const choices = {
+    1: '我認為代幣股票是效率改革，看好它改變全球金融格局。',
+    2: '我對代幣股票有興趣但保持觀望，想看市場如何發展。',
+    3: '我對代幣股票有疑慮，失去股東身分就失去保護。'
+  };
+
+  const shareText = choices[choice];
+  const pageUrl = 'https://astrohsu.github.io/759/';
+  const fullText = shareText + '\n\n讀完這篇，了解美股代幣如何改變投資 👇';
+
+  if (platform === 'twitter') {
+    window.open('https://twitter.com/intent/tweet?text=' +
+      encodeURIComponent(fullText) +
+      '&url=' + encodeURIComponent(pageUrl), '_blank');
+  } else if (platform === 'facebook') {
+    window.open('https://www.facebook.com/share.php?u=' +
+      encodeURIComponent(pageUrl) +
+      '&quote=' + encodeURIComponent(fullText), '_blank');
+  }
+}
 </script>
 </body>
 </html>

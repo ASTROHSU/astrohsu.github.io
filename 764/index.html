@@ -1,613 +1,753 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>讀者怎麼說？五年滿意度調查回顧 — 區塊勢</title>
-<meta name="description" content="五年來讀者怎麼評價區塊勢？深入淺出、有溫度、說人話。從 2020 到 2025，價值觀沒變，但創新模式變了。">
-<meta property="og:title" content="讀者怎麼說？五年滿意度調查回顧">
-<meta property="og:description" content="創新模式變了，讀者組成也跟著改變。">
-<meta property="og:image" content="cover.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FDF9F3;--cream:#EFE6D5;--terra:#8B5A3C;--terra-light:#F3E8DC;
-  --green:#4A7B6F;--green-light:#E6EFE9;--green-deep:#2D5047;
-  --purple:#6B5B8F;--purple-light:#F0EDF6;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#D4A574;--gold-light:#FAF6F0;
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
-
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-
-/* Hero */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:2rem;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,#F5F0E8 0%,var(--cream) 40%,var(--green-light) 60%,var(--green-deep) 100%);
-}
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
-  background:linear-gradient(180deg,transparent,rgba(45,80,71,0.2));pointer-events:none;
-}
-
-/* Concentric circles SVG */
-.hero-circles{
-  width:140px;height:140px;position:relative;margin-bottom:3rem;opacity:0;
-  animation:circleReveal 1.5s ease 0.3s forwards;
-}
-
-@keyframes circleReveal{to{opacity:1}}
-
-.hero h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(2rem,6vw,3.6rem);font-weight:700;
-  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
-  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
-}
-
-.hero .subtitle{
-  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
-  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
-}
-
-.hero .scroll-hint{
-  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
-  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
-}
-
-.hero .scroll-hint::after{
-  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
-  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
-}
-
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
-@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
-
-/* Sections */
-section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
-section.wide{max-width:960px}
-section.full{max-width:100%;padding:5rem 0}
-
-h2{
-  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
-  margin-bottom:2rem;letter-spacing:0.05em;
-}
-
-h2 .label{
-  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
-  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
-  text-transform:uppercase;
-}
-
-p{margin-bottom:1.5rem}
-p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
-
-/* Question section */
-.big-question{
-  text-align:center;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--warm),var(--terra-light));
-}
-
-.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
-
-.big-question .options{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
-}
-
-.big-question .option{
-  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
-  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
-  cursor:default;letter-spacing:0.05em;
-}
-
-.big-question .option:nth-child(odd){background:rgba(74,123,111,0.08);color:var(--green)}
-.big-question .option:nth-child(3){background:rgba(107,91,143,0.08);color:var(--purple)}
-
-/* Timeline comparison */
-.timeline-chart{
-  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:3rem 0;
-}
-
-.timeline-col{
-  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
-}
-
-.timeline-col.past{background:var(--terra-light)}
-.timeline-col.present{background:var(--green-light)}
-
-.timeline-col h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:0.5rem}
-.timeline-col .year{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:1rem}
-
-.stat-item{margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(0,0,0,0.08)}
-.stat-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-
-.stat-label{font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.3rem}
-.stat-number{font-size:1.4rem;font-weight:700;color:var(--text);font-family:'Noto Serif TC',serif}
-
-/* Model comparison cards */
-.model-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0;
-}
-
-.model-card{
-  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
-  transition:transform 0.3s;
-}
-
-.model-card:hover{transform:translateY(-3px)}
-
-.model-card.consumer{background:var(--terra-light);border-color:#D8C4B0}
-.model-card.enterprise{background:var(--green-light);border-color:#B8D4CA}
-
-.model-card h3{
-  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
-}
-
-.model-card .tag{
-  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
-  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
-}
-
-.model-card.consumer .tag{background:rgba(139,90,60,0.15);color:var(--terra)}
-.model-card.enterprise .tag{background:rgba(74,123,111,0.15);color:var(--green)}
-
-.model-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
-.model-card .perspective{
-  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
-  background:rgba(0,0,0,0.03);color:var(--text-secondary);
-}
-
-/* Two choices cards */
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
-
-.choice-card{
-  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
-  transition:transform 0.3s;
-}
-
-.choice-card:hover{transform:translateY(-3px)}
-
-.choice-card.adapt{background:var(--terra-light);border-color:#D8C4B0}
-.choice-card.authentic{background:var(--green-light);border-color:#B8D4CA}
-
-.choice-card h3{
-  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
-}
-
-.choice-card .tag{
-  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
-  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
-}
-
-.choice-card.adapt .tag{background:rgba(139,90,60,0.15);color:var(--terra)}
-.choice-card.authentic .tag{background:rgba(74,123,111,0.15);color:var(--green)}
-
-.choice-card .desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
-
-.choice-card .tradeoff{
-  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
-  background:rgba(0,0,0,0.03);color:var(--text-secondary);
-}
-
-/* Quote */
-.quote-box{
-  padding:2rem;border-radius:12px;margin:2rem 0;
-  background:var(--gold-light);border-left:4px solid var(--gold);
-  font-size:0.95rem;line-height:1.9;color:var(--text-secondary);font-style:italic;
-}
-
-/* Highlight */
-.highlight{
-  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
-  background:var(--gold-light);border:1px solid var(--gold-light);
-  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
-  text-align:center;
-}
-
-/* CTA */
-.cta{
-  text-align:center;padding:6rem 2rem;
-  background:linear-gradient(180deg,#F5F3ED,var(--cream));
-}
-
-.cta h2{font-size:1.5rem;margin-bottom:1rem}
-.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
-
-.cta-btn{
-  display:inline-block;padding:1rem 3rem;border-radius:2rem;
-  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
-  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
-}
-
-.cta-btn:hover{transform:scale(1.03)}
-
-/* Share buttons */
-.share-row{
-  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
-}
-
-.share-btn{
-  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
-  font-size:0.8rem;font-weight:500;cursor:pointer;
-  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
-  transition:transform 0.2s,opacity 0.2s;
-}
-
-.share-btn:hover{transform:scale(1.03)}
-.share-btn.tw{background:#0f1419;color:#fff}
-.share-btn.fb{background:#1877f2;color:#fff}
-.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
-
-/* Quiz */
-.quiz-section{
-  background:linear-gradient(180deg,var(--warm),#F5F3ED);
-  padding:5rem 1.5rem;text-align:center;
-}
-
-.quiz-section h2{margin-bottom:0.5rem}
-.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
-
-.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
-
-.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
-.q-card.active{display:block;opacity:1;transform:translateY(0)}
-
-.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
-.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
-
-.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
-
-.q-btn{
-  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
-  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
-  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
-}
-
-.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
-.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
-
-.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
-.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
-.q-dot.active{background:var(--text);transform:scale(1.2)}
-.q-dot.done{background:var(--green)}
-
-/* Result card */
-.result-card{
-  display:none;max-width:420px;margin:2rem auto 0;
-  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
-}
-
-.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
-.result-card .r-badge{
-  font-size:0.6rem;letter-spacing:0.2em;
-  color:var(--text-muted);margin-bottom:1rem;
-}
-
-.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
-.result-card .r-name{
-  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
-}
-
-.result-card .r-desc{
-  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
-}
-
-/* Footer */
-footer{
-  text-align:center;padding:3rem 2rem;font-size:0.75rem;
-  color:var(--text-muted);letter-spacing:0.15em;
-}
-
-footer img{height:28px;opacity:0.6;transition:opacity 0.3s}
-footer a:hover img{opacity:0.9}
-
-/* Responsive */
-@media(max-width:700px){
-  html{font-size:16px}
-  section{padding:3rem 1.2rem}
-  .timeline-chart,.model-grid,.choices{grid-template-columns:1fr;display:flex;flex-direction:column}
-  .hero h1{font-size:2rem}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>五年問卷回顧：讀者怎麼說？— Blocktrend</title>
+  <meta name="description" content="五年來，讀者反覆提到深入淺出、有溫度和說人話。但今年填問卷的人數大幅下滑，現實也變了。">
+  <meta property="og:title" content="五年問卷回顧：讀者怎麼說？">
+  <meta property="og:description" content="五年來的讀者滿意度調查揭露了什麼？">
+  <meta property="og:image" content="https://astrohsu.github.io/764/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://astrohsu.github.io/764/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://astrohsu.github.io/764/cover.png">
+  <meta name="twitter:title" content="五年問卷回顧：讀者怎麼說？">
+  <meta name="twitter:description" content="五年來的讀者滿意度調查揭露了什麼？">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--warm);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.3;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--terra);
+      text-decoration: none;
+      border-bottom: 1px solid var(--terra);
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--warm) 0%, var(--cream) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-logo {
+      height: 48px;
+      margin-bottom: 3rem;
+      opacity: 1;
+    }
+
+    .hero-title {
+      max-width: 900px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      animation: breathing 2s ease-in-out infinite;
+    }
+
+    @keyframes breathing {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    /* Content Sections */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .part-label {
+      display: inline-block;
+      background-color: var(--terra-light);
+      color: var(--terra);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    /* Quote Block */
+    .quote-block {
+      background: linear-gradient(135deg, var(--terra-light) 0%, var(--cream) 100%);
+      border-left: 4px solid var(--terra);
+      padding: 2rem;
+      margin: 3rem 0;
+      border-radius: 8px;
+    }
+
+    .quote-block p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      color: var(--terra);
+      margin: 0;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    /* Card Container */
+    .card {
+      background: white;
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    /* Chart Card */
+    .chart-card {
+      background: white;
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .chart-card h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .chart-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    /* Data Visualization */
+    .year-comparison {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+
+    .year-item {
+      flex: 1;
+      min-width: 120px;
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--green-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--green);
+    }
+
+    .year-item.highlight {
+      background-color: var(--yellow-light);
+      border-left-color: var(--yellow);
+    }
+
+    .year-item strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .year-item.highlight strong {
+      color: var(--yellow);
+    }
+
+    .year-item span {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Keywords Display */
+    .keywords-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .keyword-tag {
+      background-color: var(--green-light);
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* Innovation Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: var(--terra);
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background-color: var(--terra);
+      border-radius: 50%;
+      border: 3px solid var(--warm);
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: var(--terra);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .timeline-item p {
+      margin-bottom: 0;
+    }
+
+    /* Interactive Section */
+    .interactive-section {
+      background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue-light) 100%);
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+
+    .interactive-section h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    .opinion-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .opinion-btn {
+      background: white;
+      border: 2px solid var(--blue);
+      padding: 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .opinion-btn:hover {
+      background-color: var(--blue-light);
+      transform: translateX(4px);
+    }
+
+    .opinion-btn-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .opinion-btn-title {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .opinion-btn-desc {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .result-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      border-left: 4px solid var(--blue);
+      display: none;
+    }
+
+    .result-card.show {
+      display: block;
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-card h3 {
+      margin-top: 0;
+      color: var(--blue);
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .share-btn {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .share-btn.twitter {
+      background-color: #000;
+      color: white;
+    }
+
+    .share-btn.twitter:hover {
+      opacity: 0.8;
+    }
+
+    .share-btn.facebook {
+      background-color: #1877F2;
+      color: white;
+    }
+
+    .share-btn.facebook:hover {
+      opacity: 0.8;
+    }
+
+    .read-full {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--terra);
+      color: white;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+    }
+
+    .read-full:hover {
+      opacity: 0.8;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--terra-light) 0%, var(--cream) 100%);
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .cta-section h2 {
+      margin-top: 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: var(--terra);
+      color: white;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 1rem;
+    }
+
+    .cta-button:hover {
+      opacity: 0.8;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      background-color: var(--warm);
+    }
+
+    .footer-logo {
+      height: 44px;
+      opacity: 0.5;
+      margin-bottom: 1rem;
+    }
+
+    /* Fade In Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .content {
+        padding: 2rem 1rem;
+      }
+
+      .year-comparison {
+        flex-direction: column;
+      }
+
+      .keywords-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<!-- HERO -->
-<div class="hero">
-  <svg class="hero-circles" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <style>
-        .circle-1 { fill:none; stroke:#8B5A3C; stroke-width:2; opacity:0.3; }
-        .circle-2 { fill:none; stroke:#4A7B6F; stroke-width:2; opacity:0.5; }
-        .circle-3 { fill:none; stroke:#6B5B8F; stroke-width:2; opacity:0.7; }
-        .circle-4 { fill:none; stroke:#D4A574; stroke-width:3; opacity:0.9; }
-      </style>
-    </defs>
-    <circle class="circle-1" cx="70" cy="70" r="60"/>
-    <circle class="circle-2" cx="70" cy="70" r="45"/>
-    <circle class="circle-3" cx="70" cy="70" r="30"/>
-    <circle class="circle-4" cx="70" cy="70" r="15"/>
-  </svg>
-  <h1>讀者怎麼說？</h1>
-  <p class="subtitle">五年滿意度調查回顧</p>
-  <div class="scroll-hint">SCROLL</div>
-</div>
-
-<!-- THE QUESTION -->
-<div class="big-question">
-  <h2 class="fade-in">什麼讓內容有價值？</h2>
-  <div class="options fade-in">
-    <span class="option">創新的內容</span>
-    <span class="option">真誠的聲音</span>
-    <span class="option">及時的角度</span>
-  </div>
-  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">每位讀者的答案都不一樣。但從五年的調查來看，有一些東西從未改變。</p>
-</div>
-
-<!-- PART 1: STORY -->
-<section>
-  <h2 class="fade-in"><span class="label">PART 1</span>不變的核心</h2>
-
-  <p class="fade-in">2020 年，我開始做讀者滿意度調查。那是 DeFi Summer，每週都有新產品冒出來，內容源源不絕。讀者在問卷上寫的都是「有趣、新鮮、深入淺出」。</p>
-
-  <p class="fade-in">到了 2021 和 2022，NFT 爆發、FTX 倒閉、熊市來臨。內容的題材在變，讀者的期待卻沒變多少。他們還是在乎「深入淺出」、「有溫度」、「說人話」。</p>
-
-  <p class="fade-in">2025 年，我把前五年的調查資料統整起來。最驚訝的發現是：<strong>核心價值觀幾乎沒有變過</strong>。無論區塊鏈產業經歷什麼，讀者最在乎的永遠是同一件事——你說的話有沒有人味，有沒有把複雜的東西簡化。</p>
-
-  <p class="fade-in" style="font-weight:500;color:var(--green)">寫作方向沒有走偏。至少從讀者的角度，我做對了什麼。</p>
-</section>
-
-<!-- TIMELINE COMPARISON -->
-<section class="wide">
-  <div class="timeline-chart fade-in">
-    <div class="timeline-col past">
-      <h3>2020-2024</h3>
-      <div class="year">個人參與時代</div>
-      <div class="stat-item">
-        <div class="stat-label">主要創新</div>
-        <div class="stat-number">DeFi、NFT、Gas Fee</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">讀者體驗</div>
-        <div class="stat-number">親手試</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">寫作素材</div>
-        <div class="stat-number">每週新機制</div>
-      </div>
+  <section class="hero">
+    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo" class="hero-logo">
+    <h1 class="hero-title">五年問卷回顧：讀者怎麼說？</h1>
+    <p class="hero-subtitle">從 2020 到 2025，什麼改變了，什麼沒有</p>
+    <div class="scroll-hint">
+      <span>滑動以繼續</span>
+      <span>↓</span>
     </div>
-    <div class="timeline-col present">
-      <h3>2025</h3>
-      <div class="year">產業滲透時代</div>
-      <div class="stat-item">
-        <div class="stat-label">主要創新</div>
-        <div class="stat-number">穩定幣、監管、代幣化資產</div>
+  </section>
+
+  <div class="content">
+    <!-- PART 1: The Five-Year Journey -->
+    <section class="fade-in">
+      <span class="part-label">PART 1</span>
+      <h2>五年的聲音</h2>
+      <p>每年，我都會向付費會員發出一份內容滿意度問卷。他們告訴我什麼做得好、什麼可以更好。從 2020 年開始至今，已經進行了五次調查，但中間有一年漏掉了。把這些年的回饋統整起來，我發現了令自己驕傲的小成就，也面對了一些誠實的挑戰。</p>
+      <p>調查的方式很簡單：開放式問題，請讀者用自己的話描述他們的想法。沒有選擇題、沒有評分表，只是讓讀者寫下心裡話。這樣得來的答案，往往比任何設計精良的量化數據更有真實感。</p>
+      <p>多年來，我建立了一個專門的互動頁面「<a href="https://survey.blocktrend.today/" target="_blank">讀者怎麼說？</a>」，把所有填寫問卷的讀者的原文呈現上去。沒有修飾、沒有篩選，每位讀者都能看到其他人怎麼評價區塊勢。你可以按年份瀏覽，看看五年來讀者的想法如何演變。這個互動敘事頁面，就是區塊勢對讀者最誠實的回應。</p>
+    </section>
+
+    <!-- Quote Block: The Core Finding -->
+    <div class="quote-block fade-in">
+      <p>「深入淺出、有溫度和說人話」</p>
+    </div>
+
+    <!-- PART 2: What Stayed the Same -->
+    <section class="fade-in">
+      <span class="part-label">PART 2</span>
+      <h2>變化無常的產業，不變的核心價值</h2>
+      <p>區塊鏈產業在過去五年經歷了翻天覆地的變化。從 2020 年的 DeFi Summer，到 2022 年的 FTX 倒閉，再到 2025 年的穩定幣爆發。市場風向不斷轉變，市值飆漲又崩盤，新興敘事一個接一個出現又消失。但讀者對區塊勢的期望，反覆重申的核心價值，從未改變。</p>
+      <p>不管問卷怎麼設計，讀者五年來寫下的回答都指向同一件事：他們需要被理解。他們需要有人用簡潔而不失深度的方式，解釋這個令人困惑的產業。他們需要有溫度，需要有人認真對待他們的疑惑而不是用術語轟炸他們。他們需要有人「說人話」，用日常語言而非業界黑話，來談論複雜的技術和策略。</p>
+      <p>這五年間，區塊勢的寫作方向始終指著同一個北極星。在 DeFi 狂熱時、在恐慌時、在沉悶時，讀者持續提醒我：請保持深入淺出、保持有溫度、保持說人話。這讓我確信，寫作的方向沒有走偏。縱使產業怎麼變，讀者的聲音始終如一。</p>
+
+      <div class="chart-card fade-in">
+        <h3>讀者持續強調的三大特質</h3>
+        <div class="keywords-grid">
+          <div class="keyword-tag">深入淺出</div>
+          <div class="keyword-tag">有溫度</div>
+          <div class="keyword-tag">說人話</div>
+        </div>
+        <p>這三個特質在 2020、2021、2023、2024、2025 年的問卷中反覆出現。跨越市場周期、產業變化，讀者的聲音始終如一。無論 DeFi、NFT、穩定幣，無論牛市或熊市，讀者最看重的就是這些核心價值。</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-label">讀者體驗</div>
-        <div class="stat-number">工作需求</div>
+    </section>
+
+    <!-- PART 3: The Reality -->
+    <section class="fade-in">
+      <span class="part-label">PART 3</span>
+      <h2>現實面：填問卷的人變少了</h2>
+      <p>但好消息後面，也有現實要面對。今年填問卷的人數比過往少了很多。高峰期的回收量大概是現在的兩倍。雖然留下來填問卷的幾乎都是最鐵的讀者——94% 的人說自己每篇或多數文章都看——但也代表那些選擇離開、不再開信的人，我聽不到他們的聲音。</p>
+      <p>有讀者直言過去一年「有趣的東西越來越少」，也有人說「近期主題缺少西部大拓荒的那種冒險感」。我在自己的寫作選題時，對這些評論深有同感。前幾年，我甚至為此焦慮到需要找心理諮商。但後來我才慢慢意識到，問題不在寫手本身，而在於創新的模式本身改變了。</p>
+      <p>曾經的區塊鏈創新，是每個人都能親手體驗的。你可以自己創建錢包試用 DeFi、發行一款 NFT、參加一輪 Gitcoin 平方資助。那種每週都冒出新機制的興奮感，讓我有寫不完的題目，讀者也覺得新鮮。但現在的創新主要發生在產業端：穩定幣融入金融體系、代幣化資產走進傳統市場、合規框架逐漸成形。這些事確實重要，但它們離個人體驗很遠。你沒辦法「親手試一下監管框架」。</p>
+    </section>
+
+    <!-- PART 4: The Shift -->
+    <section class="fade-in">
+      <span class="part-label">PART 4</span>
+      <h2>創新的轉向，讀者的變化</h2>
+      <p>直到去年底，我才從訂閱數據裡看到了令人寬心的跡象。2025 年之前，多數讀者是因為個人好奇心而來，被區塊鏈的創新和技術吸引。但今年明顯更多人是因為工作上需要理解區塊鏈才訂閱。好幾個企業團體訂閱的加入，就是最直接的證明。創新的模式變了，讀者的組成也跟著改變。</p>
+      <p>過去幾年，有些讀者即便取消訂閱，還會特別寫信澄清——不是我寫得不好，而是他們的注意力轉向了別處。我常想跟他們開玩笑：「不看沒關係，記得保持信用卡扣款就好。」產業正處在過渡期。個人能直接參與的產品創新暫時少了，但產業的大新聞反而更多了。</p>
+      <p>2025 年初的例子就很有說服力。Mastercard 宣布以 18 億美元收購成立 5 年的穩定幣新創 BVNK，再度創下幣圈收購新天價。這是產業變成什麼樣的信號。傳統金融巨頭正在收購區塊鏈公司，這種「大新聞」的重要性絲毫不亞於過去的技術創新，但它更宏觀、更制度化、也更難讓個人讀者「親身體驗」。這時代變了，讀者的期待也隨之改變。</p>
+
+      <div class="chart-card fade-in">
+        <h3>讀者組成的變化</h3>
+        <div class="year-comparison">
+          <div class="year-item">
+            <strong>過去</strong>
+            <span>個人好奇心驅動</span>
+          </div>
+          <div class="year-item highlight">
+            <strong>現在</strong>
+            <span>工作需求轉向</span>
+          </div>
+        </div>
+        <p>2025 年出現了顯著的轉變。企業團體訂閱增加，工作驅動型讀者比重上升。這反映出區塊鏈正在從「新鮮技術」轉向「產業基礎設施」。讀者的身份也多元化了，不只是好奇的愛好者，還有企業決策者、基金經理、政策顧問。</p>
       </div>
-      <div class="stat-item">
-        <div class="stat-label">寫作素材</div>
-        <div class="stat-number">產業大新聞</div>
+    </section>
+
+    <!-- PART 5: How to Move Forward -->
+    <section class="fade-in">
+      <span class="part-label">PART 5</span>
+      <h2>面對循環，回到本質</h2>
+      <p>面對產業景氣循環和寫作選題的挑戰，我能做的就是專注把每一篇文章寫好。不被突然的冷熱風潮影響，也不被訂閱數據的短期波動牽著走。區塊勢的存在意義，就是用深入淺出、有溫度、說人話的方式，陪伴讀者理解這個產業的每一個轉變。</p>
+      <p>五年的問卷回饋，讓我看到了什麼是真實的讀者需求。在產業由個人創新轉向機構應用的時刻，我的責任更大了——不是寫更多關於新穎技術的文章，而是用清晰的角度，幫助包括企業決策者在內的各類讀者，理解產業的本質變化和未來方向。</p>
+      <p>如果你填過這五年中的任何一次問卷，謝謝你。你的每一句話，我都有認真看。你們寫下的反饋，形塑了區塊勢今天的樣子。如果你還沒填過，歡迎來 <a href="https://survey.blocktrend.today/" target="_blank">「讀者怎麼說？」</a> 頁面看看過去五年的完整回饋。每位讀者的聲音都在那裡。</p>
+    </section>
+
+    <!-- Interactive Section -->
+    <div class="interactive-section fade-in">
+      <h2>你怎麼看？</h2>
+      <div class="opinion-buttons">
+        <button class="opinion-btn" onclick="showResult('personal')">
+          <span class="opinion-btn-icon">🧠</span>
+          <span class="opinion-btn-title">個人讀者</span>
+          <span class="opinion-btn-desc">我因為個人興趣關注區塊鏈</span>
+        </button>
+        <button class="opinion-btn" onclick="showResult('work')">
+          <span class="opinion-btn-icon">💼</span>
+          <span class="opinion-btn-title">工作需求</span>
+          <span class="opinion-btn-desc">我因為工作需要理解產業</span>
+        </button>
+        <button class="opinion-btn" onclick="showResult('both')">
+          <span class="opinion-btn-icon">⚡</span>
+          <span class="opinion-btn-title">雙重身份</span>
+          <span class="opinion-btn-desc">我既是個人好奇心，也有工作需求</span>
+        </button>
       </div>
-    </div>
-  </div>
-  <p class="highlight fade-in">創新的場景變了，但讀者想要的東西沒變。</p>
-</section>
 
-<!-- PART 2: ANALYSIS -->
-<section>
-  <h2 class="fade-in"><span class="label">PART 2</span>讀者組成的變化</h2>
+      <div id="result-personal" class="result-card">
+        <h3>謝謝你的個人好奇心</h3>
+        <p>像你這樣的讀者，是區塊勢起初的核心。對產業的熱情，對新技術的探索，正是推動我持續寫作的動力。即便創新的模式改變了，這份好奇心依然寶貴。希望區塊勢能繼續為你的好奇心提供養分，讓你在複雜的產業變化中找到清晰的方向。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我因為個人興趣關注區塊鏈 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我因為個人興趣關注區塊鏈 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
+      </div>
 
-  <p class="fade-in">真實的挑戰在這裡。今年填問卷的人數比過往少了很多，高峰期的回收量大概是現在的兩倍。原因不難猜——那些選擇離開、不再開信的人，我聽不到他們的聲音。</p>
+      <div id="result-work" class="result-card">
+        <h3>歡迎工作驅動型讀者</h3>
+        <p>你代表了區塊鏈產業變化的新方向。從個人興趣轉向工作應用，意味著這項技術正在落地。區塊勢已經看到並準備好應對這個轉變，提供更多產業應用、合規框架、企業戰略面的深度分析。你的需求，正在形塑我的寫作方向，讓我寫出更多有實踐價值的文章。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我因為工作需要理解區塊鏈 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我因為工作需要理解區塊鏈 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
+      </div>
 
-  <p class="fade-in">但留下來的幾乎都是最鐵的讀者。94% 的人說自己每篇或多數文章都看。他們很清楚自己在訂什麼，也用實際行動說了話。</p>
-
-  <p class="fade-in">更有趣的變化發生在 2025 年。從數據裡看，訂閱讀者的組成明顯改變了。過去多數是個人，因為好奇心而來；現在更多人是因為工作需要，要理解區塊鏈才訂閱。好幾個企業團體訂閱加入就是最直接的證明。</p>
-
-  <div class="model-grid fade-in">
-    <div class="model-card consumer">
-      <span class="tag">過去主流</span>
-      <h3>個人好奇心驅動</h3>
-      <p class="detail">讀者是因為對區塊鏈有興趣而主動訂閱，每週期待新文章。</p>
-      <div class="perspective"><strong>特點：</strong>快速反應、高參與度、容易流失</div>
-    </div>
-    <div class="model-card enterprise">
-      <span class="tag">現在趨勢</span>
-      <h3>工作需求驅動</h3>
-      <p class="detail">讀者是為了工作上要理解產業而訂閱，需要系統性認知。</p>
-      <div class="perspective"><strong>特點：</strong>穩定黏著、長期價值、需要深度</div>
-    </div>
-  </div>
-
-  <p class="fade-in">這不是壞事。只是說，區塊鏈產業本身在變。個人能直接參與的產品創新暫時少了，但產業的大新聞反而更多——Mastercard 以 18 億美元收購 BVNK、穩定幣融入金融體系、代幣化資產走進傳統市場。創新的模式變了，讀者的需求也跟著變。</p>
-</section>
-
-<!-- PART 3: DILEMMA -->
-<section class="wide">
-  <h2 class="fade-in"><span class="label">PART 3</span>堅持什麼、改變什麼</h2>
-
-  <div class="quote-box fade-in">
-    產業正處在過渡期。個人能直接參與的創新暫時少了，但產業的大新聞反而更多。面對這個變化，我做的就是專注把每一篇文章寫好。
-  </div>
-
-  <div class="choices fade-in">
-    <div class="choice-card adapt">
-      <span class="tag">容易的路</span>
-      <h3>跟著潮流走</h3>
-      <p class="desc">把焦點從「有趣」轉向「實用」，寫更多企業客戶想看的內容，報導更多產業大新聞。</p>
-      <div class="tradeoff"><strong>代價：</strong>失去那份「每週冒出新機制」的興奮感，寫作變成例行公事。</div>
-    </div>
-    <div class="choice-card authentic">
-      <span class="tag">基金會的選擇</span>
-      <h3>專注寫好文章</h3>
-      <p class="desc">不刻意迎合市場，保持「深入淺出、有溫度、說人話」的核心，讓內容自己說話。</p>
-      <div class="tradeoff"><strong>代價：</strong>參與感減少可能導致讀者流失，但能吸引真正需要的人。</div>
-    </div>
-  </div>
-
-  <p class="highlight fade-in">創新的模式變了，但不變的是把每一篇文章寫好。讀者的聲音，我都有認真聽。</p>
-</section>
-
-<!-- ENDING -->
-<section>
-  <p class="fade-in" style="font-size:1.05rem;line-height:2">感謝每一位填寫問卷的人。無論是寫「深入淺出」、「有溫度」，還是「近期缺少西部大拓荒的冒險感」，我都有認真看。你們的聲音，形塑了五年來的內容。</p>
-
-  <p class="fade-in" style="font-size:1.05rem;line-height:2">讀者滿意度調查本身就是一場對話。在快速變化的產業裡，保持這份傾聽，或許就是最重要的事。</p>
-</section>
-
-<!-- QUIZ -->
-<div class="quiz-section" id="quiz">
-  <h2 class="fade-in">讀完了，你是哪種讀者？</h2>
-  <p class="quiz-intro fade-in">三個問題，看看你最接近哪一種思維方式。</p>
-
-  <div class="quiz-wrap fade-in">
-    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
-    <div class="q-card active" data-q="1">
-      <div class="q-step">1 / 3</div>
-      <div class="q-text">當一個產業從「個人可參與」變成「企業主導」，你的感受是？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="pragmatist">失落，懷念以前親手試新東西的日子</button>
-        <button class="q-btn" data-camp="opportunist">興奮，產業成熟意味著真正的大生意要來了</button>
-        <button class="q-btn" data-camp="steadfast">淡定，不管怎麼變，跟著懂的人走就行</button>
+      <div id="result-both" class="result-card">
+        <h3>最理想的讀者組合</h3>
+        <p>你既保持對產業技術的好奇心，也需要在工作中應用這些知識。這樣的讀者，能最完整地體驗區塊勢所有面向的文章——既有對新機制的探索，也有對產業應用的深度分析。你的需求，兼容並蓄，正是未來讀者群的雛型，也是推動區塊勢持續進化的動力。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我既關心區塊鏈興趣，也有工作需求 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我既關心區塊鏈興趣，也有工作需求 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
       </div>
     </div>
-    <div class="q-card" data-q="2">
-      <div class="q-step">2 / 3</div>
-      <div class="q-text">看到這五年讀者最在乎的東西始終不變（深入淺出、有溫度、說人話），你的反應是？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="steadfast">這就是核心，抓住這個就不會迷失</button>
-        <button class="q-btn" data-camp="pragmatist">對，但也要看到讀者組成在變，不能只守著舊模式</button>
-        <button class="q-btn" data-camp="opportunist">價值觀重要，但不能因為堅持而錯過機會</button>
-      </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section fade-in">
+      <h2>讀者的聲音，都在這裡</h2>
+      <p>過去五年的所有問卷回饋，都被原文呈現在「讀者怎麼說？」互動頁面上。沒有修飾、沒有篩選，你可以看到真實的讀者想法，按年份瀏覽、按主題探索。這是區塊勢對讀者最誠實的回應，也是我對讀者最深的感謝。</p>
+      <a href="https://survey.blocktrend.today/" target="_blank" class="cta-button">看讀者怎麼說 →</a>
     </div>
-    <div class="q-card" data-q="3">
-      <div class="q-step">3 / 3</div>
-      <div class="q-text">如果你在經營內容或產品，創新模式改變了，你會？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="opportunist">馬上調整策略，跟著市場走</button>
-        <button class="q-btn" data-camp="pragmatist">找到平衡點，既保持初心又適應變化</button>
-        <button class="q-btn" data-camp="steadfast">堅持做對的事，相信時間會證明</button>
-      </div>
-    </div>
+
+    <!-- Referral CTA -->
+    <section class="fade-in" style="background-color: var(--green-light); padding: 2rem; border-radius: 10px; margin-top: 3rem;">
+      <h3 style="color: var(--green); margin-top: 0;">想分享給身邊的人？</h3>
+      <p>每位付費會員都有一組專屬的推薦連結。只要成功推薦一位新訂閱者，你的訂閱就會自動延長一個月。推薦連結可以在登入區塊勢網站後，從帳號設定裡找到。</p>
+    </section>
   </div>
 
-  <div class="result-card" id="resultCard">
-    <div class="r-badge">五年滿意度調查回顧</div>
-    <div class="r-emoji"></div>
-    <div class="r-name"></div>
-    <div class="r-desc"></div>
-    <div class="share-row">
-      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
-      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
-    </div>
-  </div>
-</div>
+  <footer>
+    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo" class="footer-logo">
+    <p style="color: var(--text-muted); font-size: 0.95rem;">謝謝你的閱讀。— Blocktrend</p>
+  </footer>
 
-<!-- CTA -->
-<div class="cta">
-  <h2>五年的對話，還要繼續。</h2>
-  <p>完整文章裡有詳細的調查數據、讀者原文回饋，以及對未來內容方向的思考。</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/764" target="_blank">閱讀完整文章 →</a>
-  <div class="share-row">
-    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('區塊鏈創新的場景在變，但讀者想要的東西沒變。五年滿意度調查怎麼說？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/764/'),'_blank')">分享到 𝕏</button>
-    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/764/'),'_blank')">分享到 Facebook</button>
-    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/764/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
-  </div>
-</div>
+  <script>
+    // Fade-in animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢 BLOCKTREND" /></a></footer>
+    // Interactive result display
+    function showResult(type) {
+      // Hide all result cards
+      document.querySelectorAll('.result-card').forEach(card => {
+        card.classList.remove('show');
+      });
 
-<script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+      // Show selected result card
+      const cardId = `result-${type}`;
+      const card = document.getElementById(cardId);
+      if (card) {
+        card.classList.add('show');
+        // Scroll to result
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+      }
+    }
 
-// Quiz — one question at a time, auto-advance
-const answers = {};
-const cards = document.querySelectorAll('.q-card');
-const dots = document.querySelectorAll('.q-dot');
-const camps = {
-  steadfast: {
-    emoji: '🌱', name: '堅持者',
-    desc: '你相信核心價值觀不該改變，即使外部環境在變。專注把每一件事做好，時間會說話。',
-    bg: 'var(--green-light)', color: 'var(--green)',
-    share: '我是「堅持者」🌱 無論如何變化，有些事核心不能動。你呢？'
-  },
-  pragmatist: {
-    emoji: '⚖️', name: '務實的理想主義者',
-    desc: '你認同核心價值，但也看得到現實的變化。平衡是關鍵，既守住初心又得活著走下去。',
-    bg: 'var(--terra-light)', color: 'var(--terra)',
-    share: '我是「務實的理想主義者」⚖️ 初心重要，但也得看到變化。你呢？'
-  },
-  opportunist: {
-    emoji: '🚀', name: '機會捕手',
-    desc: '你敏銳地感知市場的變化，相信適應環境才能抓住機會。固執反而是最大的風險。',
-    bg: 'var(--purple-light)', color: 'var(--purple)',
-    share: '我是「機會捕手」🚀 市場變了，策略就得變。不動才是最大的風險。你呢？'
-  }
-};
-const articleUrl = 'https://share.blocktrend.today/764/';
-let currentQ = 0;
+    // Share functions
+    function shareTwitter(text) {
+      const url = 'https://astrohsu.github.io/764/';
+      const shareText = text + '\n\n看完整回顧：';
+      window.open('https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent(shareText) +
+        '&url=' + encodeURIComponent(url), '_blank');
+    }
 
-function showResult() {
-  const counts = { steadfast: 0, pragmatist: 0, opportunist: 0 };
-  Object.values(answers).forEach(c => counts[c]++);
-  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-  const camp = camps[winner];
-  const card = document.getElementById('resultCard');
-  card.querySelector('.r-emoji').textContent = camp.emoji;
-  card.querySelector('.r-name').textContent = camp.name;
-  card.querySelector('.r-name').style.color = camp.color;
-  card.querySelector('.r-desc').textContent = camp.desc;
-  card.style.background = camp.bg;
-  card.classList.add('show');
-  document.querySelector('.quiz-wrap').style.display = 'none';
-
-  document.getElementById('shareTw').onclick = function() {
-    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
-  };
-  document.getElementById('shareFb').onclick = function() {
-    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
-  };
-  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function advanceQuiz() {
-  dots[currentQ].classList.remove('active');
-  dots[currentQ].classList.add('done');
-  currentQ++;
-
-  if (currentQ >= 3) {
-    setTimeout(showResult, 400);
-    return;
-  }
-
-  dots[currentQ].classList.add('active');
-  cards[currentQ - 1].classList.remove('active');
-  setTimeout(() => {
-    cards[currentQ].classList.add('active');
-    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 200);
-}
-
-document.querySelectorAll('.q-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.q-card');
-    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
-    this.classList.add('selected');
-    answers[card.dataset.q] = this.dataset.camp;
-    setTimeout(advanceQuiz, 500);
-  });
-});
-</script>
-
+    function shareFacebook(text) {
+      const url = 'https://astrohsu.github.io/764/';
+      window.open('https://www.facebook.com/share.php?u=' +
+        encodeURIComponent(url) +
+        '&quote=' + encodeURIComponent(text), '_blank');
+    }
+  </script>
 </body>
 </html>

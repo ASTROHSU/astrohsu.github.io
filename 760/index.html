@@ -3,258 +3,700 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>稻草人路線圖 — 區塊勢</title>
-<meta name="description" content="用 AI vibe coding 做以太坊升級路線圖。探討直覺式開發的潛力與限制，以及 AI 與區塊鏈的交會點。">
-<meta property="og:title" content="稻草人路線圖">
-<meta property="og:description" content="身為內容創作者，用 AI 打造新工具是最積極的做法。">
-<meta property="og:image" content="cover.png">
+<title>用 AI 做了一張以太坊升級地圖 — 區塊勢</title>
+<meta name="description" content="直覺式開發（vibe coding）用 AI 工具快速打造。從 The Merge 到 Fusaka，以太坊升級歷史 5 年回顧，稻草人路線圖邀請社群共創。">
+<meta property="og:title" content="用 AI 做了一張以太坊升級地圖">
+<meta property="og:description" content="稻草人路線圖：不完整，才能邀請社群一起討論。">
+<meta property="og:image" content="https://astrohsu.github.io/760/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://astrohsu.github.io/760/cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
-  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
-  --blue:#3B82C4;--blue-light:#E7F2FB;
-  --purple:#4E4788;--purple-light:#EEEDF8;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--gold-light:#F9F3E6;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
 
-.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--text);
+  background: var(--warm);
+  line-height: 1.9;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Hero */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:2rem;position:relative;overflow:hidden;
-  background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,var(--blue-light) 60%,#1A3A4D 100%);
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #EDE0D4 0%, var(--warm) 40%, #E8F3ED 60%, #2D6B4F 100%);
 }
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
-  background:linear-gradient(180deg,transparent,rgba(26,58,77,0.3));pointer-events:none;
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, rgba(45, 107, 79, 0.2));
+  pointer-events: none;
 }
-.hero-icon{
-  width:140px;height:140px;position:relative;margin-bottom:3rem;opacity:0;
-  animation:iconReveal 1.5s ease 0.3s forwards;
-  display:flex;align-items:center;justify-content:center;
+
+.hero-logo {
+  height: 48px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: logoReveal 1.5s ease 0.3s forwards;
 }
-@keyframes iconReveal{to{opacity:1}}
-.hero h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
-  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
-  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+
+@keyframes logoReveal {
+  to { opacity: 1; }
 }
-.hero .subtitle{
-  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
-  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.6s forwards;
 }
-.hero .scroll-hint{
-  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
-  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+  letter-spacing: 0.15em;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
 }
-.hero .scroll-hint::after{
-  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
-  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 3rem;
+  z-index: 1;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.5s forwards;
 }
-@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
-@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+.hero .scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--text-muted);
+  margin: 0.8rem auto 0;
+  opacity: 0.4;
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+  from { transform: translateY(20px); }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.2; height: 40px; }
+  50% { opacity: 0.6; height: 50px; }
+}
 
 /* Sections */
-section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
-section.wide{max-width:960px}
-section.full{max-width:100%;padding:5rem 0}
+section {
+  padding: 5rem 1.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
-h2{
-  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
-  margin-bottom:2rem;letter-spacing:0.05em;
+section.wide {
+  max-width: 960px;
 }
-h2 .label{
-  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
-  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
-  text-transform:uppercase;
-}
-p{margin-bottom:1.5rem}
-p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 
-/* Big question */
-.big-question{
-  text-align:center;padding:6rem 2rem;
-  background:linear-gradient(180deg,var(--warm),var(--blue-light));
+h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.05em;
 }
-.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
-.big-question .options{
-  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
-}
-.big-question .option{
-  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
-  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
-  cursor:default;letter-spacing:0.05em;
-}
-.big-question .option:nth-child(odd){background:rgba(59,130,196,0.08);color:var(--blue)}
-.big-question .option:nth-child(3){background:rgba(45,107,79,0.08);color:var(--green)}
 
-/* Timeline visualization */
-.timeline-viz{
-  margin:3rem 0;padding:2rem;
-  background:#fff;border-radius:16px;border:1px solid #E8E3D8;
+h2 .label {
+  display: block;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
-.timeline-item{
-  display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid #E8E3D8;
-}
-.timeline-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.timeline-marker{
-  width:60px;height:60px;border-radius:50%;background:var(--blue-light);
-  display:flex;align-items:center;justify-content:center;font-weight:700;
-  color:var(--blue);flex-shrink:0;font-size:1.2rem;
-}
-.timeline-content h4{font-weight:600;margin-bottom:0.3rem}
-.timeline-content p{font-size:0.85rem;color:var(--text-secondary);margin:0}
 
-/* Two paths */
-.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
-.path-card{
-  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
-  transition:transform 0.3s;
+p {
+  margin-bottom: 1.5rem;
 }
-.path-card:hover{transform:translateY(-3px)}
-.path-card.approach-a{background:var(--terra-light);border-color:#DBBFAD}
-.path-card.approach-b{background:var(--blue-light);border-color:#9CD4F0}
-.path-card h3{
-  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
-}
-.path-card .tag{
-  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
-  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
-}
-.path-card.approach-a .tag{background:#DBBFAD;color:#8B5A3C}
-.path-card.approach-b .tag{background:#9CD4F0;color:#2B5A8C}
-.path-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
-.path-card .challenge{
-  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
-  background:rgba(0,0,0,0.03);color:var(--text-secondary);
-}
-.path-card .challenge strong{color:var(--terra);font-weight:500}
 
-/* Chart: Vibe Coding Timeline */
-.chart-container{
-  margin:3rem 0;padding:2rem;background:#fff;border-radius:16px;
-  border:1px solid #E8E3D8;
+/* Big Quote */
+.big-quote {
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--cream), var(--terra-light));
+  text-align: center;
+  margin: 4rem 0;
+  border-radius: 0;
 }
-.chart-title{font-size:0.8rem;font-weight:600;color:var(--text-muted);
-  letter-spacing:0.1em;margin-bottom:1.5rem;text-transform:uppercase}
-.bar-chart{margin:1rem 0}
-.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;font-size:0.8rem}
-.bar-row .label{min-width:110px;color:var(--text-secondary);font-size:0.75rem;flex-shrink:0}
-.bar-row .bar-track{flex:1;height:24px;position:relative;background:rgba(0,0,0,0.04);border-radius:4px}
-.bar-row .bar{height:100%;border-radius:4px;transition:width 1.5s ease;position:absolute;left:0;top:0}
-.bar-row .bar.ai{background:var(--blue)}
-.bar-row .bar.verification{background:var(--green)}
-.bar-row .pct{font-weight:600;font-size:0.75rem;min-width:42px;flex-shrink:0}
+
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--terra);
+  letter-spacing: 0.05em;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Cards */
+.card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 24px 20px;
+  margin: 2.5rem 0;
+  text-align: center;
+}
+
+.card .card-title {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.card svg {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.card p {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  text-align: left;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Upgrade Timeline */
+.timeline-wrap {
+  margin: 3rem 0;
+}
+
+.timeline-item {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.timeline-badge {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+  color: #fff;
+}
+
+.timeline-badge.merge {
+  background: var(--blue);
+}
+
+.timeline-badge.dencun {
+  background: var(--green);
+}
+
+.timeline-badge.pectra {
+  background: var(--terra);
+}
+
+.timeline-badge.fusaka {
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.timeline-badge.future {
+  background: var(--text-muted);
+}
+
+.timeline-content h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.timeline-content .time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Features Grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.feature-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #E8E3D8;
+  background: #fff;
+}
+
+.feature-card .icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.feature-card h4 {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Concept Block */
+.concept-block {
+  background: var(--yellow-light);
+  border: 1px solid #E4D5B8;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  text-align: left;
+}
+
+.concept-block h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+.concept-block p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0.8rem 0;
+}
+
+/* Opinion Section */
+.opinion-section {
+  background: var(--green-light);
+  border: 1px solid #D4E8DD;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0;
+}
+
+.opinion-section h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+.opinion-section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 1rem 0;
+}
+
+/* Tools Grid */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.tool-card {
+  background: var(--blue-light);
+  border: 1px solid #D4E4F7;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tool-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+
+.tool-card p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Choice Cards */
+.choice-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.choice-card {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #E8E3D8;
+  background: #fff;
+}
+
+.choice-card.passive {
+  background: var(--terra-light);
+}
+
+.choice-card.active {
+  background: var(--green-light);
+}
+
+.choice-card .tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  padding: 0.2rem 0.8rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.choice-card.passive .tag {
+  background: #D4C4A8;
+  color: #5C4C1A;
+}
+
+.choice-card.active .tag {
+  background: #A8D4BC;
+  color: var(--green);
+}
+
+.choice-card h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+}
+
+.choice-card .detail {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.choice-card .point {
+  font-size: 0.8rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.02);
+  color: var(--text-secondary);
+  margin-bottom: 0.6rem;
+}
+
+/* Vote Section */
+.vote-section {
+  text-align: center;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+
+.vote-section h2 {
+  margin-bottom: 1rem;
+}
+
+.vote-intro {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.vote-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.vote-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.vote-btn {
+  padding: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid #E8E3D8;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--text);
+  transition: all 0.3s;
+  font-size: 0.95rem;
+}
+
+.vote-btn:hover {
+  border-color: var(--text-secondary);
+  transform: translateX(4px);
+}
+
+.vote-btn.selected {
+  background: var(--green-light);
+  border-color: var(--green);
+  font-weight: 500;
+}
+
+.vote-btn .emoji {
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
+
+.vote-btn .option-text {
+  display: inline-block;
+  text-align: left;
+}
+
+/* Result Card */
+.result-card {
+  display: none;
+  max-width: 420px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  background: var(--green-light);
+  animation: fadeUp 0.5s ease;
+}
+
+.result-card.show {
+  display: block;
+}
+
+.result-card .r-emoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-card .r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--green);
+}
+
+.result-card .r-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Share Buttons */
+.share-row {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+
+.share-btn:hover {
+  transform: scale(1.03);
+}
+
+.share-btn.tw {
+  background: #0f1419;
+  color: #fff;
+}
+
+.share-btn.fb {
+  background: #1877f2;
+  color: #fff;
+}
 
 /* CTA */
-.cta{
-  text-align:center;padding:6rem 2rem;
-  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+.cta {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
 }
-.cta h2{font-size:1.5rem;margin-bottom:1rem}
-.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:1rem 3rem;border-radius:2rem;
-  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
-  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
-}
-.cta-btn:hover{transform:scale(1.03)}
 
-/* Share buttons */
-.share-row{
-  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+.cta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
-.share-btn{
-  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
-  font-size:0.8rem;font-weight:500;cursor:pointer;
-  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
-  transition:transform 0.2s,opacity 0.2s;
-}
-.share-btn:hover{transform:scale(1.03)}
-.share-btn.tw{background:#0f1419;color:#fff}
-.share-btn.fb{background:#1877f2;color:#fff}
-.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
 
-/* Quiz */
-.quiz-section{
-  background:linear-gradient(180deg,var(--warm),#F5F3ED);
-  padding:5rem 1.5rem;text-align:center;
+.cta p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
 }
-.quiz-section h2{margin-bottom:0.5rem}
-.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
-.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
-.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
-.q-card.active{display:block;opacity:1;transform:translateY(0)}
-.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
-.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
-.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
-.q-btn{
-  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
-  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
-  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
-}
-.q-btn:hover{border-color:var(--text-secondary);background:var(--blue-light)}
-.q-btn.selected{border-color:var(--text);background:var(--blue-light);font-weight:500;pointer-events:none}
-.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
-.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
-.q-dot.active{background:var(--text);transform:scale(1.2)}
-.q-dot.done{background:var(--blue)}
 
-/* Result card */
-.result-card{
-  display:none;max-width:420px;margin:2rem auto 0;
-  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+  background: var(--text);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: transform 0.2s;
+  font-size: 1rem;
 }
-.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
-.result-card .r-badge{
-  font-size:0.6rem;letter-spacing:0.2em;
-  color:var(--text-muted);margin-bottom:1rem;
-}
-.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
-.result-card .r-name{
-  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
-}
-.result-card .r-desc{
-  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+
+.cta-btn:hover {
+  transform: scale(1.03);
 }
 
 /* Footer */
-footer{
-  text-align:center;padding:3rem 2rem;font-size:0.75rem;
-  color:var(--text-muted);letter-spacing:0.15em;
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
 }
 
-/* Blockquote */
-blockquote{
-  border-left:3px solid var(--blue);padding:1.2rem 1.5rem;margin:2rem 0;
-  background:rgba(59,130,196,0.04);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
-}
-blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
-
-/* Highlight box */
-.highlight{
-  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
-  background:var(--gold-light);border:1px solid #E4D5B8;
-  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
-  text-align:center;
+footer img {
+  height: 44px;
+  opacity: 0.5;
 }
 
 /* Responsive */
-@media(max-width:700px){
-  html{font-size:16px}
-  section{padding:3rem 1.2rem}
-  .paths{grid-template-columns:1fr;display:flex;flex-direction:column}
-  .hero h1{font-size:2rem}
-  .timeline-viz{padding:1.5rem}
+@media (max-width: 700px) {
+  html {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 3rem 1.2rem;
+  }
+
+  .features-grid,
+  .tools-grid,
+  .choice-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .vote-btn {
+    text-align: center;
+  }
+
+  .vote-btn .option-text {
+    display: block;
+  }
 }
 </style>
 </head>
@@ -262,317 +704,323 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-icon">
-    <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Scarecrow-like figure representing "vibe" -->
-      <circle cx="50" cy="30" r="12" fill="#3B82C4" stroke="#2B5A8C" stroke-width="2"/>
-      <rect x="45" y="45" width="10" height="25" fill="#8B7340" stroke="#2C2A25" stroke-width="1.5"/>
-      <line x1="45" y1="52" x2="25" y2="50" stroke="#8B7340" stroke-width="3" stroke-linecap="round"/>
-      <line x1="55" y1="52" x2="75" y2="50" stroke="#8B7340" stroke-width="3" stroke-linecap="round"/>
-      <line x1="50" y1="70" x2="42" y2="85" stroke="#8B7340" stroke-width="3" stroke-linecap="round"/>
-      <line x1="50" y1="70" x2="58" y2="85" stroke="#8B7340" stroke-width="3" stroke-linecap="round"/>
-      <!-- Node/tech elements around it -->
-      <circle cx="50" cy="30" r="18" fill="none" stroke="#3B82C4" stroke-width="1" opacity="0.3"/>
-      <circle cx="30" cy="20" r="4" fill="#2D6B4F" opacity="0.6"/>
-      <circle cx="70" cy="20" r="4" fill="#2D6B4F" opacity="0.6"/>
-      <circle cx="25" cy="45" r="4" fill="#C06A3A" opacity="0.6"/>
-      <circle cx="75" cy="45" r="4" fill="#C06A3A" opacity="0.6"/>
-      <!-- Sparkle effect -->
-      <path d="M50 10 L52 14 L56 15 L53 18 L53 22 L50 20 L47 22 L47 18 L44 15 L48 14 Z" fill="#F9D923" opacity="0.7"/>
-    </svg>
-  </div>
-  <h1>稻草人路線圖</h1>
-  <p class="subtitle">用 AI 做以太坊升級地圖，探討 vibe coding 的可能性</p>
+  <img src="https://i.urusai.cc/yaku8.png" alt="BLOCKTREND" class="hero-logo">
+  <h1>用 AI 做了一張以太坊升級地圖</h1>
+  <p class="subtitle">稻草人路線圖邀請社群共創，而不是完成品</p>
   <div class="scroll-hint">SCROLL</div>
 </div>
 
-<!-- THE QUESTION -->
-<div class="big-question">
-  <h2 class="fade-in">AI 與區塊鏈的交會點在哪？</h2>
-  <div class="options fade-in">
-    <span class="option">AI 使用加密貨幣支付</span>
-    <span class="option">用 AI 打造新工具</span>
-    <span class="option">區塊鏈驗證 AI 結果</span>
-    <span class="option">AI 協助區塊鏈開發</span>
-  </div>
-  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">主流論述總是關於 AI 支付，但這只是個理想。<br>作為內容創作者，用 AI 來打造新工具是更積極的做法。</p>
+<!-- PART 1: VIBE CODING -->
+<section>
+  <h2><span class="label">開場</span>直覺式開發（Vibe Coding）時代</h2>
+
+  <p class="fade-in">最近玩 AI 玩到廢寢忘食的程度。一定要把 AI 派去工作，才甘願去吃飯、洗澡、睡覺。這不是比喻——是真的沒辦法停下來。因為「直覺式開發」（vibe coding）帶來的反饋迴圈實在太迷人。你用自然語言描述想法，AI 立即產出程式碼，五分鐘後就有個能跑的網站。這種速度打破了傳統開發的所有想像。過去的開發方式需要專業背景和多年訓練，但今天，任何人——無論是內容創作者、設計師、還是完全的業餘愛好者——都可以用自然語言和 AI 工具協作，打造出專業級的成品。這本質上是在「民主化」軟體開發能力。</p>
+
+  <p class="fade-in">傳統開發流程是：想法 → 設計稿 → 程式碼 → 測試 → 部署，這個過程要耗費數週。但用 Cursor、Replit 這類 AI 工具，你可以在一個工作天內從 0 到 1 完成一個互動網站。更重要的是，AI 不是在幫你寫程式，而是在放大你的創意思考——它讓想法迅速成型，你再用眼睛判斷「感覺對不對」。如果不對，修改描述，AI 馬上改。這種直覺性的迭代方式，完全改變了開發的本質。傳統需要多年經驗才能掌握的工程門檻，如今被 AI 大幅降低。你不用深入學習 React、TypeScript、CSS Grid——只需要能清楚表達「我想要什麼」。而 AI 會以專業級的方式實現它。</p>
+
+  <p class="fade-in">這次的成果，就是用這套方法打造的「以太坊升級地圖」。從最初的想法到能部署的網站，整個過程不超過三天。期間我沒有寫過一行程式碼——或者說，我寫了無數行，但都是通過自然語言和 AI 協作完成的。更妙的是，修改時極為快速。如果數據有誤或設計不夠好，我只需要說一句話，AI 就能在幾秒鐘內重新調整。這種創意和執行的零距離，讓我可以專注在想法本身，而不是被技術細節纏住。</p>
+</section>
+
+<div class="big-quote fade-in">
+  <p>被動等待 AI 工具成熟，不如主動用 AI 工具改造現在的工作方式。</p>
 </div>
 
-<!-- VIBE CODING STORY -->
+<!-- PART 2: ETHEREUM HISTORY -->
 <section>
-  <h2 class="fade-in"><span class="label">PART 1</span>直覺式開發的崛起</h2>
+  <h2><span class="label">背景</span>以太坊升級：過去五年的演進</h2>
 
-  <p class="fade-in">2024 年底，一個新的詞彙在開發者社群流行起來：「vibe coding」（直覺式開發）。不靠詳細規劃、流程圖或技術文件，而是把想法丟給 AI，讓它根據你的描述直接生成程式碼。</p>
+  <p class="fade-in">區塊鏈就像手機、電腦的作業系統，每隔一段時間就會升級、引入新功能。以太坊自誕生以來已經歷經多次重要升級，每次都標誌著系統能力的躍進。區塊勢曾多次寫過以太坊升級對使用者的具體影響，例如 2022 年從 PoW 過渡到 PoS 的合併升級、2024 年大幅降低 L2 手續費的 Dencun 升級，以及 2025 年讓手機變身硬體錢包的斑馬升級（Fusaka）。這些升級不是一蹴而就的決定，而是透過無數技術會議、EIP 提案、客戶端測試才能實現。</p>
 
-  <p class="fade-in">這聽起來很瘋狂，也確實有風險。傳統軟體工程師會說：「沒有設計文件，怎麼可能開發？」但如果專案夠小、目的夠清楚，也許不需要那麼繁瑣的過程。</p>
+  <p class="fade-in">要理解以太坊升級的複雜性，得先知道它沒有一位執行長能按下「更新」按鈕。每次系統升級都必須在 11 個相互獨立的技術團隊、研究者和社群中達成共識。這背後需要數十場技術會議、數百則 GitHub 討論串，以及長達數月的測試與協調。這就是為什麼每次升級都耗時費力，但也為什麼每次升級的決策都極具代表性——它們經歷了最嚴苛的考驗，才被推上舞台。</p>
 
-  <p class="fade-in">作者沈迷到廢寢忘食的程度，一定要把 AI 派去工作，才甘願去吃飯、洗澡、睡覺。最後的成果就是「以太坊升級地圖」——一個互動式網站，把複雜的技術路線圖轉譯成一般人能理解的視覺化內容。</p>
-
-  <p class="fade-in" style="font-weight:500;color:var(--blue)">這就是 vibe coding 的實證案例。</p>
-
-  <div class="chart-container fade-in">
-    <div class="chart-title">Vibe Coding 的三個階段</div>
-    <div class="timeline-viz">
-      <div class="timeline-item">
-        <div class="timeline-marker">1️⃣</div>
-        <div class="timeline-content">
-          <h4>想像與描述</h4>
-          <p>在腦海中有個模糊的想法，用自然語言告訴 AI</p>
-        </div>
+  <div class="timeline-wrap fade-in">
+    <div class="timeline-item">
+      <div class="timeline-badge merge">2022</div>
+      <div class="timeline-content">
+        <h3>The Merge（合併升級）</h3>
+        <p>以太坊從工作量證明（PoW）過渡到權益證明（PoS），不再需要能耗巨大的礦機。這次升級的意義不止於環保，更重要是改變了區塊鏈的安全模型和經濟激勵。讓以太坊從「消耗能源的生產機器」變成「靠質押維護的共同體」。</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-marker">2️⃣</div>
-        <div class="timeline-content">
-          <h4>AI 與人合作</h4>
-          <p>AI 根據描述生成初稿，人類反覆調整和優化</p>
-        </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-badge dencun">2024</div>
+      <div class="timeline-content">
+        <h3>Dencun（登庸升級）</h3>
+        <p>大幅降低 Layer 2 解決方案的手續費，讓日常交易成本從幾美元降到幾分錢。這是用戶最直接感受到改進的升級。讓 Arbitrum、Optimism 等 L2 方案真正變成「便宜好用的交易層」，而非只是技術概念。</p>
       </div>
-      <div class="timeline-item">
-        <div class="timeline-marker">3️⃣</div>
-        <div class="timeline-content">
-          <h4>成品與迭代</h4>
-          <p>發佈網站，持續更新，甚至開源讓社群參與</p>
-        </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-badge pectra">2025</div>
+      <div class="timeline-content">
+        <h3>Pectra（培克特拉升級）</h3>
+        <p>推動多個改進方案並行執行，持續優化交易效率和層 2 相容性。讓以太坊的執行層和共識層更加協調。這次升級展現了以太坊「漸進式改革」的風格——不求一次大爆炸，而是穩步推進每個小改進。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-badge fusaka">2025</div>
+      <div class="timeline-content">
+        <h3>Fusaka（斑馬升級）</h3>
+        <p>讓手機變身硬體錢包，實現鑰匙管理的革新。讓普通人也能安全控管加密資產，無需依賴交易所。這可能是近年來對「使用者友善」影響最大的升級——把加密資產的自保權力交回個人手中。</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-badge future">2026+</div>
+      <div class="timeline-content">
+        <h3>未來升級與社群共創</h3>
+        <p>以太坊基金會提出「稻草人路線圖」（Strawmap），概述到 2030 年之前的技術方向。但最終版本還要經過社群反覆討論、形成共識。這代表以太坊已經成熟到足以邀請社群參與決策，而非由開發者單方面宣佈。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ANALYSIS SEGMENT -->
+<!-- PART 3: SCARECROW ROADMAP -->
 <section>
-  <h2 class="fade-in"><span class="label">PART 2</span>從工地到公共財</h2>
+  <h2><span class="label">理念</span>稻草人路線圖的設計哲學</h2>
 
-  <p class="fade-in">以太坊升級地圖的核心功能相當陽春——中間三個方塊代表最近的升級，滑動可以回溯到 2015 年第一次升級。但重點不是功能的複雜度，而是對使用者有沒有價值。</p>
+  <p class="fade-in">以太坊基金會最近拋出一份「稻草人路線圖」（strawmap），這個名稱很耐人尋味。稻草人路線圖目的是拋磚引玉，而非完成品。它故意留白、不完整，就是要邀請社群進來補充、質疑、討論。這種開放式的技術治理方式，正是區塊鏈社群的核心精神。相比傳統科技公司由高層單方面決定產品路線圖，以太坊的方式顯得民主得多。</p>
 
-  <p class="fade-in">原本會被作者直接忽略的主題——技術路線圖——因為 vibe coding，變成了一個有趣的專案。這揭示了一個重要的洞察：<strong>AI 不是為了做已經有人做的事，而是為了做那些沒人想做的事。</strong></p>
+  <p class="fade-in">為什麼要這麼做？因為以太坊的技術方向不應該由少數人決定。路線圖必須反映整個社群的共識——從協議開發者、安全研究者、應用開發者到普通使用者。稻草人路線圖就是這場對話的起點。它說：「這是我們目前的想法，但不是定論。」這種謙虛姿態，反而凸顯了以太坊的成熟度。一個年輕的項目通常會堅持創始人的願景不動搖；一個成熟的項目願意開放決策過程，這是一種自信。</p>
 
-  <blockquote class="fade-in">
-    「以驗證取代信任（Don't Trust, Verify）」是區塊鏈的口號。但以前大家根本看不懂程式碼或全英文的技術文件，只能相信別人的說法。如今透過 AI，使用者總算有能力去驗證。
-  </blockquote>
-
-  <p class="fade-in">網站右上角的 42% 進度條象徵了一個更深層的概念：以太坊還在建設中。幣圈不是完成的世界，而是一個工地。這也解釋了為什麼會時常發生「工安意外」，使用者也對系統有諸多抱怨。</p>
-
-  <p class="fade-in">但這些問題未來都會慢慢被解決。你只是太早來了。</p>
-
-  <div class="chart-container fade-in">
-    <div class="chart-title">Ethereum 完成度追蹤</div>
-    <div class="bar-chart">
-      <div class="bar-row">
-        <span class="label">Vitalik 的 6 大面向</span>
-        <div class="bar-track"><div class="bar ai" style="width:0%" data-w="42%"></div></div>
-        <span class="pct">42%</span>
-      </div>
-      <div class="bar-row">
-        <span class="label">手續費優化</span>
-        <div class="bar-track"><div class="bar ai" style="width:0%" data-w="65%"></div></div>
-        <span class="pct">65%</span>
-      </div>
-      <div class="bar-row">
-        <span class="label">隱私與安全</span>
-        <div class="bar-track"><div class="bar verification" style="width:0%" data-w="48%"></div></div>
-        <span class="pct">48%</span>
-      </div>
-      <div class="bar-row">
-        <span class="label">性能擴展</span>
-        <div class="bar-track"><div class="bar ai" style="width:0%" data-w="52%"></div></div>
-        <span class="pct">52%</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TWO APPROACHES -->
-<section class="wide">
-  <h2 class="fade-in"><span class="label">PART 3</span>Vibe Coding 的兩面</h2>
-
-  <div class="paths fade-in">
-    <div class="path-card approach-a">
-      <span class="tag">觀點 A ── 機會主義</span>
-      <h3>快速迭代，先發上市</h3>
-      <p class="detail">不要被完美主義所束縛。vibe coding 最大的優勢就是速度——想到就做，反覆打磨。早期推出產品，邊運營邊優化。</p>
-      <div class="challenge"><strong>陷阱：</strong>沒有深度思考，容易堆砌功能而失去核心願景。代碼債也會越來越重。</div>
-    </div>
-    <div class="path-card approach-b">
-      <span class="tag">觀點 B ── 審慎主義</span>
-      <h3>架構先行，質量有保障</h3>
-      <p class="detail">AI 生成的代碼可能有隱藏bug。需要嚴格的測試、code review 和架構設計，才能確保系統的穩定性和可維護性。</p>
-      <div class="challenge"><strong>陷阱：</strong>過度設計會抵銷 vibe coding 的速度優勢，最後回到傳統開發的流程。</div>
-    </div>
+  <div class="concept-block fade-in">
+    <h3>為什麼叫「稻草人」？</h3>
+    <p>稻草人是一個輪廓清晰但不完整的形象。它立在田裡，讓人知道「這裡有東西」，但細節留給想像。同樣的，稻草人路線圖畫出了方向，但邀請社群一起填補細節。不是「我已經決定了」，而是「我提議，你評論」。這是去中心化治理在實踐層面的體現——技術問題用技術方式決定，政治問題用社群共識決定。</p>
   </div>
 
-  <p class="highlight fade-in">真正聰明的做法可能是混合模式：對快速驗證想法用 vibe coding，對核心邏輯仍然要有人類的審視。</p>
+  <p class="fade-in">技術文件通常寫給進階讀者——研究人員、開發者、治理參與者。但我們的「以太坊升級地圖」做的是另一回事：用視覺化和直覺化的方式，讓一般讀者也能掌握升級的脈絡。不是要你讀懂每個 EIP（以太坊改進提案），而是要你理解「以太坊在往哪裡走」。地圖上有時間軸、有進度指示，讓使用者一目瞭然：過去發生了什麼，現在進度到哪裡，未來還有多遠。</p>
 </section>
 
-<!-- ENDING -->
+<div class="big-quote fade-in">
+  <p>不完整的路線圖，比完美的獨裁更有價值。</p>
+</div>
+
+<!-- PART 4: THE ROADMAP PROJECT -->
 <section>
-  <p class="fade-in" style="font-size:1.05rem;line-height:2">AI 與區塊鏈的交會點，也許就在這裡：用 AI 來打造新工具，讓不懂技術的人也能參與驗證。這比純粹等待 AI 支付的未來，要更實際得多。</p>
+  <h2><span class="label">執行</span>打造互動式升級地圖</h2>
 
-  <p class="fade-in" style="font-size:1.05rem;line-height:2">作者希望把升級地圖做成區塊鏈世界的公共財，歡迎他人復刻程式碼，以不同設計滿足各式需求。這也是 vibe coding 另一個重要的應用：協作式開發，但門檻更低。</p>
+  <p class="fade-in">把抽象的技術路線圖轉譯成直覺的互動網站，這本身就是一次「直覺式開發」的展示。以太坊基金會的 Forkcast 網站已經做得很專業，但它終究是服務技術開發者的。網站的視覺設計相當現代，但閱讀門檻偏高。我們的「以太坊升級地圖」則優先於繁體中文用戶，並用更平易近人的視覺語言呈現相同的資訊。地圖的設計不是為了取代 Forkcast，而是為了補充——讓更多人能理解以太坊的技術演進。</p>
+
+  <p class="fade-in">網站的核心設計邏輯是：一條時間軸，展示過去的升級和未來的計劃。中央三個方塊代表最近的三次升級，每個方塊都有簡要說明和對應的使用者痛點。你可以左右滑動，一路追溯到 2015 年的創世區塊，甚至看到 2030 年的願景。右上角有個進度指示——目前整體路線圖的完成進度約 42%，這提醒使用者：以太坊仍在工地階段，遠非完成品。使用者也對系統有諸多抱怨，都能解釋為「你只是太早來了」。</p>
+
+  <div class="features-grid fade-in">
+    <div class="feature-card">
+      <div class="icon">📅</div>
+      <h4>時間軸檢視</h4>
+      <p>從 2015 年至 2030 年，一目瞭然每次升級的時間和內容。可自由滑動，探索技術演進軌跡，感受過去的成就和未來的可能。</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <h4>痛點對應</h4>
+      <p>每次升級都清楚標示「解決什麼問題」。讓使用者理解升級為何重要，而非只是技術名詞。連結使用者的真實需求和技術進展。</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h4>進度指示</h4>
+      <p>42% 完成度不只是數字，而是一種心態：承認進度，也坦誠不足。提醒用戶風險仍然存在，以太坊還有很多工作要做。</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🌐</div>
+      <h4>開源共創</h4>
+      <p>程式碼在 GitHub 開源，歡迎其他人復刻並以不同設計滿足各式需求。不是我的專案，是社群的。這正是區塊鏈精神的落實。</p>
+    </div>
+  </div>
 </section>
 
-<!-- QUIZ -->
-<div class="quiz-section" id="quiz">
-  <h2 class="fade-in">讀完了，你怎麼看 Vibe Coding？</h2>
-  <p class="quiz-intro fade-in">三個問題，看看你的開發哲學傾向。</p>
+<!-- PART 5: AI & BLOCKCHAIN -->
+<section>
+  <h2><span class="label">未來</span>AI 與區塊鏈的交會點</h2>
 
-  <div class="quiz-wrap fade-in">
-    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
-    <div class="q-card active" data-q="1">
-      <div class="q-step">1 / 3</div>
-      <div class="q-text">你有個想法，想快速變成一個網站。用 AI vibe coding 好嗎？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="idealist">必須好，越快越好，反覆改進</button>
-        <button class="q-btn" data-camp="realist">可以試試，但得有架構檢查</button>
-        <button class="q-btn" data-camp="pragmatist">不夠，還是得有設計和測試</button>
-      </div>
+  <p class="fade-in">AI 跟區塊鏈的交匯點在哪？當前最主流的論述是：AI 終將使用加密貨幣支付。儘管這個願景非常吸引人——想像未來 AI 代理自動執行交易、管理資產、參與經濟活動——但目前還只是個懸在半空中的理想。對一般使用者來說，只能被動等待，完全插不上手。然而，有了這次開發經驗，我認為用 AI 來打造新工具才是更積極、更實際的做法。身為內容創作者，我直覺想到的就是自製「升級地圖」。把這個原本會被我直接忽略的主題，做成一套有趣的專案。</p>
+
+  <p class="fade-in">傳統軟體開發需要專業背景和多年訓練。但今天，任何人——無論是內容創作者、設計師、還是完全的業餘愛好者——都可以用自然語言和 AI 工具協作，打造出專業級的成品。這本質上是在「民主化」軟體開發能力。區塊鏈的願景是民主化金融，而 AI 的貢獻可以是民主化技術。結果是什麼？任何有想法的人都能成為建築者。這不是虛言——以太坊升級地圖就是明證。一個沒有工程背景的內容創作者，透過 AI 工具，在短短幾天內就做出了一個技術網站。</p>
+
+  <div class="opinion-section fade-in">
+    <h3>AI 的真正價值不在取代人類，而在提升人類的創造力邊界。</h3>
+    <p>你不用懂程式語言，也不用花數年學習框架。AI 工具讓創意和執行的距離大幅縮短。你有想法，AI 幫你把想法變成現實。過去需要團隊協作才能完成的工作，如今一個人加上 AI 就能做到。這不是取代，而是增強。是人的能力被放大了。</p>
+  </div>
+
+  <div class="tools-grid fade-in">
+    <div class="tool-card">
+      <h4>Cursor</h4>
+      <p>AI-first 的程式編輯器，能理解你的程式邏輯並提供智慧補完。編寫速度比傳統 IDE 快一個量級，讓開發真正成為「對話」。</p>
     </div>
-    <div class="q-card" data-q="2">
-      <div class="q-step">2 / 3</div>
-      <div class="q-text">以太坊升級地圖是 vibe coding 的成功案例。你最認同的是什麼？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="idealist">創意產出速度，想到就做到</button>
-        <button class="q-btn" data-camp="realist">把複雜東西視覺化，有實際價值</button>
-        <button class="q-btn" data-camp="pragmatist">開源協作模式，集眾人之力</button>
-      </div>
+    <div class="tool-card">
+      <h4>Replit</h4>
+      <p>線上開發環境配合 AI 協助，無需本地安裝。分享連結即可部署，協作變得輕鬆無比。讓團隊合作和分享都簡化到最低。</p>
     </div>
-    <div class="q-card" data-q="3">
-      <div class="q-step">3 / 3</div>
-      <div class="q-text">AI 生成的程式碼，你最擔心的是？</div>
-      <div class="q-options">
-        <button class="q-btn" data-camp="idealist">沒什麼好擔心的，bug 能改</button>
-        <button class="q-btn" data-camp="realist">要有嚴格的 code review 機制</button>
-        <button class="q-btn" data-camp="pragmatist">架構層面的隱患才是關鍵風險</button>
-      </div>
+    <div class="tool-card">
+      <h4>Gemini</h4>
+      <p>Google 的多模態 AI，能處理文字、圖片、程式碼。在開發過程中提供背景知識和靈感。特別適合探索新主題時的快速查閱。</p>
+    </div>
+    <div class="tool-card">
+      <h4>Claude</h4>
+      <p>擅長深度推理和長文本處理，特別適合複雜的架構設計和邏輯思考。能夠理解上下文，進行多輪對話式開發。</p>
     </div>
   </div>
 
-  <div class="result-card" id="resultCard">
-    <div class="r-badge">稻草人路線圖 ── 你的開發哲學</div>
-    <div class="r-emoji"></div>
-    <div class="r-name"></div>
-    <div class="r-desc"></div>
-    <div class="share-row">
-      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
-      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+  <p class="fade-in">在區塊鏈的世界，人們總說「以驗證取代信任（Don't Trust, Verify）」。但問題是：大多數人根本看不懂程式碼或全英文的技術文件，只能相信別人的說法。如今透過 AI，使用者總算有能力去「驗證」。不然誰知道 Vitalik 說「今年以太坊 L1 的效能會大幅提升」，到底是要提升 30% 還是提升 300%？有了工具和知識，你可以自己查、自己算、自己判斷。AI 民主化了知識，讓技術不再是精英的專屬。</p>
+</section>
+
+<div class="big-quote fade-in">
+  <p>當工具民主化了，權力就跟著民主化了。</p>
+</div>
+
+<!-- PART 6: OPEN SOURCE -->
+<section>
+  <h2><span class="label">共創</span>以開源方式維護未來</h2>
+
+  <p class="fade-in">「以太坊升級地圖」網站功能目前還相當陽春，未來會持續更新，並希望讓它成為區塊鏈世界的公共財。但我也不打算獨自維護整個網站。與其一個人悶著幹，不如透過開源共創的模式，歡迎其他人復刻（fork）程式碼，以不同的設計和語言滿足各式需求。GitHub 上的程式碼已經準備好讓任何人參與。這就是開源文化的威力——沒有人擁有這個項目，但每個人都可以貢獻。</p>
+
+  <p class="fade-in">這正是以太坊精神的落實——不是「我做好給你用」，而是「我做個版本，你改進並分享」。開源不只是程式碼，更是一種思維方式。當程式碼公開，所有人都可以參與、檢視、改進。你可以修改顏色、新增語言、調整佈局、整合新的升級資訊。甚至可以為不同國家、不同社群客製化版本。一個人的想法有限，但群體的智慧無窮。透過開源共創，我們能迭代出比單人成果更好、更適應多元需求的版本。這不是「我提供一個產品」，而是「我提供了工具，你帶著它去創造」。</p>
+
+  <div class="choice-cards fade-in">
+    <div class="choice-card passive">
+      <span class="tag">舊模式</span>
+      <h3>產品思維</h3>
+      <p class="detail">開發者做出完美的產品，用戶只能被動使用和反饋。更新速度取決於開發團隊的優先級和資源。</p>
+      <div class="point"><strong>特點：</strong> 集中式、高品質、低彈性</div>
+    </div>
+
+    <div class="choice-card active">
+      <span class="tag">新方向</span>
+      <h3>社群思維</h3>
+      <p class="detail">開發者提供基礎框架，社群成員各自改進、適配、創新。迭代速度由整個社群決定。</p>
+      <div class="point"><strong>特點：</strong> 開放式、高參與、高彈性</div>
+    </div>
+  </div>
+
+  <p class="fade-in">區塊鏈社群最寶貴的資產，就是這種透明度和包容性。當程式碼公開，專業人士可以找到 bug；當決策開放，社群可以提出更好的想法。升級地圖會隨著以太坊的發展而演進。當有新的升級公佈時，社群成員可以立即貢獻新的資訊；當有更好的視覺設計出現時，其他設計師可以提交改進。這個項目永遠不會「完成」，因為它反映的是一個活躍的、不斷進化的社群。</p>
+</section>
+
+<!-- VOTE SECTION -->
+<div class="vote-section" id="vote">
+  <h2 class="fade-in">讀完了，你最認同哪一個觀點？</h2>
+  <p class="vote-intro fade-in">選一個最符合你想法的選項，看看有多少人跟你想法一致。</p>
+
+  <div class="vote-wrap fade-in">
+    <div class="vote-options">
+      <button class="vote-btn" data-choice="vibe" onclick="selectVote(this, 'vibe')">
+        <span class="emoji">⚡</span>
+        <span class="option-text">
+          <strong>直覺式開發是軟體民主化的未來</strong><br>
+          <small>降低門檻，讓每個人都能成為建築者</small>
+        </span>
+      </button>
+      <button class="vote-btn" data-choice="caution" onclick="selectVote(this, 'caution')">
+        <span class="emoji">⚖️</span>
+        <span class="option-text">
+          <strong>技術強大，但需要謹慎監管</strong><br>
+          <small>AI 工具很厲害，但也要防範風險</small>
+        </span>
+      </button>
+      <button class="vote-btn" data-choice="skeptic" onclick="selectVote(this, 'skeptic')">
+        <span class="emoji">🤔</span>
+        <span class="option-text">
+          <strong>還是傳統方法更可靠</strong><br>
+          <small>AI 很棒，但經驗和人工審查還是重要</small>
+        </span>
+      </button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="r-emoji"></div>
+      <div class="r-title"></div>
+      <div class="r-desc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- CTA -->
 <div class="cta">
-  <h2>從 vibe 到實現，AI 如何改變開發？</h2>
-  <p>完整文章深入探討 AI vibe coding 的潛力與限制、以太坊升級進程，以及為什麼用 AI 打造新工具是比等待更積極的選擇。</p>
+  <h2>以太坊的升級不會停止。</h2>
+  <p>完整文章深入討論了直覺式開發如何改造現代軟體工程，稻草人路線圖邀請社群共創的意義，以及 AI 與區塊鏈結合的真正潛力。</p>
   <a class="cta-btn" href="https://www.blocktrend.today/p/760" target="_blank">閱讀完整文章 →</a>
   <div class="share-row">
-    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('以太坊還在工地上。用 AI vibe coding 做的升級地圖，讓我可以驗證而非盲信。你呢？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/760/'),'_blank')">分享到 𝕏</button>
-    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/760/'),'_blank')">分享到 Facebook</button>
-    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/760/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+    <button class="share-btn tw" onclick="shareTwitter()">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="shareFacebook()">分享到 Facebook</button>
   </div>
 </div>
 
-<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+<footer>
+  <a href="https://www.blocktrend.today" target="_blank">
+    <img src="https://i.urusai.cc/yaku8.png" alt="BLOCKTREND">
+  </a>
+</footer>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-}, { threshold: 0.15 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.bar').forEach(bar => {
-        bar.style.width = bar.dataset.w;
-      });
-      barObserver.unobserve(e.target);
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.3 });
-document.querySelectorAll('.chart-container').forEach(el => barObserver.observe(el));
+}, { threshold: 0.12 });
 
-// Quiz logic
-const answers = {};
-const cards = document.querySelectorAll('.q-card');
-const dots = document.querySelectorAll('.q-dot');
-const camps = {
-  idealist: {
-    emoji: '⚡',
-    name: 'Vibe 優先主義者',
-    desc: '你相信速度就是優勢，快速迭代、邊走邊改，比完美計劃更實際。拿著 AI，衝啊！',
-    bg: 'var(--terra-light)',
-    color: '#8B5A3C',
-    share: '我是「Vibe 優先主義者」⚡ 用 AI 快速驗證想法，反覆打磨比完美計劃更務實。你呢？'
-  },
-  realist: {
-    emoji: '⚖️',
-    name: '務實的中立者',
-    desc: '你既欣賞 vibe coding 的速度，也理解質量的重要。混合模式才是王道——快速但謹慎。',
-    bg: 'var(--blue-light)',
-    color: '#2B5A8C',
-    share: '我是「務實的中立者」⚖️ vibe coding 很快，但得有 code review 把守品質關。你呢？'
-  },
-  pragmatist: {
-    emoji: '🏗️',
-    name: '架構第一主義者',
-    desc: '你知道 AI 生成的代碼有隱患。設計先行、測試完備，才是長期可維護的道路。',
-    bg: 'var(--green-light)',
-    color: '#2D6B4F',
-    share: '我是「架構第一主義者」🏗️ AI 代碼得經過嚴格檢驗，架構設計不能省。你呢？'
-  }
-};
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
 const articleUrl = 'https://share.blocktrend.today/760/';
-let currentQ = 0;
+let selectedVote = null;
 
-function showResult() {
-  const counts = { idealist: 0, realist: 0, pragmatist: 0 };
-  Object.values(answers).forEach(c => counts[c]++);
-  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
-  const camp = camps[winner];
-  const card = document.getElementById('resultCard');
-  card.querySelector('.r-emoji').textContent = camp.emoji;
-  card.querySelector('.r-name').textContent = camp.name;
-  card.querySelector('.r-name').style.color = camp.color;
-  card.querySelector('.r-desc').textContent = camp.desc;
-  card.style.background = camp.bg;
-  card.classList.add('show');
-  document.querySelector('.quiz-wrap').style.display = 'none';
+function selectVote(btn, choice) {
+  document.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedVote = choice;
 
-  document.getElementById('shareTw').onclick = function() {
-    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
-  };
-  document.getElementById('shareFb').onclick = function() {
-    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
-  };
-  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function advanceQuiz() {
-  dots[currentQ].classList.remove('active');
-  dots[currentQ].classList.add('done');
-  currentQ++;
-
-  if (currentQ >= 3) {
-    setTimeout(showResult, 400);
-    return;
-  }
-
-  dots[currentQ].classList.add('active');
-  cards[currentQ - 1].classList.remove('active');
   setTimeout(() => {
-    cards[currentQ].classList.add('active');
-    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 200);
+    const results = {
+      vibe: {
+        emoji: '⚡',
+        title: 'AI 與創意的共舞者',
+        desc: '你相信新工具能打破舊的限制，讓每個人都有機會成為建築者。直覺式開發不是未來，是現在。你已經在用，或想馬上開始試。想像所有的創意都能迅速成型，所有的想法都能立即驗證。這正是你期望的未來。'
+      },
+      caution: {
+        emoji: '⚖️',
+        title: '務實的先驅者',
+        desc: '你看到技術的潛力，也認識到需要謹慎。不排斥創新，但想確保基礎建設穩固。你想要進步，但也想要安全。平衡是你的哲學。發展與風控並行，才能走得更遠。'
+      },
+      skeptic: {
+        emoji: '🤔',
+        title: '經驗的信仰者',
+        desc: '你對人工智能的能力有保留。並非反對，只是認為人類判斷、經驗和審查仍然不可替代。穩健勝過速度，品質勝過數量。你相信經過時間考驗的方法。'
+      }
+    };
+
+    const result = results[choice];
+    const card = document.getElementById('resultCard');
+    card.querySelector('.r-emoji').textContent = result.emoji;
+    card.querySelector('.r-title').textContent = result.title;
+    card.querySelector('.r-desc').textContent = result.desc;
+    card.classList.add('show');
+
+    document.getElementById('shareTw').onclick = function() {
+      const text = `我是「${result.title}」— 你呢？\n\n直覺式開發、AI 工具、稻草人路線圖...以太坊升級地圖背後的故事值得一讀。`;
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(articleUrl), '_blank');
+    };
+
+    document.getElementById('shareFb').onclick = function() {
+      window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl), '_blank');
+    };
+
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 300);
 }
 
-document.querySelectorAll('.q-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const card = this.closest('.q-card');
-    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
-    this.classList.add('selected');
-    answers[card.dataset.q] = this.dataset.camp;
-    setTimeout(advanceQuiz, 500);
-  });
-});
+function shareTwitter() {
+  const text = '用 AI 做了一張以太坊升級地圖。從 The Merge 到 Fusaka，稻草人路線圖邀請社群共創。直覺式開發民主化了軟體，AI 民主化了技術。';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+}
+
+function shareFacebook() {
+  window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl), '_blank');
+}
 </script>
+
 </body>
 </html>
