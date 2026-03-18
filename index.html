@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>區塊勢 — 互動體驗</title>
+<meta name="description" content="區塊勢文章的互動式體驗版。三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。">
+<meta property="og:title" content="區塊勢 — 互動體驗">
+<meta property="og:description" content="三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://share.blocktrend.today/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0EB;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--gold-light:#F9F3E6;
+  --accent:#C06A3A;--accent-light:#F5EBE5;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Header */
+.site-header{
+  padding:4rem 1.5rem 3rem;text-align:center;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.site-header .logo{height:32px;opacity:0.7;margin-bottom:1.5rem}
+.site-header h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,4vw,2.6rem);
+  font-weight:700;letter-spacing:0.05em;margin-bottom:0.5rem;
+}
+.site-header p{color:var(--text-secondary);font-size:0.95rem;max-width:480px;margin:0 auto}
+
+/* Articles Grid */
+.articles{max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem}
+
+.article-card{
+  display:block;text-decoration:none;color:inherit;
+  padding:2rem 0;border-bottom:1px solid rgba(0,0,0,0.06);
+  transition:transform 0.2s ease;
+}
+.article-card:first-child{border-top:1px solid rgba(0,0,0,0.06)}
+.article-card:hover{transform:translateX(6px)}
+
+.article-card .number{
+  font-family:'Noto Serif TC',serif;font-size:0.85rem;color:var(--accent);
+  font-weight:700;letter-spacing:0.1em;margin-bottom:0.4rem;
+}
+.article-card h2{
+  font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;
+  margin-bottom:0.5rem;letter-spacing:0.02em;line-height:1.6;
+}
+.article-card .desc{
+  color:var(--text-secondary);font-size:0.9rem;line-height:1.7;
+}
+.article-card .tags{margin-top:0.8rem;display:flex;gap:0.5rem;flex-wrap:wrap}
+.article-card .tag{
+  font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:100px;
+  background:var(--accent-light);color:var(--accent);font-weight:500;
+}
+.article-card .arrow{
+  display:inline-block;margin-left:0.3rem;transition:transform 0.2s;
+}
+.article-card:hover .arrow{transform:translateX(4px)}
+
+/* Footer */
+.site-footer{
+  text-align:center;padding:3rem 1.5rem;
+  border-top:1px solid rgba(0,0,0,0.06);
+}
+.site-footer a{display:inline-block}
+.site-footer img{height:28px;opacity:0.5;transition:opacity 0.3s}
+.site-footer img:hover{opacity:0.8}
+.site-footer p{color:var(--text-muted);font-size:0.8rem;margin-top:1rem}
+
+@media(max-width:600px){
+  .site-header{padding:3rem 1.5rem 2rem}
+  .articles{padding:1.5rem 1.5rem 3rem}
+  .article-card h2{font-size:1.15rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <h1>互動體驗</h1>
+  <p>三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。</p>
+</header>
+
+<main class="articles">
+
+  <a class="article-card fade-in" href="./765/">
+    <div class="number">#765</div>
+    <h2>兆豐實測穩定幣！卻沒發現銀行才是最大贏家？ <span class="arrow">→</span></h2>
+    <div class="desc">穩定幣取代的不是銀行，而是 SWIFT。當兆豐銀行親自下場實測穩定幣跨境匯款，結果出乎意料。</div>
+    <div class="tags"><span class="tag">穩定幣</span><span class="tag">銀行</span><span class="tag">跨境匯款</span></div>
+  </a>
+
+  <a class="article-card fade-in" href="./744/">
+    <div class="number">#744</div>
+    <h2>2025 年終回顧：幣圈已死，工具萌芽 <span class="arrow">→</span></h2>
+    <div class="desc">幣價再創新高、監管大幅鬆綁，但「大場面」遲遲沒有到來。區塊鏈正悄悄潛入日常，這是終局還是起點？</div>
+    <div class="tags"><span class="tag">年終回顧</span><span class="tag">產業趨勢</span><span class="tag">商業模式</span></div>
+  </a>
+
+  <a class="article-card fade-in" href="./743/">
+    <div class="number">#743</div>
+    <h2>浪費資源的收音機？數位憑證皮夾不只是超商領貨 app <span class="arrow">→</span></h2>
+    <div class="desc">數位部推出數位憑證皮夾，被嘲笑是花公帑重做超商 app。但背後的數位身分基礎建設，價值遠不止於此。</div>
+    <div class="tags"><span class="tag">數位身分</span><span class="tag">隱私</span><span class="tag">政府科技</span></div>
+  </a>
+
+  <a class="article-card fade-in" href="./742/">
+    <div class="number">#742</div>
+    <h2>盈透證券開放穩定幣入金！潘朵拉的盒子打開了 <span class="arrow">→</span></h2>
+    <div class="desc">當全球最大線上券商開放穩定幣入金，投資人對金流速度的期待回不去了。這是資金出逃，還是市場進化？</div>
+    <div class="tags"><span class="tag">券商</span><span class="tag">穩定幣</span><span class="tag">美股</span></div>
+  </a>
+
+  <a class="article-card fade-in" href="./741/">
+    <div class="number">#741</div>
+    <h2>AI 駭客來了！智慧合約的義和團時刻 <span class="arrow">→</span></h2>
+    <div class="desc">AI 代理人已能自主發現漏洞、規劃攻擊。每份合約的攻擊成本僅 1.22 美元，數位戰場進入熱兵器時代。</div>
+    <div class="tags"><span class="tag">AI</span><span class="tag">資安</span><span class="tag">智慧合約</span></div>
+  </a>
+
+  <a class="article-card fade-in" href="./740/">
+    <div class="number">#740</div>
+    <h2>穩定幣手續費是智商稅？Stripe 讓店家省下 94% 金流成本 <span class="arrow">→</span></h2>
+    <div class="desc">Stripe 開通穩定幣收款被罵「智商稅」，但身為收款店家的第一手實測顯示：最多省下 94% 手續費。</div>
+    <div class="tags"><span class="tag">Stripe</span><span class="tag">穩定幣</span><span class="tag">金流</span></div>
+  </a>
+
+</main>
+
+<footer class="site-footer">
+  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
+  <p>每篇互動體驗約需 3 分鐘。閱讀完整文章請訂閱區塊勢。</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
