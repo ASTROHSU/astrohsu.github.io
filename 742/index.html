@@ -98,6 +98,134 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 .big-question .option:nth-child(odd){background:rgba(39,169,74,0.08);color:var(--green)}
 .big-question .option:nth-child(3){background:rgba(123,104,238,0.08);color:var(--purple)}
 
+/* Investor Satisfaction Chart */
+.survey-chart{
+  margin:3rem 0;padding:2rem;background:#fff;border-radius:16px;border:1px solid #E8E3D8;
+}
+.survey-chart h3{
+  font-family:'Noto Serif TC',serif;font-size:1.1rem;margin-bottom:2rem;color:var(--text);
+}
+.chart-bar-row{
+  display:flex;align-items:center;gap:1rem;margin-bottom:2rem;
+}
+.chart-bar-label{
+  min-width:140px;font-size:0.85rem;color:var(--text-secondary);font-weight:500;
+}
+.chart-bar-track{
+  flex:1;height:32px;background:#f0f0f0;border-radius:8px;position:relative;overflow:hidden;
+}
+.chart-bar{
+  height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;
+  padding-right:12px;color:#fff;font-weight:600;font-size:0.8rem;
+  opacity:0;animation:barGrow 1.2s ease forwards;
+}
+.chart-bar.bar1{background:linear-gradient(90deg,#1E90FF,#0D5FFF);animation-delay:0.1s}
+.chart-bar.bar2{background:linear-gradient(90deg,#27A94A,#0D5A2B);animation-delay:0.3s}
+.chart-bar.bar3{background:linear-gradient(90deg,#D4A844,#A68230);animation-delay:0.5s}
+.chart-bar.bar4{background:linear-gradient(90deg,#7B68EE,#5A4BA8);animation-delay:0.7s}
+@keyframes barGrow{
+  from{width:0;opacity:0}
+  to{opacity:1}
+}
+.chart-bar.bar1 {width:0%}
+.chart-bar.bar2 {width:0%}
+.chart-bar.bar3 {width:0%}
+.chart-bar.bar4 {width:0%}
+
+/* Deposit Speed Timeline */
+.deposit-race{
+  margin:3rem 0;padding:2rem;background:linear-gradient(135deg,#E6F2FF 0%,#E8F5E9 100%);
+  border-radius:16px;border:1px solid #C0D4FF;
+}
+.deposit-race h3{
+  font-family:'Noto Serif TC',serif;font-size:1.1rem;margin-bottom:2rem;color:var(--text);
+}
+.race-track{
+  display:flex;flex-direction:column;gap:1.5rem;
+}
+.race-item{
+  display:flex;align-items:center;gap:1rem;
+}
+.race-label{
+  min-width:120px;font-size:0.85rem;color:var(--text-secondary);font-weight:500;
+}
+.race-line{
+  flex:1;height:28px;background:#fff;border-radius:14px;position:relative;overflow:hidden;
+  border:1px solid #D0D0D0;
+  display:flex;align-items:center;justify-content:space-between;padding:0 8px;
+}
+.race-fill{
+  height:100%;border-radius:14px;display:flex;align-items:center;justify-content:flex-end;
+  padding-right:10px;font-weight:600;font-size:0.75rem;color:#fff;
+  opacity:0;animation:raceFill 1.5s ease forwards;
+}
+.race-fill.bank{background:linear-gradient(90deg,#1E90FF,#0D5FFF);animation-delay:0.2s}
+.race-fill.stablecoin{background:linear-gradient(90deg,#27A94A,#0D5A2B);animation-delay:0.8s}
+.race-time{
+  min-width:100px;text-align:right;font-size:0.85rem;font-weight:600;color:var(--text);
+}
+@keyframes raceFill{
+  from{width:0%;opacity:0}
+  to{opacity:1}
+}
+.race-fill.bank{width:30%}
+.race-fill.stablecoin{width:95%}
+
+/* Fee Comparison Cards */
+.fee-comparison{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:3rem 0;
+}
+.fee-card{
+  padding:2rem;border-radius:16px;border:2px solid #E8E3D8;background:#fff;
+  transition:transform 0.3s,box-shadow 0.3s;
+}
+.fee-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.fee-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1.5rem;color:var(--text);
+}
+.fee-card.stripe{border-color:#7B68EE}
+.fee-card.ibkr{border-color:#27A94A}
+.fee-header{
+  display:flex;align-items:baseline;gap:0.5rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #E8E3D8;
+}
+.fee-percent{
+  font-size:2rem;font-weight:700;
+}
+.fee-stripe .fee-percent{color:#7B68EE}
+.fee-ibkr .fee-percent{color:#27A94A}
+.fee-per{font-size:0.9rem;color:var(--text-secondary);font-weight:500}
+.fee-benefit{
+  padding:1rem;border-radius:8px;margin-bottom:1rem;font-size:0.9rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.fee-stripe .fee-benefit{background:rgba(123,104,238,0.1);color:#5A4BA8}
+.fee-ibkr .fee-benefit{background:rgba(39,169,74,0.1);color:#1D5A34}
+.fee-benefit-icon{font-size:1.2rem}
+.fee-note{
+  font-size:0.8rem;color:var(--text-muted);line-height:1.6;padding-top:1rem;border-top:1px solid #E8E3D8;
+}
+
+/* Pandora Box SVG */
+.pandora-section{
+  position:relative;padding:4rem 0;background:linear-gradient(135deg,rgba(212,168,68,0.05) 0%,rgba(123,104,238,0.05) 100%);
+  margin:3rem 0;border-radius:16px;
+}
+.pandora-container{
+  display:flex;align-items:center;justify-content:center;gap:2rem;padding:2rem;
+}
+.pandora-svg{
+  flex:0 0 auto;
+}
+.pandora-text{
+  flex:1;min-width:250px;
+}
+.pandora-text h3{
+  font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem;color:var(--text);
+}
+.pandora-text p{
+  font-size:0.95rem;color:var(--text-secondary);line-height:1.8;margin:0;
+}
+
 /* Data visualization - cost comparison */
 .cost-comparison{
   display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:3rem 0;
@@ -258,8 +386,10 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 @media(max-width:700px){
   html{font-size:16px}
   section{padding:3rem 1.2rem}
-  .cost-comparison,.perspectives,.stat-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .cost-comparison,.perspectives,.stat-grid,.fee-comparison{grid-template-columns:1fr;display:flex;flex-direction:column}
   .hero h1{font-size:2rem}
+  .pandora-container{flex-direction:column;gap:1rem}
+  .pandora-svg{flex:0 0 auto}
 }
 </style>
 </head>
@@ -311,22 +441,32 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 
   <p class="fade-in">但市場其實早就告訴我們答案。有調查報告顯示：</p>
 
-  <div class="stat-grid fade-in">
-    <div class="stat-box">
-      <div class="stat-number">62%</div>
-      <div class="stat-label">投資人使用多家券商</div>
+  <!-- Investor Satisfaction Survey Chart -->
+  <div class="survey-chart fade-in">
+    <h3>投資人入金體驗調查</h3>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">62% 使用多家券商</div>
+      <div class="chart-bar-track">
+        <div class="chart-bar bar1" style="width:62%">62%</div>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">45%</div>
-      <div class="stat-label">每年更換券商</div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">45% 每年更換券商</div>
+      <div class="chart-bar-track">
+        <div class="chart-bar bar2" style="width:45%">45%</div>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">38%</div>
-      <div class="stat-label">滿意當前入金體驗</div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">38% 滿意入金體驗</div>
+      <div class="chart-bar-track">
+        <div class="chart-bar bar3" style="width:38%">38%</div>
+      </div>
     </div>
-    <div class="stat-box">
-      <div class="stat-number">83%</div>
-      <div class="stat-label">希望穩定幣入金選項</div>
+    <div class="chart-bar-row">
+      <div class="chart-bar-label">83% 想要穩定幣選項</div>
+      <div class="chart-bar-track">
+        <div class="chart-bar bar4" style="width:83%">83%</div>
+      </div>
     </div>
   </div>
 
@@ -343,9 +483,60 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 
   <p class="fade-in">盈透證券 CEO 在高盛會議上親口宣布：今年就會引入穩定幣，年底前接受來自 Tether、Ripple、PayPal 和 Circle 的穩定幣。投資者可以用穩定幣入金、出金與存款。</p>
 
+  <!-- Deposit Speed Comparison Timeline -->
+  <div class="deposit-race fade-in">
+    <h3>入金速度對比</h3>
+    <div class="race-track">
+      <div class="race-item">
+        <div class="race-label">銀行電匯</div>
+        <div class="race-line">
+          <div class="race-fill bank"></div>
+        </div>
+        <div class="race-time">3-5 天</div>
+      </div>
+      <div class="race-item">
+        <div class="race-label">穩定幣入金</div>
+        <div class="race-line">
+          <div class="race-fill stablecoin"></div>
+        </div>
+        <div class="race-time">數分鐘</div>
+      </div>
+    </div>
+  </div>
+
   <p class="fade-in">這聽起來很理想，但現實卻更複雜。盈透開放穩定幣入金，卻採用 0.3% 的手續費——對一筆 $1,000 的入金來說，就要掏出 $3。這讓很多人質疑，為什麼穩定幣本來應該更便宜，卻反而變成「智商稅」？</p>
 
   <p class="fade-in">關鍵在於<strong>價值創造</strong>。Stripe 對店家降低手續費從 2.9% 到 1.5%，店家原本就要付費，所以願意買單。但盈透證券的入金原本免費，Firstrade 甚至還補貼手續費。現在盈透卻把成本轉嫁用戶，這是一個錯誤的步子。</p>
+
+  <!-- Fee Comparison -->
+  <div class="fee-comparison fade-in">
+    <div class="fee-card stripe">
+      <h3>Stripe 的收費邏輯</h3>
+      <div class="fee-header">
+        <span class="fee-percent">1.5%</span>
+        <span class="fee-per">/ 交易</span>
+      </div>
+      <div class="fee-benefit">
+        <span class="fee-benefit-icon">✓</span>
+        <span>對店家來說是<strong>節省成本</strong></span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin:1rem 0">原本 2.9% → 現在 1.5%</p>
+      <div class="fee-note">從更高費用降低，所以商家願意買單</div>
+    </div>
+    <div class="fee-card ibkr">
+      <h3>Interactive Brokers 的收費邏輯</h3>
+      <div class="fee-header">
+        <span class="fee-percent">0.3%</span>
+        <span class="fee-per">/ 交易</span>
+      </div>
+      <div class="fee-benefit">
+        <span class="fee-benefit-icon">✗</span>
+        <span>對投資人來說是<strong>新增成本</strong></span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--text-secondary);margin:1rem 0">原本 0% (免費) → 現在 0.3%</p>
+      <div class="fee-note">從免費變成收費，使用者感知變差</div>
+    </div>
+  </div>
 
   <div class="flow-container fade-in">
     <h3 style="margin-bottom:1.5rem;font-size:1rem">穩定幣入金流程</h3>
@@ -375,6 +566,47 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
   </div>
 
   <p class="fade-in">這個流程確實改變了遊戲規則。即時到帳、全天候交易、跨境無縫對接——這些都是傳統銀行無法提供的體驗。</p>
+
+  <!-- Pandora's Box Illustration -->
+  <div class="pandora-section fade-in">
+    <div class="pandora-container">
+      <svg class="pandora-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" width="140" height="140">
+        <!-- Box bottom -->
+        <rect x="50" y="100" width="100" height="70" fill="#C06A3A" stroke="#8B5A3C" stroke-width="2" rx="4"/>
+
+        <!-- Box front panel -->
+        <rect x="50" y="100" width="100" height="40" fill="#D4805A" stroke="#8B5A3C" stroke-width="2" rx="4"/>
+
+        <!-- Coins/gems floating out -->
+        <circle cx="80" cy="60" r="6" fill="#D4A844" opacity="0.8"/>
+        <circle cx="120" cy="50" r="5" fill="#FFD700" opacity="0.7"/>
+        <circle cx="95" cy="35" r="6" fill="#D4A844" opacity="0.9"/>
+        <circle cx="135" cy="70" r="5" fill="#FFD700" opacity="0.8"/>
+        <circle cx="65" cy="45" r="5" fill="#D4A844" opacity="0.85"/>
+
+        <!-- Light rays -->
+        <line x1="100" y1="95" x2="100" y2="20" stroke="#FFD700" stroke-width="2" opacity="0.6"/>
+        <line x1="75" y1="85" x2="65" y2="15" stroke="#FFA500" stroke-width="2" opacity="0.5"/>
+        <line x1="125" y1="85" x2="140" y2="10" stroke="#FFA500" stroke-width="2" opacity="0.5"/>
+
+        <!-- Box lid - opening animation -->
+        <g>
+          <rect x="50" y="85" width="100" height="20" fill="#C06A3A" stroke="#8B5A3C" stroke-width="2" rx="4" opacity="0.9"
+                style="transform-origin: 100px 95px; animation: lidOpen 2s ease-in-out 0.5s infinite alternate;"/>
+          <style>
+            @keyframes lidOpen {
+              0% { transform: rotateZ(0deg); }
+              100% { transform: rotateZ(-25deg); }
+            }
+          </style>
+        </g>
+      </svg>
+      <div class="pandora-text">
+        <h3>潘朵拉的盒子</h3>
+        <p>一旦盒子打開，回不去了。當投資人習慣了穩定幣的便利，就會要求其他券商也提供相同服務。這不只是一家公司的決策，而是整個行業的轉捩點。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- THE TENSION -->
@@ -471,6 +703,36 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Animate chart bars on scroll
+const chartObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const bars = e.target.querySelectorAll('.chart-bar');
+      bars.forEach((bar, idx) => {
+        const width = bar.dataset.width || bar.style.width;
+        bar.style.width = width;
+      });
+      chartObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.survey-chart').forEach(el => chartObserver.observe(el));
+
+// Animate race bars on scroll
+const raceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fills = e.target.querySelectorAll('.race-fill');
+      fills.forEach(fill => {
+        const width = fill.style.width;
+        fill.style.width = width;
+      });
+      raceObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.deposit-race').forEach(el => raceObserver.observe(el));
 
 // Quiz — one question at a time, auto-advance
 const answers = {};

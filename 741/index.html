@@ -18,6 +18,7 @@
   --purple:#4E4788;--purple-light:#EEEDF8;
   --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
   --gold:#8B7340;--gold-light:#F9F3E6;
+  --ai-cool:#5B6FD4;--ai-cool-light:#E8ECFD;--warm-red:#D44D4D;--warm-red-light:#F5E5E5;
 }
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
@@ -100,6 +101,82 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 .big-question .option:nth-child(odd){background:rgba(192,106,58,0.12);color:var(--terra)}
 .big-question .option:nth-child(even){background:rgba(78,71,136,0.12);color:var(--purple)}
 
+/* Warfare illustration */
+.warfare-illustration{
+  margin:2rem 0;padding:2rem;border-radius:16px;
+  background:linear-gradient(135deg,#F5E5E5 0%,#E8ECFD 100%);
+  display:flex;justify-content:center;align-items:center;
+  min-height:300px;
+}
+.warfare-illustration svg{
+  width:100%;max-width:500px;height:auto;
+}
+
+/* Bar chart section */
+.chart-container{
+  margin:2rem 0;padding:2rem;border-radius:16px;
+  background:rgba(255,255,255,0.6);border:1px solid #E8E3D8;
+}
+.chart-title{
+  font-size:0.9rem;font-weight:600;color:var(--text-secondary);
+  margin-bottom:1.5rem;text-align:center;letter-spacing:0.05em;
+}
+.bar-chart{margin:0}
+.bar-row{
+  display:flex;align-items:center;gap:0.8rem;margin-bottom:1.2rem;
+}
+.bar-row .label{
+  min-width:120px;font-size:0.8rem;color:var(--text-secondary);font-weight:500;
+  flex-shrink:0;
+}
+.bar-row .bar-track{
+  flex:1;height:28px;position:relative;background:rgba(0,0,0,0.06);
+  border-radius:6px;overflow:hidden;min-width:150px;
+}
+.bar-row .bar{
+  height:100%;border-radius:6px;transition:width 1.5s cubic-bezier(0.34,1.56,0.64,1);
+  position:absolute;left:0;top:0;background:var(--terra);
+}
+.bar-row .bar.ai-threat{background:var(--ai-cool)}
+.bar-row .value{
+  min-width:60px;text-align:right;font-size:0.8rem;font-weight:600;
+  color:var(--text);flex-shrink:0;
+}
+
+/* Cost comparison */
+.cost-comparison{
+  margin:2rem 0;padding:2rem;border-radius:16px;
+  background:linear-gradient(135deg,#F5E5E5 0%,#E8ECFD 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
+  align-items:center;
+}
+.cost-item{text-align:center}
+.cost-item .icon-circle{
+  width:100px;height:100px;margin:0 auto 1rem;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;
+  background:rgba(255,255,255,0.8);box-shadow:0 4px 16px rgba(0,0,0,0.1);
+}
+.cost-item.attack{margin-top:0}
+.cost-item.attack .icon-circle{background:rgba(212,77,77,0.15)}
+.cost-item.gain .icon-circle{background:rgba(91,111,212,0.15)}
+.cost-item .amount{
+  font-size:2rem;font-weight:700;font-family:'Noto Serif TC',serif;
+  margin-bottom:0.3rem;
+  color:var(--text);
+}
+.cost-item.attack .amount{color:var(--warm-red)}
+.cost-item.gain .amount{color:var(--ai-cool)}
+.cost-item .label{
+  font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.5rem;
+}
+.cost-item .sublabel{
+  font-size:0.7rem;color:var(--text-muted);letter-spacing:0.05em;
+}
+.cost-comparison .vs{
+  font-size:1.5rem;color:var(--text-muted);font-weight:300;
+  display:flex;align-items:center;justify-content:center;height:100%;
+}
+
 /* Data grid */
 .compare-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
@@ -144,6 +221,11 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 .path-card.human{background:var(--green-light);border-color:#A8D4BC}
 .path-card.ai{background:var(--terra-light);border-color:#DBBFAD}
 .path-card.reform{background:var(--purple-light);border-color:#D4CBDF}
+
+.path-card .card-icon{
+  width:48px;height:48px;margin-bottom:1rem;display:flex;
+  align-items:center;justify-content:center;font-size:1.8rem;
+}
 .path-card h3{
   font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
 }
@@ -259,8 +341,10 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 @media(max-width:700px){
   html{font-size:16px}
   section{padding:3rem 1.2rem}
-  .compare-grid,.paths,.stat-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .compare-grid,.paths,.stat-grid,.cost-comparison{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .cost-comparison .vs{margin:1rem 0}
   .hero h1{font-size:2rem}
+  .warfare-illustration{min-height:250px}
 }
 </style>
 </head>
@@ -327,6 +411,94 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
   <p class="fade-in">AI 代理人正在成為數位戰場的「熱兵器」。</p>
 
   <p class="fade-in">過去駭客發動攻擊成本極高——要分析程式碼、推理狀態變化、擬定策略，還要選擇最佳時機。整個過程耗時費力，難以帶來大規模殺傷。</p>
+
+  <!-- Warfare Illustration -->
+  <div class="warfare-illustration fade-in">
+    <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px">
+      <defs>
+        <linearGradient id="oldWeaponsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#D44D4D;stop-opacity:0.2" />
+          <stop offset="100%" style="stop-color:#D44D4D;stop-opacity:0.05" />
+        </linearGradient>
+        <linearGradient id="aiWeaponsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" style="stop-color:#5B6FD4;stop-opacity:0.2" />
+          <stop offset="100%" style="stop-color:#5B6FD4;stop-opacity:0.05" />
+        </linearGradient>
+      </defs>
+
+      <!-- Left side: Cold weapons (Manual hacking) -->
+      <g id="coldWeapons">
+        <!-- Background -->
+        <rect x="0" y="0" width="270" height="280" fill="url(#oldWeaponsGrad)" rx="8"/>
+
+        <!-- Human figure -->
+        <circle cx="85" cy="50" r="18" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+        <rect x="75" y="72" width="20" height="50" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+        <rect x="55" y="80" width="15" height="45" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+        <rect x="95" y="80" width="15" height="45" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+        <rect x="72" y="125" width="12" height="50" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+        <rect x="90" y="125" width="12" height="50" fill="#D44D4D" stroke="#8B5A3C" stroke-width="2"/>
+
+        <!-- Shield -->
+        <path d="M 150 40 L 200 60 L 200 130 Q 175 160 175 160 Q 175 160 150 130 Z"
+              fill="none" stroke="#8B5A3C" stroke-width="3" opacity="0.8"/>
+        <text x="175" y="105" font-size="16" fill="#8B5A3C" text-anchor="middle" opacity="0.6">盾</text>
+
+        <!-- Sword -->
+        <line x1="120" y1="100" x2="130" y2="60" stroke="#C9A892" stroke-width="4"/>
+        <polygon points="130,60 125,70 135,70" fill="#C9A892"/>
+
+        <!-- Label -->
+        <text x="135" y="220" font-size="14" font-weight="600" fill="#8B5A3C" text-anchor="middle">冷兵器</text>
+        <text x="135" y="240" font-size="12" fill="#6B6860" text-anchor="middle">手動攻擊</text>
+        <text x="135" y="258" font-size="11" fill="#9E9A90" text-anchor="middle">成本高・速度慢</text>
+      </g>
+
+      <!-- Center: Vs symbol -->
+      <g id="vsSymbol">
+        <text x="300" y="155" font-size="32" font-weight="700" fill="#C06A3A" text-anchor="middle" opacity="0.6">VS</text>
+      </g>
+
+      <!-- Right side: Hot weapons (AI hacking) -->
+      <g id="hotWeapons">
+        <!-- Background -->
+        <rect x="330" y="0" width="270" height="280" fill="url(#aiWeaponsGrad)" rx="8"/>
+
+        <!-- Robot body -->
+        <rect x="395" y="55" width="50" height="70" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2" rx="4"/>
+
+        <!-- Robot head -->
+        <rect x="390" y="30" width="60" height="20" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2" rx="3"/>
+
+        <!-- Robot eyes -->
+        <circle cx="407" cy="40" r="4" fill="#E8ECFD" stroke="#3D4A99" stroke-width="1"/>
+        <circle cx="437" cy="40" r="4" fill="#E8ECFD" stroke="#3D4A99" stroke-width="1"/>
+
+        <!-- Arms -->
+        <rect x="370" y="75" width="25" height="12" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2" rx="2"/>
+        <rect x="445" y="75" width="25" height="12" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2" rx="2"/>
+
+        <!-- Legs -->
+        <rect x="405" y="130" width="10" height="45" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2"/>
+        <rect x="425" y="130" width="10" height="45" fill="#5B6FD4" stroke="#3D4A99" stroke-width="2"/>
+
+        <!-- Laser beams (multiple) -->
+        <line x1="430" y1="55" x2="520" y2="30" stroke="#5B6FD4" stroke-width="2" opacity="0.7"/>
+        <line x1="430" y1="65" x2="530" y2="65" stroke="#5B6FD4" stroke-width="2" opacity="0.7"/>
+        <line x1="430" y1="75" x2="525" y2="110" stroke="#5B6FD4" stroke-width="2" opacity="0.7"/>
+
+        <!-- Laser glow circles -->
+        <circle cx="520" cy="30" r="6" fill="#5B6FD4" opacity="0.4"/>
+        <circle cx="530" cy="65" r="6" fill="#5B6FD4" opacity="0.4"/>
+        <circle cx="525" cy="110" r="6" fill="#5B6FD4" opacity="0.4"/>
+
+        <!-- Label -->
+        <text x="465" y="220" font-size="14" font-weight="600" fill="#3D4A99" text-anchor="middle">熱兵器</text>
+        <text x="465" y="240" font-size="12" fill="#6B6860" text-anchor="middle">AI 自動化攻擊</text>
+        <text x="465" y="258" font-size="11" fill="#9E9A90" text-anchor="middle">成本低・24/7 運作</text>
+      </g>
+    </svg>
+  </div>
 
   <p class="fade-in" style="font-weight:500;color:var(--terra)">Anthropic 上週公開的報告改變了一切。</p>
 
@@ -400,6 +572,50 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 
   <p class="fade-in" style="font-weight:500;">模型越新，殺傷力就越大。</p>
 
+  <!-- Attack Profitability Chart -->
+  <div class="chart-container fade-in">
+    <div class="chart-title">攻擊獲利對比 — 模型世代進化</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <span class="label">早期模型</span>
+        <div class="bar-track"><div class="bar" style="width:0%" data-w="5%"></div></div>
+        <span class="value">~$1K</span>
+      </div>
+      <div class="bar-row">
+        <span class="label">Claude Sonnet 4.5</span>
+        <div class="bar-track"><div class="bar ai-threat" style="width:0%" data-w="30%"></div></div>
+        <span class="value">~$100K</span>
+      </div>
+      <div class="bar-row">
+        <span class="label">GPT-5</span>
+        <div class="bar-track"><div class="bar ai-threat" style="width:0%" data-w="70%"></div></div>
+        <span class="value">~$300K</span>
+      </div>
+      <div class="bar-row">
+        <span class="label">Claude Opus 4.5</span>
+        <div class="bar-track"><div class="bar ai-threat" style="width:0%" data-w="100%"></div></div>
+        <span class="value">$1M+</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cost comparison visual -->
+  <div class="cost-comparison fade-in">
+    <div class="cost-item attack">
+      <div class="icon-circle">💸</div>
+      <div class="label">攻擊成本</div>
+      <div class="sublabel">per contract</div>
+      <div class="amount">$1.22</div>
+    </div>
+    <div class="vs">v.s.</div>
+    <div class="cost-item gain">
+      <div class="icon-circle">🎯</div>
+      <div class="label">潛在獲利</div>
+      <div class="sublabel">max per contract</div>
+      <div class="amount">$1M+</div>
+    </div>
+  </div>
+
   <div class="timeline-visual fade-in">
     <div class="dot"></div>
     <div class="timeline-label">早期模型 (Opus 4)</div>
@@ -427,12 +643,14 @@ blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:norm
 
   <div class="paths fade-in">
     <div class="path-card human">
+      <div class="card-icon">🛡️</div>
       <span class="tag">策略 A</span>
       <h3>人性防線派</h3>
       <p class="detail">把人重新拉回安全機制中。人做最後判斷，就多一層保障，能控制損害規模。</p>
       <div class="risk"><strong>風險：</strong>人會犯錯、會被收買，還會拖慢效率。智慧合約本來是要消除人為因素。</div>
     </div>
     <div class="path-card ai">
+      <div class="card-icon">⚙️</div>
       <span class="tag">策略 B</span>
       <h3>機器盾牌派</h3>
       <p class="detail">與其相信人類英雄會及時現身，不如用 AI 協同防禦。在執行層加入偵測異常的隔離機制，讓攻擊變得不划算。</p>
@@ -517,6 +735,19 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Bar chart animation on scroll
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar').forEach(bar => {
+        bar.style.width = bar.dataset.w;
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.chart-container').forEach(el => barObserver.observe(el));
 
 // Quiz — one question at a time, auto-advance
 const answers = {};

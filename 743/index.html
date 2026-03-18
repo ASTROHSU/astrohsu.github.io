@@ -16,6 +16,7 @@
   --warm:#FAFAF7;--cream:#F0EDE7;--teal:#1E7F7E;--teal-light:#E5F2F1;
   --slate:#3B5561;--slate-light:#EBF0F4;--gold:#D4A574;--gold-light:#F9F3E6;
   --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --red:#D64545;--red-light:#F5E5E5;--green:#4A7C59;--green-light:#E5F0E8;
 }
 html{scroll-behavior:smooth;font-size:18px}
 body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
@@ -171,6 +172,138 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
   background:rgba(0,0,0,0.03);color:var(--text-secondary);
 }
 
+/* Visualizations */
+.viz-container{
+  background:#fff;border:1px solid #E8E3D8;border-radius:12px;padding:2rem;margin:2rem 0;
+  display:flex;justify-content:center;align-items:center;min-height:300px;
+}
+
+.radio-computer-viz{
+  width:100%;max-width:500px;height:280px;display:flex;gap:2rem;align-items:center;justify-content:center;
+}
+
+.radio-side, .computer-side{
+  flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+
+.radio-svg, .computer-svg{
+  width:100%;max-width:200px;height:180px;margin-bottom:1rem;transition:opacity 0.6s ease;
+}
+
+.radio-side.faded .radio-svg{opacity:0.3}
+.radio-side.faded .radio-label{opacity:0.5}
+.computer-side.active .computer-svg{filter:brightness(1.1)}
+
+.radio-label, .computer-label{
+  font-size:0.85rem;font-weight:500;color:var(--text);margin-bottom:0.5rem;
+}
+
+.radio-label{color:#8B5A3C}
+.computer-label{color:var(--teal)}
+
+.app-icons{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0.4rem;font-size:1.5rem;margin-top:0.5rem;
+}
+
+.app-comparison-viz{
+  width:100%;max-width:520px;margin:0 auto;padding:1.5rem;
+}
+
+.app-row{
+  display:flex;align-items:center;gap:1rem;margin-bottom:2rem;
+}
+
+.app-current, .app-future{
+  flex:1;
+}
+
+.app-icons-list{
+  display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;font-size:1.8rem;margin-bottom:0.5rem;
+}
+
+.vs-label{
+  flex-shrink:0;font-size:0.85rem;font-weight:600;color:var(--text-muted);padding:0 0.5rem;
+}
+
+.app-title{
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-bottom:0.3rem;
+}
+
+.expanding-circles{
+  width:100%;max-width:480px;height:240px;margin:1.5rem auto;
+}
+
+.circle-label{
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-bottom:0.5rem;
+  text-align:center;
+}
+
+.privacy-spectrum-viz{
+  width:100%;max-width:500px;margin:1.5rem auto;
+}
+
+.spectrum-track{
+  width:100%;height:40px;border-radius:20px;background:linear-gradient(90deg,#D64545,#FFC107,#4A7C59);
+  position:relative;margin:1.5rem 0;box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.spectrum-point{
+  position:absolute;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;
+}
+
+.spectrum-point-1{left:0;}
+.spectrum-point-2{left:50%;}
+.spectrum-point-3{right:0;}
+
+.spectrum-dot{
+  width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid #333;margin-bottom:0.5rem;
+}
+
+.spectrum-label{
+  font-size:0.7rem;color:var(--text);font-weight:500;letter-spacing:0.05em;text-align:center;white-space:nowrap;margin-top:0.3rem;
+}
+
+.spectrum-desc{
+  font-size:0.65rem;color:var(--text-secondary);text-align:center;max-width:80px;line-height:1.3;margin-top:0.2rem;
+}
+
+.privacy-label{
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-bottom:0.5rem;
+  text-align:center;
+}
+
+.convenience-density-viz{
+  width:100%;max-width:480px;margin:1.5rem auto;padding:1rem;
+  background:linear-gradient(135deg,#E5F0E8 0%,#F5E5E5 100%);border-radius:12px;
+}
+
+.density-title{
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:500;margin-bottom:1rem;
+  text-align:center;
+}
+
+.density-row{
+  display:flex;align-items:center;gap:1.5rem;margin-bottom:1.5rem;
+  padding:1rem;background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.05);
+}
+
+.density-country{
+  flex:0 0 120px;display:flex;align-items:center;gap:0.5rem;font-weight:500;font-size:0.9rem;
+}
+
+.density-rank{
+  flex:0 0 40px;text-align:center;font-size:1.2rem;font-weight:700;color:var(--teal);
+}
+
+.density-stores{
+  flex:1;display:flex;gap:0.3rem;flex-wrap:wrap;justify-content:flex-start;align-items:center;font-size:1.3rem;
+  max-width:280px;line-height:1.2;
+}
+
+.density-count{
+  font-size:0.75rem;color:var(--text-secondary);font-weight:500;margin-left:0.5rem;white-space:nowrap;
+}
+
 /* CTA */
 .cta{
   text-align:center;padding:6rem 2rem;
@@ -265,6 +398,14 @@ footer img{height:24px;opacity:0.6;vertical-align:middle}
   .compare-grid,.perspectives,.infra-layers{grid-template-columns:1fr;display:flex;flex-direction:column}
   .hero h1{font-size:2rem}
   .wallet-card{width:120px;height:180px}
+
+  .radio-computer-viz{flex-direction:column;gap:1rem;height:auto}
+  .radio-svg, .computer-svg{max-width:150px;height:140px}
+
+  .app-icons{grid-template-columns:repeat(2,1fr)}
+
+  .density-row{flex-direction:column;align-items:flex-start;gap:0.8rem}
+  .density-stores{max-width:100%}
 }
 </style>
 </head>
@@ -310,6 +451,51 @@ footer img{height:24px;opacity:0.6;vertical-align:middle}
 
   <p class="fade-in">關鍵在於——電腦本身沒有問題，問題在於沒人打開瀏覽器、沒人安裝遊戲、沒人用它來工作。你不能怪大家覺得它是台又貴又耗電的收音機。</p>
 
+  <!-- RADIO VS COMPUTER VISUALIZATION -->
+  <div class="viz-container fade-in">
+    <div class="radio-computer-viz">
+      <div class="radio-side faded">
+        <svg class="radio-svg" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Radio body -->
+          <rect x="10" y="20" width="100" height="110" rx="8" fill="#C8956F" stroke="#8B5A3C" stroke-width="1.5"/>
+          <rect x="20" y="35" width="80" height="60" rx="4" fill="#E8C4A0" stroke="#8B5A3C" stroke-width="1"/>
+          <!-- Dial -->
+          <circle cx="60" cy="65" r="20" fill="#D4A574" stroke="#8B5A3C" stroke-width="1"/>
+          <circle cx="60" cy="65" r="15" fill="#F0EDE7" stroke="#8B5A3C" stroke-width="0.5"/>
+          <line x1="60" y1="55" x2="60" y2="40" stroke="#8B5A3C" stroke-width="2" stroke-linecap="round"/>
+          <!-- Speaker -->
+          <circle cx="60" cy="110" r="12" fill="#A0774A" stroke="#8B5A3C" stroke-width="1"/>
+          <circle cx="60" cy="110" r="8" fill="#D4A574" stroke="#8B5A3C" stroke-width="0.5"/>
+        </svg>
+        <div class="radio-label">只能聽廣播</div>
+      </div>
+
+      <div class="computer-side active">
+        <svg class="computer-svg" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Phone body -->
+          <rect x="15" y="10" width="90" height="140" rx="8" fill="#1E7F7E" stroke="#0F5655" stroke-width="1.5"/>
+          <rect x="18" y="13" width="84" height="128" rx="6" fill="#0D5A59" stroke="#1E7F7E" stroke-width="0.5"/>
+          <!-- Screen -->
+          <rect x="25" y="20" width="70" height="95" rx="4" fill="#E5F2F1" stroke="#1E7F7E" stroke-width="0.5"/>
+          <!-- App icons on screen -->
+          <rect x="32" y="30" width="14" height="14" rx="2" fill="#FF6B6B"/>
+          <rect x="53" y="30" width="14" height="14" rx="2" fill="#4ECDC4"/>
+          <rect x="74" y="30" width="14" height="14" rx="2" fill="#FFE66D"/>
+          <rect x="32" y="50" width="14" height="14" rx="2" fill="#95E1D3"/>
+          <rect x="53" y="50" width="14" height="14" rx="2" fill="#F38181"/>
+          <rect x="74" y="50" width="14" height="14" rx="2" fill="#AA96DA"/>
+          <rect x="32" y="70" width="14" height="14" rx="2" fill="#FCBAD3"/>
+          <rect x="53" y="70" width="14" height="14" rx="2" fill="#A8D8EA"/>
+          <rect x="74" y="70" width="14" height="14" rx="2" fill="#AA96DA"/>
+          <!-- Home button -->
+          <circle cx="60" cy="135" r="4" fill="#1E7F7E" stroke="#0F5655" stroke-width="0.5"/>
+        </svg>
+        <div class="computer-label">電腦有無限可能</div>
+        <div class="app-icons">💻📱🎮</div>
+      </div>
+    </div>
+  </div>
+
   <div class="infra-visual fade-in">
     <div class="infra-layers">
       <div class="layer top">
@@ -338,13 +524,93 @@ footer img{height:24px;opacity:0.6;vertical-align:middle}
 
   <p class="fade-in">答案藏在一個更大的問題裡：<strong>你的數位身分，該由誰管理？</strong></p>
 
+  <!-- APP COMPARISON VISUALIZATION -->
+  <div class="viz-container fade-in">
+    <div class="app-comparison-viz">
+      <div class="app-row">
+        <div class="app-current">
+          <div class="app-title">現況：各自為政</div>
+          <div class="app-icons-list">
+            <span>7️⃣</span>
+            <span>👨</span>
+            <span>🍤</span>
+          </div>
+          <div class="app-title" style="margin-top:0.5rem;font-size:0.65rem">3 個 App</div>
+        </div>
+        <div class="vs-label">vs</div>
+        <div class="app-future">
+          <div class="app-title">數位皮夾：統一入口</div>
+          <div class="app-icons-list">
+            <span>🪪</span>
+          </div>
+          <div class="app-title" style="margin-top:0.5rem;font-size:0.65rem">1 個 App</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p class="fade-in">日本選擇把數位駕照放進 Apple Wallet。這很方便，但代價是——日本的身分認證規則，從此得看蘋果的臉色。如果 Apple 改了安全標準、改了資料流向、改了對第三方的權限開放，日本政府只能跟進。這叫「便利」。</p>
 
   <p class="fade-in">台灣選了另一條路：自己建一套數位憑證系統，然後開放給超商、電信商、未來的醫院、銀行去用。這叫「主權」。</p>
 
+  <!-- EXPANDING USE CASES VISUALIZATION -->
+  <div class="viz-container fade-in">
+    <div class="privacy-spectrum-viz" style="text-align:center">
+      <div class="circle-label">未來應用擴展</div>
+      <svg class="expanding-circles" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer circle - future -->
+        <circle cx="200" cy="100" r="90" fill="none" stroke="#1E7F7E" stroke-width="2" stroke-dasharray="5,5" opacity="0.4"/>
+        <text x="200" y="35" text-anchor="middle" font-size="13" font-weight="500" fill="#1E7F7E">租車</text>
+        <text x="300" y="110" text-anchor="middle" font-size="13" font-weight="500" fill="#1E7F7E">求職</text>
+        <text x="200" y="170" text-anchor="middle" font-size="13" font-weight="500" fill="#1E7F7E">臨檢</text>
+        <text x="100" y="110" text-anchor="middle" font-size="13" font-weight="500" fill="#1E7F7E">看病</text>
+
+        <!-- Middle circle - current -->
+        <circle cx="200" cy="100" r="50" fill="none" stroke="#1E7F7E" stroke-width="2" opacity="0.7"/>
+        <text x="200" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#1E7F7E">超商取貨</text>
+
+        <!-- Center dot -->
+        <circle cx="200" cy="100" r="6" fill="#1E7F7E"/>
+      </svg>
+    </div>
+  </div>
+
   <p class="highlight fade-in">規則本身才是價值。誰決定隱私怎麼保護？誰決定證件什麼時候失效？誰能發證、誰能檢驗——這些不能完全交給海外企業。</p>
 
   <p class="fade-in">只是，對大多數人來說，主權太抽象。人們關心的是：能不能快速取貨？會不會外洩個資？需要下載幾個 app？</p>
+</section>
+
+<!-- PRIVACY SPECTRUM -->
+<section>
+  <h2 class="fade-in"><span class="label">隱私保護的光譜</span>選擇性揭露的優勢</h2>
+
+  <p class="fade-in">數位憑證皮夾的核心特色不只是數位化，而是「選擇性揭露」——你不必出示整本駕照、整張健保卡，只需要提供當下真正需要的資訊。</p>
+
+  <!-- PRIVACY SPECTRUM VISUALIZATION -->
+  <div class="viz-container fade-in">
+    <div class="privacy-spectrum-viz">
+      <div class="privacy-label">隱私保護光譜</div>
+      <div class="spectrum-track">
+        <div class="spectrum-point spectrum-point-1">
+          <div class="spectrum-dot"></div>
+          <div class="spectrum-label">完全揭露</div>
+          <div class="spectrum-desc">出示實體證件<br>所有資訊都露出</div>
+        </div>
+        <div class="spectrum-point spectrum-point-2">
+          <div class="spectrum-dot" style="background:#FFD700;border-color:#8B7340;box-shadow:0 0 8px rgba(255,215,0,0.4)"></div>
+          <div class="spectrum-label">選擇性揭露</div>
+          <div class="spectrum-desc">數位憑證皮夾<br>只洩露必要資訊</div>
+        </div>
+        <div class="spectrum-point spectrum-point-3">
+          <div class="spectrum-dot"></div>
+          <div class="spectrum-label">完全匿名</div>
+          <div class="spectrum-desc">零知識證明<br>驗證卻不洩露</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">這個「甜蜜點」正是數位憑證皮夾的設計初衷。比起實體證件暴露一切，又比完全匿名實用得多。</p>
 </section>
 
 <!-- THE DILEMMA -->
@@ -365,6 +631,35 @@ footer img{height:24px;opacity:0.6;vertical-align:middle}
       <div class="challenge"><strong>隱憂：</strong>人們等不了。超商領貨 app 現在就被罵浪費，那駕照呢？健保卡呢？什麼時候才會到？</div>
     </div>
   </div>
+
+  <!-- CONVENIENCE STORE DENSITY VISUALIZATION -->
+  <div class="viz-container fade-in">
+    <div class="convenience-density-viz">
+      <div class="density-title">便利商店密度競賽</div>
+
+      <div class="density-row">
+        <div class="density-country">
+          🇰🇷 南韓
+        </div>
+        <div class="density-rank">#1</div>
+        <div class="density-stores">
+          🏪🏪🏪🏪🏪🏪🏪<span class="density-count">全國最密集</span>
+        </div>
+      </div>
+
+      <div class="density-row">
+        <div class="density-country">
+          🇹🇼 台灣
+        </div>
+        <div class="density-rank">#2</div>
+        <div class="density-stores">
+          🏪🏪🏪🏪🏪🏪<span class="density-count">全球第二</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in" style="text-align:center;font-size:1.05rem;line-height:2;margin-top:3rem">台灣的便利商店密度全球第二，卻不是應該優先發展數位憑證的地方嗎？這正是政府選擇的理由——不只是為了領貨方便，而是為了證明這套系統的可行性。</p>
 
   <p class="fade-in" style="text-align:center;font-size:1.05rem;line-height:2;margin-top:3rem">都對，但都有代價。是先活著走到那裡，還是沿著對的方向走，就算慢？</p>
 </section>

@@ -138,7 +138,76 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
 .bar-row .bar.green{background:var(--green);opacity:0.9}
 .bar-row .pct{font-weight:700;font-size:0.8rem;min-width:50px;flex-shrink:0;text-align:right}
 
-/* Three values section */
+/* Cost savings visualization */
+.savings-visual{
+  display:flex;justify-content:center;align-items:center;gap:2rem;margin:3rem 0;
+  padding:2rem;background:rgba(255,255,255,0.5);border-radius:16px;
+}
+.savings-circle-group{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.savings-circle-label{font-size:0.85rem;font-weight:600;color:var(--text-secondary);text-align:center}
+.savings-badge{
+  font-size:2rem;font-weight:700;color:var(--green);text-align:center;margin-top:1rem;
+  animation:scaleIn 0.8s ease forwards;
+}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.3)}to{opacity:1;transform:scale(1)}}
+
+/* Three pillars section */
+.pillars-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin:3rem 0;
+}
+.pillar-card{
+  padding:2rem;border-radius:12px;border:1px solid #E8E3D8;
+  background:#fff;transition:transform 0.3s,box-shadow 0.3s;
+  text-align:center;opacity:0;transform:translateY(30px);
+}
+.pillar-card.visible-pillar{
+  animation:fadeInUp 0.6s ease forwards;
+}
+.pillar-card:nth-child(2){animation-delay:0.2s}
+.pillar-card:nth-child(3){animation-delay:0.4s}
+@keyframes fadeInUp{to{opacity:1;transform:translateY(0)}}
+.pillar-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.1)}
+.pillar-icon{font-size:2.8rem;margin-bottom:1rem;display:block}
+.pillar-card h3{font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.6rem;font-weight:700;color:var(--text)}
+.pillar-card .en-label{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:1rem;font-weight:500}
+.pillar-card p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.7}
+
+/* Payment flow diagram */
+.flow-diagram{
+  margin:3rem 0;padding:2rem;background:rgba(255,255,255,0.6);border-radius:16px;
+  overflow-x:auto;
+}
+.flow-container{
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;min-width:min-content;
+}
+.flow-box{
+  flex-shrink:0;padding:1.2rem;border-radius:10px;border:2px solid #E8E3D8;
+  background:#fff;min-width:120px;text-align:center;
+  font-size:0.8rem;font-weight:500;color:var(--text);
+  animation:slideIn 0.6s ease forwards;
+  opacity:0;
+}
+@keyframes slideIn{to{opacity:1}}
+.flow-box:nth-child(1){animation-delay:0}
+.flow-box:nth-child(3){animation-delay:0.2s}
+.flow-box:nth-child(5){animation-delay:0.4s}
+.flow-box:nth-child(7){animation-delay:0.6s}
+.flow-box.credit{background:var(--terra-light);border-color:#DBBFAD}
+.flow-box.stable{background:var(--green-light);border-color:#A8D4BC}
+.flow-arrow{
+  flex-shrink:0;font-size:1.2rem;color:var(--text-muted);opacity:0;
+  animation:slideIn 0.6s ease forwards;
+}
+.flow-arrow:nth-child(2){animation-delay:0.1s}
+.flow-arrow:nth-child(4){animation-delay:0.3s}
+.flow-arrow:nth-child(6){animation-delay:0.5s}
+
+.flow-diagram-label{
+  font-size:0.75rem;color:var(--text-muted);letter-spacing:0.1em;
+  margin-bottom:1rem;font-weight:600;text-transform:uppercase;
+}
+
+/* Value chain */
 .values-grid{
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin:3rem 0;
 }
@@ -248,10 +317,13 @@ blockquote{
 @media(max-width:700px){
   html{font-size:16px}
   section{padding:3rem 1.2rem}
-  .compare-grid,.values-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .compare-grid,.values-grid,.pillars-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
   .lang-toggle{padding:0.3rem 0.8rem;font-size:0.65rem}
   .hero h1{font-size:1.8rem}
   .values-grid{gap:1rem}
+  .savings-visual{flex-direction:column;gap:1.5rem}
+  .flow-container{flex-wrap:wrap}
+  .flow-box{min-width:100px;font-size:0.75rem}
 }
 </style>
 </head>
@@ -293,6 +365,7 @@ blockquote{
 
   <p class="fade-in">用我自己的體驗來說，如果消費者刷卡付 1 美元訂閱，我實際收到的金額是 <strong>0.66 美元</strong>（磨損 34%）。但如果改用穩定幣，我收到 <strong>0.98 美元</strong>（磨損 2%）。這差了 94% 的成本。</p>
 
+  <!-- Enhanced Fee Comparison Chart -->
   <div class="compare-grid fade-in" style="margin:3rem 0">
     <div class="compare-side card-a">
       <h3>💳 信用卡付款</h3>
@@ -330,6 +403,35 @@ blockquote{
     </div>
   </div>
 
+  <!-- Cost Savings Visualization -->
+  <div class="savings-visual fade-in">
+    <div class="savings-circle-group">
+      <div style="position:relative;width:140px;height:140px;margin:0 auto">
+        <svg viewBox="0 0 140 140" style="width:100%;height:100%;filter:drop-shadow(0 4px 12px rgba(224,154,107,0.3))">
+          <circle cx="70" cy="70" r="65" fill="#E09A6B" opacity="0.9"/>
+          <text x="70" y="80" font-family="Noto Sans TC" font-size="32" font-weight="700" text-anchor="middle" fill="white">$34</text>
+        </svg>
+      </div>
+      <div class="savings-circle-label">信用卡成本<br><span style="font-size:0.7rem;color:var(--text-muted)">年度 $300 訂閱</span></div>
+    </div>
+
+    <div style="font-size:2rem;color:var(--text-muted);opacity:0.5;animation:fadeIn 1.2s ease 0.3s forwards" class="fade-in-delayed">vs</div>
+
+    <div class="savings-circle-group">
+      <div style="position:relative;width:140px;height:140px;margin:0 auto">
+        <svg viewBox="0 0 140 140" style="width:100%;height:100%;filter:drop-shadow(0 4px 12px rgba(45,107,79,0.3))">
+          <circle cx="70" cy="70" r="65" fill="#2D6B4F" opacity="0.9"/>
+          <text x="70" y="80" font-family="Noto Sans TC" font-size="32" font-weight="700" text-anchor="middle" fill="white">$4.5</text>
+        </svg>
+      </div>
+      <div class="savings-circle-label">穩定幣成本<br><span style="font-size:0.7rem;color:var(--text-muted)">年度 $300 訂閱</span></div>
+    </div>
+
+    <div class="savings-badge fade-in" style="margin-left:2rem">
+      省下<br>87% 🎉
+    </div>
+  </div>
+
   <p class="highlight fade-in">對小額付款來說，那固定的 $0.3 手續費是殺手。低於 $5 根本吃不飽。<br>穩定幣改變了遊戲規則。</p>
 </section>
 
@@ -341,21 +443,56 @@ blockquote{
 
   <p class="fade-in">因為 Stripe 提供的不只是錢包。它提供的是金流整合、便利與合規的全套服務。</p>
 
-  <div class="values-grid fade-in">
-    <div class="value-box">
-      <div class="icon">🔗</div>
-      <h3>整合 Integration</h3>
+  <!-- Three Pillars Visualization -->
+  <div class="pillars-grid fade-in" style="margin:3rem 0">
+    <div class="pillar-card visible-pillar">
+      <span class="pillar-icon">🔗</span>
+      <h3>整合</h3>
+      <div class="en-label">INTEGRATION</div>
       <p>把穩定幣直接併入結帳流程。客戶不需要額外操作，一個頁面上同時看到刷卡和 USDC 選項。</p>
     </div>
-    <div class="value-box">
-      <div class="icon">⚡</div>
-      <h3>便利 Convenience</h3>
+    <div class="pillar-card visible-pillar">
+      <span class="pillar-icon">⚡</span>
+      <h3>便利</h3>
+      <div class="en-label">CONVENIENCE</div>
       <p>系統自動對應付款者與訂閱方案，自動換算匯率，每次產生新地址避免洩露營業額。全程無手工。</p>
     </div>
-    <div class="value-box">
-      <div class="icon">✅</div>
-      <h3>合規 Compliance</h3>
+    <div class="pillar-card visible-pillar">
+      <span class="pillar-icon">✅</span>
+      <h3>合規</h3>
+      <div class="en-label">COMPLIANCE</div>
       <p>開發票、自動報稅、按月扣款、金流風控、爭議退款。這些不是「貼個錢包地址」就能做到的。</p>
+    </div>
+  </div>
+
+  <!-- Payment Flow Diagram -->
+  <div class="flow-diagram fade-in">
+    <div class="flow-diagram-label">💳 傳統支付流程 vs ₿ 穩定幣流程</div>
+
+    <div style="margin-bottom:2rem">
+      <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.8rem;font-weight:500">信用卡：消費者 → 銀行 → 發卡行 → 結帳機構 → 店家</div>
+      <div class="flow-container">
+        <div class="flow-box credit">消費者<br>刷卡</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box credit">銀行</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box credit">發卡行</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box credit">結帳機構</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box credit">店家<br>( 66% )</div>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.8rem;font-weight:500">穩定幣：消費者 → Stripe → 店家</div>
+      <div class="flow-container">
+        <div class="flow-box stable">消費者<br>支付 USDC</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box stable">Stripe<br>結算</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box stable">店家<br>( 98% )</div>
+      </div>
     </div>
   </div>
 
@@ -463,6 +600,17 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+// Pillar card animation with IntersectionObserver
+const pillarObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible-pillar');
+      pillarObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.pillar-card').forEach(el => pillarObserver.observe(el));
+
 // Bar chart animation
 const barObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -475,6 +623,20 @@ const barObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.3 });
 document.querySelectorAll('.compare-grid').forEach(el => barObserver.observe(el));
+
+// Savings visualization animation
+const savingsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const badge = e.target.querySelector('.savings-badge');
+      if (badge) {
+        badge.style.opacity = '1';
+      }
+      savingsObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.savings-visual').forEach(el => savingsObserver.observe(el));
 
 // Quiz logic
 const answers = {};

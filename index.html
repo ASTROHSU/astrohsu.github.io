@@ -1,156 +1,654 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>區塊勢 — 互動體驗</title>
-<meta name="description" content="區塊勢文章的互動式體驗版。三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。">
-<meta property="og:title" content="區塊勢 — 互動體驗">
-<meta property="og:description" content="三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://share.blocktrend.today/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--gold-light:#F9F3E6;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章列表 | 區塊勢</title>
 
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-/* Header */
-.site-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  border-bottom:1px solid rgba(0,0,0,0.06);
-}
-.site-header .logo{height:32px;opacity:0.7;margin-bottom:1.5rem}
-.site-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.8rem,4vw,2.6rem);
-  font-weight:700;letter-spacing:0.05em;margin-bottom:0.5rem;
-}
-.site-header p{color:var(--text-secondary);font-size:0.95rem;max-width:480px;margin:0 auto}
+  <style>
+    :root {
+      --bg: #FAFAF7;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --accent: #C06A3A;
+      --border: rgba(0,0,0,0.06);
+      --tag-inactive: #F5F0EB;
+      --card-bg: #FFFFFF;
 
-/* Articles Grid */
-.articles{max-width:800px;margin:0 auto;padding:2rem 1.5rem 4rem}
+      --spacing-xs: 0.5rem;
+      --spacing-sm: 1rem;
+      --spacing-md: 1.5rem;
+      --spacing-lg: 2rem;
+      --spacing-xl: 3rem;
+    }
 
-.article-card{
-  display:block;text-decoration:none;color:inherit;
-  padding:2rem 0;border-bottom:1px solid rgba(0,0,0,0.06);
-  transition:transform 0.2s ease;
-}
-.article-card:first-child{border-top:1px solid rgba(0,0,0,0.06)}
-.article-card:hover{transform:translateX(6px)}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.article-card .number{
-  font-family:'Noto Serif TC',serif;font-size:0.85rem;color:var(--accent);
-  font-weight:700;letter-spacing:0.1em;margin-bottom:0.4rem;
-}
-.article-card h2{
-  font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;
-  margin-bottom:0.5rem;letter-spacing:0.02em;line-height:1.6;
-}
-.article-card .desc{
-  color:var(--text-secondary);font-size:0.9rem;line-height:1.7;
-}
-.article-card .tags{margin-top:0.8rem;display:flex;gap:0.5rem;flex-wrap:wrap}
-.article-card .tag{
-  font-size:0.75rem;padding:0.2rem 0.6rem;border-radius:100px;
-  background:var(--accent-light);color:var(--accent);font-weight:500;
-}
-.article-card .arrow{
-  display:inline-block;margin-left:0.3rem;transition:transform 0.2s;
-}
-.article-card:hover .arrow{transform:translateX(4px)}
+    html, body {
+      height: 100%;
+    }
 
-/* Footer */
-.site-footer{
-  text-align:center;padding:3rem 1.5rem;
-  border-top:1px solid rgba(0,0,0,0.06);
-}
-.site-footer a{display:inline-block}
-.site-footer img{height:28px;opacity:0.5;transition:opacity 0.3s}
-.site-footer img:hover{opacity:0.8}
-.site-footer p{color:var(--text-muted);font-size:0.8rem;margin-top:1rem}
+    body {
+      font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
-@media(max-width:600px){
-  .site-header{padding:3rem 1.5rem 2rem}
-  .articles{padding:1.5rem 1.5rem 3rem}
-  .article-card h2{font-size:1.15rem}
-}
-</style>
+    /* Main layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--spacing-lg);
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+      padding-bottom: var(--spacing-lg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-logo {
+      height: 28px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .header-content {
+      flex: 1;
+    }
+
+    .header-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: var(--spacing-xs);
+      color: var(--text);
+    }
+
+    .header-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Search and filter bar */
+    .search-filter {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 2.5rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.95rem;
+      background-color: var(--card-bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      background-color: var(--card-bg);
+    }
+
+    /* Search icon (CSS) */
+    .search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      pointer-events: none;
+    }
+
+    .search-icon::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--text-secondary);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+
+    .search-icon::after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 5px;
+      background: var(--text-secondary);
+      top: 8px;
+      left: 9px;
+      transform: rotate(45deg);
+    }
+
+    /* Tag filters */
+    .tag-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+
+    .tag {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      background-color: var(--tag-inactive);
+      color: var(--text);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tag:hover {
+      background-color: #EFEFEA;
+      border-color: #D0D0CA;
+    }
+
+    .tag.active {
+      background-color: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    /* Featured section */
+    .featured-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: var(--spacing-md);
+      color: var(--text);
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .featured-card {
+      padding: var(--spacing-md);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      gap: var(--spacing-md);
+    }
+
+    .featured-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #D0D0CA;
+    }
+
+    .featured-card a {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+      display: flex;
+      gap: var(--spacing-md);
+    }
+
+    .featured-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .featured-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-id {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .featured-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .featured-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+
+    /* All articles list */
+    .articles-section {
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .articles-list {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .article-row {
+      padding: 1rem var(--spacing-md);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      min-height: 65px;
+    }
+
+    .article-row:last-child {
+      border-bottom: none;
+    }
+
+    .article-row:hover {
+      background-color: #FDFDFB;
+    }
+
+    .article-row a {
+      text-decoration: none;
+      color: inherit;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      min-width: 0;
+    }
+
+    .article-id {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 700;
+      min-width: 50px;
+      text-align: right;
+    }
+
+    .article-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .article-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .article-arrow {
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+    }
+
+    .article-row:hover .article-arrow {
+      color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    /* Empty state */
+    .empty-state {
+      padding: var(--spacing-xl);
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding-top: var(--spacing-lg);
+      text-align: center;
+    }
+
+    .footer-logo {
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .footer-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .footer-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: var(--spacing-md);
+      }
+
+      .header {
+        gap: var(--spacing-sm);
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .header-title {
+        font-size: 1.5rem;
+      }
+
+      .header-subtitle {
+        font-size: 0.9rem;
+      }
+
+      .featured-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+      }
+
+      .featured-card {
+        padding: var(--spacing-sm);
+      }
+
+      .article-desc {
+        display: none;
+      }
+
+      .article-row {
+        min-height: 50px;
+        padding: 0.75rem var(--spacing-sm);
+      }
+
+      .article-id {
+        min-width: 40px;
+        font-size: 0.75rem;
+      }
+
+      .article-title {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Hide featured section when no articles match filter */
+    .featured-section.hidden {
+      display: none;
+    }
+
+    /* Hide articles list when no articles match filter */
+    .articles-list.empty {
+      border: none;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-logo">
+        <a href="https://www.blocktrend.today">
+          <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo">
+        </a>
+      </div>
+      <div class="header-content">
+        <h1 class="header-title">文章列表</h1>
+        <p class="header-subtitle">深入淺出解讀區塊鏈與 Web3 的產業趨勢、技術發展與商業應用。</p>
+      </div>
+    </header>
 
-<header class="site-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <h1>互動體驗</h1>
-  <p>三分鐘讀懂核心觀點，測驗你的立場，分享你的結果。</p>
-</header>
+    <!-- Search & Filter Bar -->
+    <div class="search-filter">
+      <div class="search-box">
+        <div class="search-icon"></div>
+        <input type="text" id="searchInput" class="search-input" placeholder="搜尋文章...">
+      </div>
+      <div class="tag-filters" id="tagFilters"></div>
+    </div>
 
-<main class="articles">
+    <!-- Featured Section -->
+    <section class="featured-section" id="featuredSection">
+      <h2 class="section-title">精選</h2>
+      <div class="featured-grid" id="featuredGrid"></div>
+    </section>
 
-  <a class="article-card fade-in" href="./765/">
-    <div class="number">#765</div>
-    <h2>兆豐實測穩定幣！卻沒發現銀行才是最大贏家？ <span class="arrow">→</span></h2>
-    <div class="desc">穩定幣取代的不是銀行，而是 SWIFT。當兆豐銀行親自下場實測穩定幣跨境匯款，結果出乎意料。</div>
-    <div class="tags"><span class="tag">穩定幣</span><span class="tag">銀行</span><span class="tag">跨境匯款</span></div>
-  </a>
+    <!-- All Articles Section -->
+    <section class="articles-section">
+      <h2 class="section-title">全部文章</h2>
+      <div class="articles-list" id="articlesList"></div>
+    </section>
 
-  <a class="article-card fade-in" href="./744/">
-    <div class="number">#744</div>
-    <h2>2025 年終回顧：幣圈已死，工具萌芽 <span class="arrow">→</span></h2>
-    <div class="desc">幣價再創新高、監管大幅鬆綁，但「大場面」遲遲沒有到來。區塊鏈正悄悄潛入日常，這是終局還是起點？</div>
-    <div class="tags"><span class="tag">年終回顧</span><span class="tag">產業趨勢</span><span class="tag">商業模式</span></div>
-  </a>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-logo">
+        <a href="https://www.blocktrend.today">
+          <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo">
+        </a>
+      </div>
+      <p class="footer-text">閱讀完整文章請訂閱區塊勢。</p>
+    </footer>
+  </div>
 
-  <a class="article-card fade-in" href="./743/">
-    <div class="number">#743</div>
-    <h2>浪費資源的收音機？數位憑證皮夾不只是超商領貨 app <span class="arrow">→</span></h2>
-    <div class="desc">數位部推出數位憑證皮夾，被嘲笑是花公帑重做超商 app。但背後的數位身分基礎建設，價值遠不止於此。</div>
-    <div class="tags"><span class="tag">數位身分</span><span class="tag">隱私</span><span class="tag">政府科技</span></div>
-  </a>
+  <script>
+    // Article Data
+    const articles = [
+      { id: 765, title: "兆豐實測穩定幣！卻沒發現銀行才是最大贏家？", desc: "穩定幣取代的不是銀行，而是 SWIFT", tags: ["穩定幣", "銀行"], featured: true, url: "./765/" },
+      { id: 744, title: "2025 年終回顧：幣圈已死，工具萌芽", desc: "幣價再創新高，但大場面遲遲沒來。區塊鏈正悄悄潛入日常", tags: ["產業趨勢"], featured: true, url: "./744/" },
+      { id: 743, title: "數位憑證皮夾不只是超商領貨 app", desc: "數位部推出的不是超商 app，而是國家數位基礎建設", tags: ["數位身分"], url: "./743/" },
+      { id: 742, title: "盈透證券開放穩定幣入金！潘朵拉的盒子打開了", desc: "投資人對金流速度的期待，回不去了", tags: ["券商", "穩定幣"], url: "./742/" },
+      { id: 741, title: "AI 駭客來了！智慧合約的義和團時刻", desc: "每份合約的攻擊成本僅 $1.22，數位戰場進入熱兵器時代", tags: ["AI", "資安"], url: "./741/" },
+      { id: 740, title: "穩定幣手續費是智商稅？Stripe 省下 94% 金流成本", desc: "Stripe 穩定幣收款的第一手實測：從 2.9% 降到 1.5%", tags: ["穩定幣", "金流"], url: "./740/" },
+    ];
 
-  <a class="article-card fade-in" href="./742/">
-    <div class="number">#742</div>
-    <h2>盈透證券開放穩定幣入金！潘朵拉的盒子打開了 <span class="arrow">→</span></h2>
-    <div class="desc">當全球最大線上券商開放穩定幣入金，投資人對金流速度的期待回不去了。這是資金出逃，還是市場進化？</div>
-    <div class="tags"><span class="tag">券商</span><span class="tag">穩定幣</span><span class="tag">美股</span></div>
-  </a>
+    // All unique tags
+    const allTags = ["全部", "穩定幣", "AI", "資安", "數位身分", "券商", "金流", "產業趨勢"];
 
-  <a class="article-card fade-in" href="./741/">
-    <div class="number">#741</div>
-    <h2>AI 駭客來了！智慧合約的義和團時刻 <span class="arrow">→</span></h2>
-    <div class="desc">AI 代理人已能自主發現漏洞、規劃攻擊。每份合約的攻擊成本僅 1.22 美元，數位戰場進入熱兵器時代。</div>
-    <div class="tags"><span class="tag">AI</span><span class="tag">資安</span><span class="tag">智慧合約</span></div>
-  </a>
+    // State
+    let selectedTags = new Set();
+    let searchQuery = "";
 
-  <a class="article-card fade-in" href="./740/">
-    <div class="number">#740</div>
-    <h2>穩定幣手續費是智商稅？Stripe 讓店家省下 94% 金流成本 <span class="arrow">→</span></h2>
-    <div class="desc">Stripe 開通穩定幣收款被罵「智商稅」，但身為收款店家的第一手實測顯示：最多省下 94% 手續費。</div>
-    <div class="tags"><span class="tag">Stripe</span><span class="tag">穩定幣</span><span class="tag">金流</span></div>
-  </a>
+    // Simple geometric SVG icon generator
+    function generateIcon(id) {
+      const colors = ["#C06A3A", "#8B7355", "#A68B73", "#D4A574", "#B8956A"];
+      const color = colors[id % colors.length];
 
-</main>
+      const patterns = [
+        // Circle with dot
+        `<circle cx="24" cy="24" r="12" fill="none" stroke="${color}" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="${color}"/>`,
+        // Square with triangle
+        `<rect x="12" y="12" width="24" height="24" fill="none" stroke="${color}" stroke-width="2"/><polygon points="24,16 32,28 16,28" fill="${color}"/>`,
+        // Hexagon
+        `<polygon points="24,8 35,14 35,26 24,32 13,26 13,14" fill="none" stroke="${color}" stroke-width="2"/>`,
+        // Diamond
+        `<polygon points="24,10 34,20 24,30 14,20" fill="none" stroke="${color}" stroke-width="2"/><circle cx="24" cy="20" r="2" fill="${color}"/>`,
+        // Wave
+        `<path d="M 14 24 Q 20 18 26 24 T 38 24" fill="none" stroke="${color}" stroke-width="2" stroke-linecap="round"/>`,
+      ];
 
-<footer class="site-footer">
-  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <p>每篇互動體驗約需 3 分鐘。閱讀完整文章請訂閱區塊勢。</p>
-</footer>
+      const pattern = patterns[id % patterns.length];
 
-<script>
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-</script>
+      return `<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${pattern}
+      </svg>`;
+    }
 
+    // Render tag filters
+    function renderTags() {
+      const container = document.getElementById("tagFilters");
+      container.innerHTML = "";
+
+      allTags.forEach(tag => {
+        const button = document.createElement("button");
+        button.className = `tag ${selectedTags.has(tag) ? "active" : ""}`;
+        button.textContent = tag;
+        button.addEventListener("click", () => toggleTag(tag));
+        container.appendChild(button);
+      });
+    }
+
+    // Toggle tag selection
+    function toggleTag(tag) {
+      if (tag === "全部") {
+        selectedTags.clear();
+      } else {
+        if (selectedTags.has(tag)) {
+          selectedTags.delete(tag);
+        } else {
+          selectedTags.add(tag);
+        }
+      }
+      renderTags();
+      render();
+    }
+
+    // Filter articles based on search and tags
+    function getFilteredArticles() {
+      return articles.filter(article => {
+        // Search filter
+        const searchLower = searchQuery.toLowerCase();
+        const matchesSearch = article.title.toLowerCase().includes(searchLower) ||
+                             article.desc.toLowerCase().includes(searchLower);
+
+        if (!matchesSearch) return false;
+
+        // Tag filter
+        if (selectedTags.size === 0) {
+          return true;
+        }
+
+        return article.tags.some(tag => selectedTags.has(tag));
+      });
+    }
+
+    // Render featured section
+    function renderFeatured() {
+      const featured = getFilteredArticles().filter(a => a.featured);
+      const container = document.getElementById("featuredGrid");
+      const section = document.getElementById("featuredSection");
+
+      if (featured.length === 0) {
+        section.classList.add("hidden");
+        return;
+      }
+
+      section.classList.remove("hidden");
+      container.innerHTML = featured.map(article => `
+        <div class="featured-card">
+          <a href="${article.url}">
+            <div class="featured-icon">${generateIcon(article.id)}</div>
+            <div class="featured-content">
+              <div class="featured-id">#${article.id}</div>
+              <div class="featured-title">${article.title}</div>
+              <div class="featured-desc">${article.desc}</div>
+            </div>
+          </a>
+        </div>
+      `).join("");
+    }
+
+    // Render articles list
+    function renderArticles() {
+      const filtered = getFilteredArticles();
+      const container = document.getElementById("articlesList");
+
+      if (filtered.length === 0) {
+        container.classList.add("empty");
+        container.innerHTML = '<div class="empty-state">找不到相符的文章</div>';
+        return;
+      }
+
+      container.classList.remove("empty");
+      container.innerHTML = filtered.map(article => `
+        <div class="article-row">
+          <a href="${article.url}">
+            <div class="article-id">#${article.id}</div>
+            <div class="article-content">
+              <div class="article-title">${article.title}</div>
+              <div class="article-desc">${article.desc}</div>
+            </div>
+            <div class="article-arrow">→</div>
+          </a>
+        </div>
+      `).join("");
+    }
+
+    // Main render function
+    function render() {
+      renderFeatured();
+      renderArticles();
+    }
+
+    // Search input handler
+    document.getElementById("searchInput").addEventListener("keyup", (e) => {
+      searchQuery = e.target.value;
+      render();
+    });
+
+    // Initial render
+    renderTags();
+    render();
+  </script>
 </body>
 </html>
