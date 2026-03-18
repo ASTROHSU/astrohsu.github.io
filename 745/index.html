@@ -3,134 +3,697 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#745 完美已死 — 區塊勢</title>
-<meta name="description" content="2026 新年快樂。今年的 出刊行事曆 已經出爐。未來一年，區塊勢預計休刊 14 天，並預留 5 天事病假。唯一的變數，是我還在猶豫 11 月初要不要飛印度孟買，親身參與以太坊開發者大會（Devcon⋯">
-<meta property="og:title" content="完美已死">
-<meta property="og:description" content="2026 新年快樂。今年的 出刊行事曆 已經出爐。未來一年，區塊勢預計休刊 14 天，並預留 5 天事病假。唯一的變數，是我還在猶豫 11 月初要不要飛印度孟買，親身參與以太坊開發者大會（Devcon⋯">
-<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/6b45fbc8-6e0b-4cd7-bb01-5e3c7a47ad6f_2880x1620.png">
-<meta property="og:url" content="https://share.blocktrend.today/745/">
+<title>#745 AI 時代還要為內容付費嗎？完美已死，真實最貴 — 區塊勢</title>
+<meta name="description" content="AI 能生成完美的文章、影像和影音。但當一切都能被美化時，不完美反而成了信號——它意味著這是真的。">
+<meta property="og:title" content="完美已死，真實最貴 — 區塊勢">
+<meta property="og:description" content="AI 時代，為什麼真實性變成了最稀缺的資源？">
+<meta property="og:image" content="https://astrohsu.github.io/745/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://astrohsu.github.io/745/cover.png">
+<meta property="og:url" content="https://astrohsu.github.io/745/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--border:rgba(0,0,0,0.08);
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
-
-/* Header */
-.article-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  background:linear-gradient(180deg,var(--cream),var(--warm));
-  border-bottom:1px solid var(--border);
-}
-.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
-.article-header .num{
-  font-size:0.8rem;color:var(--accent);font-weight:700;
-  letter-spacing:0.15em;margin-bottom:0.8rem;
-}
-.article-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;letter-spacing:0.03em;line-height:1.5;
-  max-width:680px;margin:0 auto;
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+  --border: #E8E3D8;
 }
 
-/* Content */
-.article-content{
-  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
-}
-.article-content p{margin-bottom:1.5rem}
-.article-content h2{
-  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
-  margin:3rem 0 1.5rem;padding-top:1rem;
-  border-top:1px solid var(--border);letter-spacing:0.03em;
-}
-.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
-.article-content blockquote{
-  border-left:3px solid var(--accent);padding:1rem 1.5rem;
-  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);
-}
-.article-content blockquote p{margin-bottom:0.8rem}
-.article-content blockquote p:last-child{margin-bottom:0}
-.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
-.article-content a:hover{border-bottom-color:var(--accent)}
-.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
-.article-content li{margin-bottom:0.5rem}
-.article-content sup{font-size:0.7em;color:var(--accent)}
-
-/* Images */
-.article-img{margin:2rem 0;text-align:center}
-.article-img img{
-  max-width:100%;height:auto;border-radius:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Video */
-.video-embed{margin:2rem 0}
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
 
-/* Footnotes */
-.footnote{
-  font-size:0.85rem;color:var(--text-secondary);
-  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  color: var(--text);
+  background: var(--warm);
+  line-height: 1.9;
+  font-weight: 400;
 }
-.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
 
-/* CTA */
-.cta-section{
-  text-align:center;padding:3rem 1.5rem;
-  background:var(--cream);border-top:1px solid var(--border);
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--warm) 100%);
+  position: relative;
+  text-align: center;
 }
-.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:0.8rem 2rem;
-  background:var(--accent);color:#fff;text-decoration:none;
-  border-radius:8px;font-weight:500;font-size:0.95rem;
-  transition:transform 0.2s,box-shadow 0.2s;
+
+.hero .logo {
+  height: 48px;
+  opacity: 0.8;
+  margin-bottom: 3rem;
 }
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  max-width: 700px;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.hero .subtitle {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  animation: breathe 2s infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Content Sections */
+.content-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.part-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--terra);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+section p {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Quote Block */
+.quote-block {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--terra-light) 100%);
+  border-left: 4px solid var(--terra);
+  padding: 2.5rem;
+  margin: 3rem 0;
+  border-radius: 0 12px 12px 0;
+}
+
+.quote-block .quote-mark {
+  font-size: 2.5rem;
+  color: var(--terra);
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.quote-block p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.quote-block.large-quote {
+  margin: 4rem 0;
+  padding: 3rem 2.5rem;
+}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.strategy-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.strategy-card {
+  background: var(--green-light);
+  border: 1px solid rgba(45, 107, 79, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.strategy-card:hover {
+  box-shadow: 0 4px 16px rgba(45, 107, 79, 0.15);
+  transform: translateY(-2px);
+}
+
+.strategy-card .emoji {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.strategy-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.8rem;
+}
+
+.strategy-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+/* Interactive Section */
+.interactive-section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.interactive-section h2 {
+  margin-bottom: 2.5rem;
+}
+
+.choice-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.choice-btn {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 1.8rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.choice-btn:hover {
+  border-color: var(--terra);
+  box-shadow: 0 4px 16px rgba(192, 106, 58, 0.2);
+  transform: translateY(-2px);
+}
+
+.choice-btn .choice-emoji {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.choice-btn .choice-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.choice-btn .choice-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.result-card {
+  display: none;
+  background: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+  animation: slideIn 0.4s ease;
+}
+
+.result-card.active {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.result-text {
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0 0 0;
+}
+
+.share-btn {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Noto Sans TC', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.share-x {
+  background: #000;
+  color: #fff;
+}
+
+.share-x:hover {
+  opacity: 0.8;
+}
+
+.share-facebook {
+  background: #1877F2;
+  color: #fff;
+}
+
+.share-facebook:hover {
+  opacity: 0.9;
+}
+
+.cta-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--terra);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 2px solid var(--terra);
+  padding-bottom: 0.2rem;
+  transition: all 0.3s ease;
+}
+
+.cta-link:hover {
+  transform: translateX(4px);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--terra-light) 100%);
+  padding: 4rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.cta-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.cta-section p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(192, 106, 58, 0.3);
+}
 
 /* Footer */
-.site-footer{text-align:center;padding:2rem 1.5rem}
-.site-footer img{height:28px;opacity:0.4}
-.site-footer .back{
-  display:inline-block;margin-top:1rem;font-size:0.85rem;
-  color:var(--text-muted);text-decoration:none;
+.site-footer {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
 }
-.site-footer .back:hover{color:var(--text)}
 
-@media(max-width:600px){
-  .article-header{padding:3rem 1.5rem 2rem}
-  .article-content{padding:2rem 1.5rem 3rem}
-  html{font-size:16px}
+.site-footer img {
+  height: 40px;
+  opacity: 0.6;
+  margin-bottom: 1rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--text);
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero .logo {
+    height: 40px;
+    margin-bottom: 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+  }
+
+  .choice-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .share-buttons {
+    flex-direction: column;
+  }
+
+  .quote-block {
+    padding: 2rem;
+  }
+
+  .quote-block p {
+    font-size: 1.1rem;
+  }
 }
 </style>
 </head>
 <body>
 
-<header class="article-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <div class="num">#745</div>
-  <h1>完美已死</h1>
-</header>
+<section class="hero">
+  <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>完美已死，真實最貴</h1>
+  <p class="subtitle">AI 時代還要為內容付費嗎？</p>
+  <div class="scroll-hint">↓ 往下滑</div>
+</section>
 
-<article class="article-content">
-<p>2026 新年快樂。今年的<a href="https://www.blocktrend.today/p/calendar">出刊行事曆</a>已經出爐。未來一年，區塊勢預計休刊 14 天，並預留 5 天事病假。唯一的變數，是我還在猶豫 11 月初要不要飛印度孟買，親身參與以太坊開發者大會（Devcon）儲值信仰。尤其印度是個平價又好吃的國家，最大問題是出門要戴耳塞才能抵銷路上的喇叭聲 😂</p><p>如果要請假，我會提前在文章開頭通知。另外，也邀請你<a href="https://www.surveycake.com/s/vpeXw">填寫 2025 內容滿意度問卷</a>，幫助區塊勢做得更好。進入正題。</p><p>在整理今年的出刊行事曆時，我內心有一股奇妙的矛盾感。一方面覺得自己好像有點弱，竟然一年要休假 14 天。畢竟現在生成式 AI 也能寫文章，理論上要每天出一篇也不難吧？但仔細想想，「會請假」才是區塊勢的最大價值所在。</p><p>這幾天我讀到 Instagram 負責人 Adam Mosseri 對 2026 年內容環境的觀察，更加確認這個直覺。他認為接下來內容的趨勢是「完美已死」。我已經把這四個字印出來、貼在工作桌前，時刻提醒自己：真實比完美更重要！</p><h2>完美已死</h2><p>現年 42 歲的 Adam Mosseri 是 Meta 的高階主管，早期負責過 Facebook 最核心的 News Feed 排序機制，以演算法影響全球數十億人的資訊接收方式。</p><p>從 2018 年起，Adam 接手 Instagram 並將平台發展重點從單純的照片分享，逐步轉向短影音與創作者內容。近年台灣人最愛用的 Threads（脆），也是由他一手主導。換言之，大家能在這些平台上看到的，某種程度都是他認為「值得被看見的內容」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6b45fbc8-6e0b-4cd7-bb01-5e3c7a47ad6f_2880x1620.png" alt="" loading="lazy"></figure><p>Adam 在 2026 年第一天就<a href="https://www.instagram.com/p/DS7pz7-DuZG/?img_index=8">語出驚人</a>，稱全世界的相機公司都搞錯方向了。未來內容創作者的核心競爭力將不再是追求完美，因為人們會開始重視不完美背後所代表的真實性（authenticity）：</p><blockquote><p>2026 年 … 的重大轉變是「真實性」正在變得可被無限複製 … 深偽技術（Deepfake）愈來愈成熟，人們已經無法分辨哪些是 AI 生成的影音內容 … 真實性正變成一種稀缺資源 … 相機公司搞錯了方向。他們在競爭把每個人都弄成像 2015 年的專業攝影師。但在 AI 能產生完美影像的世界，無暇的外觀反而是一種破綻。人們想要真實的內容 … 在一切都能被美化的世界中，不完美反而成了一種信號，它像是在說：「這是真的，因為它不完美。」</p></blockquote><p>「區塊勢都是許明恩親自寫的，因為他竟然會請假，而且文章裡還有錯字！」</p><p>這句話在 2026 年初說起來還是有點荒謬。但我相信，隨著 AI 越來越強，我們遲早會進入這個階段 —— 為了展現真實性，而刻意表現得不完美。未來或許會有完全由 AI 生成的部落格，卻煞有其事地發布出刊行事曆，刻意讓機器人「休息」幾天，營造一點人味。</p><p>Adam 就大膽預言，當 AI 連「不完美」都能複製時，人們終究會意識到，光看內容本身已經不足以判斷真假，而是得找出背後是誰在說話。偶爾請假這種「形式上的瑕疵」容易模仿，真實的內容必須將「不完美」直接嵌入在創作裡。這也是區塊勢 2026 年的努力方向，我將它歸納為三大主題：在地、故事和肉身。</p><h2>在地、故事和肉身</h2><p>你有在看幣圈媒體嗎？</p><p>許多媒體經營者都面臨「內容空洞化」的問題。打開網站，贊助商的新聞稿比報導更多。真正從在地出發、具有原創觀點的內容，相當稀有。媒體內容只是表象。根本原因是產業還沒發展到足以支撐原創內容的階段。區塊勢非常幸運有一群像你一樣的付費會員支持，才有餘裕做出不同選擇 —— 把心力投入在能長期累積價值的內容上。</p><h3>在地連結</h3><p>首先，文章會更注重「在地連結」。</p><p>AI 已經能解釋複雜原理，也比我更會「說人話」，但它無法像真人一樣描述親身經歷。如果沒有烏克蘭人現身說法，描述自己在戰爭期間如何使用加密貨幣逃難，AI 就算再會杜撰，也寫不出那種緊迫感。</p><p>加密貨幣在各國的用法也天差地遠。美國人不懂阿根廷人為何需要靠加密貨幣對抗通膨，也不知道為何台灣人需要用穩定幣入金海外券商買美股。反之，台灣人看到 PayPal、Stripe 支援加密貨幣的新聞也同樣無感，因為那不是我們的日常。</p><p>2026 年，我希望找出更多台灣人有感的應用場景，用在地故事去連結技術發展。成為能說出「台灣經驗」的創作者。</p><h3>商業故事</h3><p>其次，Podcast 會更注重「商業故事」。</p><p>AI 可以產出詳盡的研究報告，卻很難說出一段引人入勝的故事：一家公司的創辦人當初為何會選擇這條路？它是如何一步步走到今天的？</p><p>2018 年剛開始錄 Podcast 時，我最大的夢想是邀請重量級來賓對談。那時候區塊勢還默默無聞，能請到來賓本身就需要努力。現在我已經沒那麼渴望證明自己了，反而更在意那些我們每天使用的產品與公司，曾經做過哪些選擇，又付出了什麼代價。</p><p>故事之所以能打動人，是因為它能與生活經驗產生共鳴。AI 當然也可以生成 Podcast，但少了生活經驗，也就很難說出動人的好故事。我希望這些內容，即使三年後再聽，依然很有價值。</p><h3>肉身參與</h3><p>最後，是舉辦實體工作坊。</p><p>過去八年，我受邀到金管會、中央銀行、檢調單位與各大企業演講，累積上百場講座、近萬名聽眾。每一場我都會發放問卷，並根據回饋持續調整內容。近幾年越來越多人留言：「老師，你的下一場講座在哪裡？」但一直以來，我都沒有自己的主場。</p><p>市面上的實體課程大多是要邀請你使用推薦碼、成為交易所用戶，或是手續費返佣的下線。我的工作坊想回應那些剛開始接觸區塊鏈、加密貨幣，卻找不到理解入口的專業工作者。</p><p>因此，我預計在 3 月 6 日（週五）於台大集思會議中心，首次舉辦全天的實體工作坊。選在平日，是因為這堂課的目標對象是需要在工作日進修、對產業應用有剛性需求的人。我會用一整天透過手把手操作，帶你看懂加密貨幣的實際應用。</p><p>我之所以在 2026 年訂出「在地、故事和肉身」三大主軸，最終是想回答一個問題：AI 時代，還要為內容付費嗎？我認為光是內容本身，會越來越難。除非，有人對內容負責。</p><h2>2025 內容滿意度問卷</h2><p>區塊勢在製作內容時當然也會使用 AI，但你不會在文章下方看到那行熟悉的小字：「內容可能有誤，請自行查證。」千萬別誤會，不是因為區塊勢從不出錯。而是如果內容真的有錯，<strong>那是我的責任，不是你的責任</strong>。</p><p>許明恩為內容負責，就是 AI 難以取代的終極價值。也正因如此，我想邀請你填寫區塊勢 2025 年的內容滿意度問卷 😂</p><p>每年我都會透過滿意度問卷，確認是哪些人在看區塊勢，也檢視內容選題是否真的符合讀者需求。每一則回饋我都會仔細閱讀，也會整理後錄成 Podcast 和大家分享結果。你的回饋能幫助我維持這段長期、穩定的訂閱關係，繼續製作真實且值得讀者信任的好內容。</p>
-</article>
+<div class="content-wrapper">
 
-<div class="cta-section">
-  <p>想閱讀完整文章？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/745">前往區塊勢閱讀全文 →</a>
+<section class="fade-in">
+  <div class="part-label">Part 1</div>
+  <h2>真實性變成稀缺資源</h2>
+
+  <p>2026 年初，Meta 旗下 Instagram 的負責人 Adam Mosseri 發表了一個大膽的預言：「完美已死。」這不是說完美本身沒有價值，而是指完美不再是創作者的唯一競爭力。當生成式 AI 能製造完美的文章、精美的圖片、流暢的影音時，完美反而變成了「AI 的特徵」。</p>
+
+  <p>Adam 的觀察源自深偽技術的迅速發展。隨著 AI 越來越強，人們已經越來越難分辨哪些內容是真人創作、哪些是機器生成。在這樣的環境下，真實性正在變成一種稀缺資源。他說：「在一切都能被美化的世界中，不完美反而成了一種信號，它像是在說：『這是真的，因為它不完美。』」一個人的錯別字、一段沒有精心編輯的語句、甚至一個會定期請假的創作者——這些曾經被看作是缺點的「瑕疵」，現在反而成了真實性的證明。</p>
+</section>
+
+<section class="fade-in">
+  <div class="part-label">Part 2</div>
+  <h2>為什麼不完美變成信號？</h2>
+
+  <p>想像一個未來：有一個完全由 AI 驅動的自動部落格，它發布出刊行事曆、宣布定期「休息」，甚至故意在文章中留下「人性化」的小錯誤。這聽起來荒謬，但當 AI 連「偽裝成人類」都學會了，我們該如何判斷真假？</p>
+
+  <p>區塊勢創辦人許明恩就直言：「區塊勢都是許明恩親自寫的，因為他竟然會請假，而且文章裡還有錯字！」這句話看似開玩笑，實則反映了未來內容的新現實——有人願意為內容負責任，這本身就是最大的價值。當 AI 可以快速生成無懈可擊的文章，讀者反而更加渴望知道：這些文字背後是誰？他願不願意用自己的名聲去擔保內容的品質？</p>
+
+  <div class="quote-block large-quote">
+    <p>「許明恩為內容負責，就是 AI 難以取代的終極價值。」</p>
+  </div>
+</section>
+
+<section class="fade-in">
+  <div class="part-label">Part 3</div>
+  <h2>2026 年的三大努力方向</h2>
+
+  <p>既然真實性成了新時代的稀缺資源，那麼區塊勢在 2026 年的內容策略就應該圍繞「人」來展開。許明恩將之歸納為三個關鍵詞：在地、故事和肉身。</p>
+
+  <p>「在地連結」意味著依賴親身經歷。AI 可以解釋加密貨幣的複雜原理，也能比人類更清楚地說明概念。但 AI 無法描述一個烏克蘭難民如何在戰亂中使用比特幣逃難的親身經歷，也無法用台灣人的視角去解釋為什麼需要用穩定幣入金海外券商。每個國家、每個文化背景的人對於技術的需求都截然不同。區塊勢的優勢在於能以台灣人的身份，挖掘並傳遞「台灣經驗」。</p>
+
+  <div class="strategy-cards">
+    <div class="strategy-card fade-in">
+      <div class="emoji">📍</div>
+      <h4>在地連結</h4>
+      <p>用台灣人的親身經歷，連結技術發展與日常應用。</p>
+    </div>
+    <div class="strategy-card fade-in">
+      <div class="emoji">📖</div>
+      <h4>商業故事</h4>
+      <p>深入企業決策歷程，說出能打動人心的創業故事。</p>
+    </div>
+    <div class="strategy-card fade-in">
+      <div class="emoji">🤝</div>
+      <h4>肉身參與</h4>
+      <p>透過實體工作坊，與讀者建立直接、真實的連結。</p>
+    </div>
+  </div>
+
+  <p>「商業故事」則強調了敘事的力量。AI 可以寫出詳細的研究報告，卻很難講述一個公司創辦人當初為什麼選擇這條路、如何一步步克服困難。好的故事之所以能打動人，是因為它與讀者的生活經驗產生共鳴。而這種共鳴，只有實際經歷過、思考過的人類才能創造。</p>
+
+  <p>最後，「肉身參與」是許明恩在 2026 年的新嘗試。在過去八年的演講生涯中，他累積了上百場講座、近萬名聽眾。而今，他決定舉辦自己的實體工作坊——不是為了推銷交易所、不是為了賺取返佣，而是為了那些真正想理解區塊鏈、但找不到入口的專業工作者提供一個學習機會。實體互動無法被 AI 複製，也無法被線上影片完全取代。這就是「肉身」的價值。</p>
+</section>
+
+<section class="fade-in">
+  <div class="part-label">Part 4</div>
+  <h2>AI 時代，還要為內容付費嗎？</h2>
+
+  <p>回到最初的問題：在 AI 能寫文章的時代，人們為什麼還要花錢訂閱內容？許明恩的答案是：因為「有人對內容負責」。區塊勢不會在文章下方標註「內容可能有誤，請自行查證」，而是直言「如果內容有錯，那是我的責任，不是你的責任」。這是一種承諾，也是一種信任基礎。</p>
+
+  <p>當內容本身變得廉價、容易複製時，真正值錢的東西轉移到了「誰在說」。是一個會因為工作過度而不得不請假的真人，還是一個表面上效率無懈可擊、其實沒有任何真實承諾的 AI？是一篇經過實地調查、融合創作者個人經驗的報導，還是一份被演算法優化到完美的資訊報表？區塊勢在 2026 年的努力，就是在回答這個問題：真實比完美更重要，責任比效率更寶貴。而這些東西，正是讀者願意為之付費的理由。</p>
+</section>
+
+<section class="interactive-section fade-in">
+  <h2>你認為內容的真實性有多重要？</h2>
+
+  <p>AI 時代，創作者的最大資產是什麼？選擇一個最符合你想法的選項。</p>
+
+  <div class="choice-buttons">
+    <button class="choice-btn" onclick="showResult('authenticity')">
+      <div class="choice-emoji">✨</div>
+      <div class="choice-title">真實性最重要</div>
+      <div class="choice-desc">完美可以被複製，但真實的聲音無法被取代。</div>
+    </button>
+    <button class="choice-btn" onclick="showResult('expertise')">
+      <div class="choice-emoji">🧠</div>
+      <div class="choice-title">專業性最重要</div>
+      <div class="choice-desc">內容品質和深度才是讀者信任的基礎。</div>
+    </button>
+    <button class="choice-btn" onclick="showResult('connection')">
+      <div class="choice-emoji">❤️</div>
+      <div class="choice-title">連結最重要</div>
+      <div class="choice-desc">創作者願意付出時間和責任去與讀者互動。</div>
+    </button>
+  </div>
+
+  <div id="result-authenticity" class="result-card">
+    <h3 class="result-title">你看重真實性</h3>
+    <p class="result-text">你理解的是 Adam Mosseri 和許明恩都在強調的核心——當 AI 能製造完美時，真實反而成了最稀缺的資源。一個會犯錯、會請假、會坦誠內容風險的創作者，比一個完美無缺的自動化系統更值得信任。這正是區塊勢的 2026 年策略：用「不完美」來證明「真實」。</p>
+    <div class="share-buttons">
+      <button class="share-btn share-x" onclick="shareX('我認為內容的真實性最重要。AI 時代，創作者最大的資產不是完美，而是願意為內容負責的勇氣。\n\n完美已死，真實最貴。')">𝕏 分享</button>
+      <button class="share-btn share-facebook" onclick="shareFacebook('我認為內容的真實性最重要')">Facebook 分享</button>
+    </div>
+    <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
+  </div>
+
+  <div id="result-expertise" class="result-card">
+    <h3 class="result-title">你看重專業性</h3>
+    <p class="result-text">深度、準確性和專業知識依然是內容的基礎。但正如文章所指，在 AI 時代，這些東西已經漸漸被機器追上。真正的分野在於，誰願意把自己的信譽綁在內容上？區塊勢不會躲在「內容可能有誤」這樣的免責聲明後面。當創作者願意為品質負責，專業性才能真正轉化為信任。</p>
+    <div class="share-buttons">
+      <button class="share-btn share-x" onclick="shareX('專業性很重要，但更重要的是創作者願不願意為內容負責。完美已死，真實最貴。\n\n')">𝕏 分享</button>
+      <button class="share-btn share-facebook" onclick="shareFacebook('專業性很重要，但責任感才是真正的差異')">Facebook 分享</button>
+    </div>
+    <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
+  </div>
+
+  <div id="result-connection" class="result-card">
+    <h3 class="result-title">你看重人與人的連結</h3>
+    <p class="result-text">你抓住了區塊勢 2026 年策略的核心——在地、故事和肉身。區塊勢舉辦實體工作坊、用台灣經驗寫文章、透過 Podcast 講述商業故事，這些都是為了建立真實的、無法被線上演算法完全取代的人際連結。當 AI 變得越來越聰明時，創作者唯一的優勢就是「我是一個真實的人，我願意與你相見」。</p>
+    <div class="share-buttons">
+      <button class="share-btn share-x" onclick="shareX('最珍貴的是人與人之間的真實連結。在地故事、肉身參與、直接對話——這些才是 AI 永遠無法複製的。')">𝕏 分享</button>
+      <button class="share-btn share-facebook" onclick="shareFacebook('真實的連結是 AI 無法複製的')">Facebook 分享</button>
+    </div>
+    <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
+  </div>
+</section>
+
 </div>
 
+<section class="cta-section fade-in">
+  <h2>想深入了解更多？</h2>
+  <p>這是一篇關於 AI 時代內容價值的深度思考。區塊勢創作者許明恩分享了他對 2026 年內容環境的觀察，以及為什麼「人對內容的承諾」比完美的內容本身更值錢。</p>
+  <a class="cta-button" href="https://www.blocktrend.today/p/745">前往區塊勢閱讀完整文章 →</a>
+</section>
+
 <footer class="site-footer">
-  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <br><a class="back" href="../">← 回到文章列表</a>
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <br>
+  <a class="back-link" href="https://www.blocktrend.today">← 回到區塊勢</a>
 </footer>
+
+<script>
+// Fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Interactive section
+function showResult(choice) {
+  // Hide all result cards
+  document.querySelectorAll('.result-card').forEach(card => {
+    card.classList.remove('active');
+  });
+
+  // Show selected result
+  const resultId = 'result-' + choice;
+  const resultCard = document.getElementById(resultId);
+  if (resultCard) {
+    resultCard.classList.add('active');
+
+    // Scroll to result
+    setTimeout(() => {
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+}
+
+// Share functions
+function shareX(text) {
+  const pageUrl = 'https://astrohsu.github.io/745/';
+  const shareUrl = 'https://twitter.com/intent/tweet?text=' +
+    encodeURIComponent(text + '\n\n完美已死，真實最貴\nhttps://astrohsu.github.io/745/');
+  window.open(shareUrl, '_blank');
+}
+
+function shareFacebook(text) {
+  const pageUrl = 'https://astrohsu.github.io/745/';
+  const shareUrl = 'https://www.facebook.com/share.php?u=' +
+    encodeURIComponent(pageUrl) +
+    '&quote=' + encodeURIComponent('完美已死，真實最貴 - 區塊勢\n' + text);
+  window.open(shareUrl, '_blank');
+}
+</script>
 
 </body>
 </html>

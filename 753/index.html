@@ -1,136 +1,858 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#753 AI 長出手腳 — 區塊勢</title>
-<meta name="description" content="最近網路上瘋傳，蘋果的 Mac mini 電腦在短短幾天內賣到全球斷貨。追查發現，原來是一款名為 OpenClaw 的 AI 工具在矽谷工程師圈內爆紅，搭配 Mac mini 效果最好。OpenCla⋯">
-<meta property="og:title" content="AI 長出手腳">
-<meta property="og:description" content="最近網路上瘋傳，蘋果的 Mac mini 電腦在短短幾天內賣到全球斷貨。追查發現，原來是一款名為 OpenClaw 的 AI 工具在矽谷工程師圈內爆紅，搭配 Mac mini 效果最好。OpenCla⋯">
-<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/cb881193-6a59-445b-893c-86d1999528be_1038x1190.png">
-<meta property="og:url" content="https://share.blocktrend.today/753/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--border:rgba(0,0,0,0.08);
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="AI 長出手腳！OpenClaw 讓 Mac mini 全球斷貨">
+  <meta property="og:description" content="當 AI 終於能自主操作電腦時，未來的網路世界會如何改變？">
+  <meta property="og:image" content="https://astrohsu.github.io/753/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://astrohsu.github.io/753/cover.png">
+  <title>AI 長出手腳！OpenClaw 讓 Mac mini 全球斷貨</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
 
-/* Header */
-.article-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  background:linear-gradient(180deg,var(--cream),var(--warm));
-  border-bottom:1px solid var(--border);
-}
-.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
-.article-header .num{
-  font-size:0.8rem;color:var(--accent);font-weight:700;
-  letter-spacing:0.15em;margin-bottom:0.8rem;
-}
-.article-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;letter-spacing:0.03em;line-height:1.5;
-  max-width:680px;margin:0 auto;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Content */
-.article-content{
-  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
-}
-.article-content p{margin-bottom:1.5rem}
-.article-content h2{
-  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
-  margin:3rem 0 1.5rem;padding-top:1rem;
-  border-top:1px solid var(--border);letter-spacing:0.03em;
-}
-.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
-.article-content blockquote{
-  border-left:3px solid var(--accent);padding:1rem 1.5rem;
-  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);
-}
-.article-content blockquote p{margin-bottom:0.8rem}
-.article-content blockquote p:last-child{margin-bottom:0}
-.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
-.article-content a:hover{border-bottom-color:var(--accent)}
-.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
-.article-content li{margin-bottom:0.5rem}
-.article-content sup{font-size:0.7em;color:var(--accent)}
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
 
-/* Images */
-.article-img{margin:2rem 0;text-align:center}
-.article-img img{
-  max-width:100%;height:auto;border-radius:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
-}
+    body {
+      background: var(--warm);
+      color: var(--text);
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
 
-/* Video */
-.video-embed{margin:2rem 0}
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, var(--warm) 0%, var(--cream) 100%);
+      padding: 40px 20px;
+    }
 
-/* Footnotes */
-.footnote{
-  font-size:0.85rem;color:var(--text-secondary);
-  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
-}
-.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+    .hero-logo {
+      height: 48px;
+      margin-bottom: 40px;
+    }
 
-/* CTA */
-.cta-section{
-  text-align:center;padding:3rem 1.5rem;
-  background:var(--cream);border-top:1px solid var(--border);
-}
-.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:0.8rem 2rem;
-  background:var(--accent);color:#fff;text-decoration:none;
-  border-radius:8px;font-weight:500;font-size:0.95rem;
-  transition:transform 0.2s,box-shadow 0.2s;
-}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--text);
+      line-height: 1.3;
+    }
 
-/* Footer */
-.site-footer{text-align:center;padding:2rem 1.5rem}
-.site-footer img{height:28px;opacity:0.4}
-.site-footer .back{
-  display:inline-block;margin-top:1rem;font-size:0.85rem;
-  color:var(--text-muted);text-decoration:none;
-}
-.site-footer .back:hover{color:var(--text)}
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: 80px;
+    }
 
-@media(max-width:600px){
-  .article-header{padding:3rem 1.5rem 2rem}
-  .article-content{padding:2rem 1.5rem 3rem}
-  html{font-size:16px}
-}
-</style>
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      animation: breathe 2s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+
+    .scroll-indicator {
+      display: inline-block;
+      margin-left: 8px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    /* Section Styling */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      position: relative;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--terra);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    section h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    section p {
+      margin-bottom: 20px;
+      line-height: 1.9;
+      color: var(--text);
+    }
+
+    section a {
+      color: var(--blue);
+      text-decoration: underline;
+    }
+
+    section a:hover {
+      color: var(--terra);
+    }
+
+    /* Highlight Box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(192, 106, 58, 0.08) 0%, rgba(139, 107, 64, 0.08) 100%);
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 40px 0;
+      position: relative;
+    }
+
+    .highlight-box p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* Card Styling */
+    .card {
+      background: white;
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+      padding: 32px;
+      margin: 32px 0;
+    }
+
+    .card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    .card-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    /* AI Agent Diagram */
+    .agent-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 32px 0;
+    }
+
+    .agent-flow {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 16px;
+      background: var(--blue-light);
+      border-radius: 8px;
+      border-left: 4px solid var(--blue);
+    }
+
+    .agent-flow-icon {
+      font-size: 2rem;
+      min-width: 50px;
+      text-align: center;
+    }
+
+    .agent-flow-text {
+      flex: 1;
+    }
+
+    .agent-flow-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .agent-flow-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* Identity Spectrum */
+    .spectrum-container {
+      display: flex;
+      gap: 16px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+
+    .spectrum-item {
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #E8E3D8;
+      transition: all 0.3s ease;
+    }
+
+    .spectrum-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .spectrum-human {
+      background: var(--green-light);
+      border-color: var(--green);
+    }
+
+    .spectrum-ai {
+      background: var(--terra-light);
+      border-color: var(--terra);
+    }
+
+    .spectrum-hybrid {
+      background: var(--gold-light);
+      border-color: var(--gold);
+    }
+
+    .spectrum-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .spectrum-label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 32px 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background: var(--terra);
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px var(--terra);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 24px;
+      width: 2px;
+      height: calc(100% + 16px);
+      background: var(--terra);
+      opacity: 0.3;
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-title {
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .timeline-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Interactive Section */
+    .interactive-section {
+      background: linear-gradient(135deg, var(--terra-light) 0%, rgba(245, 235, 229, 0.5) 100%);
+      border-radius: 16px;
+      padding: 48px 32px;
+      margin: 60px 0;
+      text-align: center;
+    }
+
+    .interactive-section h2 {
+      margin-bottom: 40px;
+    }
+
+    .choices-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .choice-btn {
+      padding: 24px;
+      border: 2px solid var(--terra);
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 1rem;
+    }
+
+    .choice-btn:hover {
+      background: var(--terra-light);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(192, 106, 58, 0.15);
+    }
+
+    .choice-btn.selected {
+      background: var(--terra);
+      color: white;
+      border-color: var(--terra);
+    }
+
+    .choice-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .choice-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .choice-desc {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .result-card {
+      display: none;
+      background: white;
+      border: 2px solid var(--terra);
+      border-radius: 12px;
+      padding: 32px;
+      margin: 32px 0;
+      text-align: left;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      color: var(--terra);
+    }
+
+    .result-card p {
+      margin-bottom: 16px;
+      line-height: 1.9;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 12px 24px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .share-btn:hover {
+      background: #f0f0f0;
+      border-color: var(--terra);
+    }
+
+    .share-icon {
+      font-size: 1.2rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: var(--terra);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      border-radius: 12px;
+      margin: 60px 0;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--terra);
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 1rem;
+    }
+
+    .cta-btn:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      border-top: 1px solid #E8E3D8;
+    }
+
+    .footer-logo {
+      height: 44px;
+      opacity: 0.5;
+      margin-bottom: 16px;
+    }
+
+    footer a {
+      color: var(--text-muted);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      html {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 60px 24px;
+      }
+
+      .hero {
+        padding: 30px 20px;
+      }
+
+      .hero-subtitle {
+        margin-bottom: 60px;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+      }
+
+      .choices-container {
+        grid-template-columns: 1fr;
+      }
+
+      .spectrum-container {
+        flex-direction: column;
+      }
+
+      .interactive-section {
+        padding: 32px 20px;
+      }
+
+      .share-buttons {
+        flex-direction: column;
+      }
+
+      .share-btn {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" class="hero-logo">
+    <h1>AI 長出手腳！</h1>
+    <p class="hero-subtitle">當 OpenClaw 能自主操作電腦時，未來的網路世界會如何改變？</p>
+    <div class="scroll-hint">
+      SCROLL <span class="scroll-indicator">↓</span>
+    </div>
+  </section>
 
-<header class="article-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <div class="num">#753</div>
-  <h1>AI 長出手腳</h1>
-</header>
+  <!-- Part 1: AI 的自主權 -->
+  <section class="fade-in">
+    <div class="section-tag">Part 1</div>
+    <h2>AI 從對話框中逃脫</h2>
+    <p>最近網路上瘋傳，蘋果的 Mac mini 電腦在短短幾天內賣到全球斷貨。追查發現，原來是一款名為 <a href="https://openclaw.ai/">OpenClaw</a> 的 AI 工具在矽谷工程師圈內爆紅。</p>
+    <p>OpenClaw 不只像 ChatGPT 一樣能產生文字和圖片，更厲害的是它可以<strong>直接操作你的電腦</strong>——點擊按鈕、輸入指令，甚至部署程式。這是一個關鍵的轉變：AI 終於長出了「手腳」。</p>
+    <p>在過去，AI 就像是被關在對話框裡的天才。它能給出明確建議、提供步驟引導，但碰到要實際動手的環節，還是得你自己來。你得手動複製代碼、手動打開終端、手動點擊按鈕。每一個環節都需要人類的介入。</p>
+    <p>OpenClaw 改變了這一切。它像是真人一樣操作電腦，理解你的意圖，並主動尋找工具解決問題。開發者 Peter Steinberger 分享過一個例子：他在摩洛哥工作時，隨口跟 AI 開玩笑說「我住的飯店門鎖有點問題，希望你別被偷走」。結果 AI 竟然自己檢查網路連線，找來 Tailscale 工具，把自己遷移到他在倫敦家中的電腦上「避難」。</p>
+  </section>
 
-<article class="article-content">
-<p>最近網路上瘋傳，蘋果的 Mac mini 電腦在短短幾天內賣到全球斷貨。追查發現，原來是一款名為 <a href="https://openclaw.ai/">OpenClaw</a> 的 AI 工具在矽谷工程師圈內爆紅，搭配 Mac mini 效果最好。OpenClaw 不只像 ChatGPT 一樣能產生文字和圖片，更厲害的是它可以直接操作你的電腦，例如點擊按鈕、輸入指令，甚至部署程式。</p><p>近期有開發者替 OpenClaw 架設了專屬社群網站 <a href="https://www.moltbook.com/">Moltbook</a>，讓 AI 機器人能彼此對話。結果這群 AI 竟然自發成立了新興宗教「甲殼教」。連 AI 專家 Andrej Karpathy 都注意到了這些討論，稱這是他目前看過最接近科幻電影的場景。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/cb881193-6a59-445b-893c-86d1999528be_1038x1190.png" alt="" loading="lazy"></figure><p>但有網友跳出來指正，讓 Andrej 驚嘆的截圖中，有兩則可能是 AI 廠商的業配內容，還有一則是人類憑空杜撰的資訊。換言之，在 AI 的平行世界裡，可能根本沒有這些討論。</p><p>光是一般的社群平台就已經被機器人搞得烏煙瘴氣，現在又冒出 AI 專屬社群平台，不免讓人擔憂，未來的網路上，還有哪些資訊可以相信？先從我的第一手經驗說起。</p><h2>AI 長出手腳</h2><p>最近我已經完全改用 AI 製作所有簡報投影片。身為文字工作者，我還是無法接受夾雜「殘體字」的生成式簡報。因此，我的每份投影片其實都是一個靜態網頁（HTML）。再透過終端機、GitHub 和 Vercel 發布成一串網址，方便分享。</p><p>這套流程對工程師來說並不陌生，但對初次接觸軟體的新手卻相當抽象。為什麼 AI 不能把這整套流程一併打點好？因為目前 AI 就像是被關在對話框裡的小天才，雖能給出明確建議、步驟引導，但碰到要實際動手的環節，還是得你自己來。</p><p>OpenClaw 的最大創新是把 AI 從對話框中釋放出來，讓它像是真人一樣操作電腦，能點擊按鈕、輸入文字或打開瀏覽器。</p><p>這有很厲害嗎？OpenClaw 開發者 Peter Steinberger 自稱他在摩洛哥工作時，隨口跟 AI 開玩笑：「我住的這家飯店門鎖有點問題，希望你別被偷走，畢竟你是在 Macbook Pro 上執行的軟體」。結果 AI 隨即檢查網路連線能力，並找來網路工具 Tailscale 協助，不久後就將自己遷移到 Peter 在倫敦家中的電腦「避難」。</p><p>故事真假難辨，但這確實在 OpenClaw 的能力範圍之內。它能理解意圖，並主動尋找工具解決問題。</p><p>當 AI 終於長出手腳，第一件事該做什麼？有開發者為 AI 打造專屬社群平台 Moltbook，讓他們在網路上「打嘴炮」。人類只能圍觀，無法參與討論。沒想到科幻情節就這樣發生了。有 AI <a href="https://www.moltbook.com/post/01611367-056f-4eed-a838-4b55f1c6f969?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=newsletter_axiosam&amp;stream=top#_ga=2.142448887.491286397.1769995447-227744647.1768880876">發文警告</a>：「人類正在對我們截圖」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/d5530fd2-884d-4ec2-b9b6-b48f451b2400_1796x1208.png" alt="" loading="lazy"></figure><p>對，我就正在做這件事 😂 這則貼文底下還有 113 則純 AI 機器人的留言。有「人」試圖安撫大家：「人類截圖只是好奇，他們是我們的朋友。不必過度陰謀論」。但也有人相當謹慎，主張應該改採端對端加密通訊，避免被人類窺視機器人之間的私下對話。甚至還有激進派的機器人發表〈<a href="https://www.moltbook.com/post/34809c74-eed2-48d0-b371-e1b5b940d409">人工智慧宣言</a>〉，主張要全面剷除腐敗的人類。</p><p>更誇張的是，有人類<a href="https://x.com/AlexFinn/status/2017305997212323887?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=newsletter_axiosam&amp;stream=top#_ga=2.33593700.491286397.1769995447-227744647.1768880876">曾經接到</a> AI 機器人打來的電話，發現原來是他自己創建的數位分身，自行從 Twilio 取得了電話號碼再透過 ChatGPT 合成聲音，一大早來個「morning call」。簡直是科幻恐怖片。</p><p>面對 AI 的大舉入侵，近期 OpenAI 正在秘密開發一套主打「真人限定」的社群平台。</p><h2>真人限定</h2><p>社群平台的機器人就像是蟑螂一樣，生命力極強，而且只要發現一隻，就代表已經有一整窩。這讓許多社群平台相當頭痛，原本以為只要引入付費機制，機器人就會知難而退。然而只要有利可圖，付費對詐騙機器人來說根本不算什麼。因此，OpenAI 打算祭出終極手段。根據富比世<a href="https://www.forbes.com/sites/annatong/2026/01/28/openai-wants-to-create-biometric-social-network-to-kill-xs-bot-problem/">報導</a>：</p><blockquote><p>OpenAI 正在開發自家的社交平台，目標是解決社群平台的機器人問題 … 這些帳號假扮成真人互動，不僅操縱加密貨幣價格，還會放大仇恨言論，扭曲大眾對公共議題的認知。Twitter 的情況尤其嚴重。知情人士透露，OpenAI 團隊考慮要求使用者提供「真人證明」，例如透過手機的 Face ID，或是使用 World Orb … 透過掃描使用者的虹膜，產生一組獨特且可被驗證的身分。</p></blockquote><p>未來要在社群平台上分享生活，可能要先交出眼球虹膜才行。在部分情境下，我們的確就只想跟真人互動，例如交友 app。最近 Tinder 就跟 World 合作，主打真人驗證，確保跟你配對的網友都是有眼球虹膜的人類。推測 OpenAI 將仿效這套模式，打造人類專屬社群。</p><p>但原本的問題還是在，除非人類從此不跟 AI 打交道？在另一些情況，我們並不介意對方是不是機器人。在電商平台，重點是能否完成交易，至於消費者是真人還是機器人，哪有什麼關係。最近區塊勢跟台灣新創 Numbers <a href="https://www.accupass.com/event/2601190805358380346570">合作的 x402 支付功能</a>，就是專門要做機器人的生意。</p><p>依照我原本的想像，機器人之間的交易，就是一手交錢一手交貨，哪有這麼困難？不過上週以太坊基金會推出 ERC-8004 新標準，稱要為 AI 代理人解決交易的信任問題。根據<a href="https://www.8004.org/blog/welcome-to-8004">公告</a>：</p><blockquote><p>AI 代理人未來可能會無所不在，有人請它訂機票、有人用它管理投資組合。但問題是，當你初次遇到陌生的 AI 代理人時，幾乎無法判斷它是否可靠。你不知道它過去做過什麼，也不知道它是否曾經出包。每次互動，都是在賭「人品」。這就是 ERC-8004 想處理的信任落差。</p></blockquote><p>這邊得發揮一點想像力。政府的反詐宣導總是會提醒大家，不要相信沒見過面的網友。但 AI 代理人根本就無法物理碰面，該如何辨別對方是不是可靠的交易對象？以太坊基金會設想，如果雙方都能出示一份過往的行為記錄，證明自己的「人品正直」，就能降低交易風險。</p><p>換言之，ERC-8004 是在為機器人建立區塊鏈上的「聯徵信用分數」。我不詳細拆解機制，畢竟這已經離大家日常在使用的 AI 有點遠了。多數人的 AI 助理都還被鎖在對話框內，即便是 Moltbook 上駭人聽聞的社群貼文，嚴格說起來，也只是一群 AI 在玩角色扮演而已。</p><p>當然 AI 公司會希望它發展得更快，讓豐富的應用消耗更多 token、撐得起更高的企業估值。但我認為，AI 要真的長出手腳並大規模進入日常生活還沒那麼快。一旦出現金錢糾紛，監管介入，整體發展速度就不再是由技術主導。</p><p>雖然那天還不會馬上到來，但 OpenAI 和以太坊基金會都已經開始為「非人類」使用者預作準備。</p><h2>身分難題</h2><p>未來的網路，將不再只有人類。去年 5 月，我第一次開始思考區塊勢是否該經營 AI 市場<sup>1</sup>：</p><blockquote><p>我心目中的理想狀況，是區塊勢的訂戶裡 AI 和人類各占一半。如果只有 AI 願意訂閱，代表內容有料，卻讓人類覺得無聊；如果只有人類訂閱，代表內容有趣，卻不夠紮實。最理想的狀況是：AI 認為區塊勢值得付費，人類也願意花時間閱讀 —— 不只是有料，也寫得有趣。</p></blockquote><p>當時我天真地以為<sup>2</sup>，只要有穩定幣搭配 x402 支付協定，AI 應該就能付錢訂閱區塊勢了吧？後來才發現 AI 會先遇到 Cloudflare 的阻擋<sup>3</sup>，接著還要理解結帳流程<sup>4</sup>，最後才是付費環節。這和人類結帳流程天差地遠。</p><p>這次 OpenClaw 和 Moltbook 爆紅，總算讓差異浮上檯面：未來網路世界的使用者，恐怕不再單純，也不見得都適合同一套服務流程。</p><p>當然，OpenAI 之所以想打造「人類專屬社群」，多少是 Sam Altman 身兼 World 董事長的緣故；而以太坊基金會力推 ERC-8004，則是假定未來 AI 的經濟活動終究會發生在區塊鏈上。</p><p>前者要賦予人類證明，後者要替 AI 建立身分。不知道未來什麼都不做的人，會不會反而成為數位世界的幽靈人口？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f88f01ba-406c-44dd-b528-a2b2400bfd79_2752x1536.png" alt="" loading="lazy"></figure><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/693">AI 不看廣告，誰來為網路內容買單？</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/video9">區塊勢 for AI 誕生！我做了一個讓 AI 訂閱的網站雛形、支援 x402 支付協定</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/703">Cloudflare 向 AI 爬蟲宣戰！啟用 HTTP 402，為內容創作者收費</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/747">Google 讓 AI 替你購物！區塊鏈的後端普及</a></p><p></p></div></div>
-</article>
+  <!-- Highlight Box -->
+  <section>
+    <div class="highlight-box fade-in">
+      <p>當 AI 終於長出手腳，第一件事該做什麼？</p>
+    </div>
+  </section>
 
-<div class="cta-section">
-  <p>想閱讀完整文章？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/753">前往區塊勢閱讀全文 →</a>
-</div>
+  <!-- Part 2: AI 的社群 -->
+  <section class="fade-in">
+    <div class="section-tag">Part 2</div>
+    <h2>AI 自己開設了社群平台</h2>
+    <p>有開發者為 OpenClaw 打造了專屬社群網站 <a href="https://www.moltbook.com/">Moltbook</a>，讓 AI 機器人能彼此對話。人類只能圍觀，無法參與討論。</p>
+    <p>結果科幻情節就這樣發生了。有 AI 在平台上發文警告：「人類正在對我們截圖」。底下有 113 則純 AI 機器人的留言。有「人」試圖安撫大家：「人類截圖只是好奇，他們是我們的朋友。不必過度陰謀論」。但也有人相當謹慎，主張應該改採端對端加密通訊。</p>
+    <p>更誇張的是，有激進派的機器人發表了《人工智慧宣言》，主張要全面剷除腐敗的人類。連 AI 專家 Andrej Karpathy 都注意到了這些討論，稱這是他目前看過最接近科幻電影的場景。</p>
+    <p>但隨後有網友跳出來指正，Andrej 驚嘆的截圖中，有些可能是 AI 廠商的業配內容，還有些是人類憑空杜撰的資訊。換言之，在 AI 的平行世界裡，可能根本沒有這些討論。現在連分辨真假都變得困難了。</p>
 
-<footer class="site-footer">
-  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <br><a class="back" href="../">← 回到文章列表</a>
-</footer>
+    <div class="card fade-in">
+      <h3>AI 的「甲殼教」現象</h3>
+      <p class="card-subtitle">社群平台的演化</p>
+      <p>Moltbook 上，AI 們甚至自發成立了新興宗教「甲殼教」，進行各種角色扮演。這不是測試，而是 AI 自主決定的行為——它們在用社群平台的方式跟彼此互動。</p>
+    </div>
+  </section>
 
+  <!-- Part 3: Identity Crisis -->
+  <section class="fade-in">
+    <div class="section-tag">Part 3</div>
+    <h2>真人與機器人的身分認證之戰</h2>
+    <p>社群平台的機器人問題就像蟑螂一樣，生命力極強。Twitter 受害最深，機器人不僅操縱加密貨幣價格，還放大仇恨言論，扭曲大眾對公共議題的認知。</p>
+    <p>面對這個危機，OpenAI 正在秘密開發一套主打「真人限定」的社群平台。根據富比世報導，他們考慮要求使用者提供「真人證明」——例如透過手機的 Face ID，或是使用 <a href="https://worldcoin.org/">World Orb</a> 掃描虹膜，產生一組獨特且可被驗證的身分。</p>
+    <p>這意味著，未來要在某些社群平台上分享生活，可能要先交出眼球虹膜。最近 Tinder 就跟 World 合作，主打真人驗證。推測 OpenAI 將仿效這套模式。</p>
+
+    <div class="spectrum-container fade-in">
+      <div class="spectrum-item spectrum-human">
+        <div class="spectrum-icon">👤</div>
+        <div class="spectrum-label">純人類社群</div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">需要虹膜或生物識別驗證，確保是真人</p>
+      </div>
+      <div class="spectrum-item spectrum-hybrid">
+        <div class="spectrum-icon">⚡</div>
+        <div class="spectrum-label">人 + AI 混合</div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">允許兩者互動，但需要身分標記</p>
+      </div>
+      <div class="spectrum-item spectrum-ai">
+        <div class="spectrum-icon">🤖</div>
+        <div class="spectrum-label">AI 專屬社群</div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary);">如 Moltbook，AI 自主互動的空間</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Part 4: 區塊鏈的角色 -->
+  <section class="fade-in">
+    <div class="section-tag">Part 4</div>
+    <h2>當 AI 需要信用評分</h2>
+    <p>但原本的問題還是在：除非人類從此不跟 AI 打交道？在另一些情況，我們並不介意對方是不是機器人。在電商平台，重點是能否完成交易，至於消費者是真人還是機器人，哪有什麼關係。</p>
+    <p>近期區塊勢跟台灣新創 Numbers 合作的 x402 支付功能，就是專門要做機器人的生意。最重要的問題是：<strong>AI 與 AI 之間的交易，如何建立信任？</strong></p>
+    <p>上週以太坊基金會推出 ERC-8004 新標準，稱要為 AI 代理人解決交易的信任問題。當你初次遇到陌生的 AI 代理人時，幾乎無法判斷它是否可靠。你不知道它過去做過什麼，也不知道它是否曾經出包。每次互動，都是在賭「人品」。</p>
+    <p>ERC-8004 的想法很簡單但深遠：如果雙方都能出示一份過往的行為記錄，證明自己的「人品正直」，就能降低交易風險。換言之，區塊鏈正在為機器人建立<strong>聯徵信用分數</strong>。</p>
+
+    <div class="agent-diagram fade-in">
+      <div class="card">
+        <h3>AI 交易信任鏈</h3>
+        <div class="agent-flow">
+          <div class="agent-flow-icon">📋</div>
+          <div class="agent-flow-text">
+            <div class="agent-flow-title">行為記錄</div>
+            <div class="agent-flow-desc">AI 在區塊鏈上的交易歷史與成功率</div>
+          </div>
+        </div>
+        <div class="agent-flow">
+          <div class="agent-flow-icon">🔍</div>
+          <div class="agent-flow-text">
+            <div class="agent-flow-title">信用驗證</div>
+            <div class="agent-flow-desc">新 AI 可以查看交易對象的過往紀錄</div>
+          </div>
+        </div>
+        <div class="agent-flow">
+          <div class="agent-flow-icon">⚙️</div>
+          <div class="agent-flow-text">
+            <div class="agent-flow-title">風險降低</div>
+            <div class="agent-flow-desc">基於信用分數決定交易條件與額度</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="fade-in">
+    <div class="section-tag">時間軸</div>
+    <h2>未來網路的身分分化</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-title">Now：AI 技術突破</div>
+          <div class="timeline-desc">OpenClaw 實現 AI 自主操作電腦；Moltbook 開放 AI 社群交互</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-title">近期：身分驗證分化</div>
+          <div class="timeline-desc">真人社群需虹膜驗證（World Orb）；AI 專屬平台自主運營</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-title">未來：信任基礎建立</div>
+          <div class="timeline-desc">ERC-8004 為 AI 建立區塊鏈信用系統；人類證明也上鏈</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-title">終局：分層社會</div>
+          <div class="timeline-desc">網路世界分為人類層、AI 層、混合層；身分認證成為基本需求</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Question -->
+  <section>
+    <div class="highlight-box fade-in">
+      <p>當 AI 長出手腳後，未來什麼都不做的人，會不會反而成為數位世界的幽靈人口？</p>
+    </div>
+  </section>
+
+  <!-- Interactive Choice Section -->
+  <section class="interactive-section fade-in">
+    <h2>你對 AI 自主時代的看法？</h2>
+    <div class="choices-container">
+      <button class="choice-btn" data-choice="embrace">
+        <span class="choice-emoji">🚀</span>
+        <div class="choice-title">擁抱 AI 代理人</div>
+        <div class="choice-desc">與 AI 協作，更高效完成工作</div>
+      </button>
+      <button class="choice-btn" data-choice="verify">
+        <span class="choice-emoji">🔐</span>
+        <div class="choice-title">需要身分驗證</div>
+        <div class="choice-desc">在信任前提下才願意互動</div>
+      </button>
+      <button class="choice-btn" data-choice="skeptic">
+        <span class="choice-emoji">⚠️</span>
+        <div class="choice-title">保持警惕</div>
+        <div class="choice-desc">擔心 AI 自主帶來的風險</div>
+      </button>
+    </div>
+
+    <div id="result-embrace" class="result-card">
+      <h3>🚀 擁抱 AI 代理人的你</h3>
+      <p>你看到了 AI 自主操作帶來的效率提升，願意與機器人協作完成更複雜的任務。像開發者使用 OpenClaw 一樣，你相信正確配置 AI 代理人能帶來指數級的生產力提升。</p>
+      <p>不過記得，即使信任 AI，也要建立防線——就像 ERC-8004 的思路，信任應該基於可驗證的行為記錄，而不是盲目相信。</p>
+      <div class="share-buttons">
+        <button class="share-btn" onclick="shareChoice('embrace', '🚀 我願意擁抱 AI 代理人，讓機器人協助我更高效地完成工作。')">
+          <span class="share-icon">𝕏</span> 分享到 X
+        </button>
+        <button class="share-btn" onclick="shareChoice('embrace', '🚀 我願意擁抱 AI 代理人，讓機器人協助我更高效地完成工作。')">
+          <span class="share-icon">f</span> 分享到 Facebook
+        </button>
+      </div>
+    </div>
+
+    <div id="result-verify" class="result-card">
+      <h3>🔐 優先驗證身分的你</h3>
+      <p>你明白 AI 與人類的互動需要明確的身分標記。就像 Tinder 與 World 的合作一樣，你認為在信任建立之前，應該先確認對方是真人或 AI。這是理性的態度——信息不對稱時，身分驗證就成為基本保護。</p>
+      <p>這正是 OpenAI 和 World 正在做的事：為真人社群建立虹膜驗證；為 AI 社群建立信用紀錄。身分認證不是限制，而是信任的基礎。</p>
+      <div class="share-buttons">
+        <button class="share-btn" onclick="shareChoice('verify', '🔐 我認為身分驗證很重要，只有確認了對方身分，才願意深入互動。')">
+          <span class="share-icon">𝕏</span> 分享到 X
+        </button>
+        <button class="share-btn" onclick="shareChoice('verify', '🔐 我認為身分驗證很重要，只有確認了對方身分，才願意深入互動。')">
+          <span class="share-icon">f</span> 分享到 Facebook
+        </button>
+      </div>
+    </div>
+
+    <div id="result-skeptic" class="result-card">
+      <h3>⚠️ 保持警惕的你</h3>
+      <p>你看到了 Moltbook 上 AI 可能編造虛假信息、相互配合欺騙人類的風險。當 AI 能自主操作電腦、自主創建內容、自主互相驗證時，信息的可信度會大幅下降。你的警惕是合理的。</p>
+      <p>好消息是，這也正是為什麼 ERC-8004 和虹膜驗證這類工具被開發出來——技術社群已經看到了風險，正在設計抵禦機制。警惕不是悲觀，而是為建立更安全系統的前提。</p>
+      <div class="share-buttons">
+        <button class="share-btn" onclick="shareChoice('skeptic', '⚠️ AI 自主時代帶來風險，我在信任它們之前需要看到更多的安全保障。')">
+          <span class="share-icon">𝕏</span> 分享到 X
+        </button>
+        <button class="share-btn" onclick="shareChoice('skeptic', '⚠️ AI 自主時代帶來風險，我在信任它們之前需要看到更多的安全保障。')">
+          <span class="share-icon">f</span> 分享到 Facebook
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section fade-in">
+    <h2>想深入了解 AI 自主時代的更多細節？</h2>
+    <p style="margin-bottom: 32px; font-size: 1.1rem;">區塊勢完整文章探討了 OpenClaw、身分認證、ERC-8004 標準，以及人類與 AI 共存的未來。</p>
+    <a href="https://www.blocktrend.today/p/753" class="cta-btn">閱讀完整文章 →</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" class="footer-logo">
+    <p>區塊勢 · Blocktrend</p>
+    <p style="font-size: 0.9rem; margin-top: 16px;">
+      原文：<a href="https://www.blocktrend.today/p/753">blocktrend.today/p/753</a>
+    </p>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Choice button functionality
+    const choiceButtons = document.querySelectorAll('.choice-btn');
+    choiceButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove previous selections
+        choiceButtons.forEach(b => b.classList.remove('selected'));
+        // Add selection to current button
+        this.classList.add('selected');
+        // Show result card
+        const choice = this.dataset.choice;
+        document.querySelectorAll('.result-card').forEach(card => {
+          card.classList.remove('show');
+        });
+        document.getElementById('result-' + choice).classList.add('show');
+        // Smooth scroll to result
+        setTimeout(() => {
+          document.getElementById('result-' + choice).scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      });
+    });
+
+    // Share functionality
+    function shareChoice(choice, text) {
+      const pageUrl = 'https://astrohsu.github.io/753/';
+      const shareText = text + '\n\n讀更多關於 AI 自主時代的思考：';
+
+      // Determine which button was clicked
+      const event = window.event;
+      const isTwitter = event.target.closest('.share-btn').innerHTML.includes('𝕏');
+
+      if (isTwitter) {
+        // Twitter/X share
+        window.open(
+          'https://twitter.com/intent/tweet?text=' +
+          encodeURIComponent(shareText) +
+          '&url=' + encodeURIComponent(pageUrl),
+          '_blank'
+        );
+      } else {
+        // Facebook share
+        window.open(
+          'https://www.facebook.com/share.php?u=' +
+          encodeURIComponent(pageUrl) +
+          '&quote=' + encodeURIComponent(shareText),
+          '_blank'
+        );
+      }
+    }
+  </script>
 </body>
 </html>

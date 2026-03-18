@@ -3,134 +3,639 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#754 卓越新聞獎 — 區塊勢</title>
-<meta name="description" content="再次提醒，還沒填寫 2025 內容滿意度問卷調查 的讀者，希望能撥出 10 分鐘給我回饋、幫助區塊勢做得更好。也感謝已經填寫的會員們幫忙！進入正題。">
-<meta property="og:title" content="卓越新聞獎">
-<meta property="og:description" content="再次提醒，還沒填寫 2025 內容滿意度問卷調查 的讀者，希望能撥出 10 分鐘給我回饋、幫助區塊勢做得更好。也感謝已經填寫的會員們幫忙！進入正題。">
-<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/f488236f-20fe-464c-847c-b54f3053b3ed_2450x1514.png">
+<title>#754 數位底片的力量 — 區塊勢</title>
+<meta name="description" content="卓越新聞獎得主用區塊鏈保存影像：數位底片的力量。伙影社運用 Numbers Protocol 建立區塊鏈驗證的影像平台，實踐馬格蘭精神的新時代。">
+<meta property="og:title" content="數位底片的力量 — 卓越新聞獎得主用區塊鏈保存影像">
+<meta property="og:description" content="伙影社運用區塊鏈打造「數位底片」，讓獨立攝影記者也能主張自己的作品權益。在 AI 時代，內容來源驗證變得比以往任何時候都重要。">
+<meta property="og:image" content="https://astrohsu.github.io/754/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://share.blocktrend.today/754/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://astrohsu.github.io/754/cover.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--border:rgba(0,0,0,0.08);
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
-
-/* Header */
-.article-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  background:linear-gradient(180deg,var(--cream),var(--warm));
-  border-bottom:1px solid var(--border);
-}
-.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
-.article-header .num{
-  font-size:0.8rem;color:var(--accent);font-weight:700;
-  letter-spacing:0.15em;margin-bottom:0.8rem;
-}
-.article-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;letter-spacing:0.03em;line-height:1.5;
-  max-width:680px;margin:0 auto;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+  --border: rgba(0,0,0,0.08);
 }
 
-/* Content */
-.article-content{
-  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
-}
-.article-content p{margin-bottom:1.5rem}
-.article-content h2{
-  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
-  margin:3rem 0 1.5rem;padding-top:1rem;
-  border-top:1px solid var(--border);letter-spacing:0.03em;
-}
-.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
-.article-content blockquote{
-  border-left:3px solid var(--accent);padding:1rem 1.5rem;
-  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);
-}
-.article-content blockquote p{margin-bottom:0.8rem}
-.article-content blockquote p:last-child{margin-bottom:0}
-.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
-.article-content a:hover{border-bottom-color:var(--accent)}
-.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
-.article-content li{margin-bottom:0.5rem}
-.article-content sup{font-size:0.7em;color:var(--accent)}
+html { scroll-behavior: smooth; font-size: 18px; }
+body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); background: var(--warm); line-height: 1.9; font-weight: 400; }
 
-/* Images */
-.article-img{margin:2rem 0;text-align:center}
-.article-img img{
-  max-width:100%;height:auto;border-radius:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--warm) 100%);
+  padding: 2rem;
+  position: relative;
+}
+.hero .logo { height: 56px; margin-bottom: 3rem; opacity: 0.8; }
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 4rem;
+  font-weight: 400;
+}
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  animation: breathe 2s infinite;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
 }
 
-/* Video */
-.video-embed{margin:2rem 0}
+/* Content Sections */
+.article-wrapper {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.section:last-of-type { border-bottom: none; }
+.part-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--terra);
+  letter-spacing: 0.15em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+.section p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+.section a { color: var(--terra); text-decoration: none; border-bottom: 1px solid rgba(192, 106, 58, 0.3); }
+.section a:hover { border-bottom-color: var(--terra); }
+.section ul { margin: 1.5rem 0 1.5rem 1.5rem; }
+.section li { margin-bottom: 0.8rem; }
+.section blockquote {
+  border-left: 3px solid var(--terra);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  background: var(--terra-light);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.section blockquote p { margin-bottom: 0.8rem; }
+.section blockquote p:last-child { margin-bottom: 0; }
 
-/* Footnotes */
-.footnote{
-  font-size:0.85rem;color:var(--text-secondary);
-  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-/* CTA */
-.cta-section{
-  text-align:center;padding:3rem 1.5rem;
-  background:var(--cream);border-top:1px solid var(--border);
+/* Quote Block */
+.quote-block {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--gold-light) 100%);
+  border-left: 4px solid var(--terra);
+  padding: 3rem 2rem;
+  margin: 4rem 0;
+  border-radius: 8px;
+  text-align: center;
 }
-.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:0.8rem 2rem;
-  background:var(--accent);color:#fff;text-decoration:none;
-  border-radius:8px;font-weight:500;font-size:0.95rem;
-  transition:transform 0.2s,box-shadow 0.2s;
+.quote-block p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
 }
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+
+/* Card Styles */
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.card h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.card p { margin-bottom: 1rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* Module Diagram */
+.module-diagram {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.module-diagram h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.modules-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.module {
+  flex: 1;
+  min-width: 120px;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid var(--border);
+}
+.module.blockchain { background: var(--blue-light); border-color: var(--blue); }
+.module.creator { background: var(--terra-light); border-color: var(--terra); }
+.module.verification { background: var(--green-light); border-color: var(--green); }
+.module.licensing { background: var(--yellow-light); border-color: var(--yellow); }
+.module-num {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.module-name { font-size: 0.85rem; font-weight: 500; }
+
+/* Interactive Section */
+.interactive-section {
+  padding: 4rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.interactive-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.interactive-desc {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 600px) {
+  .options-grid { grid-template-columns: 1fr; }
+}
+.option-btn {
+  background: #fff;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+.option-btn:hover {
+  border-color: var(--terra);
+  box-shadow: 0 4px 16px rgba(192, 106, 58, 0.15);
+  transform: translateY(-4px);
+}
+.option-btn.active {
+  background: var(--terra-light);
+  border-color: var(--terra);
+}
+.option-emoji {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+.option-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+.option-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Result Card */
+.result-card {
+  display: none;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--cream) 100%);
+  border-left: 4px solid var(--terra);
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+  animation: slideIn 0.5s ease;
+}
+.result-card.active { display: block; }
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.result-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--terra);
+}
+.result-text {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.share-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--text);
+}
+.share-btn:hover {
+  background: var(--terra);
+  color: #fff;
+  border-color: var(--terra);
+}
+.read-full {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+.read-full:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(192, 106, 58, 0.3);
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+}
+.cta-section p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(192, 106, 58, 0.35);
+}
 
 /* Footer */
-.site-footer{text-align:center;padding:2rem 1.5rem}
-.site-footer img{height:28px;opacity:0.4}
-.site-footer .back{
-  display:inline-block;margin-top:1rem;font-size:0.85rem;
-  color:var(--text-muted);text-decoration:none;
+.site-footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
 }
-.site-footer .back:hover{color:var(--text)}
+.site-footer img { height: 44px; opacity: 0.5; margin-bottom: 1rem; }
+.site-footer .back {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+.site-footer .back:hover { color: var(--text); }
 
-@media(max-width:600px){
-  .article-header{padding:3rem 1.5rem 2rem}
-  .article-content{padding:2rem 1.5rem 3rem}
-  html{font-size:16px}
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .hero { height: auto; padding: 3rem 1.5rem; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero .subtitle { font-size: 1rem; margin-bottom: 3rem; }
+  .section { padding: 2.5rem 0; }
+  .section h2 { font-size: 1.4rem; }
+  .quote-block { padding: 2rem; }
+  .quote-block p { font-size: 1.1rem; }
 }
 </style>
 </head>
 <body>
 
-<header class="article-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <div class="num">#754</div>
-  <h1>卓越新聞獎</h1>
-</header>
+<!-- Hero Section -->
+<section class="hero">
+  <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>數位底片的力量</h1>
+  <p class="subtitle">卓越新聞獎得主用區塊鏈保存影像</p>
+  <div class="scroll-hint">向下滑動 ↓</div>
+</section>
 
-<article class="article-content">
-<p>再次提醒，還沒填寫<a href="https://www.surveycake.com/s/vpeXw"> 2025 內容滿意度問卷調查</a>的讀者，希望能撥出 10 分鐘給我回饋、幫助區塊勢做得更好。也感謝已經填寫的會員們幫忙！進入正題。</p><p>最近，區塊勢正在與台灣新創 <a href="https://numbersprotocol.io/">Numbers Protocol</a> 合作，讓 AI 機器人未來也能付費取用內容。也因為這個合作，我認識了 Numbers 的另一個夥伴 —— <a href="https://www.pyroimage.com/">伙影社</a>，台灣首家區塊鏈影像敘事新聞平台。</p><h2>卓越新聞獎</h2><p>《伙影社》近期獲得卓越新聞獎的肯定，創辦人余志偉是一位資深攝影記者。根據 <a href="https://www.verse.com.tw/article/pyroimage-philosophyphotostudio">Verse</a> 的報導：</p><blockquote><p>2025 年卓越新聞獎頒獎典禮上，一個成立僅一年多的媒體平台以四項提名入圍，最終抱回系列新聞攝影獎與國際新聞獎。這個名為「伙影」的影像通訊社，並不是主流媒體的攝影部門，也不是老牌通訊社，而是台灣第一個以區塊鏈技術架構運作的獨立影像平台。創辦人余志偉，一位從事攝影記者工作超過 20 年、歷經蘋果日報、風傳媒到報導者的資深工作者，在離開穩定的主管職位後，選擇了一條更艱難的路，但顯然已經獲得豐盛的果實。</p></blockquote><p>這段敘述，讓我想起另一位屢獲文學大獎肯定的香港作家董啟章<sup>1</sup>。他們都已經在專業上取得非凡成就，也在體制內站穩腳步，卻仍選擇離開舒適圈，用既有的光環，做大膽的嘗試。令人欽佩。</p><p>余志偉創立《伙影社》之前，是台灣非營利媒體《報導者》的攝影主管。當時 Numbers 找上《報導者》討論以區塊鏈技術做內容保存和授權。計劃還沒執行完，余志偉就離職了，卻也成為後來《伙影社》和 Numbers 合作的契機。</p><p>打開《伙影社》網站，你可以先把它當成一個商業圖庫網站。內容分為影像資料庫、圖文報導授權兩個頁面。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f488236f-20fe-464c-847c-b54f3053b3ed_2450x1514.png" alt="" loading="lazy"></figure><p>最新的作品就是近期 Alex Honnold 來台赤手獨攀台北 101 時，余志偉到現場拍下的影像紀錄。點擊照片後，可以查看來源資訊，並根據用途取得商業授權。</p><p>我推薦大家選擇「創用 CC」免費取得照片與授權證書，親身體驗完整流程。購買後可以拿到照片原始檔，以及一份 PDF 格式的商業授權證書。接著就能把這張照片用在指定用途上，例如寫文章、剪影片或做簡報。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/6f87b409-01fa-4842-9465-dcc1604afd55_1758x1338.png" alt="" loading="lazy"></figure><p>從瀏覽到購買，使用者都不會碰到區塊鏈。即便沒有錢包，也能順利完成。不免讓人好奇，究竟《伙影社》把區塊鏈用在哪？</p><h2>數位底片</h2><p>這得從數位內容的授權機制說起。</p><p>以大家最熟悉的 YouTube 為例，創作者若要為影片加上背景音樂，就必須依法取得授權。否則當 YouTube 偵測到影片內容可能侵權，創作者又拿不出授權證明時，影片就無法盈利，甚至會被強制下架。</p><p>影像創作也是類似邏輯。最傳統的做法，是攝影師將照片上傳到商業圖庫，例如 Getty Images 或 Shutterstock，等於是授權圖庫代為販售、管理授權，並協助偵測侵權。萬一發生爭議，攝影師就得拿出物理證明 —— 底片 —— 佐證那是自己的作品。但現在越來越多攝影師改用手機拍照、在社群平台分享，沒有底片，又該怎麼確認誰才是原創者？</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/4bd5a31c-9df5-45f6-996d-168d2b2fc664_2752x1536.png" alt="" loading="lazy"></figure><p>實務上，法院會根據誰能提出原始檔（例如未經修圖的高解析度檔案）來判定原創者。這表示攝影師不僅得自行保存大量歷年作品，還得祈禱這些硬碟一輩子都不會故障。否則一旦發生爭議，又拿不出原始檔，恐怕會相當吃虧。</p><p>《伙影社》的最大創新之處，就是把區塊鏈當成數位相機的「底片」。多數時候，雙方在購買授權時不必追究底片在哪，也不需要理解背後的技術細節。但萬一發生爭議，攝影師就能出示區塊鏈上的註冊紀錄（例如雜湊值），佐證影像創作時間並主張權益。</p><p>這和台灣司法聯盟鏈<sup>2</sup>要解決的問題相當類似。檢調單位在查扣數位證據時，會在第一時間將資料轉成雜湊值上鏈。多數情況下，這些鏈上紀錄都只是備而不用；但當雙方在法庭上爭執數位證據是否遭到竄改，法院除了傳喚相關人員作證之外，也能參考區塊鏈上的紀錄比對差異，作為判斷依據。</p><p>兩個例子都是想藉區塊鏈建立制度保障。但如果我是攝影師，短期內恐怕不會完全把希望寄託在區塊鏈上。畢竟判例不多，法院是否願意採信鏈上證據仍是未知數。</p><p>正是因為區塊鏈在實務認定上還有高度不確定性，才讓人更好奇余志偉創立《伙影社》的初衷。原來他是想藉由新技術，改寫攝影產業的生產關係。這與高重建的<a href="https://ckxpress.com/ai-vs-blockchain/">主張</a>不謀而合：「AI 是為了提升生產效率，區塊鏈則更著眼於改善生產關係。」</p><h2>改寫生產關係</h2><p>攝影師的收入從何而來？加入媒體、將作品賣給商業圖庫，或者成為個體戶自行接案。但早在約 80 年前，就有一群攝影記者決定走出大型媒體，共同成立「<a href="https://www.magnumphotos.com/about-magnum/history/">馬格蘭通訊社</a>」：</p><blockquote><p>馬格蘭通訊社（Magnum Photos）被譽為「紀實攝影的殿堂」。在馬格蘭成立之前，攝影師多半受僱於大型雜誌，照片的版權歸媒體所有，且編輯可以隨意裁切、重組照片。馬格蘭是史上第一個由攝影師共同經營的合作社。他們堅持攝影師擁有照片的底片與版權，且編輯不得在未經許可下修改照片。這翻轉了攝影師的產業地位，從「技術雇員」變為「獨立創作者」。</p></blockquote><p>馬格蘭官網也記錄了這段歷史。1947 年，第二次世界大戰剛結束。四位戰地攝影記者有感於自己在前線出生入死，拍下大量珍貴畫面，卻無法掌控作品後續的使用方式。於是他們決定成立攝影師合作社，並定下兩條鐵律：</p><ol><li><p>底片由攝影師自行保管</p></li><li><p>照片版權歸屬攝影師，媒體僅能購買使用權</p></li></ol><p>《伙影社》在官網上公開致敬馬格蘭精神，並運用區塊鏈來實踐當年他們定下的原則。攝影師在《伙影社》上傳作品之後，會取得一份代表版權的 PDF 文件，並同時記錄在區塊鏈上。只要區塊鏈還在運作，攝影師的「數位底片」就多了一層保障。</p><p>過去人們傾向跟大型圖庫買照片，因為風險最低，比較不會買到盜版作品。相對之下，獨立攝影師比較難取信買家。區塊鏈是多一種能證明所有權的工具，即使攝影師不依附在媒體或圖庫底下，也能獨立對外授權與運作。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/10a07609-6414-42aa-ab57-db40ff7e8f79_2542x1406.png" alt="" loading="lazy"></figure><p>原本我也不解，為什麼像余志偉、董啟章這樣已經在業界取得成就的人，沒有選擇安穩地待在體制內？但或許正是因為他們都已經取得多數人一輩子難以企及的成就，才有餘裕在新技術出現時，往下一個層次追問：現有的內容生產關係，還有沒有更好的可能？</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/ep291">分散式出版可行嗎（上）：董啟章用 NFT 出書、破天荒 90% 版稅、出版業的自助新選擇</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/460">司法聯盟鏈：國家級的數位鋼印、崩壞的可能</a></p><p></p></div></div>
-</article>
+<div class="article-wrapper">
 
-<div class="cta-section">
-  <p>想閱讀完整文章？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/754">前往區塊勢閱讀全文 →</a>
+  <!-- Part 1: 卓越新聞獎 -->
+  <section class="section fade-in">
+    <span class="part-label">PART 1</span>
+    <h2>卓越新聞獎</h2>
+    <p>最近，區塊勢正在與台灣新創 <a href="https://numbersprotocol.io/">Numbers Protocol</a> 合作，讓 AI 機器人未來也能付費取用內容。也因為這個合作，我認識了 Numbers 的另一個夥伴 —— <a href="https://www.pyroimage.com/">伙影社</a>，台灣首家區塊鏈影像敘事新聞平台。</p>
+    <p>《伙影社》近期獲得卓越新聞獎的肯定，創辦人余志偉是一位資深攝影記者。他們成立僅一年多，就以四項提名入圍，最終抱回系列新聞攝影獎與國際新聞獎。這不只是一個區塊鏈項目的認可，更是對獨立影像平台未來的肯定。</p>
+    <p>余志偉的職業生涯相當精彩——曾任蘋果日報、風傳媒、報導者等重量級媒體的攝影記者與主管。而他選擇離開這些穩定的位置，創立一個新的區塊鏈影像平台。這個決定背後，隱含著一個深層的思考：在數位時代，攝影記者應該如何保護自己的作品與利益？</p>
+  </section>
+
+  <!-- Part 2: 數位底片 -->
+  <section class="section fade-in">
+    <span class="part-label">PART 2</span>
+    <h2>數位底片</h2>
+    <p>傳統攝影時代，攝影師的身份認定很簡單 —— 你有底片，就能證明那是你拍的。底片是實體存在，無法偽造，是攝影師最強有力的證明。</p>
+    <p>進入數位時代，這個問題變得複雜了。越來越多攝影師用手機拍照、在社群平台分享，沒有底片，又該怎麼確認誰才是原創者？實務上，法院會根據誰能提出原始檔（未經修圖的高解析度檔案）來判定原創者。這表示攝影師不僅得自行保存大量歷年作品，還得祈禱這些硬碟一輩子都不會故障。</p>
+    <p>《伙影社》的最大創新之處，就是把區塊鏈當成數位相機的「底片」。使用者在購買授權時多數情況不必追究底片在哪，也不需要理解背後的技術細節。但萬一發生�爭議，攝影師就能出示區塊鏈上的註冊紀錄（例如雜湊值），佐證影像創作時間並主張權益。</p>
+  </section>
+
+  <!-- Module Diagram -->
+  <div class="module-diagram fade-in">
+    <h3>伙影社的區塊鏈系統</h3>
+    <div class="modules-container">
+      <div class="module creator">
+        <div class="module-num">01</div>
+        <div class="module-name">攝影師上傳作品</div>
+      </div>
+      <div class="module blockchain">
+        <div class="module-num">02</div>
+        <div class="module-name">區塊鏈認證</div>
+      </div>
+      <div class="module verification">
+        <div class="module-num">03</div>
+        <div class="module-name">數位底片證明</div>
+      </div>
+      <div class="module licensing">
+        <div class="module-num">04</div>
+        <div class="module-name">授權與販售</div>
+      </div>
+    </div>
+    <p style="font-size: 0.9rem; color: var(--text-secondary);">即使攝影師不依附在媒體或圖庫底下，區塊鏈也能幫助他們獨立對外授權與運作。</p>
+  </div>
+
+  <!-- Quote Block -->
+  <div class="quote-block fade-in">
+    <p>區塊鏈是多一種能證明所有權的工具，讓獨立攝影師也能主張自己的權益。</p>
+  </div>
+
+  <!-- Part 3: 改寫生產關係 -->
+  <section class="section fade-in">
+    <span class="part-label">PART 3</span>
+    <h2>改寫生產關係</h2>
+    <p>攝影師的收入從何而來？加入媒體、將作品賣給商業圖庫，或者成為個體戶自行接案。但早在約 80 年前，就有一群攝影記者決定走出大型媒體。他們在 1947 年成立了「馬格蘭通訊社」。</p>
+    <p>馬格蘭官網記錄了這段歷史。當時，第二次世界大戰剛結束。四位戰地攝影記者有感於自己在前線出生入死，拍下大量珍貴畫面，卻無法掌控作品後續的使用方式。於是他們決定成立攝影師合作社，並定下兩條鐵律：</p>
+    <ul>
+      <li><strong>底片由攝影師自行保管</strong></li>
+      <li><strong>照片版權歸屬攝影師，媒體僅能購買使用權</strong></li>
+    </ul>
+    <p>這翻轉了攝影師的產業地位，從「技術雇員」變為「獨立創作者」。在馬格蘭成立之前，攝影師多半受僱於大型雜誌，照片的版權歸媒體所有，編輯可以隨意裁切、重組照片。馬格蘭改變了這一切。</p>
+    <p>《伙影社》在官網上公開致敬馬格蘭精神，並運用區塊鏈來實踐當年他們定下的原則。攝影師在《伙影社》上傳作品之後，會取得一份代表版權的 PDF 文件，並同時記錄在區塊鏈上。只要區塊鏈還在運作，攝影師的「數位底片」就多了一層保障。</p>
+  </section>
+
+  <!-- Part 4: AI 時代的挑戰 -->
+  <section class="section fade-in">
+    <span class="part-label">PART 4</span>
+    <h2>AI 時代的新挑戰</h2>
+    <p>為什麼在 2025 年，這個問題變得比以往更迫切？答案是 AI 和深偽技術。</p>
+    <p>隨著生成式 AI 的進步，越來越容易製造看起來真實的假影像。如果沒有明確的來源驗證機制，任何人都可能挪用他人的作品，甚至用 AI 生成虛假新聞照片。這對攝影記者和新聞業來說是個嚴峻的考驗。</p>
+    <p>區塊鏈在這裡的角色，不是解決 deepfake 技術本身，而是提供一個不可篡改的「初始證明」。當一張照片在區塊鏈上註冊時，就留下了「這是誰在什麼時間創作」的永久紀錄。即使有人後來用 AI 生成類似的圖像，區塊鏈上的時間戳記就能證明誰是真正的原創者。</p>
+    <p>高重建曾提過：「AI 是為了提升生產效率，區塊鏈則更著眼於改善生產關係。」伙影社正在用這個原則，解決內容創作者在 AI 時代面臨的根本問題 —— 如何在眾聲喧嘩的網路上，證明自己的作品是真實的、是自己的。</p>
+  </section>
+
+  <!-- Interactive Section -->
+  <section class="interactive-section fade-in">
+    <h3 class="interactive-title">你的觀點</h3>
+    <p class="interactive-desc">在 AI 快速發展的時代，內容來源驗證對創作者來說有多重要？</p>
+
+    <div class="options-grid">
+      <button class="option-btn" data-choice="essential">
+        <div class="option-emoji">🔐</div>
+        <div class="option-title">極其重要</div>
+        <div class="option-desc">沒有驗證機制，創作者的權益無法保障</div>
+      </button>
+      <button class="option-btn" data-choice="emerging">
+        <div class="option-emoji">🌱</div>
+        <div class="option-title">逐漸重要</div>
+        <div class="option-desc">區塊鏈等新技術會讓驗證變得更容易</div>
+      </button>
+      <button class="option-btn" data-choice="complementary">
+        <div class="option-emoji">🤝</div>
+        <div class="option-title">需要配套</div>
+        <div class="option-desc">技術只是基礎，法律制度同樣關鍵</div>
+      </button>
+      <button class="option-btn" data-choice="optimistic">
+        <div class="option-emoji">🚀</div>
+        <div class="option-title">樂觀看待</div>
+        <div class="option-desc">創意經濟會自然形成信任機制</div>
+      </button>
+    </div>
+
+    <!-- Result Cards -->
+    <div id="result-essential" class="result-card">
+      <div class="result-title">你選擇了：極其重要</div>
+      <div class="result-text">你的觀點反映了許多內容創作者的現實考量。在深偽技術日益精進的時代，如果無法證明作品的真實性和出處，創作者確實面臨巨大的風險。伙影社透過區塊鏈「數位底片」的方案，就是試圖填補這個安全漏洞。</div>
+      <div class="share-buttons">
+        <a class="share-btn" href="#" onclick="shareToTwitter('essential'); return false;">𝕏 分享</a>
+        <a class="share-btn" href="#" onclick="shareToFacebook('essential'); return false;">Facebook 分享</a>
+      </div>
+      <a class="read-full" href="https://www.blocktrend.today/p/754">閱讀完整文章 →</a>
+    </div>
+
+    <div id="result-emerging" class="result-card">
+      <div class="result-title">你選擇了：逐漸重要</div>
+      <div class="result-text">你對新技術的發展持有建設性的態度。區塊鏈、NFT、以及各種形式的數位驗證確實在逐漸改變內容產業的運作方式。伙影社的案例就展示了，隨著技術成熟和應用普及，驗證機制會變得越來越透明、易用。</div>
+      <div class="share-buttons">
+        <a class="share-btn" href="#" onclick="shareToTwitter('emerging'); return false;">𝕏 分享</a>
+        <a class="share-btn" href="#" onclick="shareToFacebook('emerging'); return false;">Facebook 分享</a>
+      </div>
+      <a class="read-full" href="https://www.blocktrend.today/p/754">閱讀完整文章 →</a>
+    </div>
+
+    <div id="result-complementary" class="result-card">
+      <div class="result-title">你選擇了：需要配套</div>
+      <div class="result-text">你的想法十分務實。確實，單靠區塊鏈技術本身不足以解決問題。我們同時需要：完善的法律框架來認可鏈上證據、媒體和讀者的數位素養教育、以及整個社會對「來源驗證」重要性的共識。伙影社所做的，正是在技術和制度之間搭建橋樑。</div>
+      <div class="share-buttons">
+        <a class="share-btn" href="#" onclick="shareToTwitter('complementary'); return false;">𝕏 分享</a>
+        <a class="share-btn" href="#" onclick="shareToFacebook('complementary'); return false;">Facebook 分享</a>
+      </div>
+      <a class="read-full" href="https://www.blocktrend.today/p/754">閱讀完整文章 →</a>
+    </div>
+
+    <div id="result-optimistic" class="result-card">
+      <div class="result-title">你選擇了：樂觀看待</div>
+      <div class="result-text">你對創意產業的自我修復能力有信心。這是個有趣的視角 —— 無論是否有區塊鏈，市場和社群終究會形成某種形式的信任機制。伙影社和馬格蘭通訊社的故事，恰好說明了這一點：好的平台和創作者的聲譽，往往就是最好的驗證。</div>
+      <div class="share-buttons">
+        <a class="share-btn" href="#" onclick="shareToTwitter('optimistic'); return false;">𝕏 分享</a>
+        <a class="share-btn" href="#" onclick="shareToFacebook('optimistic'); return false;">Facebook 分享</a>
+      </div>
+      <a class="read-full" href="https://www.blocktrend.today/p/754">閱讀完整文章 →</a>
+    </div>
+  </section>
+
 </div>
 
+<!-- CTA Section -->
+<section class="cta-section">
+  <p>想了解更多伙影社、Numbers Protocol 和內容驗證的故事？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/754">前往區塊勢閱讀完整文章 →</a>
+</section>
+
+<!-- Footer -->
 <footer class="site-footer">
   <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <br><a class="back" href="../">← 回到文章列表</a>
+  <br><a class="back" href="https://www.blocktrend.today">← 返回區塊勢</a>
 </footer>
+
+<script>
+// Intersection Observer for fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Interactive buttons
+document.querySelectorAll('.option-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Remove active class from all buttons
+    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+    // Add active class to clicked button
+    this.classList.add('active');
+
+    const choice = this.dataset.choice;
+    // Hide all result cards
+    document.querySelectorAll('.result-card').forEach(card => card.classList.remove('active'));
+    // Show selected result card
+    document.getElementById(`result-${choice}`).classList.add('active');
+
+    // Scroll to result
+    setTimeout(() => {
+      document.getElementById(`result-${choice}`).scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  });
+});
+
+// Share functions
+function shareToTwitter(choice) {
+  const choiceTexts = {
+    essential: '極其重要 — 沒有驗證機制，創作者的權益無法保障',
+    emerging: '逐漸重要 — 區塊鏈等新技術會讓驗證變得更容易',
+    complementary: '需要配套 — 技術只是基礎，法律制度同樣關鍵',
+    optimistic: '樂觀看待 — 創意經濟會自然形成信任機制'
+  };
+
+  const text = `我認為在 AI 時代，內容來源驗證對創作者來說：${choiceTexts[choice]}\n\n看伙影社如何用區塊鏈打造「數位底片」👇`;
+  const url = 'https://astrohsu.github.io/754/';
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+  window.open(twitterUrl, '_blank');
+}
+
+function shareToFacebook(choice) {
+  const choiceTexts = {
+    essential: '極其重要 — 沒有驗證機制，創作者的權益無法保障',
+    emerging: '逐漸重要 — 區塊鏈等新技術會讓驗證變得更容易',
+    complementary: '需要配套 — 技術只是基礎，法律制度同樣關鍵',
+    optimistic: '樂觀看待 — 創意經濟會自然形成信任機制'
+  };
+
+  const url = 'https://astrohsu.github.io/754/';
+  const quote = `我認為在 AI 時代，內容來源驗證對創作者來說：${choiceTexts[choice]}`;
+  const fbUrl = `https://www.facebook.com/share.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(quote)}`;
+  window.open(fbUrl, '_blank');
+}
+</script>
 
 </body>
 </html>

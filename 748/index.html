@@ -1,136 +1,776 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#748 企業 Web3 必修課：從外行到坐上談判桌 — 區塊勢</title>
-<meta name="description" content="先宣布一則重要消息：區塊勢今年的第一場實體活動正式開放報名。">
-<meta property="og:title" content="企業 Web3 必修課：從外行到坐上談判桌">
-<meta property="og:description" content="先宣布一則重要消息：區塊勢今年的第一場實體活動正式開放報名。">
-<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/c1a69158-85bb-4364-a5c2-c67d5b8863f4_1598x1342.png">
-<meta property="og:url" content="https://share.blocktrend.today/748/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--border:rgba(0,0,0,0.08);
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業 Web3 必修課：從外行到坐上談判桌 — 區塊勢</title>
+  <meta name="description" content="作者宣布新身分：Web3 企業顧問。從八年區塊勢寫作到三年顧問實戰，為企業打造從 0 到 1 的 Web3 入門課。">
+  <meta property="og:title" content="企業 Web3 必修課：從外行到坐上談判桌">
+  <meta property="og:description" content="作者宣布新身分：Web3 企業顧問。從八年區塊勢寫作到三年顧問實戰，為企業打造從 0 到 1 的 Web3 入門課。">
+  <meta property="og:image" content="https://astrohsu.github.io/748/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://astrohsu.github.io/748/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="企業 Web3 必修課：從外行到坐上談判桌">
+  <meta name="twitter:description" content="作者宣布新身分：Web3 企業顧問。從八年區塊勢寫作到三年顧問實戰，為企業打造從 0 到 1 的 Web3 入門課。">
+  <meta name="twitter:image" content="https://astrohsu.github.io/748/cover.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-/* Header */
-.article-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  background:linear-gradient(180deg,var(--cream),var(--warm));
-  border-bottom:1px solid var(--border);
-}
-.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
-.article-header .num{
-  font-size:0.8rem;color:var(--accent);font-weight:700;
-  letter-spacing:0.15em;margin-bottom:0.8rem;
-}
-.article-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;letter-spacing:0.03em;line-height:1.5;
-  max-width:680px;margin:0 auto;
-}
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --green-deep: #0D2E20;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
 
-/* Content */
-.article-content{
-  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
-}
-.article-content p{margin-bottom:1.5rem}
-.article-content h2{
-  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
-  margin:3rem 0 1.5rem;padding-top:1rem;
-  border-top:1px solid var(--border);letter-spacing:0.03em;
-}
-.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
-.article-content blockquote{
-  border-left:3px solid var(--accent);padding:1rem 1.5rem;
-  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);
-}
-.article-content blockquote p{margin-bottom:0.8rem}
-.article-content blockquote p:last-child{margin-bottom:0}
-.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
-.article-content a:hover{border-bottom-color:var(--accent)}
-.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
-.article-content li{margin-bottom:0.5rem}
-.article-content sup{font-size:0.7em;color:var(--accent)}
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px
+    }
 
-/* Images */
-.article-img{margin:2rem 0;text-align:center}
-.article-img img{
-  max-width:100%;height:auto;border-radius:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
-}
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--text);
+      background: var(--warm);
+      line-height: 1.9;
+      font-weight: 400;
+      overflow-x: hidden
+    }
 
-/* Video */
-.video-embed{margin:2rem 0}
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease
+    }
 
-/* Footnotes */
-.footnote{
-  font-size:0.85rem;color:var(--text-secondary);
-  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
-}
-.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
 
-/* CTA */
-.cta-section{
-  text-align:center;padding:3rem 1.5rem;
-  background:var(--cream);border-top:1px solid var(--border);
-}
-.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:0.8rem 2rem;
-  background:var(--accent);color:#fff;text-decoration:none;
-  border-radius:8px;font-weight:500;font-size:0.95rem;
-  transition:transform 0.2s,box-shadow 0.2s;
-}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 50%, var(--terra-light) 100%);
+    }
 
-/* Footer */
-.site-footer{text-align:center;padding:2rem 1.5rem}
-.site-footer img{height:28px;opacity:0.4}
-.site-footer .back{
-  display:inline-block;margin-top:1rem;font-size:0.85rem;
-  color:var(--text-muted);text-decoration:none;
-}
-.site-footer .back:hover{color:var(--text)}
+    .hero-logo {
+      height: 56px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
 
-@media(max-width:600px){
-  .article-header{padding:3rem 1.5rem 2rem}
-  .article-content{padding:2rem 1.5rem 3rem}
-  html{font-size:16px}
-}
-</style>
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s forwards;
+      max-width: 560px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+      max-width: 440px;
+    }
+
+    .hero .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      z-index: 1;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.5s forwards;
+    }
+
+    .hero .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--text-muted);
+      margin: 0.8rem auto 0;
+      opacity: 0.4;
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      from {
+        transform: translateY(20px)
+      }
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.2;
+        height: 40px
+      }
+
+      50% {
+        opacity: 0.6;
+        height: 50px
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto
+    }
+
+    section.wide {
+      max-width: 900px
+    }
+
+    h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    h2 .label {
+      display: block;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem
+    }
+
+    p.lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 2
+    }
+
+    .hl {
+      color: var(--terra);
+      font-weight: 500
+    }
+
+    /* Timeline diagram */
+    .timeline-wrap {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #fff;
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+    }
+
+    .timeline-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--terra);
+      letter-spacing: 0.03em;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #F0EBE5;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .timeline-year {
+      flex-shrink: 0;
+      font-weight: 700;
+      color: var(--terra);
+      min-width: 60px;
+    }
+
+    .timeline-event {
+      flex: 1;
+    }
+
+    .timeline-event-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .timeline-event-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Value stack diagram */
+    .stack-wrap {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #fff;
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+    }
+
+    .stack-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--blue);
+      letter-spacing: 0.03em;
+    }
+
+    .stack-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .stack-item {
+      padding: 1.2rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--terra);
+      background: var(--terra-light);
+    }
+
+    .stack-item.blue {
+      border-left-color: var(--blue);
+      background: var(--blue-light);
+    }
+
+    .stack-item.green {
+      border-left-color: var(--green);
+      background: var(--green-light);
+    }
+
+    .stack-item-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+
+    .stack-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Big quote */
+    .big-quote {
+      margin: 4rem 0;
+      padding: 3rem 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--terra-light), var(--cream));
+      border-radius: 10px;
+      border: 1px solid var(--terra);
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .big-quote p .hl {
+      color: var(--terra);
+    }
+
+    /* Choice section */
+    .choice-section {
+      padding: 4rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .choice-section h2 {
+      margin-bottom: 0.8rem;
+    }
+
+    .choice-sub {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    .choice-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .choice-btn {
+      padding: 1.5rem 1.2rem;
+      border-radius: 10px;
+      border: 2px solid #E8E3D8;
+      background: #fff;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .choice-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--terra);
+    }
+
+    .choice-btn.selected {
+      border-color: var(--terra);
+      background: var(--terra-light);
+    }
+
+    .choice-btn .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .choice-btn .label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .choice-btn .desc {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Result card */
+    .result-card {
+      display: none;
+      max-width: 480px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      background: var(--green-light);
+      border: 1px solid rgba(45, 107, 79, 0.15);
+    }
+
+    .result-card.show {
+      display: block;
+      animation: fadeUp 0.5s ease forwards
+    }
+
+    .result-card .r-badge {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem
+    }
+
+    .result-card .r-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .result-card .r-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem
+    }
+
+    .result-card .key-line {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      padding: 1rem 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 1rem;
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03)
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
+    }
+
+    .cta h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03)
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em
+    }
+
+    @media(max-width:700px) {
+      html {
+        font-size: 16px
+      }
+
+      section {
+        padding: 3rem 1.2rem
+      }
+
+      .hero h1 {
+        font-size: 1.8rem
+      }
+
+      .choice-options {
+        grid-template-columns: 1fr;
+      }
+
+      .big-quote p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header class="article-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <div class="num">#748</div>
-  <h1>企業 Web3 必修課：從外行到坐上談判桌</h1>
-</header>
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="hero-logo" style="height:56px">
+    <h1>企業 Web3 必修課<br>從外行到坐上談判桌</h1>
+    <p class="subtitle">八年寫作 + 三年實戰，打造企業 Web3 入門到精通的完整路線</p>
+    <div class="scroll-hint">SCROLL</div>
+  </div>
 
-<article class="article-content">
-<p>先宣布一則重要消息：區塊勢今年的第一場實體活動正式開放報名。</p><h2><a href="https://workshop.blocktrend.today/">企業 Web3 必修課：從外行到坐上談判桌</a></h2><p>我將在 3 月 6 日（五）全天，於台大集思會議中心舉辦一場僅限 25 人、專為企業打造的 Web3 一日工作坊。</p><p>課程濃縮我過去多年在銀行金控、政府單位與科技公司授課的內容，以及撰寫區塊勢的八年實戰經驗。每位參與者課後還能獲得 1.5 小時一對一需求診斷，我會以顧問角色協助你釐清問題，並一起找方向。限額 25 人是受制於時間 —— 扣掉平時研究、寫作與家庭時間，能深入陪跑的企業非常有限。</p><p>雖然這是區塊勢第一次自行舉辦工作坊，但過去七年我已經講了上百場講座，平均滿意度 4.9 / 5。課程同時包含一年份的區塊勢訂閱。希望參與者不只獲得一次性知識，而是能夠持續追蹤產業脈動，並在遇到實務問題時有人可問。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/c1a69158-85bb-4364-a5c2-c67d5b8863f4_1598x1342.png" alt="" loading="lazy"></figure><p>如果你的企業正在評估 Web3，或想替合作夥伴補充基本功，這堂課就是最佳入口。全程由我親自授課、確保品質，概念與應用一次打通。至於為什麼要開這門課？和我的新身分有關。</p><h2>我的新身分</h2><p>2025 年底，我受邀擔任台灣大哥大子公司富昇數位的外部董事。富昇數位旗下的 TWEX 交易所在去年披薩日成立，是台灣電信業跨足交易所的首例。同時，我也即將加入鏈上隱私工具 Fluidkey 擔任顧問，協助佈局台灣市場並尋找第一位在地夥伴（<a href="mailto:hi@blocktrend.today">歡迎自薦</a>）。</p><p>2026 年的市場已經悄悄轉向。過去加密貨幣大多是個人投資或興趣，企業和政府還在觀望。但去年區塊勢開放企業訂閱後，台灣大哥大與國泰金控先後加入。反映出企業已從實驗心態，轉變為真正要捲起袖子做生意。</p><p>為了維持寫作獨立性，我刻意與企業保持距離。但今年我看到台灣大哥大希望把 Web3 帶入日常生活；同時，也遇到理念高度相符的新創團隊 Fluidkey，希望紮根台灣。因此，我決定從「利益迴避」轉向公開揭露與親身參與。這讓我能協助理念相近的團隊成長，也把第一線實戰視角帶回區塊勢。</p><p>於是我開始思考：既然我原本就站在企業與政府的第一線授課，何不更進一步提供整套服務？回頭看，過去那些研究、分析和建言，反倒成為這次開課的理由 —— 與其事後寫文章提醒，不如提前介入，幫大家少走冤枉路。</p><h2>最好的時機</h2><p>最近我在看 2025 年內容滿意度問卷。有幾位讀者不約而同提到，近期散戶能參與的市場機會大幅減少，感覺加密貨幣離生活更遠了。我自己也觀察到，區塊勢在內容選題上也不像前幾年常分享能立即動手的 DeFi、NFT 工具，而是更關注企業應用與基礎建設。</p><p>機制創新雖然有趣，但真正的考驗是能不能活下來。許多產品設計得很棒，卻因市場參與者普遍追求短期回報而夭折。區塊勢訂戶增減也經常跟著市場景氣走。跨足企業服務是一次必要的軸轉（pivot）：基於原本的內容和信任，延伸出當前企業最需要的入門與陪跑。</p><p>三年前我到學校演講，學生還會問：「如何在幣圈求職？」我總是尷尬。一方面想表達支持，另一方面卻說不出除了交易所還有什麼是真實需求。如今企業陸續入場，人才缺口勢必擴大。最好的投入時機是三年前，其次就是現在：</p><ul><li><p><a href="mailto:hi@blocktrend.today">企業訂閱</a></p></li><li><p><a href="https://workshop.blocktrend.today/">報名工作坊</a></p></li><li><p><a href="mailto:hi@blocktrend.today">加入 Fluidkey</a></p></li></ul>
-</article>
+  <!-- PART 1: The workshop announcement -->
+  <section id="s1">
+    <h2 class="fade-in"><span class="label">PART 1</span>我決定從寫文章到親身陪跑</h2>
 
-<div class="cta-section">
-  <p>想閱讀完整文章？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/748">前往區塊勢閱讀全文 →</a>
-</div>
+    <p class="fade-in">2025 年底，一件事改變了我對自己角色的理解。台灣大哥大旗下的富昇數位邀請我擔任外部董事，同時我也加入鏈上隱私工具 Fluidkey 當顧問。這不只是身分的改變，而是我對區塊勢未來定位的重新思考。</p>
 
-<footer class="site-footer">
-  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <br><a class="back" href="../">← 回到文章列表</a>
-</footer>
+    <p class="fade-in">過去八年，我透過 <span class="hl">區塊勢持續寫作和分析</span>，累積了對產業的深度認知。但這幾年我發現，有些最關鍵的工作無法透過文章完成——<span class="hl">那些企業決策者的困惑、政府監管的空白、技術與商業的銜接環節</span>，文章說再多也無法解決實際問題。於是我決定走出紙上談兵，提供更直接的顧問服務。</p>
 
+    <p class="fade-in">這次宣布的 25 人工作坊，就是這個轉折的具體展現。課程濃縮了我過去在銀行金控、政府單位與科技公司的授課經驗，以及八年區塊勢的實戰洞察。每位參與者課後還能獲得 1.5 小時的一對一需求診斷——我會以顧問角色協助釐清問題、一起找方向。這不只是一堂課，而是一段陪跑的開始。</p>
+  </section>
+
+  <!-- PART 2: The market inflection point -->
+  <section id="s2">
+    <h2 class="fade-in"><span class="label">PART 2</span>2026 年，企業心態已悄悄改變</h2>
+
+    <p class="fade-in">2024 年到 2025 年發生了什麼？我看到的不只是幣價的反彈，而是 <span class="hl">企業對 Web3 的心態從「實驗」變成「生意」</span>。台灣大哥大與國泰金控先後加入區塊勢企業訂閱；同時，Stripe 收購穩定幣基礎設施公司 Bridge、Visa 推出穩定幣卡、日本三大銀行聯手發行日圓穩定幣——全球的支付和結算基礎設施正在被重新架構。</p>
+
+    <p class="fade-in">但這個轉變對許多企業決策者來說仍然很陌生。他們知道區塊鏈可能改變遊戲規則，卻不知道 <span class="hl">應該從何開始、優先順序是什麼、如何評估風險與機會</span>。這正是我看到的最大機會——也是為什麼我必須從「利益迴避」轉變為「公開揭露與親身參與」。</p>
+
+    <p class="fade-in">有趣的是，過去三年來我一直在做這件事，只是沒有公開說。現在我決定把這個角色攤在陽光下，這樣我既能幫助理念相近的團隊成長，也能把第一線的實戰視角帶回區塊勢的寫作。</p>
+  </section>
+
+  <!-- Timeline: Key moments -->
+  <section id="timeline" class="wide">
+    <div class="timeline-wrap fade-in">
+      <div class="timeline-label">📅 身份演進：從觀察者到參與者</div>
+      <div class="timeline-item">
+        <div class="timeline-year">2017</div>
+        <div class="timeline-event">
+          <div class="timeline-event-title">區塊勢創立</div>
+          <div class="timeline-event-desc">開始每週三篇深度寫作，建立獨立媒體的信任基礎</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2021–2024</div>
+        <div class="timeline-event">
+          <div class="timeline-event-title">平台授課 + 企業演講</div>
+          <div class="timeline-event-desc">上百場講座，平均滿意度 4.9/5，但都是一次性知識傳授</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2024</div>
+        <div class="timeline-event">
+          <div class="timeline-event-title">企業訂閱啟動</div>
+          <div class="timeline-event-desc">台灣大哥大、國泰金控等企業開始訂閱，反映出企業需求轉變</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-event">
+          <div class="timeline-event-title">顧問角色正式亮相</div>
+          <div class="timeline-event-desc">外部董事 + 顧問身分，從文章寫作延伸到直接陪跑</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 3: The gap in the market -->
+  <section id="s3">
+    <h2 class="fade-in"><span class="label">PART 3</span>那些文章說不出來的事</h2>
+
+    <p class="fade-in">企業和政府有個共同的困境：<span class="hl">他們知道需要 Web3，卻不知道應該怎麼做</span>。這不只是知識缺口，而是整個認知框架的重新建構。一個銀行決策者需要理解的不只是技術，還包括監管風險、客戶需求、競爭者動作，以及如何在現有系統中整合新能力。</p>
+
+    <p class="fade-in">文章擅長於解釋「是什麼」和「為什麼」，但無法回答「我應該做什麼」——這是一個必須根據企業具體狀況、資源條件、風險容度而定的問題。例如，一家中小企業的 Web3 策略和一家大型金控的策略完全不同。同樣的技術，在不同組織脈絡下有完全不同的價值。</p>
+
+    <p class="fade-in">這就是為什麼我開設工作坊、提供顧問服務。不是要教企業「區塊鏈是什麼」，而是要幫他們回答「<span class="hl">Web3 如何融入我的業務邏輯」</span>、「<span class="hl">我的優先順序應該是什麼」</span>、「<span class="hl">第一步應該從哪裡開始</span>」。</p>
+  </section>
+
+  <!-- Value stack: What's needed -->
+  <section id="value-stack">
+    <div class="stack-wrap fade-in">
+      <div class="stack-label">🎯 企業從外行到決策者需要四層能力</div>
+      <div class="stack-items">
+        <div class="stack-item terra">
+          <div class="stack-item-title">基礎認知層</div>
+          <div class="stack-item-desc">Web3 不是虛構，而是真實的商業變革。區塊鏈正在改變支付、結算、身份驗證的方式</div>
+        </div>
+        <div class="stack-item blue">
+          <div class="stack-item-title">風險評估層</div>
+          <div class="stack-item-desc">不是「要不要做」，而是「怎麼做最安全」。監管環境、技術成熟度、市場風險如何評估</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-item-title">業務整合層</div>
+          <div class="stack-item-desc">如何把 Web3 嵌入現有的商業流程。穩定幣、跨境匯款、智能合約在實務中如何運作</div>
+        </div>
+        <div class="stack-item green">
+          <div class="stack-item-title">競爭策略層</div>
+          <div class="stack-item-desc">別人在做什麼、市場的機會在哪裡、自己應該走哪條路。決策者層級的戰略思考</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 4: Why now is the best time -->
+  <section id="s4">
+    <h2 class="fade-in"><span class="label">PART 4</span>為什麼最好的時機是現在</h2>
+
+    <p class="fade-in">有句話說：最好的投入時機是三年前，其次就是現在。這對 Web3 產業發展來說特別真實。<span class="hl">企業人才缺口正在快速擴大</span>——台灣大哥大、富昇數位、Fluidkey 都在積極尋找既懂商業又懂 Web3 的人才。但目前市場上供應嚴重不足。</p>
+
+    <p class="fade-in">同時，全球的支付和金融基礎設施正在經歷模組化革命。Stripe、Visa、日本三大銀行的舉動都指向同一個方向：<span class="hl">傳統金融正在開放，而不是抵禦</span>。這意味著那些現在開始理解、實驗、建立能力的企業，將會在接下來的五年搶到先發優勢。</p>
+
+    <p class="fade-in">企業決策者、技術人員、甚至是想轉入 Web3 領域的職場人士，現在加入都還不晚。但窗口正在縮小——等到大浪來臨，就已經來不及打基礎了。這就是為什麼我決定把多年的積累，濃縮成一堂 25 人的工作坊，並承諾提供長期陪跑。</p>
+  </section>
+
+  <!-- BIG QUOTE -->
+  <div class="big-quote">
+    <p class="fade-in"><span class="hl">Web3 企業化不是選擇題，而是時間題。</span></p>
+    <p class="fade-in"
+      style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+      現在開始理解和實驗的企業，將會在接下來的市場變革中掌握主動權。</p>
+  </div>
+
+  <!-- CHOICE -->
+  <div class="choice-section" id="choice">
+    <h2 class="fade-in">你對 Web3 企業化的態度是？</h2>
+    <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+    <div class="choice-options fade-in">
+      <button class="choice-btn" onclick="choose(0)">
+        <div class="emoji">⏳</div>
+        <div>
+          <div class="label">等一等</div>
+          <div class="desc">等監管更清楚、技術更成熟，再來行動</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(1)">
+        <div class="emoji">🔍</div>
+        <div>
+          <div class="label">密切觀察</div>
+          <div class="desc">先理解現況，評估機會，再決定時機</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(2)">
+        <div class="emoji">⚡</div>
+        <div>
+          <div class="label">立即行動</div>
+          <div class="desc">現在就開始實驗，搶先建立能力和優勢</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="r-badge">你的觀點</div>
+      <div class="r-title" id="rTitle"></div>
+      <div class="r-desc" id="rDesc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>想看完整分析？</h2>
+    <p>完整文章包含作者的新身分詳解、企業訂閱計畫、全球支付基礎設施的變革案例、以及為什麼現在是企業 Web3 化的最佳時機。</p>
+    <a class="cta-btn" href="https://www.blocktrend.today/p/748" target="_blank">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw"
+        onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('企業 Web3 必修課：從外行到坐上談判桌。八年寫作 + 三年實戰，為企業打造完整的 Web3 入門到精通路線。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb"
+        onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('Web3 企業化不是選擇題，而是時間題。'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
+
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+  <script>
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Choice
+    let userChoice = -1;
+    const labels = ['等一等', '密切觀察', '立即行動'];
+    const results = [
+      { title: '你選擇了等一等——但窗口正在縮小', desc: '等監管清楚是對的，但全球的金融和支付基礎設施已經在重新架構。台灣大哥大、Stripe、Visa、日本三大銀行都已經在行動。等到窗口完全打開時，先發優勢已經被別人搶走了。這次的工作坊或許值得參加。', bg: 'var(--yellow-light)', border: '#E4D5B8' },
+      { title: '你選擇了密切觀察——理性，但容易錯過時機', desc: '評估機會是必要的，但觀察的同時，別人已經在建立能力。市場的變化通常比預期快。區塊勢的企業訂閱、工作坊，都是為了幫你快速評估——而不是讓你永遠在評估階段。', bg: 'var(--terra-light)', border: '#DBBFAD' },
+      { title: '你選擇了立即行動——抓住先發優勢', desc: '這是最稀有的決策。當大多數人還在觀望時，你已經開始學習、實驗、建立能力。三年後的市場會感謝你今天的決定。這次的工作坊，正是為了加速你的實驗迴圈。', bg: 'var(--green-light)', border: '#A8D4BC' }
+    ];
+
+    function choose(idx) {
+      if (userChoice >= 0) return;
+      userChoice = idx;
+      document.querySelectorAll('.choice-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add('selected');
+        b.style.cursor = 'default';
+      });
+      const r = results[idx];
+      const card = document.getElementById('resultCard');
+      document.getElementById('rTitle').textContent = r.title;
+      document.getElementById('rDesc').textContent = r.desc;
+      card.style.background = r.bg;
+      card.style.borderColor = r.border;
+      card.classList.add('show');
+
+      const shareText = `我對 Web3 企業化的態度是「${labels[idx]}」。\n\nWeb3 企業化不是選擇題，而是時間題。`;
+      document.getElementById('shareTw').onclick = function () {
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+      };
+      document.getElementById('shareFb').onclick = function () {
+        window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+      };
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    }
+  </script>
 </body>
+
 </html>

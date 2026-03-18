@@ -1,136 +1,746 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>#749 重新定義披薩日 — 區塊勢</title>
-<meta name="description" content="穩定幣有什麼用？上週鏈上數據分析公司 Artemis 指出 ，穩定幣 Visa 卡的市場正在大爆發，每年成長速度（CAGR）翻倍，達 106%，支付規模更已經追上錢包互轉。Visa 卡已是繼投資之後，⋯">
-<meta property="og:title" content="重新定義披薩日">
-<meta property="og:description" content="穩定幣有什麼用？上週鏈上數據分析公司 Artemis 指出 ，穩定幣 Visa 卡的市場正在大爆發，每年成長速度（CAGR）翻倍，達 106%，支付規模更已經追上錢包互轉。Visa 卡已是繼投資之後，⋯">
-<meta property="og:image" content="https://substack-post-media.s3.amazonaws.com/public/images/96507b2f-305f-4285-a404-4bbf64cf0388_1456x819.png">
-<meta property="og:url" content="https://share.blocktrend.today/749/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --warm:#FAFAF7;--cream:#F5F0EB;
-  --accent:#C06A3A;--accent-light:#F5EBE5;
-  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
-  --gold:#8B7340;--border:rgba(0,0,0,0.08);
-}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>穩定幣 Visa 卡市場翻倍！重新定義「披薩日」 | 區塊勢</title>
 
-/* Header */
-.article-header{
-  padding:4rem 1.5rem 3rem;text-align:center;
-  background:linear-gradient(180deg,var(--cream),var(--warm));
-  border-bottom:1px solid var(--border);
-}
-.article-header .logo{height:24px;opacity:0.5;margin-bottom:2rem}
-.article-header .num{
-  font-size:0.8rem;color:var(--accent);font-weight:700;
-  letter-spacing:0.15em;margin-bottom:0.8rem;
-}
-.article-header h1{
-  font-family:'Noto Serif TC',serif;font-size:clamp(1.6rem,4vw,2.4rem);
-  font-weight:700;letter-spacing:0.03em;line-height:1.5;
-  max-width:680px;margin:0 auto;
-}
+  <!-- SEO & OG Tags -->
+  <meta name="description" content="穩定幣 Visa 卡市場 106% CAGR 翻倍成長，成為第二大穩定幣使用場景。從 2010 年披薩日的 64% 溢價，到 2025 年交易磨損近乎零的 15 年里程碑。">
+  <meta property="og:title" content="穩定幣 Visa 卡市場翻倍！重新定義「披薩日」">
+  <meta property="og:description" content="穩定幣 Visa 卡市場 106% CAGR 翻倍成長。從披薩日的 64% 溢價到交易磨損近乎零，15 年的支付革命。">
+  <meta property="og:image" content="https://astrohsu.github.io/749/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://astrohsu.github.io/749/cover.png">
 
-/* Content */
-.article-content{
-  max-width:680px;margin:0 auto;padding:3rem 1.5rem 4rem;
-}
-.article-content p{margin-bottom:1.5rem}
-.article-content h2{
-  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:700;
-  margin:3rem 0 1.5rem;padding-top:1rem;
-  border-top:1px solid var(--border);letter-spacing:0.03em;
-}
-.article-content h2:first-child{border-top:none;margin-top:0;padding-top:0}
-.article-content blockquote{
-  border-left:3px solid var(--accent);padding:1rem 1.5rem;
-  margin:1.5rem 0;background:var(--accent-light);border-radius:0 8px 8px 0;
-  font-size:0.95rem;color:var(--text-secondary);
-}
-.article-content blockquote p{margin-bottom:0.8rem}
-.article-content blockquote p:last-child{margin-bottom:0}
-.article-content a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(192,106,58,0.3)}
-.article-content a:hover{border-bottom-color:var(--accent)}
-.article-content ul,.article-content ol{margin:1rem 0 1.5rem 1.5rem}
-.article-content li{margin-bottom:0.5rem}
-.article-content sup{font-size:0.7em;color:var(--accent)}
+  <style>
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
 
-/* Images */
-.article-img{margin:2rem 0;text-align:center}
-.article-img img{
-  max-width:100%;height:auto;border-radius:8px;
-  box-shadow:0 2px 12px rgba(0,0,0,0.06);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* Video */
-.video-embed{margin:2rem 0}
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
 
-/* Footnotes */
-.footnote{
-  font-size:0.85rem;color:var(--text-secondary);
-  padding:1rem 0;border-top:1px solid var(--border);margin-top:0.5rem;
-}
-.footnote-number{color:var(--accent);font-weight:700;margin-right:0.5rem}
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--warm);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
 
-/* CTA */
-.cta-section{
-  text-align:center;padding:3rem 1.5rem;
-  background:var(--cream);border-top:1px solid var(--border);
-}
-.cta-section p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem}
-.cta-btn{
-  display:inline-block;padding:0.8rem 2rem;
-  background:var(--accent);color:#fff;text-decoration:none;
-  border-radius:8px;font-weight:500;font-size:0.95rem;
-  transition:transform 0.2s,box-shadow 0.2s;
-}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(192,106,58,0.3)}
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--warm) 0%, var(--cream) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 2rem;
+      text-align: center;
+    }
 
-/* Footer */
-.site-footer{text-align:center;padding:2rem 1.5rem}
-.site-footer img{height:28px;opacity:0.4}
-.site-footer .back{
-  display:inline-block;margin-top:1rem;font-size:0.85rem;
-  color:var(--text-muted);text-decoration:none;
-}
-.site-footer .back:hover{color:var(--text)}
+    .hero-logo {
+      height: 48px;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
 
-@media(max-width:600px){
-  .article-header{padding:3rem 1.5rem 2rem}
-  .article-content{padding:2rem 1.5rem 3rem}
-  html{font-size:16px}
-}
-</style>
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: bold;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      max-width: 90%;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 85%;
+      margin-bottom: 0;
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: breathe 2s ease-in-out infinite;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    @keyframes breathe {
+      0%, 100% { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* Content Section */
+    section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .part-label {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--terra);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .highlight-block {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--terra-light) 100%);
+      border-left: 4px solid var(--terra);
+      padding: 2rem;
+      margin: 2.5rem 0;
+      border-radius: 8px;
+    }
+
+    .highlight-block p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--terra);
+    }
+
+    /* Timeline Visualization */
+    .timeline {
+      position: relative;
+      padding: 2rem 0;
+      margin: 2.5rem 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .timeline-year {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--terra);
+      min-width: 80px;
+      padding-top: 0.5rem;
+    }
+
+    .timeline-content {
+      flex: 1;
+      padding-left: 2rem;
+      border-left: 2px solid var(--terra-light);
+      padding-bottom: 1.5rem;
+    }
+
+    .timeline-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Comparison Grid */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .comparison-card {
+      background: var(--gold-light);
+      border: 1px solid #E8E3D8;
+      border-radius: 10px;
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .comparison-card:hover {
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .comparison-card h4 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      color: var(--terra);
+      margin-bottom: 1rem;
+    }
+
+    .comparison-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin: 0.5rem 0;
+    }
+
+    /* Key Data Box */
+    .data-highlight {
+      background: var(--green-light);
+      border-left: 4px solid var(--green);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+    }
+
+    .data-highlight strong {
+      color: var(--green);
+    }
+
+    /* Interactive Section */
+    .cta-section {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .choice-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+
+    .choice-button {
+      background: white;
+      border: 2px solid #E8E3D8;
+      border-radius: 10px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .choice-button:hover {
+      border-color: var(--terra);
+      box-shadow: 0 8px 16px rgba(192, 106, 58, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .choice-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .choice-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.7rem;
+    }
+
+    .choice-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Result Card */
+    .result-card {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--terra-light) 100%);
+      border-radius: 10px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      display: none;
+    }
+
+    .result-card.visible {
+      display: block;
+      animation: slideUp 0.6s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      color: var(--terra);
+      margin-bottom: 1.2rem;
+    }
+
+    .result-card p {
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: white;
+    }
+
+    .share-btn.twitter {
+      background-color: #000;
+    }
+
+    .share-btn.twitter:hover {
+      background-color: #1a1a1a;
+    }
+
+    .share-btn.facebook {
+      background-color: #1877F2;
+    }
+
+    .share-btn.facebook:hover {
+      background-color: #0a66c2;
+    }
+
+    .read-full {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: var(--terra);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .read-full:hover {
+      background-color: #a85a32;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid #E8E3D8;
+      margin-top: 4rem;
+    }
+
+    .footer-logo {
+      height: 44px;
+      opacity: 0.5;
+      display: inline-block;
+    }
+
+    /* Fade-in Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      html {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+
+      .choice-container {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      section {
+        margin: 3rem auto;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="hero-logo">
+    <h1>穩定幣 Visa 卡市場翻倍！<br>重新定義「披薩日」</h1>
+    <p class="hero-subtitle">從 2010 年的 64% 溢價，到 2025 年交易磨損近乎零</p>
+    <div class="scroll-hint">向下滑動<br>↓</div>
+  </div>
 
-<header class="article-header">
-  <a href="https://www.blocktrend.today"><img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <div class="num">#749</div>
-  <h1>重新定義披薩日</h1>
-</header>
+  <!-- PART 1: Market Explosion -->
+  <section class="fade-in">
+    <span class="part-label">PART 1</span>
+    <h2>穩定幣支付卡，市場大爆發</h2>
+    <p>
+      穩定幣究竟有什麼用？根據區塊鏈數據分析公司 Artemis 指出，穩定幣 Visa 卡的市場正在大爆發，每年成長速度（CAGR）達到 106%——也就是翻倍成長。這個成長速度，已經超越了錢包互轉，成為繼投資之後，最大宗的穩定幣使用場景。這不僅代表市場在成長，而是市場在加速擴張。
+    </p>
+    <p>
+      由 EtherFi 發行的 Visa 卡是目前全球交易量排名第一的穩定幣支付卡。用戶只要看到 Visa 標誌，就能透過 Apple Pay 感應完成付款，整套流程簡便直覺。店家根本不知道消費者付的是加密貨幣，整個交易過程對雙方都完全透明。這樣的體驗，讓用戶願意把它當作日常消費的主力卡。不限通路、金額無上限，3% 現金回饋的激勵，使得其它卡根本無法競爭。這是過去 15 年努力的果實。
+    </p>
+    <p>
+      但穩定幣支付卡會在 2025 年大爆發，背後有一個更深層的故事——一段從 2010 年的比特幣披薩日開始，長達 15 年的支付摩擦力降低之旅。這段故事重新定義了我們對「披薩日」的理解：不是在乎今天的市價值多少，而是在乎交易本身有多簡單、多便宜。每一位用戶都在延續 Laszlo 的願景，只是代價少了 64%。
+    </p>
+  </section>
 
-<article class="article-content">
-<p>穩定幣有什麼用？上週鏈上數據分析公司 Artemis <a href="https://research.artemisanalytics.com/p/stablecoin-payments-at-scale-how?r=3ey33&amp;utm_campaign=post&amp;utm_medium=web&amp;triedRedirect=true">指出</a>，穩定幣 Visa 卡的市場正在大爆發，每年成長速度（CAGR）翻倍，達 106%，支付規模更已經追上錢包互轉。Visa 卡已是繼投資之後，最大宗的穩定幣使用場景。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/96507b2f-305f-4285-a404-4bbf64cf0388_1456x819.png" alt="" loading="lazy"></figure><p>由 EtherFi 發行的 Visa 卡是目前全球交易量排名第一的穩定幣支付卡。區塊勢在 2025 年 6 月就介紹過它<sup>1</sup>，至今仍是我日常消費的首選。不限通路、金額無上限的 3% 現金回饋實在太香，其它卡根本不是對手。</p><p>上週我受邀到學生技術社群 XueDAO <a href="https://luma.com/dlcs27g6">分享</a>，他們請我介紹這款產品。我不想把活動變成產品評測，況且多數人應該都用過。反倒是很少人討論，為什麼穩定幣 Visa 卡會在 2025 年大爆發？EtherFi 又做對了什麼，才能穩居市場龍頭？故事要從 2010 年的比特幣披薩日<sup>2</sup>說起。</p><h2>重新定義披薩日</h2><p>現在人們用 EtherFi 刷卡，錢包裡放的是加密貨幣，但不必問店家有沒有錢包，只要認得 Visa 標誌，用 Apple Pay 感應就能完成付款。店家根本不知道消費者付的是加密貨幣。整套流程簡便、直覺，卻走了整整 15 年。</p><p>回到 15 年前的比特幣披薩日。Laszlo Hanyecz 用 10,000 顆 BTC 換來兩份大披薩，多數人聚焦今日市價，因為回推後會發現，每份披薩要價 4.6 億美元。Laszlo 總被取笑是買到史上最貴披薩的「盤子」。</p><p>其實跟 Laszlo 一樣把比特幣花掉的大有人在<sup>3</sup>。2010 年幣價低、流動性差，能夠用比特幣換到東西，本身就已經值得紀念，並不是什麼離譜的決定。嘲笑 Laszlo 的人多半只是事後諸葛。</p><p>但多數人恐怕忽略了，比特幣披薩日還有另一層意義：<strong>Laszlo 為了用比特幣付款，自願承擔高達 64% 的支付溢價</strong>。</p><p>根據 BitcoinTalk 論壇的留言，Laszlo 發出<a href="https://bitcointalk.org/index.php?topic=137.0">懸賞文</a>後，有網友幫他計算，10,000 顆比特幣大約值 41 美元，但兩片大披薩根本沒這麼貴。網友好心勸說，把比特幣換成美元再去買披薩比較划算，沒想到 Laszlo 「執迷不悟」，仍堅持用比特幣付款。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/b09deda1-dfa9-4dc6-be3c-0957b88d0e46_2398x1228.png" alt="" loading="lazy"></figure><p>最後接單的網友 Jercos 也證實，訂購這兩份大披薩的刷卡金額只有 25 美元。換言之，Jercos 在交易完成當下就已經套利 16 美元。</p><p>64% 的溢價，是 15 年前人類初次以加密貨幣買東西的開端。從支付視角來看，接下來的每一次進展都要讓這 64% 的磨損降得更低，交易完成時間也要縮得更短。</p><h2>15 年里程碑</h2><p>當初 Laszlo 等了整整 4 天，才終於盼到 Jercos 出面替他刷卡買披薩。為什麼這麼難？因為 Jercos 必須承擔極高的不確定性。說穿了就是三大問題：價格不透明、沒人願意收、基礎建設不足。</p><h3>價格不透明</h3><p>2010 年 5 月，多數人還在靠論壇貼文買賣比特幣。</p><p>有人賣 1,000 顆、有人賣 300 顆，報價各不相同。即便網友宣稱 10,000 顆比特幣「市值約 41 美元」，也可能只是從零星成交推算出來的結果，市場上沒有透明價格可以參考。</p><p>兩個月後，全球第一家中心化交易所 Mt.Gox 成立。當人們都在同一個地方買賣比特幣，流動性集中，才逐漸形成統一且透明的市場價格。從那一刻起，大家總算知道「一顆比特幣大概值多少錢」。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/14253efa-7cc3-46e9-bf2b-315fbad3b7c0_1187x755.png" alt="" loading="lazy"></figure><p>如果 Laszlo 在這時才發文，相信他就不必苦等 4 天。但即便價格透明，用比特幣買披薩依然困難。Laszlo 還得找到那位願意收比特幣的「勇者」。</p><h3>沒人願意收</h3><p>多數人不像 Laszlo 這麼豁達，願意承擔 64% 的溢價。對店家來說，比特幣變現不易、價格波動又大，缺乏接受誘因。</p><p>直到 2013 年，才陸續有幾家電商平台開始嘗試開放比特幣支付。Overstock、WordPress、Newegg 都曾表示願意收 BTC。「有人願意收幣」這件事，終於不用靠巧合。</p><p>即便如此，一開始的支付體驗相當原始。消費者付款後，要等 10 分鐘才能完成交易。商家除了要承擔幣價波動，還得自己想辦法把比特幣變現。</p><p>有需求就有商機。支付處理商 BitPay 率先跳出來，替商家收比特幣。消費者用幣結帳後，商家可以即時收到法幣，幣價波動風險由平台吸收。這才讓更多企業敢把「接受比特幣」寫進結帳頁面。</p><p>但實際用比特幣付款的人仍然很少。因為價格波動風險最終還是被包進匯率與手續費，轉嫁給消費者。人們用比特幣結帳，通常會買貴。接受加密貨幣付款的店家也還是零零散散。</p><p>直到 2019 年 Crypto.com 推出 CRO Visa 卡，才打破僵局。從此人們只要看到 Visa 標誌，就能刷卡消費。它雖然解決了通路問題，使用者卻得把資產留在交易所。卡片只是交易所帳戶的延伸。</p><p>2022 年 FTX 倒閉，大家才意識到，這類支付卡的最大風險，來自中心化託管本身。</p><h3>基礎建設不足</h3><p>其實在 2018 年時，有人試圖走另一條路。</p><p>Monolith 推出的 Visa 卡就主打直接從個人錢包扣款，不必把錢放在交易所<sup>4</sup>。它更接近加密貨幣最初的理想。</p><p>無奈當年基礎建設相當陽春，每秒只能處理 15 筆交易，鏈上經常塞車。尤其在 2020 年前後，以太坊主網單筆 gas fee 動輒 15 美元以上，完全撐不起日常消費需求。Monolith 最終關閉。</p><p>2025 年，以太坊完成多次升級，Layer 2 手續費大幅下降。與此同時，智慧合約錢包逐漸成熟，更整合 Passkey 等現代登入方式。技術拼圖才終於到位。</p><h2>拼圖到位</h2><p>EtherFi 發行的 Visa 卡之所以有代表性，因為它是第一款把這些拼圖湊起來，兜成一套台灣人真的可以拿來日常消費的產品。</p><figure class="article-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/1a240f50-570d-436a-b7a0-81a362801d82_2326x1176.png" alt="" loading="lazy"></figure><p>許多人辦這張卡不是因為嚐鮮，而是它真的能成為日常消費的主力。只要感應一下，交易就完成。反倒曾經被其它 web3 產品荼毒過的使用者，會擔心是不是要創建錢包、弄丟私鑰怎麼辦，刷卡結帳難道不用錢包簽名嗎？</p><p>說起來確實奇怪。加密貨幣究竟是怎麼透過 Visa，變成商家帳戶裡的法幣？為什麼刷卡消費都不用經過錢包簽名，這樣還安全嗎？為什麼鏈上轉帳不必支付 gas fee，會不會交易根本沒上鏈？每個疑問背後都是一門專業，但多數人連家裡水龍頭打開為什麼有水都未必弄得清楚。有興趣的人可以回頭翻區塊勢仔細研究，或者乾脆就接受事實、先用了再說。</p><p>這是 15 年前，Laszlo 付出 64% 溢價買披薩時難以想像的場景。加密貨幣竟然可以直接藏在既有的支付工具裡，讓雙方都用自己的錢完成交易，而且交易磨損近乎是零。但這就是終點了嗎？兩年前 Vitalik 在一場活動中提出兩個數字<sup>5</sup>：2015、2029。他希望在 2029 年之前，讓以太坊回到 2015 年的單純，卻又同時具備 2029 年的運作效率、使用體驗。</p><p>現在用加密貨幣消費不僅沒有溢價、不必查詢商家清單，也不用把錢寄放在交易所。穩定幣 Visa 卡市場能在 2025 年翻倍成長，最大關鍵是加密貨幣的支付摩擦力已經降到某個臨界點，才終於讓市場自然爆發。</p><div class="footnote"><a id="footnote-1" href="#footnote-anchor-1" class="footnote-number" contenteditable="false" target="_self">1</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/696">全通路 4% 消費回饋！Ether.fi Cash：全球首張直接從錢包扣款的加密支付卡</a></p></div></div><div class="footnote"><a id="footnote-2" href="#footnote-anchor-2" class="footnote-number" contenteditable="false" target="_self">2</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/531">比特幣披薩日：GPU 挖礦之父、如何成為 BTC 富翁</a></p></div></div><div class="footnote"><a id="footnote-3" href="#footnote-anchor-3" class="footnote-number" contenteditable="false" target="_self">3</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/691">比特幣披薩日：花掉，才是真正留下來</a></p></div></div><div class="footnote"><a id="footnote-4" href="#footnote-anchor-4" class="footnote-number" contenteditable="false" target="_self">4</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/635">從 Monolith 到 OurSong：中心化與去中心化的抉擇</a></p></div></div><div class="footnote"><a id="footnote-5" href="#footnote-anchor-5" class="footnote-number" contenteditable="false" target="_self">5</a><div class="footnote-content"><p><a href="https://www.blocktrend.today/p/634">以太坊 2029 升級之路：西瓜卡、內建跨鏈橋、半智慧錢包</a></p><p></p></div></div>
-</article>
+  <!-- Highlight Block -->
+  <div class="highlight-block fade-in">
+    <p>加密貨幣竟然可以直接藏在既有的支付工具裡，讓雙方都用自己的錢完成交易，而且交易磨損近乎是零。</p>
+  </div>
 
-<div class="cta-section">
-  <p>想閱讀完整文章？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/749">前往區塊勢閱讀全文 →</a>
-</div>
+  <!-- PART 2: Pizza Day Story -->
+  <section class="fade-in">
+    <span class="part-label">PART 2</span>
+    <h2>重新定義披薩日</h2>
+    <p>
+      2010 年 5 月 22 日，一個暱稱為 Laszlo Hanyecz 的比特幣早期使用者，決定用 10,000 顆 BTC 換來兩份大披薩。多數人聚焦今日市價，計算出每份披薩要價 4.6 億美元，把 Laszlo 取笑成買到史上最貴披薩的「盤子」。但這個故事其實有另一層意義，一層被忽視的深度：Laszlo 為了用比特幣付款，自願承擔高達 64% 的支付溢價。這個數字反映了當時支付生態的成本。
+    </p>
+    <p>
+      根據 BitcoinTalk 論壇的留言，Laszlo 發出懸賞文後，有網友幫他計算，10,000 顆比特幣大約值 41 美元，但兩片大披薩根本沒這麼貴。網友好心勸說，把比特幣換成美元再去買披薩比較划算。沒想到 Laszlo 仍堅持用比特幣付款，這是一個信念的選擇。最後接單的網友 Jercos 也證實，訂購這兩份大披薩的刷卡金額只有 25 美元。換言之，Jercos 在交易完成當下就已經套利 16 美元。這筆利差，就是支付摩擦力的代價。
+    </p>
+    <p>
+      64% 的溢價，是 15 年前人類初次以加密貨幣買東西的開端。從支付視角來看，接下來的每一次進展都要讓這 64% 的磨損降得更低，交易完成時間也要縮得更短。Laszlo 為了付出這個溢價，付出了什麼代價？為什麼 Jercos 願意收比特幣而不是美元？背後是三大支付難題：價格不透明、沒人願意收、基礎建設不足。這三道關卡，構成了整個 15 年的演進軌跡。
+    </p>
+  </section>
 
-<footer class="site-footer">
-  <a href="https://www.blocktrend.today"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></a>
-  <br><a class="back" href="../">← 回到文章列表</a>
-</footer>
+  <!-- Timeline Section -->
+  <section class="fade-in">
+    <span class="part-label">PART 3</span>
+    <h2>15 年里程碑</h2>
 
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">2010</div>
+        <div class="timeline-content">
+          <div class="timeline-title">披薩日：價格不透明的時代</div>
+          <div class="timeline-desc">
+            多數人還在靠論壇貼文買賣比特幣。有人賣 1,000 顆、有人賣 300 顆，報價各不相同。市場上沒有透明價格可以參考。Laszlo 等了整整 4 天，才終於盼到 Jercos 出面替他刷卡買披薩。正因為市場不透明，買家和賣家之間的資訊不對稱，Laszlo 的溢價高達 64%。這是第一道難關。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2010 年 7 月</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Mt.Gox 成立：市場統一，價格透明</div>
+          <div class="timeline-desc">
+            全球第一家中心化交易所 Mt.Gox 上線。當人們都在同一個地方買賣比特幣，流動性集中，才逐漸形成統一且透明的市場價格。大家總算知道「一顆比特幣大概值多少錢」。價格透明讓交易者能夠更快速地決策，減少了等待時間。這解決了第一個難題。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2013</div>
+        <div class="timeline-content">
+          <div class="timeline-title">電商接受比特幣：有人願意收</div>
+          <div class="timeline-desc">
+            Overstock、WordPress、Newegg 等電商平台陸續開放比特幣支付。「有人願意收幣」這件事，終於不用靠巧合和論壇懸賞。但支付體驗相當原始：消費者付款後要等 10 分鐘才能完成交易。商家得自己想辦法把比特幣變現，風險承擔沉重。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2013 年後</div>
+        <div class="timeline-content">
+          <div class="timeline-title">BitPay 支付處理：風險由平台吸收</div>
+          <div class="timeline-desc">
+            BitPay 出現，替商家收比特幣。消費者用幣結帳後，商家可以即時收到法幣，幣價波動風險由平台吸收。更多企業敢把「接受比特幣」寫進結帳頁面。但幣價波動風險最終還是被包進匯率與手續費，轉嫁給消費者。磨損力仍然存在。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2019</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Crypto.com CRO Visa 卡：打破通路困局</div>
+          <div class="timeline-desc">
+            Crypto.com 推出 CRO Visa 卡，終於打破僵局。從此人們只要看到 Visa 標誌，就能刷卡消費。通路問題解決了。但這類支付卡的致命缺陷是：使用者得把資產留在交易所。卡片只是交易所帳戶的延伸。中心化託管帶來新的風險。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2018-2020</div>
+        <div class="timeline-content">
+          <div class="timeline-title">Monolith 的失敗：基礎建設瓶頸</div>
+          <div class="timeline-desc">
+            Monolith 推出 Visa 卡，主打直接從個人錢包扣款，不必把錢放在交易所。更接近加密貨幣最初的理想。但當年基礎建設相當陽春，以太坊主網單筆 gas fee 動輒 15 美元以上，完全撐不起日常消費需求。每一筆交易都會被 gas fee 吞掉可觀的成本。Monolith 最終關閉，成為時代還未準備好的預兆。
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">2025</div>
+        <div class="timeline-content">
+          <div class="timeline-title">拼圖到位：EtherFi 的成功</div>
+          <div class="timeline-desc">
+            以太坊完成多次升級，Layer 2 手續費大幅下降到美分級。智慧合約錢包逐漸成熟，整合 Passkey 等現代登入方式。EtherFi 發行的 Visa 卡是第一款把所有拼圖湊起來的產品，兜成一套台灣人真的可以拿來日常消費的方案。支付磨損近乎零，所有條件終於全部就位。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Block -->
+  <section class="fade-in">
+    <span class="part-label">PART 4</span>
+    <h2>從溢價到零磨損</h2>
+    <p>
+      從 Laszlo 到今天的 EtherFi 用戶，支付路徑完全不同。Laszlo 為了付出 64% 的溢價，經歷了價格不透明、沒人願意收、基礎建設不足三大難題。每一道難題的解決，都推動了加密貨幣支付向前邁進一小步。而現在，所有拼圖都已經到位。
+    </p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h4>2010 年披薩日</h4>
+        <p><strong>支付方式：</strong>論壇懸賞，等待 4 天</p>
+        <p><strong>溢價：</strong>64%（從 41 美元到 67 美元）</p>
+        <p><strong>商家風險：</strong>非常高，完全不知道幣會值多少</p>
+        <p><strong>交易時間：</strong>4 天</p>
+        <p><strong>用戶體驗：</strong>複雜、不直覺、充滿風險</p>
+      </div>
+
+      <div class="comparison-card">
+        <h4>2025 年 EtherFi Visa 卡</h4>
+        <p><strong>支付方式：</strong>Visa 感應刷卡，秒速完成</p>
+        <p><strong>溢價：</strong>近乎零（還有 3% 現金回饋）</p>
+        <p><strong>商家風險：</strong>幾乎沒有，即時收到法幣</p>
+        <p><strong>交易時間：</strong>秒速完成</p>
+        <p><strong>用戶體驗：</strong>簡單、直覺、安全無憂</p>
+      </div>
+    </div>
+
+    <div class="data-highlight fade-in">
+      <p>
+        <strong>穩定幣 Visa 卡市場成長速度：106% CAGR</strong><br>
+        已成為繼投資之後，最大宗的穩定幣使用場景。不只是增長，而是翻倍增長。這反映了支付磨損力已經降到臨界點，市場即將爆發。
+      </p>
+    </div>
+  </section>
+
+  <!-- PART 5: How It Works -->
+  <section class="fade-in">
+    <span class="part-label">PART 5</span>
+    <h2>拼圖到位</h2>
+    <p>
+      EtherFi 發行的 Visa 卡之所以有代表性，因為它是第一款把所有拼圖湊起來，兜成一套台灣人真的可以拿來日常消費的產品。許多人辦這張卡不是因為嚐鮮，而是它真的能成為日常消費的主力。只要感應一下，交易就完成。反倒曾經被其它 web3 產品荼毒過的使用者，會擔心是不是要創建錢包、弄丟私鑰怎麼辦，刷卡結帳難道不用錢包簽名嗎？
+    </p>
+    <p>
+      加密貨幣究竟是怎麼透過 Visa，變成商家帳戶裡的法幣？為什麼刷卡消費都不用經過錢包簽名？為什麼鏈上轉帳不必支付 gas fee？這些背後都是一門專業。但多數人連家裡水龍頭打開為什麼有水都未必弄得清楚。有興趣的人可以回頭翻區塊勢仔細研究，或者乾脆就接受事實、先用了再說。這就是好產品的定義。
+    </p>
+    <p>
+      這是 15 年前，Laszlo 付出 64% 溢價買披薩時難以想像的場景。加密貨幣竟然可以直接藏在既有的支付工具裡，讓雙方都用自己的錢完成交易，而且交易磨損近乎是零。Vitalik 曾在活動中提出一個願景：在 2029 年之前，讓以太坊回到 2015 年的單純，卻又同時具備 2029 年的運作效率、使用體驗。現在用加密貨幣消費已經達到這個目標：沒有溢價、不必查詢商家清單，也不用把錢寄放在交易所。穩定幣 Visa 卡市場能在 2025 年翻倍成長，最大關鍵就是支付摩擦力已經降到某個臨界點，市場自然爆發。拼圖已經完成。
+    </p>
+  </section>
+
+  <!-- Interactive Section -->
+  <section class="cta-section fade-in">
+    <h2>你最看好哪個未來？</h2>
+    <p style="font-size: 1.05rem; margin-bottom: 2rem;">
+      穩定幣 Visa 卡的大爆發，反映了加密貨幣支付摩擦力的下降。但這只是開始，還有更多可能性——
+    </p>
+
+    <div class="choice-container">
+      <button class="choice-button" onclick="showResult(1)">
+        <div class="choice-icon">💳</div>
+        <div class="choice-title">主流化時代</div>
+        <div class="choice-desc">穩定幣卡會成為主流支付工具，完全取代傳統信用卡</div>
+      </button>
+
+      <button class="choice-button" onclick="showResult(2)">
+        <div class="choice-icon">⚔️</div>
+        <div class="choice-title">競爭激烈</div>
+        <div class="choice-desc">更多發行商入場，競爭加劇，用戶享受更好的回饋與體驗</div>
+      </button>
+
+      <button class="choice-button" onclick="showResult(3)">
+        <div class="choice-icon">🏦</div>
+        <div class="choice-title">銀行對抗</div>
+        <div class="choice-desc">傳統銀行與支付網路將強力回應，爭奪這片市場</div>
+      </button>
+    </div>
+
+    <!-- Result Cards -->
+    <div id="result1" class="result-card">
+      <h3>💳 主流化時代</h3>
+      <p>
+        穩定幣卡完全取代傳統信用卡，是許多人的夢想。但現實中，各國監管態度不一，傳統支付網路也不會坐以待斃。真正的未來可能不是「取代」，而是「共存」——不同的用戶、不同的場景，各有各的最優選擇。就像 Apple Pay 沒有消滅實體信用卡一樣。
+      </p>
+      <div class="share-buttons">
+        <button class="share-btn twitter" onclick="shareOnTwitter('我看好穩定幣 Visa 卡的主流化時代。加密貨幣支付已經降低到臨界點，用戶體驗終於不輸傳統信用卡。從披薩日的 64% 溢價到零磨損，15 年的等待終於開花結果。', 'https://astrohsu.github.io/749/')">
+          𝕏 分享
+        </button>
+        <button class="share-btn facebook" onclick="shareOnFacebook('我看好穩定幣 Visa 卡的主流化時代', 'https://astrohsu.github.io/749/')">
+          Facebook 分享
+        </button>
+      </div>
+      <a href="https://www.blocktrend.today/p/749" class="read-full" target="_blank">閱讀完整文章 →</a>
+    </div>
+
+    <div id="result2" class="result-card">
+      <h3>⚔️ 競爭激烈</h3>
+      <p>
+        穩定幣卡市場正在爆發，106% CAGR 必然吸引更多玩家進場。EtherFi 目前領先，但 Stripe、PayPal、Visa 本身都可能推出自有產品。競爭最終造福使用者：更好的回饋率、更多的場景整合、更低的門檻。這可能是最現實的未來。市場會變得更熱鬧。
+      </p>
+      <div class="share-buttons">
+        <button class="share-btn twitter" onclick="shareOnTwitter('我看好穩定幣支付卡市場會迎來激烈競爭。106% CAGR 的市場必然吸引更多玩家，使用者將享受更好的回饋與體驗。EtherFi 只是序曲。', 'https://astrohsu.github.io/749/')">
+          𝕏 分享
+        </button>
+        <button class="share-btn facebook" onclick="shareOnFacebook('我看好穩定幣支付卡市場會迎來激烈競爭', 'https://astrohsu.github.io/749/')">
+          Facebook 分享
+        </button>
+      </div>
+      <a href="https://www.blocktrend.today/p/749" class="read-full" target="_blank">閱讀完整文章 →</a>
+    </div>
+
+    <div id="result3" class="result-card">
+      <h3>🏦 銀行對抗</h3>
+      <p>
+        傳統銀行與 Visa、Mastercard 不會就此乖乖退場。他們坐擁龐大的用戶基礎和法規優勢，可能會推出自己的數位穩定幣方案。真實競爭未必是加密 vs. 傳統，而是新舊力量的融合與碰撞。未來的支付生態會更複雜，也更有趣。
+      </p>
+      <div class="share-buttons">
+        <button class="share-btn twitter" onclick="shareOnTwitter('我看好傳統銀行與支付網路的強力回應。Visa、Mastercard、銀行都在佈局數位支付，未來競爭必然激烈。這不是加密 vs 傳統，而是融合。', 'https://astrohsu.github.io/749/')">
+          𝕏 分享
+        </button>
+        <button class="share-btn facebook" onclick="shareOnFacebook('我看好傳統銀行與支付網路的強力回應', 'https://astrohsu.github.io/749/')">
+          Facebook 分享
+        </button>
+      </div>
+      <a href="https://www.blocktrend.today/p/749" class="read-full" target="_blank">閱讀完整文章 →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="footer-logo">
+    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+      區塊勢 | <a href="https://www.blocktrend.today/p/749" style="color: var(--terra); text-decoration: none;">閱讀完整分析</a>
+    </p>
+  </footer>
+
+  <script>
+    // Fade-in Animation on Scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Result Card Display
+    function showResult(num) {
+      document.querySelectorAll('.result-card').forEach(card => {
+        card.classList.remove('visible');
+      });
+      document.getElementById('result' + num).classList.add('visible');
+
+      // Scroll to result
+      document.getElementById('result' + num).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Share Functions
+    function shareOnTwitter(text, url) {
+      window.open('https://twitter.com/intent/tweet?text=' +
+        encodeURIComponent(text + '\n\n') +
+        '&url=' + encodeURIComponent(url), '_blank');
+    }
+
+    function shareOnFacebook(text, url) {
+      window.open('https://www.facebook.com/share.php?u=' +
+        encodeURIComponent(url) +
+        '&quote=' + encodeURIComponent(text), '_blank');
+    }
+  </script>
 </body>
 </html>
