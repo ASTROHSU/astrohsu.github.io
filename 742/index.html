@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>盈透證券開放穩定幣入金！潘朵拉的盒子打開了 — 區塊勢</title>
+<meta name="description" content="Interactive Brokers 開放穩定幣入金，改變了海外股票投資的遊戲規則。這是一個回不去的期待。">
+<meta property="og:title" content="盈透證券開放穩定幣入金！潘朵拉的盒子打開了">
+<meta property="og:description" content="當人們習慣了幣圈水準的金流速度，傳統金融還跟得上嗎？">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#1E90FF;--terra-light:#E6F2FF;
+  --green:#27A94A;--green-light:#E8F5E9;--green-deep:#0D5A2B;
+  --purple:#7B68EE;--purple-light:#F0E6FF;
+  --text:#1A1A1A;--text-secondary:#555555;--text-muted:#999999;
+  --gold:#D4A844;--gold-light:#FFF8E7;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#E6F2FF 0%,var(--warm) 40%,#E8F5E9 60%,#1A4A35 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(13,46,32,0.3));pointer-events:none;
+}
+
+/* SVG Money Bridge Animation */
+.hero-bridge{
+  width:200px;height:140px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:bridgeReveal 1.5s ease 0.3s forwards;
+}
+
+@keyframes bridgeReveal{to{opacity:1}}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(39,169,74,0.08);color:var(--green)}
+.big-question .option:nth-child(3){background:rgba(123,104,238,0.08);color:var(--purple)}
+
+/* Data visualization - cost comparison */
+.cost-comparison{
+  display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:3rem 0;
+}
+.cost-card{padding:2rem;border-radius:16px;border:1px solid #E8E3D8}
+.cost-card.bank{background:var(--terra-light)}
+.cost-card.stablecoin{background:var(--green-light)}
+.cost-card h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1.5rem}
+.cost-card .metric{margin-bottom:1.2rem}
+.metric-label{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:0.3rem}
+.metric-value{font-size:1.8rem;font-weight:700;color:var(--green)}
+.cost-card.bank .metric-value{color:var(--terra)}
+.metric-detail{font-size:0.75rem;color:var(--text-secondary);margin-top:0.3rem}
+
+/* Value flow chart */
+.flow-container{
+  margin:3rem 0;padding:2rem;background:#fff;border-radius:16px;border:1px solid #E8E3D8;
+}
+.flow-row{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid #EEE}
+.flow-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.flow-icon{
+  width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;flex-shrink:0;
+}
+.flow-icon.crypto{background:var(--purple-light);color:var(--purple)}
+.flow-icon.broker{background:var(--terra-light);color:var(--terra)}
+.flow-icon.trader{background:var(--green-light);color:var(--green)}
+.flow-text h4{font-weight:500;font-size:0.95rem;margin-bottom:0.2rem}
+.flow-text p{font-size:0.8rem;color:var(--text-secondary);margin:0}
+.flow-arrow{flex:0 0 40px;text-align:center;color:var(--text-muted);font-size:1.2rem}
+
+/* Two perspectives */
+.perspectives{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.perspective-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.perspective-card:hover{transform:translateY(-3px)}
+.perspective-card.concern{background:var(--terra-light);border-color:#C0D4FF}
+.perspective-card.opportunity{background:var(--green-light);border-color:#A8D4BC}
+.perspective-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.perspective-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.perspective-card.concern .tag{background:#C0D4FF;color:#1E5FFF}
+.perspective-card.opportunity .tag{background:#A8D4BC;color:#2D6B4F}
+.perspective-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
+.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--green)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(30,144,255,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Stat boxes */
+.stat-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;
+}
+.stat-box{
+  padding:1.5rem;border-radius:12px;background:var(--green-light);border:1px solid #A8D4BC;
+  text-align:center;
+}
+.stat-number{font-size:2rem;font-weight:700;color:var(--green);margin-bottom:0.3rem}
+.stat-label{font-size:0.75rem;color:var(--text-secondary);letter-spacing:0.05em}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .cost-comparison,.perspectives,.stat-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <svg class="hero-bridge" viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left side: Traditional bank -->
+    <circle cx="30" cy="80" r="20" fill="#1E90FF" opacity="0.8"/>
+    <text x="30" y="130" font-size="12" text-anchor="middle" fill="#1E90FF" font-weight="bold">銀行</text>
+
+    <!-- Right side: Crypto -->
+    <circle cx="170" cy="80" r="20" fill="#27A94A" opacity="0.8"/>
+    <text x="170" y="130" text-anchor="middle" font-size="12" fill="#27A94A" font-weight="bold">加密</text>
+
+    <!-- Bridge -->
+    <path d="M 50 80 Q 100 30 150 80" stroke="#7B68EE" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Money symbols flowing -->
+    <g opacity="0.6">
+      <text x="65" y="65" font-size="16" fill="#7B68EE">💰</text>
+      <text x="100" y="45" font-size="16" fill="#7B68EE">💵</text>
+      <text x="135" y="65" font-size="16" fill="#7B68EE">💱</text>
+    </g>
+  </svg>
+
+  <h1>潘朵拉的盒子打開了</h1>
+  <p class="subtitle">盈透證券開放穩定幣入金，改變了什麼？</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">穩定幣入金對海外投資者意味著什麼？</h2>
+  <div class="options fade-in">
+    <span class="option">投資流程的革命</span>
+    <span class="option">資金出逃的開始</span>
+    <span class="option">金融系統的未來</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">從盈透證券宣布支援 USDC、Tether、Circle 入金的那刻起，<br>一個回不去的期待就此誕生。</p>
+</div>
+
+<!-- CURRENT PAIN -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>傳統入金的痛點</h2>
+
+  <p class="fade-in">想要投資美股，目前的方式很原始：透過銀行電匯將台幣換成美元，然後等 3-5 天讓錢進入券商帳戶。期間不只要支付 $25+ 的電匯手續費，還要忍受漫長的等待，經常導致錯過最佳投資時機。</p>
+
+  <p class="fade-in">但市場其實早就告訴我們答案。有調查報告顯示：</p>
+
+  <div class="stat-grid fade-in">
+    <div class="stat-box">
+      <div class="stat-number">62%</div>
+      <div class="stat-label">投資人使用多家券商</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">45%</div>
+      <div class="stat-label">每年更換券商</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">38%</div>
+      <div class="stat-label">滿意當前入金體驗</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">83%</div>
+      <div class="stat-label">希望穩定幣入金選項</div>
+    </div>
+  </div>
+
+  <p class="fade-in">人們早就被迫分散在多家券商，不是出於忠誠，而是被既有流程逼著這樣做。只要誰先推出更便捷的選項，潘朵拉的盒子就會打開。</p>
+
+  <blockquote class="fade-in">
+    「只要大家發現穩定幣跨境匯款可以這麼便宜、有效率，很快就會回頭要求其他券商也要支援。」
+  </blockquote>
+</section>
+
+<!-- WHAT'S CHANGING -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>盈透證券的宣言</h2>
+
+  <p class="fade-in">盈透證券 CEO 在高盛會議上親口宣布：今年就會引入穩定幣，年底前接受來自 Tether、Ripple、PayPal 和 Circle 的穩定幣。投資者可以用穩定幣入金、出金與存款。</p>
+
+  <p class="fade-in">這聽起來很理想，但現實卻更複雜。盈透開放穩定幣入金，卻採用 0.3% 的手續費——對一筆 $1,000 的入金來說，就要掏出 $3。這讓很多人質疑，為什麼穩定幣本來應該更便宜，卻反而變成「智商稅」？</p>
+
+  <p class="fade-in">關鍵在於<strong>價值創造</strong>。Stripe 對店家降低手續費從 2.9% 到 1.5%，店家原本就要付費，所以願意買單。但盈透證券的入金原本免費，Firstrade 甚至還補貼手續費。現在盈透卻把成本轉嫁用戶，這是一個錯誤的步子。</p>
+
+  <div class="flow-container fade-in">
+    <h3 style="margin-bottom:1.5rem;font-size:1rem">穩定幣入金流程</h3>
+    <div class="flow-row">
+      <div class="flow-icon crypto">🪙</div>
+      <div class="flow-text">
+        <h4>用戶持有穩定幣（USDC）</h4>
+        <p>在錢包或交易所內</p>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-row">
+      <div class="flow-icon broker">🏦</div>
+      <div class="flow-text">
+        <h4>透過 zerohash 中介</h4>
+        <p>第三方金流服務商接收資金</p>
+      </div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-row">
+      <div class="flow-icon trader">📊</div>
+      <div class="flow-text">
+        <h4>即時出現在盈透帳戶</h4>
+        <p>秒級到帳，全年無休</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">這個流程確實改變了遊戲規則。即時到帳、全天候交易、跨境無縫對接——這些都是傳統銀行無法提供的體驗。</p>
+</section>
+
+<!-- THE TENSION -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>兩個相反的擔憂</h2>
+
+  <div class="perspectives fade-in">
+    <div class="perspective-card concern">
+      <span class="tag">擔憂</span>
+      <h3>資金外流的開始</h3>
+      <p class="detail">有人認為，穩定幣入金會加速幣圈資金流向美股，連 RWA（代幣化股票）都要關門大吉。理由是券商才是「真正的」股票交易，鏈上代幣化股票參與率低、流動性差。</p>
+    </div>
+    <div class="perspective-card opportunity">
+      <span class="tag">機會</span>
+      <h3>金融系統的重新定義</h3>
+      <p class="detail">這反而是新陳代謝。當人們習慣了幣圈水準的金流速度，傳統金融系統必然會升級。SEC 主席已經公開表示，美國金融市場將在未來幾年內上鏈。</p>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">穩定幣入金不是讓資金離開幣圈，而是讓幣圈的金流體驗進入華爾街。</p>
+</section>
+
+<!-- CLOSING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">當人們已經習慣了「當天入金、全天交易」的體驗，就回不去了。盈透的 0.3% 手續費只是起點，一旦其他券商跟進，價格競爭會讓這個數字迅速下降。最終，穩定幣入金會成為標配，成為投資者選擇券商的基本要求。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">潘朵拉的盒子已經打開了，傳統金融再也回不到從前。</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">讀完了，你的投資風格是？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你是哪一類投資人。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">對你來說，入金最重要的是什麼？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">速度和成本越低越好</button>
+        <button class="q-btn" data-camp="pragmatist">速度和安全都要兼顧</button>
+        <button class="q-btn" data-camp="traditionalist">穩定性和監管合規最優先</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">穩定幣入金的未來，你的看法是？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">會迅速成為市場標配，手續費會競爭到最低</button>
+        <button class="q-btn" data-camp="pragmatist">是趨勢，但需要時間讓監管和體驗成熟</button>
+        <button class="q-btn" data-camp="traditionalist">銀行電匯才是最可靠的選擇</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">幣圈資金流向美股，你的態度是？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="efficiency">很好啊，資金流動性越高越有效率</button>
+        <button class="q-btn" data-camp="pragmatist">利弊參半，關鍵是市場怎麼調整</button>
+        <button class="q-btn" data-camp="traditionalist">擔憂幣圈會衰落，應該守住自己的陣地</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的投資人檔案</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想深入了解穩定幣如何改變投資體驗？</h2>
+  <p>完整文章裡有 Interactive Brokers 的詳細分析、全球券商調查數據，以及金融科技未來的思考。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/742" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('盈透證券開放穩定幣入金！潘朵拉的盒子打開了。當人們習慣了幣圈水準的金流速度，傳統金融還跟得上嗎？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/742/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/742/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/742/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz — one question at a time, auto-advance
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  efficiency: {
+    emoji: '⚡', name: '效率投資者',
+    desc: '你崇尚速度和成本效益。穩定幣入金正好滿足你的需求——當天入金、無縫對接、全天交易。你相信市場會快速競爭，最後手續費會被壓到最低。',
+    bg: 'var(--terra-light)', color: 'var(--terra)',
+    share: '我是「效率投資者」⚡ 穩定幣入金、當天到帳、全年無休——這就是我要的。傳統金融該進化了。你呢？'
+  },
+  pragmatist: {
+    emoji: '⚖️', name: '穩健跨界者',
+    desc: '你看到穩定幣的機會，但也理解監管和技術成熟還需要時間。你會選擇多家券商搭配，既享受創新便利，也保持謹慎。',
+    bg: 'var(--purple-light)', color: 'var(--purple)',
+    share: '我是「穩健跨界者」⚖️ 穩定幣是未來，但現在還要多家券商搭配才心安。新舊並行，才是聰明的投資人。你呢？'
+  },
+  traditionalist: {
+    emoji: '🏛️', name: '保守守護者',
+    desc: '你信賴傳統的、經過時間考驗的方式。銀行電匯雖然慢，但歷史悠久、監管清晰。你對新興金融工具保持謹慎態度。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    share: '我是「保守守護者」🏛️ 銀行電匯慢但穩定，監管明確。新技術再好，我也要等它經過時間考驗才會用。你呢？'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/742/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { efficiency: 0, pragmatist: 0, traditionalist: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>

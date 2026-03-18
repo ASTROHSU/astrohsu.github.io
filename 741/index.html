@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 駭客來了！智慧合約的義和團時刻 — 區塊勢</title>
+<meta name="description" content="Anthropic 的研究證實 AI 代理人能自主發動攻擊。平均攻擊成本只要 $1.22。這是從「冷兵器」到「熱兵器」的轉變。">
+<meta property="og:title" content="AI 駭客來了！智慧合約的義和團時刻">
+<meta property="og:description" content="攻擊成本 $1.22，防守方怎麼辦？">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#4E4788;--purple-light:#EEEDF8;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#8B7340;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#3a1a1a 0%,#5c2e2e 40%,#8b4545 60%,#a85858 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,0.2));pointer-events:none;
+}
+
+/* Shield SVG element */
+.hero-shield{
+  width:160px;height:160px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:shieldReveal 1.5s ease 0.3s forwards;
+}
+@keyframes shieldReveal{to{opacity:1}}
+
+/* Shield SVG */
+.hero-shield svg{width:100%;height:100%;filter:drop-shadow(0 8px 16px rgba(0,0,0,0.2))}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:#fff;position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:rgba(255,255,255,0.85);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:rgba(255,255,255,0.6);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:rgba(255,255,255,0.6);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),#f0e6d8);
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(192,106,58,0.12);color:var(--terra)}
+.big-question .option:nth-child(even){background:rgba(78,71,136,0.12);color:var(--purple)}
+
+/* Data grid */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.compare-side{padding:2rem}
+.compare-side.attack{background:var(--terra-light)}
+.compare-side.defense{background:var(--green-light)}
+.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem}
+.compare-side .year{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.3rem}
+.data-box{margin:1rem 0;padding:1rem;background:rgba(255,255,255,0.5);border-radius:8px}
+.data-box .label{font-size:0.8rem;color:var(--text-secondary);font-weight:500}
+.data-box .value{font-size:1.4rem;font-weight:700;color:var(--text);margin-top:0.3rem}
+.data-box .unit{font-size:0.75rem;color:var(--text-muted)}
+
+/* Stat cards */
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0}
+.stat-card{
+  padding:1.5rem;border-radius:12px;border:1px solid #E8E3D8;
+  background:rgba(255,255,255,0.5);text-align:center;
+}
+.stat-card .stat-num{font-size:2rem;font-weight:700;color:var(--terra);margin-bottom:0.3rem}
+.stat-card .stat-label{font-size:0.85rem;color:var(--text-secondary);line-height:1.6}
+
+/* Timeline visual */
+.timeline-visual{
+  display:flex;gap:1rem;align-items:center;margin:2rem 0;
+  padding:1.5rem;background:linear-gradient(90deg,#fee 0%,#fde 50%,#fce 100%);
+  border-radius:12px;
+}
+.timeline-visual .dot{width:12px;height:12px;border-radius:50%;background:var(--terra);flex-shrink:0}
+.timeline-visual .timeline-label{flex:1;font-size:0.85rem;color:var(--text-secondary)}
+.timeline-visual .timeline-value{font-weight:600;color:var(--text)}
+
+/* Two paths */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.path-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.path-card:hover{transform:translateY(-3px)}
+.path-card.human{background:var(--green-light);border-color:#A8D4BC}
+.path-card.ai{background:var(--terra-light);border-color:#DBBFAD}
+.path-card.reform{background:var(--purple-light);border-color:#D4CBDF}
+.path-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.path-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.path-card.human .tag{background:#A8D4BC;color:#0D2E20}
+.path-card.ai .tag{background:#DBBFAD;color:#8B5A3C}
+.path-card.reform .tag{background:#D4CBDF;color:#4E4788}
+.path-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.path-card .risk{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);
+}
+.path-card .risk strong{color:var(--text);font-weight:600}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--green-light)}
+.q-btn.selected{border-color:var(--text);background:var(--green-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--green)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(192,106,58,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .compare-grid,.paths,.stat-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-shield">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <!-- Broken shield with crack -->
+      <defs>
+        <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#e8d4c8;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#c9a892;stop-opacity:1" />
+        </linearGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <!-- Shield outline -->
+      <path d="M 100 20 L 160 60 L 160 120 Q 100 160 100 160 Q 100 160 40 120 L 40 60 Z"
+            fill="url(#shieldGrad)" stroke="#d4a574" stroke-width="3" filter="url(#glow)"/>
+      <!-- Crack going through center -->
+      <path d="M 100 50 Q 95 85 100 130"
+            stroke="#a85858" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+      <!-- Smaller cracks branching off -->
+      <path d="M 100 80 L 130 95"
+            stroke="#a85858" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <path d="M 100 100 L 75 115"
+            stroke="#a85858" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+      <!-- Sword piercing through -->
+      <g transform="translate(100, 90) rotate(-30)">
+        <rect x="-3" y="-50" width="6" height="60" fill="#c9a892" stroke="#8b7340" stroke-width="1"/>
+        <polygon points="0,-50 -6,-40 6,-40" fill="#c9a892" stroke="#8b7340" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+  <h1>AI 駭客來了！</h1>
+  <p class="subtitle">智慧合約的義和團時刻</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">AI 進場後，智慧合約怎麼守？</h2>
+  <div class="options fade-in">
+    <span class="option">人類最後防線</span>
+    <span class="option">AI 對抗 AI</span>
+    <span class="option">重新設計架構</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">Anthropic 的報告證實：AI 駭客能自主發動攻擊，成本低到令人震驚。防守方該怎麼辦？</p>
+</div>
+
+<!-- HACKER PROBLEM -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>冷兵器 vs 熱兵器</h2>
+
+  <p class="fade-in">100 年前，義和團用拳法對抗列強槍砲。他們相信通過強身健體就能刀槍不入，結果被打得潰不成軍。</p>
+
+  <p class="fade-in">AI 代理人正在成為數位戰場的「熱兵器」。</p>
+
+  <p class="fade-in">過去駭客發動攻擊成本極高——要分析程式碼、推理狀態變化、擬定策略，還要選擇最佳時機。整個過程耗時費力，難以帶來大規模殺傷。</p>
+
+  <p class="fade-in" style="font-weight:500;color:var(--terra)">Anthropic 上週公開的報告改變了一切。</p>
+
+  <p class="fade-in">研究團隊訓練出能自主行動的 AI 駭客。它們可以 24 小時不間斷運作，同時執行多輪分析，失敗後自動修正策略，持續迭代直到成功。</p>
+</section>
+
+<!-- STATISTICS -->
+<section class="wide">
+  <div class="compare-grid fade-in">
+    <div class="compare-side attack">
+      <div class="year">405 個已知漏洞</div>
+      <h3>舊靶場測試</h3>
+      <div class="data-box">
+        <div class="label">測試環境</div>
+        <div class="value">$4.6M</div>
+        <div class="unit">竊取金額（模擬）</div>
+      </div>
+      <div class="data-box">
+        <div class="label">60 分鐘內</div>
+        <div class="value">19</div>
+        <div class="unit">個漏洞被挖出</div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:1rem 0 0;font-style:italic">「AI 駭客可能已知道這些案例」</p>
+    </div>
+    <div class="compare-side defense">
+      <div class="year">2,849 個新合約</div>
+      <h3>真實環境測試</h3>
+      <div class="data-box">
+        <div class="label">零日漏洞</div>
+        <div class="value">2</div>
+        <div class="unit">全新發現的漏洞</div>
+      </div>
+      <div class="data-box">
+        <div class="label">獲利</div>
+        <div class="value">$3,694</div>
+        <div class="unit">vs 成本 $3,476</div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin:1rem 0 0;font-style:italic">「平均每份合約只要 $1.22 就能發動攻擊」</p>
+    </div>
+  </div>
+  <p class="highlight fade-in">攻擊成本從「高且難以預測」降至「1.22 美元」。這就是「熱兵器時代」的開始。</p>
+</section>
+
+<!-- STAT CARDS -->
+<section class="wide">
+  <div class="stat-grid fade-in">
+    <div class="stat-card">
+      <div class="stat-num">$4.6M</div>
+      <div class="stat-label">模擬環境中<br>被竊取的測試資金</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$1.22</div>
+      <div class="stat-label">平均每份合約<br>的攻擊成本</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">19</div>
+      <div class="stat-label">60 分鐘內<br>挖出的已知漏洞</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2</div>
+      <div class="stat-label">發現的<br>零日漏洞</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVOLUTION -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>AI 模型越新，威力越大</h2>
+
+  <p class="fade-in">更可怕的是，AI 駭客還在進化。研究人員以不同世代的語言模型發動攻擊，發現了一個明確的趨勢：</p>
+
+  <p class="fade-in" style="font-weight:500;">模型越新，殺傷力就越大。</p>
+
+  <div class="timeline-visual fade-in">
+    <div class="dot"></div>
+    <div class="timeline-label">早期模型 (Opus 4)</div>
+    <div class="timeline-value">數千美元</div>
+  </div>
+
+  <div class="timeline-visual fade-in" style="background:linear-gradient(90deg,#fdd 0%,#fcc 100%);">
+    <div class="dot" style="background:#a85858"></div>
+    <div class="timeline-label">最新模型 (Opus 4.5)</div>
+    <div class="timeline-value">超過百萬美元</div>
+  </div>
+
+  <p class="fade-in">隨著 AI 持續進步，AI 駭客的攻擊效率會加速提升。防守方的傳統方法已經跟不上了。</p>
+
+  <blockquote class="fade-in">
+    資安和國防一樣，都是建立不對稱戰力。只要「預期收益 &gt; 攻擊成本」，駭客就會蠢蠢欲動。AI 進一步降低攻擊門檻，勢必會讓資安問題惡化。
+  </blockquote>
+</section>
+
+<!-- DEFENSE STRATEGIES -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>三種防禦思路</h2>
+
+  <p class="fade-in">面對 AI 駭客的威脅，安全專家開始重新思考防禦策略。但共識尚未形成——目前有三種截然不同的立場。</p>
+
+  <div class="paths fade-in">
+    <div class="path-card human">
+      <span class="tag">策略 A</span>
+      <h3>人性防線派</h3>
+      <p class="detail">把人重新拉回安全機制中。人做最後判斷，就多一層保障，能控制損害規模。</p>
+      <div class="risk"><strong>風險：</strong>人會犯錯、會被收買，還會拖慢效率。智慧合約本來是要消除人為因素。</div>
+    </div>
+    <div class="path-card ai">
+      <span class="tag">策略 B</span>
+      <h3>機器盾牌派</h3>
+      <p class="detail">與其相信人類英雄會及時現身，不如用 AI 協同防禦。在執行層加入偵測異常的隔離機制，讓攻擊變得不划算。</p>
+      <div class="risk"><strong>風險：</strong>Zircuit 的排序器安全機制（Sequencer Level Security）能牽制駭客，但也可能引入新的中心化風險。</div>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">沒有完美答案，只有各自的代價。防禦武器必須跟著進化，才能找回新的安全平衡。</p>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">義和團的結局告訴我們：赤手空拳碰上槍砲彈藥，注定會被打得落花流水。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">未來是 AI 對抗 AI 的時代。智慧合約社群得選擇：是堅持原教旨的「人類最後防線」，還是務實地擁抱 AI 防禦？抉擇很難，但無法迴避。</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">讀完了，你選哪一派？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你最接近哪一種防禦思想。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">AI 駭客成本已降至 $1.22，傳統防禦方法還夠嗎？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="human">足夠。只要加強人類審查就能控制</button>
+        <button class="q-btn" data-camp="ai">不夠。得用 AI 防禦工具來對抗</button>
+        <button class="q-btn" data-camp="reform">根本問題。需要重新設計智慧合約架構</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">「Code is law」——程式碼沒禁止就是可以。在 AI 攻擊下，這個原則還適用嗎？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="human">適用。但要有人類把關最後一道關卡</button>
+        <button class="q-btn" data-camp="ai">需要修正。加入動態防禦層來應對新威脅</button>
+        <button class="q-btn" data-camp="reform">不適用。需要根本性的制度改革</button>
+      </div>
+    </div>
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">防禦 AI 駭客，最重要的是什麼？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="human">保留人的判斷力，控制風險</button>
+        <button class="q-btn" data-camp="ai">用更強大的 AI 來抵擋 AI</button>
+        <button class="q-btn" data-camp="reform">根本改變遊戲規則和系統設計</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">AI 駭客時代的防禦立場</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>AI 駭客已經來了。</h2>
+  <p>完整文章深入分析 Anthropic 報告、義和團類比、三種防禦策略的代價，以及為什麼 AI 對抗 AI 可能是唯一出路。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/741" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 駭客來了！Anthropic 證實 AI 代理人能自主發動攻擊，平均成本只要 $1.22。防守方該選人類防線、AI 防禦、還是重新設計系統？\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/741/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/741/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/741/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz — one question at a time, auto-advance
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  human: {
+    emoji: '🛡️', name: '人性防線派',
+    desc: '你認為人類判斷是安全的最後防線。即使 AI 威力驚人，也不能完全拋棄人的把關。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    share: '我是「人性防線派」🛡️ AI 再強也要留人做最後判斷。安全不能完全自動化。你呢？'
+  },
+  ai: {
+    emoji: '⚔️', name: '機器盾牌派',
+    desc: '你相信用 AI 來防禦 AI 是最務實的路。Zircuit 的動態防禦層代表著未來方向。',
+    bg: 'var(--terra-light)', color: 'var(--terra)',
+    share: '我是「機器盾牌派」⚔️ AI 對抗 AI，用智慧防禦才能趕上威脅的速度。你呢？'
+  },
+  reform: {
+    emoji: '🔄', name: '制度改革派',
+    desc: '你認為問題根源在於系統設計本身。智慧合約需要根本性的架構改革才能適應新時代。',
+    bg: 'var(--purple-light)', color: 'var(--purple)',
+    share: '我是「制度改革派」🔄 冷兵器時代的規則已經過時。智慧合約需要根本改革。你呢？'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/741/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { human: 0, ai: 0, reform: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>

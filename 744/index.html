@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025 年終回顧：幣圈已死，工具萌芽 — 區塊勢</title>
+<meta name="description" content="幣圈界線正在消失，以另一種方式潛入日常。從「做舊事物更好」到「創造全新事物」，區塊鏈正在萌芽。">
+<meta property="og:title" content="2025 年終回顧：幣圈已死，工具萌芽">
+<meta property="og:description" content="什麼時候，工具才會長成新的土壤？">
+<meta property="og:image" content="cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F5F0E8;--sunset:#C77546;--sunset-light:#F5EADF;
+  --dusk:#6B5B7A;--dusk-light:#F2EEF9;--deep-purple:#2D1B3D;
+  --green:#3D7A5C;--green-light:#E6F2EC;--text:#2C2A25;--text-secondary:#6B6860;
+  --text-muted:#9E9A90;--gold:#8B7340;--gold-light:#F9F3E6;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.lang-toggle{
+  position:fixed;top:1.5rem;right:1.5rem;z-index:999;
+  padding:0.5rem 1rem;border-radius:2rem;background:#fff;
+  border:1px solid #E8E3D8;cursor:pointer;font-size:0.75rem;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.1em;font-weight:500;
+  transition:transform 0.2s;
+}
+.lang-toggle:hover{transform:scale(1.05)}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#F5EAE0 0%,#E8DFD3 30%,#D4BFB8 60%,#8B6F7A 100%);
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3) 0%,transparent 50%);
+  pointer-events:none;
+}
+
+.hero-visual{
+  width:200px;height:200px;position:relative;margin-bottom:2rem;
+  opacity:0;animation:heroAppear 1.5s ease 0.3s forwards;
+}
+@keyframes heroAppear{to{opacity:1}}
+
+.seed{position:absolute;width:20px;height:30px}
+.seed-1{left:40px;bottom:20px;animation:sprout 1.8s ease-out 0.8s forwards}
+.seed-2{left:80px;bottom:10px;animation:sprout 1.8s ease-out 1s forwards}
+.seed-3{right:40px;bottom:15px;animation:sprout 1.8s ease-out 1.2s forwards}
+.seed-1 svg,.seed-2 svg,.seed-3 svg{width:100%;height:100%}
+
+@keyframes sprout{
+  0%{transform:translateY(20px);opacity:0}
+  50%{opacity:1}
+  100%{transform:translateY(-60px);opacity:1}
+}
+
+.soil{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:180px;height:40px;background:#8B7340;border-radius:50%;opacity:0.2;filter:blur(8px)}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Big Question Section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--sunset-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .intro{color:var(--text-secondary);font-size:0.95rem;margin-bottom:2rem;line-height:1.8}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin:1.5rem 0;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  background:rgba(107,91,122,0.08);color:var(--dusk);
+  cursor:default;letter-spacing:0.05em;font-weight:400;
+}
+.big-question .closer{color:var(--text-muted);font-size:0.9rem;margin-top:1.5rem;font-style:italic}
+
+/* Death & Sprout Grid */
+.death-sprout{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.ds-side{padding:2.5rem 2rem;text-align:center}
+.ds-side.death{background:var(--sunset-light)}
+.ds-side.sprout{background:var(--dusk-light)}
+.ds-side h3{font-family:'Noto Serif TC',serif;font-size:1.3rem;margin-bottom:1.5rem;font-weight:700}
+.ds-side .emoji{font-size:2.5rem;margin-bottom:0.8rem}
+.ds-side .death h3{color:var(--sunset)}
+.ds-side .sprout h3{color:var(--dusk)}
+.ds-side ul{list-style:none;text-align:left;font-size:0.9rem;line-height:1.8;color:var(--text-secondary)}
+.ds-side li{margin-bottom:0.6rem;padding-left:1.5rem;position:relative}
+.ds-side li::before{content:'•';position:absolute;left:0;color:var(--text-muted)}
+
+/* Journey Visual */
+.journey-visual{
+  display:flex;gap:1.5rem;align-items:center;margin:2.5rem 0;justify-content:space-between;
+  padding:2rem;background:rgba(250,250,247,0.5);border-radius:12px;border:1px solid #E8E3D8;
+}
+.journey-stage{flex:1;text-align:center;padding:1rem}
+.journey-stage .year{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.5rem}
+.journey-stage .title{font-weight:500;color:var(--text);margin-bottom:0.5rem}
+.journey-stage .desc{font-size:0.8rem;color:var(--text-secondary);line-height:1.6}
+.journey-arrow{font-size:1.5rem;color:var(--text-muted);opacity:0.3;flex-shrink:0}
+
+/* Two Paths Card */
+.two-paths{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.path-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.path-card:hover{transform:translateY(-3px)}
+.path-card.path-a{background:var(--sunset-light);border-color:#E8C4AC}
+.path-card.path-b{background:var(--dusk-light);border-color:#C7B9D9}
+.path-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem;font-weight:700;
+}
+.path-card.path-a h3{color:var(--sunset)}
+.path-card.path-b h3{color:var(--dusk)}
+.path-card .desc{font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1.2rem}
+.path-card .risk{
+  font-size:0.8rem;padding:1rem;border-radius:8px;background:rgba(0,0,0,0.03);
+  color:var(--text-secondary);line-height:1.7;
+}
+.path-card .risk strong{color:var(--text);font-weight:500}
+
+/* Dixon Framework */
+.dixon-box{
+  padding:2rem;border-radius:12px;background:var(--gold-light);
+  border:1px solid #E4D5B8;margin:2rem 0;text-align:center;
+}
+.dixon-box .label{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.8rem;display:block}
+.dixon-box blockquote{
+  border:none;background:none;padding:0;margin:0;font-size:1.1rem;
+  color:var(--gold);font-weight:500;line-height:1.8;font-style:italic;
+}
+.dixon-box .analogy{font-size:0.9rem;color:var(--text-secondary);margin-top:1.5rem;line-height:1.7}
+
+/* Quest Box */
+.quest{
+  padding:2rem;border-radius:12px;background:#FFF;border:2px solid var(--gold);
+  margin:2rem 0;text-align:center;
+}
+.quest .q-title{font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem}
+.quest .q-text{font-size:0.95rem;color:var(--text-secondary);line-height:1.8}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7;color:var(--text)}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--dusk-light)}
+.q-btn.selected{border-color:var(--text);background:var(--dusk-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--dusk)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+.result-card.type-a{background:var(--sunset-light);border:1px solid #E8C4AC}
+.result-card.type-a .r-name{color:var(--sunset)}
+.result-card.type-b{background:var(--dusk-light);border:1px solid #C7B9D9}
+.result-card.type-b .r-name{color:var(--dusk)}
+.result-card.type-c{background:var(--green-light);border:1px solid #A8D4BC}
+.result-card.type-c .r-name{color:var(--green)}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--sunset);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(199,117,70,0.04);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+blockquote cite{display:block;margin-top:0.8rem;font-size:0.8rem;font-style:normal;color:var(--text-muted)}
+
+/* Highlight */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+footer a{text-decoration:none}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  .lang-toggle{top:1rem;right:1rem}
+  section{padding:3rem 1.2rem}
+  .death-sprout,.two-paths,.journey-visual{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+  .journey-arrow{transform:rotate(90deg)}
+}
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" id="langBtn">English</button>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-visual">
+    <div class="soil"></div>
+    <div class="seed seed-1">
+      <svg viewBox="0 0 20 30" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="10" cy="22" rx="3" ry="4" fill="#8B7340" opacity="0.4"/>
+        <path d="M10 10 Q8 6 9 2 Q10 4 11 2 Q12 6 10 10" fill="#3D7A5C" stroke="#2D6B4F" stroke-width="0.5"/>
+        <ellipse cx="7" cy="8" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+        <ellipse cx="13" cy="7" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+      </svg>
+    </div>
+    <div class="seed seed-2">
+      <svg viewBox="0 0 20 30" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="10" cy="22" rx="3" ry="4" fill="#8B7340" opacity="0.4"/>
+        <path d="M10 10 Q8 6 9 2 Q10 4 11 2 Q12 6 10 10" fill="#3D7A5C" stroke="#2D6B4F" stroke-width="0.5"/>
+        <ellipse cx="7" cy="8" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+        <ellipse cx="13" cy="7" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+      </svg>
+    </div>
+    <div class="seed seed-3">
+      <svg viewBox="0 0 20 30" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="10" cy="22" rx="3" ry="4" fill="#8B7340" opacity="0.4"/>
+        <path d="M10 10 Q8 6 9 2 Q10 4 11 2 Q12 6 10 10" fill="#3D7A5C" stroke="#2D6B4F" stroke-width="0.5"/>
+        <ellipse cx="7" cy="8" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+        <ellipse cx="13" cy="7" rx="2" ry="3" fill="#4AA07A" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+  <h1><span class="zh">2025 年終回顧</span><span class="en" style="display:none">2025 Year-End Review</span></h1>
+  <p class="subtitle"><span class="zh">幣圈已死，工具萌芽</span><span class="en" style="display:none">Crypto is Dead, Tools Are Sprouting</span></p>
+  <div class="scroll-hint"><span class="zh">滑動查看</span><span class="en" style="display:none">SCROLL</span></div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in"><span class="zh">幣圈，究竟發生了什麼？</span><span class="en" style="display:none">What Happened to Crypto?</span></h2>
+  <p class="intro fade-in"><span class="zh">2025 年幣價再創新高、監管大幅鬆綁，但期待已久的「大場面」卻沒來。反而有人說「幣圈已死」，有人看到「工具萌芽」。</span><span class="en" style="display:none">In 2025, crypto hit new heights and regulation loosened. Yet the expected "big moment" never arrived. Some say "crypto is dead," while others see "tools sprouting."</span></p>
+  <div class="options fade-in">
+    <span class="option"><span class="zh">穩定幣爆發</span><span class="en" style="display:none">Stablecoin Explosion</span></span>
+    <span class="option"><span class="zh">企業採用</span><span class="en" style="display:none">Enterprise Adoption</span></span>
+    <span class="option"><span class="zh">散戶焦慮</span><span class="en" style="display:none">Retail Anxiety</span></span>
+    <span class="option"><span class="zh">模式探索</span><span class="en" style="display:none">Business Model Search</span></span>
+  </div>
+  <p class="closer fade-in"><span class="zh">你站在哪一邊？</span><span class="en" style="display:none">Which side are you on?</span></p>
+</div>
+
+<!-- PART 1: 兩種視角 -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span><span class="zh">兩種視角</span><span class="en" style="display:none">TWO PERSPECTIVES</span></h2>
+
+  <p class="fade-in"><span class="zh">同樣的 2025 年，不同的人感受完全相反。</span><span class="en" style="display:none">The same year of 2025 felt completely different to different people.</span></p>
+
+  <div class="death-sprout fade-in">
+    <div class="ds-side death">
+      <div class="emoji">💀</div>
+      <h3><span class="zh">「幣圈已死」</span><span class="en" style="display:none">Crypto is Dead</span></h3>
+      <ul>
+        <li><span class="zh">熱門賽道全軍覆沒</span><span class="en" style="display:none">Popular sectors failed</span></li>
+        <li><span class="zh">散戶人、錢都沒進來</span><span class="en" style="display:none">No retail adoption</span></li>
+        <li><span class="zh">期待的「大場面」未出現</span><span class="en" style="display:none">No "big moment"</span></li>
+        <li><span class="zh">代幣經濟失效</span><span class="en" style="display:none">Token economics failed</span></li>
+      </ul>
+    </div>
+    <div class="ds-side sprout">
+      <div class="emoji">🌱</div>
+      <h3><span class="zh">「工具萌芽」</span><span class="en" style="display:none">Tools Are Sprouting</span></h3>
+      <ul>
+        <li><span class="zh">Visa、Stripe 整合區塊鏈</span><span class="en" style="display:none">Visa, Stripe adopt blockchain</span></li>
+        <li><span class="zh">銀行開始用穩定幣結算</span><span class="en" style="display:none">Banks use stablecoins</span></li>
+        <li><span class="zh">技術問題逐漸解決</span><span class="en" style="display:none">Tech problems solved</span></li>
+        <li><span class="zh">成為基礎建設的一部分</span><span class="en" style="display:none">Becomes infrastructure</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="highlight fade-in"><span class="zh">同樣的數據，卻能看出兩個不同的未來。一邊是衰亡，一邊是蛻變。</span><span class="en" style="display:none">Same data, two different futures. One side sees death, the other sees transformation.</span></p>
+</section>
+
+<!-- PART 2: 界線消失 -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span><span class="zh">界線正在消失</span><span class="en" style="display:none">BOUNDARIES ARE DISAPPEARING</span></h2>
+
+  <p class="fade-in"><span class="zh">過去幾年，穩定幣發行商一直依附於以太坊。但 2025 年情況改變了。Circle、Tether、Stripe 等重量級選手紛紛自建區塊鏈，不再仰賴任何公鏈。</span><span class="en" style="display:none">For years, stablecoin issuers depended on Ethereum. But in 2025, major players like Circle, Tether, and Stripe built their own blockchains, abandoning public chains.</span></p>
+
+  <div class="journey-visual fade-in">
+    <div class="journey-stage">
+      <div class="year"><span class="zh">2020-2024</span><span class="en" style="display:none">2020-2024</span></div>
+      <div class="title"><span class="zh">綁定</span><span class="en" style="display:none">Bound</span></div>
+      <div class="desc"><span class="zh">應用依附於以太坊</span><span class="en" style="display:none">Apps depend on Ethereum</span></div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-stage">
+      <div class="year"><span class="zh">2025</span><span class="en" style="display:none">2025</span></div>
+      <div class="title"><span class="zh">分離</span><span class="en" style="display:none">Separation</span></div>
+      <div class="desc"><span class="zh">應用自建專屬區塊鏈</span><span class="en" style="display:none">Apps build own chains</span></div>
+    </div>
+  </div>
+
+  <p class="fade-in"><span class="zh">他們的理由很簡單：穩定幣結算是核心業務，不能依賴無法控制的公鏈。Stripe 甚至花了 50 億美元打造支付專用鏈 Tempo，還挖角重量級以太坊研究員。</span><span class="en" style="display:none">Their logic is simple: stablecoin settlement is core business, and you can't rely on a chain you don't control. Stripe even spent $5B on Tempo, a payment-specific chain, recruiting top Ethereum researchers.</span></p>
+
+  <p class="fade-in"><span class="zh">表面上看，大企業都來用區塊鏈了。但實際上，他們只需要區塊鏈的「技術」，不需要「幣圈」。這讓整個幣圈感到尷尬：應用層離去，公鏈能做什麼？</span><span class="en" style="display:none">On the surface, major companies adopted blockchain. But they only need the technology, not crypto. This leaves crypto communities uncomfortable: if applications leave, what's left for public chains?</span></p>
+</section>
+
+<!-- PART 3: Dixon 框架 -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 3</span><span class="zh">尋找新土壤</span><span class="en" style="display:none">SEEKING NEW SOIL</span></h2>
+
+  <p class="fade-in"><span class="zh">a16z 合夥人 Chris Dixon 曾指出，每一個新技術的發展都分為兩個階段：</span><span class="en" style="display:none">a16z partner Chris Dixon pointed out that new technologies develop in two stages:</span></p>
+
+  <div class="dixon-box fade-in">
+    <div class="label"><span class="zh">Chris Dixon 框架</span><span class="en" style="display:none">DIXON'S FRAMEWORK</span></div>
+    <blockquote>
+      <span class="zh">每一個新的運算平台，都始於把舊事物做得更好，然後才開始賦予全新的事物。</span><span class="en" style="display:none">Every new computing platform starts by doing old things better, then enables entirely new things.</span>
+    </blockquote>
+    <div class="analogy">
+      <span class="zh">Email 最早是用來取代信件，圖的是「快速和免費」。誰能想到幾十年後，它催生出像區塊勢這樣的付費訂閱媒體？Email 不再只是省郵資，而是創造了全新的商業活動。</span><span class="en" style="display:none">Email started as a cheaper alternative to mail. Who could have imagined it would create subscription media like Blocktrend? Email created entirely new business models.</span>
+    </div>
+  </div>
+
+  <p class="fade-in"><span class="zh">現在區塊鏈正處於第一階段——「把寄信變便宜」。它已經證明了價值，卻還沒找到能支撐長期發展的「新土壤」。</span><span class="en" style="display:none">Blockchain is now in stage one—making mail cheaper. It's proven its value, but hasn't found the "new soil" for sustainable growth.</span></p>
+
+  <div class="two-paths fade-in">
+    <div class="path-card path-a">
+      <h3><span class="zh">追趕者</span><span class="en" style="display:none">Followers</span></h3>
+      <p class="desc"><span class="zh">努力讓區塊鏈做得更快、更便宜，想在大企業市場中爭一席之地。</span><span class="en" style="display:none">Try to make blockchain faster and cheaper, chasing enterprise market.</span></p>
+      <div class="risk"><strong><span class="zh">問題：</span><span class="en" style="display:none">Problem:</span></strong> <span class="zh">通用平台永遠打不過專用工具。到頭來，區塊鏈只會成為「比較慢的 Tempo」。</span><span class="en" style="display:none">General platforms never beat specialized tools. Blockchain becomes just "slower Tempo."</span></div>
+    </div>
+    <div class="path-card path-b">
+      <h3><span class="zh">探索者</span><span class="en" style="display:none">Explorers</span></h3>
+      <p class="desc"><span class="zh">放棄追求企業市場，專注找出區塊鏈賦予全新事物的可能性。</span><span class="en" style="display:none">Stop chasing enterprise, focus on finding what blockchain enables entirely new.</span></p>
+      <div class="risk"><strong><span class="zh">問題：</span><span class="en" style="display:none">Problem:</span></strong> <span class="zh">新需求還沒出現。在等待過程中，代幣持有者的耐心會被磨光。</span><span class="en" style="display:none">New needs haven't appeared yet. Token holders' patience could run out while waiting.</span></div>
+    </div>
+  </div>
+
+  <div class="quest fade-in">
+    <div class="q-title"><span class="zh">2026 年的問題</span><span class="en" style="display:none">The 2026 Question</span></div>
+    <div class="q-text"><span class="zh">區塊鏈創業者如何在全新的市場環境裡，長出意想不到的新可能？不做交易、不發代幣，該怎麼賺錢？</span><span class="en" style="display:none">How can blockchain entrepreneurs discover new possibilities beyond trading and tokens?</span></div>
+  </div>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">「幣圈已死」和「工具萌芽」，其實說的是同一件事——界線正在消失。區塊鏈正在悄悄潛入日常，成為 Visa、Stripe、銀行的基礎建設。</span><span class="en" style="display:none">"Crypto is dead" and "tools sprouting" describe the same thing—boundaries are disappearing. Blockchain quietly embeds itself as infrastructure for Visa, Stripe, and banks.</span></p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">但這一切都建立在一個前提上：有人願意在尚不可知的新市場中探索、投資、等待。就像當年相信 Linux 開放原始碼終有一天會成為必需品的那群人。</span><span class="en" style="display:none">But it all depends on someone willing to explore, invest, and wait in unknown new markets—like those who believed in Linux decades ago.</span></p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2"><span class="zh">也正因如此，讀完了，你站在哪一邊就變得格外重要。</span><span class="en" style="display:none">That's why choosing a side after reading matters so much.</span></p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in"><span class="zh">讀完了，你站在哪一邊？</span><span class="en" style="display:none">Which Side Are You On?</span></h2>
+  <p class="quiz-intro fade-in"><span class="zh">三個問題，看看你最接近哪一派。</span><span class="en" style="display:none">Three questions to find your perspective.</span></p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+
+    <div class="q-card active" data-q="1">
+      <div class="q-step"><span class="zh">1 / 3</span><span class="en" style="display:none">1 / 3</span></div>
+      <div class="q-text"><span class="zh">Stripe、Circle 等大企業紛紛自建區塊鏈。對幣圈來說，這意味著什麼？</span><span class="en" style="display:none">Major companies build their own blockchains. What does this mean for crypto?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="seed"><span class="zh">工具終於成熟，正在萌芽</span><span class="en" style="display:none">Tools finally mature, now sprouting</span></button>
+        <button class="q-btn" data-camp="soil"><span class="zh">應用層在流失，幣圈需要適應</span><span class="en" style="display:none">Applications leaving, crypto must adapt</span></button>
+        <button class="q-btn" data-camp="death"><span class="zh">幣圈被吸收成基礎建設，本質已死</span><span class="en" style="display:none">Crypto absorbed as infrastructure, essence lost</span></button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="2">
+      <div class="q-step"><span class="zh">2 / 3</span><span class="en" style="display:none">2 / 3</span></div>
+      <div class="q-text"><span class="zh">用 Chris Dixon 的框架，現在區塊鏈處於「把舊事物做得更好」的階段。下個階段會來嗎？</span><span class="en" style="display:none">Using Dixon's framework, blockchain is at "doing old things better." Will the next stage come?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="seed"><span class="zh">一定會，就像 Email 創造了新商業</span><span class="en" style="display:none">Definitely, like Email created new business</span></button>
+        <button class="q-btn" data-camp="soil"><span class="zh">可能會，但需要時間和探索</span><span class="en" style="display:none">Maybe, but needs time and exploration</span></button>
+        <button class="q-btn" data-camp="death"><span class="zh">不太可能，Web3 原生需求有限</span><span class="en" style="display:none">Unlikely, limited native Web3 needs</span></button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="3">
+      <div class="q-step"><span class="zh">3 / 3</span><span class="en" style="display:none">3 / 3</span></div>
+      <div class="q-text"><span class="zh">你願意在不確定的新市場中等待多久？</span><span class="en" style="display:none">How long are you willing to wait in uncertain markets?</span></div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="seed"><span class="zh">願意長期等待，有些東西急不來</span><span class="en" style="display:none">Long term, some things can't be rushed</span></button>
+        <button class="q-btn" data-camp="soil"><span class="zh">可以等，但要看到進展信號</span><span class="en" style="display:none">Can wait, but need to see progress</span></button>
+        <button class="q-btn" data-camp="death"><span class="zh">等不了，風險太大</span><span class="en" style="display:none">Can't wait, risk too high</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge"><span class="zh">2025 年終回顧</span><span class="en" style="display:none">2025 Year-End Review</span></div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw"><span class="zh">分享到 𝕏</span><span class="en" style="display:none">Share on 𝕏</span></button>
+      <button class="share-btn fb" id="shareFb"><span class="zh">分享到 Facebook</span><span class="en" style="display:none">Share on Facebook</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2><span class="zh">「幣圈已死」vs「工具萌芽」</span><span class="en" style="display:none">Crypto Dead vs Tools Sprouting</span></h2>
+  <p><span class="zh">完整文章裡有：2025 的 5 組數據回顧、兩方視角的深度拆解、Chris Dixon 框架的應用分析，以及幣圈創業者必須回答的問題。</span><span class="en" style="display:none">The full article includes: 2025 data review, detailed analysis of both perspectives, Dixon framework application, and critical questions for crypto entrepreneurs.</span></p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/744" target="_blank"><span class="zh">閱讀完整文章 →</span><span class="en" style="display:none">Read Full Article →</span></a>
+  <div class="share-row">
+    <button class="share-btn tw" id="shareCtaTw"><span class="zh">分享到 𝕏</span><span class="en" style="display:none">Share on 𝕏</span></button>
+    <button class="share-btn fb" id="shareCtaFb"><span class="zh">分享到 Facebook</span><span class="en" style="display:none">Share on Facebook</span></button>
+    <button class="share-btn copy" id="copyLink"><span class="zh">複製連結</span><span class="en" style="display:none">Copy Link</span></button>
+  </div>
+</div>
+
+<footer>
+  <a href="https://www.blocktrend.today" target="_blank">
+    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" style="height:28px;opacity:0.6">
+  </a>
+</footer>
+
+<script>
+// Language toggle
+const langBtn = document.getElementById('langBtn');
+let currentLang = 'zh';
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'zh' ? 'en' : 'zh';
+  document.body.className = currentLang === 'en' ? 'lang-en' : '';
+
+  document.querySelectorAll('.zh').forEach(el => {
+    el.style.display = currentLang === 'zh' ? '' : 'none';
+  });
+  document.querySelectorAll('.en').forEach(el => {
+    el.style.display = currentLang === 'en' ? '' : 'none';
+  });
+  langBtn.textContent = currentLang === 'zh' ? 'English' : '中文';
+});
+
+// IntersectionObserver for fade-in animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz logic
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  seed: {
+    emoji: '🌱',
+    name: '基建信仰者 | Infrastructure Believer',
+    desc: '你相信工具終會萌芽，區塊鏈找到新的土壤只是時間問題。就像當年相信 Linux 的人一樣。',
+    bg: 'var(--dusk-light)', color: 'var(--dusk)',
+    shareZh: '我是「基建信仰者」🌱 區塊鏈正在成為基礎建設，萌芽只是時間問題。你呢？',
+    shareEn: 'I\'m an "Infrastructure Believer" 🌱 Blockchain will find its new soil. You?'
+  },
+  soil: {
+    emoji: '🌍',
+    name: '務實觀察者 | Pragmatic Observer',
+    desc: '你認同區塊鏈有前景，但不能忽視現實。需要等，但也得看到進展信號。走得下去的理想才叫理想。',
+    bg: 'var(--sunset-light)', color: 'var(--sunset)',
+    shareZh: '我是「務實觀察者」🌍 工具有前景，但要看到進展。理想也要活得下去。你呢？',
+    shareEn: 'I\'m a "Pragmatic Observer" 🌍 Blockchain has potential, but need to see progress. You?'
+  },
+  death: {
+    emoji: '⚡',
+    name: '原生創新派 | Native Innovation',
+    desc: '你看到的是界線消失、成為基礎建設。但新的商業模式在哪？除非找到答案，否則就得準備迎接蛻變。',
+    bg: 'var(--green-light)', color: 'var(--green)',
+    shareZh: '我是「原生創新派」⚡ 界線消失，但新需求在哪？Web3 原生商業模式待尋。你呢？',
+    shareEn: 'I\'m "Native Innovation" ⚡ Boundaries disappear, but what\'s the new use case? You?'
+  }
+};
+
+const articleUrl = 'https://share.blocktrend.today/744/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { seed: 0, soil: 0, death: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+
+  card.className = 'result-card show type-' + (winner === 'seed' ? 'b' : winner === 'soil' ? 'a' : 'c');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    const text = currentLang === 'zh' ? camp.shareZh : camp.shareEn;
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    const text = currentLang === 'zh' ? camp.shareZh : camp.shareEn;
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(text), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+
+// CTA Share buttons
+document.getElementById('shareCtaTw').addEventListener('click', function() {
+  const text = currentLang === 'zh'
+    ? '幣圈界線正在消失，區塊鏈悄悄成為基礎建設。2025 年終回顧，你站在「幣圈已死」還是「工具萌芽」？\n\n'
+    : 'Crypto boundaries disappear as blockchain becomes infrastructure. 2025 year-end review—which side are you on?\n\n';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(articleUrl), '_blank');
+});
+
+document.getElementById('shareCtaFb').addEventListener('click', function() {
+  const text = currentLang === 'zh'
+    ? '幣圈界線正在消失，區塊鏈悄悄成為基礎建設。2025 年終回顧，你站在「幣圈已死」還是「工具萌芽」？'
+    : 'Crypto boundaries disappear as blockchain becomes infrastructure. 2025 year-end review—which side are you on?';
+  window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(text), '_blank');
+});
+
+document.getElementById('copyLink').addEventListener('click', function() {
+  navigator.clipboard.writeText(articleUrl);
+  const oldText = this.textContent;
+  this.textContent = currentLang === 'zh' ? '已複製！' : 'Copied!';
+  setTimeout(() => this.textContent = oldText, 1500);
+});
+</script>
+</body>
+</html>

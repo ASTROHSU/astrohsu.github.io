@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穩定幣手續費是智商稅？ — 區塊勢</title>
+<meta name="description" content="Stripe 開通穩定幣支付，1.5% 手續費能幫店家省下 94% 金流成本。到底是 IQ tax 還是真價值？">
+<meta property="og:title" content="穩定幣手續費是智商稅？">
+<meta property="og:description" content="Stripe 的 1.5% 費用，值得嗎？">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#EDE0D4;--terra:#E09A6B;--terra-light:#F5E9DC;
+  --green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+  --purple:#8B6B47;--purple-light:#F0EAE0;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+  --gold:#B8860B;--gold-light:#FFF8DC;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Language toggle */
+.lang-toggle{
+  position:fixed;top:1.5rem;right:1.5rem;z-index:999;background:#fff;
+  border-radius:2rem;padding:0.4rem 1rem;border:1px solid #E8E3D8;
+  font-size:0.75rem;letter-spacing:0.1em;cursor:pointer;font-weight:500;
+  transition:transform 0.2s;
+}
+.lang-toggle:hover{transform:scale(1.05)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--cream) 0%,var(--terra-light) 40%,var(--green-light) 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:50%;
+  background:linear-gradient(180deg,transparent,rgba(13,46,32,0.2));pointer-events:none;
+}
+
+/* Hero SVG visual */
+.hero-visual{
+  width:160px;height:160px;margin-bottom:3rem;position:relative;
+  opacity:0;animation:diamondReveal 1.5s ease 0.3s forwards;
+}
+
+.coin-icon{
+  position:absolute;width:80px;height:80px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;font-size:3.5rem;background:rgba(255,255,255,0.8);
+  box-shadow:0 8px 24px rgba(0,0,0,0.1);
+}
+.coin-left{top:10px;left:0;animation:float 3s ease-in-out infinite}
+.coin-right{top:10px;right:0;animation:float 3s ease-in-out infinite 0.3s}
+
+.transfer-arrow{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font-size:1.5rem;opacity:0.6;animation:pulse 2s ease infinite;
+}
+
+@keyframes diamondReveal{to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%,100%{opacity:0.4;transform:scale(1)}50%{opacity:0.8;transform:scale(1.1)}}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:1.5rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.6rem 1.4rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(224,154,107,0.12);color:var(--terra);
+  cursor:default;letter-spacing:0.05em;font-weight:500;
+}
+
+/* Fee comparison */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.compare-side{padding:2rem}
+.compare-side.card-a{background:var(--terra-light)}
+.compare-side.card-b{background:var(--green-light)}
+.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.3rem;margin-bottom:1rem;font-weight:700}
+.compare-side .method{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.1em;margin-bottom:1rem}
+.bar-chart{margin:1.5rem 0}
+.bar-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:1rem;font-size:0.8rem}
+.bar-row .label{min-width:100px;color:var(--text-secondary);font-size:0.8rem;flex-shrink:0}
+.bar-row .bar-track{flex:1;height:24px;position:relative;background:rgba(0,0,0,0.06);border-radius:4px}
+.bar-row .bar{height:100%;border-radius:4px;transition:width 1.8s ease;position:absolute;left:0;top:0}
+.bar-row .bar.merchant{background:var(--terra);opacity:0.9}
+.bar-row .bar.green{background:var(--green);opacity:0.9}
+.bar-row .pct{font-weight:700;font-size:0.8rem;min-width:50px;flex-shrink:0;text-align:right}
+
+/* Three values section */
+.values-grid{
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin:3rem 0;
+}
+.value-box{
+  padding:2rem;border-radius:12px;border:1px solid #E8E3D8;
+  background:#fff;transition:transform 0.3s,box-shadow 0.3s;
+}
+.value-box:hover{transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,0.08)}
+.value-box .icon{font-size:2.5rem;margin-bottom:0.8rem}
+.value-box h3{font-family:'Noto Serif TC',serif;font-size:1.1rem;margin-bottom:0.6rem;font-weight:700}
+.value-box p{font-size:0.85rem;color:var(--text-secondary);margin:0;line-height:1.7}
+
+/* CTA section */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;max-width:720px;margin:0 auto;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:1rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.5rem}
+.q-btn{
+  padding:0.8rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--terra-light)}
+.q-btn.selected{border-color:var(--terra);background:var(--terra-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--green)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.8rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Highlight box */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:var(--gold);font-weight:500;
+  text-align:center;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+
+/* Blockquote */
+blockquote{
+  border-left:3px solid var(--terra);padding:1.2rem 1.5rem;margin:2rem 0;
+  background:rgba(224,154,107,0.06);border-radius:0 8px 8px 0;
+  font-size:0.95rem;color:var(--text-secondary);font-style:italic;line-height:1.8;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .compare-grid,.values-grid{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .lang-toggle{padding:0.3rem 0.8rem;font-size:0.65rem}
+  .hero h1{font-size:1.8rem}
+  .values-grid{gap:1rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Language toggle -->
+<button class="lang-toggle" onclick="toggleLang()">EN</button>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-visual">
+    <div class="coin-icon coin-left">💳</div>
+    <div class="coin-icon coin-right">₿</div>
+    <div class="transfer-arrow">↔</div>
+  </div>
+  <h1>穩定幣手續費是智商稅？</h1>
+  <p class="subtitle">Stripe 開通支付，省下 94% 金流成本</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">Stripe 1.5% 手續費，到底值不值得？</h2>
+  <div class="options fade-in">
+    <span class="option">根本是智商稅</span>
+    <span class="option">有點貴，但合理</span>
+    <span class="option">便宜到爆</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">這週 Stripe 宣布開通穩定幣支付後，社群吵翻了。<br>有人嘲諷這是「創新收費模式」，但經營過加密貨幣訂閱的人卻說：根本賺到。</p>
+</div>
+
+<!-- PART 1: Fee Breakdown -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>收款手續費戰爭</h2>
+
+  <p class="fade-in">批評者說：Stripe 只是幫忙收個 USDC，就從結帳總額抽走 1.5% 手續費，簡直在割韭菜。為什麼？用 MetaMask 連錢包、直接轉帳，不就是零成本？</p>
+
+  <p class="fade-in">但這是把「收現金」和「POS 機結帳」搞混了。兩者都是收錢，卻完全不同。</p>
+
+  <p class="fade-in">用我自己的體驗來說，如果消費者刷卡付 1 美元訂閱，我實際收到的金額是 <strong>0.66 美元</strong>（磨損 34%）。但如果改用穩定幣，我收到 <strong>0.98 美元</strong>（磨損 2%）。這差了 94% 的成本。</p>
+
+  <div class="compare-grid fade-in" style="margin:3rem 0">
+    <div class="compare-side card-a">
+      <h3>💳 信用卡付款</h3>
+      <div class="method">傳統金融成本</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="label">消費者付</span>
+          <div class="bar-track"><div class="bar merchant" style="width:0%" data-w="100%"></div></div>
+          <span class="pct">$1.00</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">店家收到</span>
+          <div class="bar-track"><div class="bar merchant" style="width:0%" data-w="66%"></div></div>
+          <span class="pct">$0.66</span>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1rem">2.9% + $0.3 費用<br>失去 34% 收入</p>
+    </div>
+    <div class="compare-side card-b">
+      <h3>₿ 穩定幣付款</h3>
+      <div class="method">區塊鏈成本</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="label">消費者付</span>
+          <div class="bar-track"><div class="bar green" style="width:0%" data-w="100%"></div></div>
+          <span class="pct">$1.00</span>
+        </div>
+        <div class="bar-row">
+          <span class="label">店家收到</span>
+          <div class="bar-track"><div class="bar green" style="width:0%" data-w="98%"></div></div>
+          <span class="pct">$0.98</span>
+        </div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--text-muted);margin-top:1rem">1.5% 費用<br>失去 2% 收入</p>
+    </div>
+  </div>
+
+  <p class="highlight fade-in">對小額付款來說，那固定的 $0.3 手續費是殺手。低於 $5 根本吃不飽。<br>穩定幣改變了遊戲規則。</p>
+</section>
+
+<!-- PART 2: The Value Chain -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>Stripe 的三大價值</h2>
+
+  <p class="fade-in">有人質疑：Stripe 不就是收 USDC 嗎？為什麼不能把錢包地址貼出來，讓客戶直接轉？</p>
+
+  <p class="fade-in">因為 Stripe 提供的不只是錢包。它提供的是金流整合、便利與合規的全套服務。</p>
+
+  <div class="values-grid fade-in">
+    <div class="value-box">
+      <div class="icon">🔗</div>
+      <h3>整合 Integration</h3>
+      <p>把穩定幣直接併入結帳流程。客戶不需要額外操作，一個頁面上同時看到刷卡和 USDC 選項。</p>
+    </div>
+    <div class="value-box">
+      <div class="icon">⚡</div>
+      <h3>便利 Convenience</h3>
+      <p>系統自動對應付款者與訂閱方案，自動換算匯率，每次產生新地址避免洩露營業額。全程無手工。</p>
+    </div>
+    <div class="value-box">
+      <div class="icon">✅</div>
+      <h3>合規 Compliance</h3>
+      <p>開發票、自動報稅、按月扣款、金流風控、爭議退款。這些不是「貼個錢包地址」就能做到的。</p>
+    </div>
+  </div>
+
+  <blockquote class="fade-in">
+    人家質疑 1.5% 是智商稅，多半是因為自己不會遇到這些問題。就像朋友聚餐分帳，不會搬出 POS 機收款。
+  </blockquote>
+
+  <p class="fade-in">對於個人收款，我會推薦用 Fluidkey——簡單、零成本。但如果在經營一門生意，Stripe 接管這些煩人的事，只要求 1.5%，我覺得很划算。</p>
+</section>
+
+<!-- PART 3: The Bigger Picture -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 3</span>量變帶來質變</h2>
+
+  <p class="fade-in">央行總裁曾質疑：穩定幣之所以便宜，是因為省下合規成本。但 Stripe 已經給了具體答案——在完全合規的前提下，技術本身就帶來成本優勢，差異高達 32 倍。</p>
+
+  <p class="fade-in">這不是消費者的問題，而是整個金融系統的成本結構。傳統金融包含銀行、發卡行、結帳機構、詐欺防控等多層中介，每層都要抽傭。區塊鏈直接跳過中介，成本當然能打對折。</p>
+
+  <p class="fade-in">身為收款店家，當然希望消費者改用穩定幣付款。這樣一來，競爭就會迫使傳統金融想辦法降成本。在沒有更好的技術出現前，區塊鏈就是成本最低的選擇。</p>
+
+  <p class="fade-in" style="font-weight:500;color:var(--green)">量變會產生質變。當手續費大幅下降，就像從 3G 升到 4G——看起來只是速度快了，但真正開啟了串流、直播、短影音的新時代。</p>
+
+  <p class="fade-in">Stripe 開通穩定幣支付，是區塊鏈嵌入金融系統的開端。這一次，傳統金融沒有退路。</p>
+</section>
+
+<!-- ENDING -->
+<section style="text-align:center">
+  <p class="fade-in" style="font-size:1.05rem;line-height:2;font-weight:500">所以呢？Stripe 的 1.5% 是智商稅還是真價值？</p>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2;color:var(--text-secondary)">看你怎麼定義價值。如果只看技術成本，確實貴了。<br>但如果看整個金流解決方案，就是商人眼中的良心價。</p>
+</section>
+
+<!-- QUIZ -->
+<div style="background:linear-gradient(180deg,var(--warm),#F5F3ED);padding:5rem 1.5rem">
+  <div class="quiz-section fade-in">
+    <h2>讀完了，你是哪一派？</h2>
+    <p class="quiz-intro">三個問題，看看你的立場。</p>
+
+    <div class="quiz-wrap fade-in">
+      <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+      <div class="q-card active" data-q="1">
+        <div class="q-step">1 / 3</div>
+        <div class="q-text">Stripe 收 1.5% 幫忙接收穩定幣，你覺得？</div>
+        <div class="q-options">
+          <button class="q-btn" data-camp="efficiency">根本智商稅，我用錢包直接收</button>
+          <button class="q-btn" data-camp="pragmatist">貴是貴，但省了我一堆麻煩</button>
+          <button class="q-btn" data-camp="value">省下 94% 成本啦，根本佛心價</button>
+        </div>
+      </div>
+      <div class="q-card" data-q="2">
+        <div class="q-step">2 / 3</div>
+        <div class="q-text">穩定幣支付需要 KYC、報稅、風控這些合規成本。你怎麼看？</div>
+        <div class="q-options">
+          <button class="q-btn" data-camp="efficiency">多此一舉，區塊鏈本來就無需許可</button>
+          <button class="q-btn" data-camp="pragmatist">必須的，但成本應該更低</button>
+          <button class="q-btn" data-camp="value">願意付費換取安心，Stripe 做得對</button>
+        </div>
+      </div>
+      <div class="q-card" data-q="3">
+        <div class="q-step">3 / 3</div>
+        <div class="q-text">如果你是線上商家，會主動導向客戶用穩定幣付款嗎？</div>
+        <div class="q-options">
+          <button class="q-btn" data-camp="efficiency">不會，傳統支付已經夠好</button>
+          <button class="q-btn" data-camp="pragmatist">會，但要看客戶接受度</button>
+          <button class="q-btn" data-camp="value">會啊，為什麼不賺這 32% 差價</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="r-badge">穩定幣支付派閥</div>
+      <div class="r-emoji"></div>
+      <div class="r-name"></div>
+      <div class="r-desc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Stripe 的創新不在費率，在整合。</h2>
+  <p>完整文章詳解三大價值、為什麼傳統金融活不下去，以及穩定幣支付如何從「邊緣選項」變成主流。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/740" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('穩定幣手續費是智商稅？我用真金白銀算給你看。\nStripe 1.5% vs 信用卡 34%，差了 32 倍。\n\n')+'&url='+encodeURIComponent('https://share.blocktrend.today/740/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/740/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/740/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer><a href="https://www.blocktrend.today" target="_blank"><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:28px;opacity:0.6"></a></footer>
+
+<script>
+// Fade-in animation with IntersectionObserver
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Bar chart animation
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.bar').forEach(bar => {
+        bar.style.width = bar.dataset.w;
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.compare-grid').forEach(el => barObserver.observe(el));
+
+// Quiz logic
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+const camps = {
+  value: {
+    emoji: '💚',
+    name: '服務價值派',
+    desc: '你相信 Stripe 提供的整合、便利、合規價值 > 1.5% 手續費。願意為好服務付費。',
+    bg: 'var(--green-light)',
+    color: 'var(--green)',
+    share: '我是「服務價值派」💚 Stripe 1.5% 根本佛心，整合+便利+合規值這個價。你呢？'
+  },
+  pragmatist: {
+    emoji: '⚖️',
+    name: '務實成本派',
+    desc: '你認同穩定幣更便宜，但也接受 Stripe 收費有理由。在技術進步和便利性中求平衡。',
+    bg: 'var(--terra-light)',
+    color: 'var(--terra)',
+    share: '我是「務實成本派」⚖️ 穩定幣便宜 32 倍，但 Stripe 的整合和合規值得，只是價格還能談。你呢？'
+  },
+  efficiency: {
+    emoji: '🔓',
+    name: '效率自主派',
+    desc: '你覺得 1.5% 不合理，認為錢包直接收款才是未來。區塊鏈的價值就在無需許可。',
+    bg: 'var(--purple-light)',
+    color: 'var(--purple)',
+    share: '我是「效率自主派」🔓 為什麼要被 Stripe 收稅？區塊鏈本來就該無許可、無中介。你呢？'
+  }
+};
+const articleUrl = 'https://share.blocktrend.today/740/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { value: 0, pragmatist: 0, efficiency: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+
+// Language toggle (placeholder - can be extended)
+function toggleLang() {
+  const btn = document.querySelector('.lang-toggle');
+  if (btn.textContent === 'EN') {
+    btn.textContent = '中';
+  } else {
+    btn.textContent = 'EN';
+  }
+}
+</script>
+</body>
+</html>

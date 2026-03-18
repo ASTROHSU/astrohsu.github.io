@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>浪費資源的收音機？數位憑證皮夾 — 區塊勢</title>
+<meta name="description" content="台灣的數位憑證皮夾上線了，卻被批評是在浪費公帑。其實，它就像一台只能聽廣播的電腦。">
+<meta property="og:title" content="浪費資源的收音機？數位憑證皮夾不只是超商領貨 app">
+<meta property="og:description" content="當一台電腦只能拿來聽廣播，你就不能怪大家認為它是一台又貴又耗電的收音機。">
+<meta property="og:image" content="https://www.blocktrend.today/p/743">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --warm:#FAFAF7;--cream:#F0EDE7;--teal:#1E7F7E;--teal-light:#E5F2F1;
+  --slate:#3B5561;--slate-light:#EBF0F4;--gold:#D4A574;--gold-light:#F9F3E6;
+  --text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+}
+html{scroll-behavior:smooth;font-size:18px}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;font-weight:400;overflow-x:hidden}
+
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* Hero */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 40%,var(--teal-light) 60%,#0D5A59 100%);
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(13,90,89,0.25));pointer-events:none;
+}
+
+/* Wallet/ID Card visual */
+.hero-wallet{
+  width:140px;height:220px;position:relative;margin-bottom:3rem;opacity:0;
+  animation:walletReveal 1.5s ease 0.3s forwards;
+}
+@keyframes walletReveal{to{opacity:1}}
+
+.wallet-card{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.15);
+  background:linear-gradient(135deg,var(--teal) 0%,#0F5655 100%);
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:1.2rem;color:#fff;font-size:0.65rem;letter-spacing:0.08em;
+  transform:perspective(1000px) rotateY(0deg);
+  animation:cardFloat 3s ease-in-out infinite;
+}
+@keyframes cardFloat{0%,100%{transform:perspective(1000px) rotateY(0deg) translateY(0)}50%{transform:perspective(1000px) rotateY(-8deg) translateY(-10px)}}
+
+.wallet-chip{
+  width:32px;height:24px;background:rgba(255,215,0,0.3);border-radius:4px;
+  border:1px solid rgba(255,215,0,0.5);
+}
+.wallet-text{
+  opacity:0.8;font-weight:300;
+}
+.wallet-qr{
+  width:48px;height:48px;background:rgba(255,255,255,0.1);border-radius:4px;
+  margin-top:0.4rem;
+}
+
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(2.2rem,6vw,3.8rem);font-weight:700;
+  letter-spacing:0.08em;color:var(--text);position:relative;z-index:1;
+  opacity:0;animation:fadeUp 1s ease 0.6s forwards;
+}
+.hero .subtitle{
+  font-size:1.1rem;color:var(--text-secondary);margin-top:1rem;letter-spacing:0.15em;
+  position:relative;z-index:1;opacity:0;animation:fadeUp 1s ease 0.9s forwards;
+}
+.hero .scroll-hint{
+  position:absolute;bottom:3rem;z-index:1;font-size:0.75rem;color:var(--text-muted);
+  letter-spacing:0.2em;opacity:0;animation:fadeUp 1s ease 1.5s forwards;
+}
+.hero .scroll-hint::after{
+  content:'';display:block;width:1px;height:40px;background:var(--text-muted);
+  margin:0.8rem auto 0;opacity:0.4;animation:scrollPulse 2s ease infinite;
+}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}from{transform:translateY(20px)}}
+@keyframes scrollPulse{0%,100%{opacity:0.2;height:40px}50%{opacity:0.6;height:50px}}
+
+/* Sections */
+section{padding:5rem 1.5rem;max-width:720px;margin:0 auto}
+section.wide{max-width:960px}
+section.full{max-width:100%;padding:5rem 0}
+
+h2{
+  font-family:'Noto Serif TC',serif;font-size:1.8rem;font-weight:700;
+  margin-bottom:2rem;letter-spacing:0.05em;
+}
+h2 .label{
+  display:block;font-family:'Noto Sans TC',sans-serif;font-size:0.7rem;
+  font-weight:500;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:0.5rem;
+  text-transform:uppercase;
+}
+p{margin-bottom:1.5rem}
+p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2}
+
+/* Question section */
+.big-question{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--slate-light));
+}
+.big-question h2{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:1rem}
+.big-question .options{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0.8rem;margin-top:2rem;
+}
+.big-question .option{
+  padding:0.5rem 1.2rem;border-radius:2rem;font-size:0.85rem;
+  border:none;background:rgba(0,0,0,0.04);color:var(--text-secondary);
+  cursor:default;letter-spacing:0.05em;
+}
+.big-question .option:nth-child(odd){background:rgba(30,127,126,0.08);color:var(--teal)}
+.big-question .option:nth-child(3){background:rgba(59,85,97,0.08);color:var(--slate)}
+
+/* Comparison grid */
+.compare-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:3rem 0;
+  border-radius:16px;overflow:hidden;border:1px solid #E8E3D8;
+}
+.compare-side{padding:2rem}
+.compare-side.problems{background:var(--slate-light)}
+.compare-side.vision{background:var(--teal-light)}
+.compare-side h3{font-family:'Noto Serif TC',serif;font-size:1.2rem;margin-bottom:1rem}
+.compare-side .label{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.3rem}
+.compare-side .metric{margin-bottom:1rem}
+.compare-side .metric-title{font-size:0.8rem;font-weight:500;color:var(--text);margin-bottom:0.3rem}
+.compare-side .metric-desc{font-size:0.75rem;color:var(--text-secondary);line-height:1.6}
+
+/* Infrastructure value chain */
+.infra-visual{
+  background:#fff;border:1px solid #E8E3D8;border-radius:12px;padding:2rem;margin:2rem 0;
+}
+.infra-layers{
+  display:flex;flex-direction:column;gap:1rem;
+}
+.layer{
+  padding:1.5rem;border-radius:10px;border-left:4px solid var(--teal);background:var(--teal-light);
+}
+.layer.top{border-left-color:var(--slate);background:var(--slate-light)}
+.layer h4{font-weight:600;font-size:0.95rem;margin-bottom:0.5rem;color:var(--text)}
+.layer p{font-size:0.8rem;color:var(--text-secondary);margin:0;line-height:1.6}
+
+/* Two perspectives */
+.perspectives{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:3rem 0}
+.perspective-card{
+  padding:2rem;border-radius:16px;border:1px solid #E8E3D8;
+  transition:transform 0.3s;
+}
+.perspective-card:hover{transform:translateY(-3px)}
+.perspective-card.convenience{background:#FBF7F2;border-color:#E5D4C1}
+.perspective-card.sovereignty{background:var(--teal-light);border-color:#9ECCC9}
+.perspective-card h3{
+  font-family:'Noto Serif TC',serif;font-size:1.15rem;margin-bottom:0.8rem;
+}
+.perspective-card .tag{
+  display:inline-block;font-size:0.65rem;letter-spacing:0.15em;
+  padding:0.2rem 0.8rem;border-radius:1rem;margin-bottom:1rem;font-weight:500;
+}
+.perspective-card.convenience .tag{background:#E5D4C1;color:#8B5A3C}
+.perspective-card.sovereignty .tag{background:#9ECCC9;color:#0D5A59}
+.perspective-card .detail{font-size:0.85rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.perspective-card .challenge{
+  font-size:0.8rem;padding:0.8rem 1rem;border-radius:8px;
+  background:rgba(0,0,0,0.03);color:var(--text-secondary);
+}
+
+/* CTA */
+.cta{
+  text-align:center;padding:6rem 2rem;
+  background:linear-gradient(180deg,#F5F3ED,var(--cream));
+}
+.cta h2{font-size:1.5rem;margin-bottom:1rem}
+.cta p{color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem}
+.cta-btn{
+  display:inline-block;padding:1rem 3rem;border-radius:2rem;
+  background:var(--text);color:#fff;text-decoration:none;font-weight:500;
+  letter-spacing:0.1em;transition:transform 0.2s;font-size:1rem;
+}
+.cta-btn:hover{transform:scale(1.03)}
+
+/* Share buttons */
+.share-row{
+  display:flex;gap:0.6rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;
+}
+.share-btn{
+  padding:0.6rem 1.4rem;border-radius:2rem;border:none;
+  font-size:0.8rem;font-weight:500;cursor:pointer;
+  font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;
+  transition:transform 0.2s,opacity 0.2s;
+}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.share-btn.copy{background:var(--warm);color:var(--text);border:1px solid #E8E3D8}
+
+/* Quiz */
+.quiz-section{
+  background:linear-gradient(180deg,var(--warm),#F5F3ED);
+  padding:5rem 1.5rem;text-align:center;
+}
+.quiz-section h2{margin-bottom:0.5rem}
+.quiz-intro{color:var(--text-muted);font-size:0.9rem;margin-bottom:2.5rem}
+.quiz-wrap{max-width:520px;margin:0 auto;text-align:left}
+.q-card{margin-bottom:2rem;display:none;opacity:0;transform:translateY(16px);transition:opacity 0.4s ease,transform 0.4s ease}
+.q-card.active{display:block;opacity:1;transform:translateY(0)}
+.q-card .q-step{font-size:0.7rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:0.6rem}
+.q-card .q-text{font-size:0.95rem;font-weight:500;margin-bottom:0.8rem;line-height:1.7}
+.q-card .q-options{display:flex;flex-direction:column;gap:0.4rem}
+.q-btn{
+  padding:0.7rem 1rem;border-radius:10px;border:1px solid #E8E3D8;
+  background:#fff;cursor:pointer;text-align:left;font-size:0.85rem;
+  transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;color:var(--text);
+}
+.q-btn:hover{border-color:var(--text-secondary);background:var(--teal-light)}
+.q-btn.selected{border-color:var(--text);background:var(--teal-light);font-weight:500;pointer-events:none}
+.q-progress{display:flex;justify-content:center;gap:0.5rem;margin-bottom:2rem}
+.q-dot{width:8px;height:8px;border-radius:50%;background:#E8E3D8;transition:background 0.3s,transform 0.3s}
+.q-dot.active{background:var(--text);transform:scale(1.2)}
+.q-dot.done{background:var(--teal)}
+
+/* Result card */
+.result-card{
+  display:none;max-width:420px;margin:2rem auto 0;
+  padding:2rem 2rem 1.5rem;border-radius:16px;text-align:center;
+}
+.result-card.show{display:block;animation:fadeUp 0.5s ease forwards}
+.result-card .r-badge{
+  font-size:0.6rem;letter-spacing:0.2em;
+  color:var(--text-muted);margin-bottom:1rem;
+}
+.result-card .r-emoji{font-size:2.5rem;margin-bottom:0.5rem}
+.result-card .r-name{
+  font-family:'Noto Serif TC',serif;font-size:1.4rem;font-weight:700;margin-bottom:0.8rem;
+}
+.result-card .r-desc{
+  font-size:0.85rem;line-height:1.8;color:var(--text-secondary);margin-bottom:1.5rem;
+}
+
+/* Footer */
+footer{
+  text-align:center;padding:3rem 2rem;font-size:0.75rem;
+  color:var(--text-muted);letter-spacing:0.15em;
+}
+footer img{height:24px;opacity:0.6;vertical-align:middle}
+
+/* Highlight */
+.highlight{
+  padding:1.5rem 2rem;border-radius:12px;margin:2rem 0;
+  background:var(--gold-light);border:1px solid #E4D5B8;
+  font-size:0.95rem;line-height:1.8;color:#8B7340;font-weight:500;
+  text-align:center;
+}
+
+/* Responsive */
+@media(max-width:700px){
+  html{font-size:16px}
+  section{padding:3rem 1.2rem}
+  .compare-grid,.perspectives,.infra-layers{grid-template-columns:1fr;display:flex;flex-direction:column}
+  .hero h1{font-size:2rem}
+  .wallet-card{width:120px;height:180px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-wallet">
+    <div class="wallet-card">
+      <div>
+        <div class="wallet-chip"></div>
+      </div>
+      <div class="wallet-text">數位憑證皮夾</div>
+      <div>
+        <div class="wallet-qr"></div>
+      </div>
+    </div>
+  </div>
+  <h1>浪費資源的收音機？</h1>
+  <p class="subtitle">數位憑證皮夾不只是超商領貨 app</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- THE QUESTION -->
+<div class="big-question">
+  <h2 class="fade-in">花納稅人的錢，換來什麼？</h2>
+  <div class="options fade-in">
+    <span class="option">方便取貨</span>
+    <span class="option">隱私保護</span>
+    <span class="option">主權獨立</span>
+    <span class="option">未來基建</span>
+  </div>
+  <p class="fade-in" style="margin-top:2rem;font-size:0.95rem;color:var(--text-secondary)">台灣的數位憑證皮夾剛上線，卻被問：超商 app 早就能領貨，為什麼還要政府 app？<br>也許，你對它的期待，跟它想做的事，根本不是同一回事。</p>
+</div>
+
+<!-- THE ANALOGY -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 1</span>浪費資源的收音機</h2>
+
+  <p class="fade-in">曾有一台出現在技術史上的著名電腦：它能執行程式、運算複雜指令、儲存龐大資料。但人們買來之後，卻只用它來聽廣播。</p>
+
+  <p class="fade-in">於是有人說：「這台電腦太貴了，一台廣播也能聽。」這句話不是錯的。確實，如果一台電腦只會被用來聽廣播，那買台廣播機就好，幹嘛花那麼多錢？</p>
+
+  <p class="fade-in">關鍵在於——電腦本身沒有問題，問題在於沒人打開瀏覽器、沒人安裝遊戲、沒人用它來工作。你不能怪大家覺得它是台又貴又耗電的收音機。</p>
+
+  <div class="infra-visual fade-in">
+    <div class="infra-layers">
+      <div class="layer top">
+        <h4>目前：只能聽廣播</h4>
+        <p>超商領貨（還要搭配電信憑證）</p>
+      </div>
+      <div class="layer">
+        <h4>潛在應用</h4>
+        <p>駕照、健保卡、學位證書、訪客管理...</p>
+      </div>
+      <div class="layer">
+        <h4>底層基礎</h4>
+        <p>誰能發證、如何驗證、何時撤銷、隱私如何保障</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">數位憑證皮夾就是那台「電腦」。隱私保護、選擇性揭露、資料自主——這些技術亮點都在。但如果人們能親身體驗的應用場景就只有超商領貨，那確實很難指責他們說：「政府花大錢替超商做了個多餘的 app。」</p>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section>
+  <h2 class="fade-in"><span class="label">PART 2</span>基礎設施 vs. 方便</h2>
+
+  <p class="fade-in">問題不在科技，在於想像力。當超商、7-ELEVEN、蝦皮都有自己的取貨系統時，政府為什麼還要做一套？</p>
+
+  <p class="fade-in">答案藏在一個更大的問題裡：<strong>你的數位身分，該由誰管理？</strong></p>
+
+  <p class="fade-in">日本選擇把數位駕照放進 Apple Wallet。這很方便，但代價是——日本的身分認證規則，從此得看蘋果的臉色。如果 Apple 改了安全標準、改了資料流向、改了對第三方的權限開放，日本政府只能跟進。這叫「便利」。</p>
+
+  <p class="fade-in">台灣選了另一條路：自己建一套數位憑證系統，然後開放給超商、電信商、未來的醫院、銀行去用。這叫「主權」。</p>
+
+  <p class="highlight fade-in">規則本身才是價值。誰決定隱私怎麼保護？誰決定證件什麼時候失效？誰能發證、誰能檢驗——這些不能完全交給海外企業。</p>
+
+  <p class="fade-in">只是，對大多數人來說，主權太抽象。人們關心的是：能不能快速取貨？會不會外洩個資？需要下載幾個 app？</p>
+</section>
+
+<!-- THE DILEMMA -->
+<section class="wide">
+  <h2 class="fade-in"><span class="label">PART 3</span>兩條路</h2>
+
+  <div class="perspectives fade-in">
+    <div class="perspective-card convenience">
+      <span class="tag">立場 A</span>
+      <h3>先解決現實問題</h3>
+      <p class="detail">政府應該先端出第二、第三個應用場景。證件功能不重要，重要的是我根本不在乎隱私——我只想少裝幾個 app、快速完事。</p>
+      <div class="challenge"><strong>隱憂：</strong>隱私很難當飯吃。多數人不會為了隱私特地下載 app，就像 Gmail 還是比 Proton Mail 多得多。</div>
+    </div>
+    <div class="perspective-card sovereignty">
+      <span class="tag">立場 B</span>
+      <h3>堅守未來的願景</h3>
+      <p class="detail">應用場景會慢慢出現，但底層的規則必須先確立。台灣不能把數位身分完全交給蘋果或谷歌，否則主權蕩然無存。</p>
+      <div class="challenge"><strong>隱憂：</strong>人們等不了。超商領貨 app 現在就被罵浪費，那駕照呢？健保卡呢？什麼時候才會到？</div>
+    </div>
+  </div>
+
+  <p class="fade-in" style="text-align:center;font-size:1.05rem;line-height:2;margin-top:3rem">都對，但都有代價。是先活著走到那裡，還是沿著對的方向走，就算慢？</p>
+</section>
+
+<!-- ENDING -->
+<section>
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">超商領貨 app 已經在超商裡了。政府的下一步，決定了整個計畫是真的國家基礎建設，還是真的浪費資源的收音機。</p>
+
+  <p class="fade-in" style="font-size:1.05rem;line-height:2">如果六個月後，人們還是只能用它領貨，那批評者會贏。如果一年後，駕照、健保卡、求職證書陸續上線，那政府會贏。</p>
+</section>
+
+<!-- QUIZ -->
+<div class="quiz-section" id="quiz">
+  <h2 class="fade-in">讀完了，你的立場呢？</h2>
+  <p class="quiz-intro fade-in">三個問題，看看你最傾向哪一派。</p>
+
+  <div class="quiz-wrap fade-in">
+    <div class="q-progress"><span class="q-dot active"></span><span class="q-dot"></span><span class="q-dot"></span></div>
+
+    <div class="q-card active" data-q="1">
+      <div class="q-step">1 / 3</div>
+      <div class="q-text">數位憑證皮夾上線，暫時只有超商領貨。你的反應是？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="convenience">又浪費錢了，先把應用場景弄出來再說</button>
+        <button class="q-btn" data-camp="pragmatist">方向沒錯，但得先看到更多應用場景</button>
+        <button class="q-btn" data-camp="privacy">底層規則要先確立，應用場景會慢慢來</button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="2">
+      <div class="q-step">2 / 3</div>
+      <div class="q-text">日本把數位駕照放進 Apple Wallet，既方便又安全。台灣為什麼不跟進？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="convenience">沒必要自己做，效率更低</button>
+        <button class="q-btn" data-camp="pragmatist">自己做有必要，但要快一點</button>
+        <button class="q-btn" data-camp="privacy">必須自己做，才不會被美國科技公司綁架</button>
+      </div>
+    </div>
+
+    <div class="q-card" data-q="3">
+      <div class="q-step">3 / 3</div>
+      <div class="q-text">政府說「規則本身才是價值」。你覺得？</div>
+      <div class="q-options">
+        <button class="q-btn" data-camp="convenience">廢話，規則再好用不了還是白搭</button>
+        <button class="q-btn" data-camp="pragmatist">對，但得同時有好用的應用場景</button>
+        <button class="q-btn" data-camp="privacy">完全同意，主權不能交出去</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的數位身分觀</div>
+    <div class="r-emoji"></div>
+    <div class="r-name"></div>
+    <div class="r-desc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>數位憑證皮夾，其實是個大實驗。</h2>
+  <p>隱私該怎麼保護、主權該怎麼守、應用場景該如何擴展——完整文章一次講清楚。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/743" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('台灣的數位憑證皮夾上線了，卻被問：為什麼要花公帑替超商做 app？\n\n其實關鍵不在應用，在於誰決定數位身分的規則。')+'&url='+encodeURIComponent('https://share.blocktrend.today/743/'),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent('https://share.blocktrend.today/743/'),'_blank')">分享到 Facebook</button>
+    <button class="share-btn copy" onclick="navigator.clipboard.writeText('https://share.blocktrend.today/743/');this.textContent='已複製！';setTimeout(()=>this.textContent='複製連結',1500)">複製連結</button>
+  </div>
+</div>
+
+<footer>
+  <a href="https://www.blocktrend.today" target="_blank">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  </a>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Quiz system
+const answers = {};
+const cards = document.querySelectorAll('.q-card');
+const dots = document.querySelectorAll('.q-dot');
+
+const camps = {
+  privacy: {
+    emoji: '🔐',
+    name: '隱私守護派',
+    desc: '你重視主權和隱私。認為數位身分的規則權力不能交給國外企業，就算要等，也要等對的事。',
+    bg: 'var(--teal-light)',
+    color: 'var(--teal)',
+    share: '我是「隱私守護派」🔐 台灣的數位身分規則，必須由台灣說了算。你呢？'
+  },
+  pragmatist: {
+    emoji: '⚖️',
+    name: '務實改革派',
+    desc: '你認同獨立建設的方向，但也知道政府得快一點。主權重要，但應用場景也得拿出來。',
+    bg: '#F9F3E6',
+    color: '#8B7340',
+    share: '我是「務實改革派」⚖️ 方向對，但得同時看到應用。隻躍進不動，民眾很難買單。你呢？'
+  },
+  convenience: {
+    emoji: '⚡',
+    name: '便利至上派',
+    desc: '你首先在乎的是好不好用、有沒有實際幫助。規則再完美，對日常生活沒幫助也白搭。',
+    bg: '#FBF7F2',
+    color: '#8B5A3C',
+    share: '我是「便利至上派」⚡ 隱私很重要，但先讓它好用再說。用不了的規則就是空談。你呢？'
+  }
+};
+
+const articleUrl = 'https://share.blocktrend.today/743/';
+let currentQ = 0;
+
+function showResult() {
+  const counts = { privacy: 0, pragmatist: 0, convenience: 0 };
+  Object.values(answers).forEach(c => counts[c]++);
+  const winner = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+  const camp = camps[winner];
+
+  const card = document.getElementById('resultCard');
+  card.querySelector('.r-emoji').textContent = camp.emoji;
+  card.querySelector('.r-name').textContent = camp.name;
+  card.querySelector('.r-name').style.color = camp.color;
+  card.querySelector('.r-desc').textContent = camp.desc;
+  card.style.background = camp.bg;
+  card.classList.add('show');
+  document.querySelector('.quiz-wrap').style.display = 'none';
+
+  document.getElementById('shareTw').onclick = function() {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(camp.share + '\n\n') + '&url=' + encodeURIComponent(articleUrl), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function() {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(articleUrl) + '&quote=' + encodeURIComponent(camp.share), '_blank');
+  };
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function advanceQuiz() {
+  dots[currentQ].classList.remove('active');
+  dots[currentQ].classList.add('done');
+  currentQ++;
+
+  if (currentQ >= 3) {
+    setTimeout(showResult, 400);
+    return;
+  }
+
+  dots[currentQ].classList.add('active');
+  cards[currentQ - 1].classList.remove('active');
+  setTimeout(() => {
+    cards[currentQ].classList.add('active');
+    cards[currentQ].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 200);
+}
+
+document.querySelectorAll('.q-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.q-card');
+    card.querySelectorAll('.q-btn').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+    answers[card.dataset.q] = this.dataset.camp;
+    setTimeout(advanceQuiz, 500);
+  });
+});
+</script>
+</body>
+</html>
