@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>兆豐實測穩定幣！卻沒發現銀行才是最大贏家？ — 區塊勢</title>
+  <meta name="description" content="穩定幣取代的不是銀行，而是 SWIFT。兆豐實測穩定幣跨境匯款，卻沒發現銀行才是最大贏家？">
+  <meta property="og:title" content="兆豐實測穩定幣！卻沒發現銀行才是最大贏家？">
+  <meta property="og:description" content="穩定幣取代的不是銀行，而是 SWIFT。兆豐實測穩定幣跨境匯款，卻沒發現銀行才是最大贏家？">
+        <meta property="og:type" content="article">
+  <meta property="og:url" content="https://astrohsu.github.io/765/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="兆豐實測穩定幣！卻沒發現銀行才是最大贏家？">
+  <meta name="twitter:description" content="穩定幣取代的不是銀行，而是 SWIFT。兆豐實測穩定幣跨境匯款，卻沒發現銀行才是最大贏家？">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --green-deep: #0D2E20;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 18px
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--text);
+      background: var(--warm);
+      line-height: 1.9;
+      font-weight: 400;
+      overflow-x: hidden
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 50%, var(--blue-light) 100%);
+    }
+
+    .hero-logo {
+      height: 56px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s forwards;
+      max-width: 560px;
+    }
+
+    .hero .subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      margin-top: 1rem;
+      letter-spacing: 0.1em;
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+      max-width: 440px;
+    }
+
+    .hero .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      z-index: 1;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.2em;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.5s forwards;
+    }
+
+    .hero .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--text-muted);
+      margin: 0.8rem auto 0;
+      opacity: 0.4;
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    .hero .start-btn {
+      margin-top: 2.5rem;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      border: none;
+      background: var(--text);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.2s forwards;
+      transition: transform 0.2s;
+    }
+
+    .hero .start-btn:hover {
+      transform: scale(1.03)
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+
+      from {
+        transform: translateY(20px)
+      }
+    }
+
+    @keyframes scrollPulse {
+
+      0%,
+      100% {
+        opacity: 0.2;
+        height: 40px
+      }
+
+      50% {
+        opacity: 0.6;
+        height: 50px
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto
+    }
+
+    section.wide {
+      max-width: 900px
+    }
+
+    h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    h2 .label {
+      display: block;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem
+    }
+
+    p.lead {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 2
+    }
+
+    .hl {
+      color: var(--terra);
+      font-weight: 500
+    }
+
+    /* Module diagrams */
+    .diagram-wrap {
+      margin: 2.5rem 0
+    }
+
+    .diagram-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 0.03em;
+    }
+
+    .diagram-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem
+    }
+
+    .modules {
+      display: flex;
+      gap: 0;
+      overflow: visible;
+      padding-top: 1rem;
+    }
+
+    .mod {
+      flex: 1;
+      min-height: 5rem;
+      padding: 1rem 0.4rem 0.8rem;
+      text-align: center;
+      border: 1px solid;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: transform 0.3s;
+    }
+
+    .mod:first-child {
+      border-radius: 10px 0 0 10px
+    }
+
+    .mod:last-child {
+      border-radius: 0 10px 10px 0
+    }
+
+    .mod+.mod {
+      border-left: none
+    }
+
+    .mod .name {
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.3
+    }
+
+    .mod .desc {
+      font-size: 0.65rem;
+      opacity: 0.55;
+      margin-top: 0.15rem
+    }
+
+    .mod .badge {
+      position: absolute;
+      top: -0.7rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 1rem;
+      white-space: nowrap;
+      color: #fff;
+      z-index: 1;
+    }
+
+    .mod:has(.badge) {
+      padding-top: 1.3rem
+    }
+
+    .mod-blue {
+      background: var(--blue-light);
+      border-color: rgba(37, 99, 235, 0.18)
+    }
+
+    .mod-blue .name {
+      color: var(--blue)
+    }
+
+    .mod-terra {
+      background: var(--terra-light);
+      border-color: rgba(192, 106, 58, 0.2)
+    }
+
+    .mod-terra .name {
+      color: var(--terra)
+    }
+
+    .mod-yellow {
+      background: var(--yellow-light);
+      border-color: rgba(139, 105, 20, 0.18)
+    }
+
+    .mod-yellow .name {
+      color: var(--yellow)
+    }
+
+    .mod-green {
+      background: var(--green-light);
+      border-color: rgba(45, 107, 79, 0.18)
+    }
+
+    .mod-green .name {
+      color: var(--green)
+    }
+
+    /* Highlight box */
+    .highlight {
+      padding: 1.3rem 1.8rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      background: var(--gold-light);
+      border: 1px solid #E4D5B8;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--gold);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* Strategy cards */
+    .strategy-card {
+      padding: 1.5rem 1.6rem;
+      border-radius: 14px;
+      border: 1px solid;
+      margin-bottom: 0.8rem;
+      transition: transform 0.3s;
+    }
+
+    .strategy-card:hover {
+      transform: translateY(-2px)
+    }
+
+    .strategy-card .header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem
+    }
+
+    .strategy-card .icon {
+      font-size: 1.2rem
+    }
+
+    .strategy-card .title {
+      font-size: 0.95rem;
+      font-weight: 700
+    }
+
+    .strategy-card .body {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.7
+    }
+
+    /* Smile curve */
+    .curve-wrap {
+      margin: 2.5rem 0;
+      text-align: center
+    }
+
+    .curve-wrap svg {
+      width: 100%;
+      max-width: 100%;
+      height: auto
+    }
+
+    /* Big quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+
+    /* Choice section */
+    .choice-section {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, var(--warm), #F5F3ED);
+    }
+
+    .choice-section h2 {
+      margin-bottom: 0.5rem
+    }
+
+    .choice-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 2rem
+    }
+
+    .choice-options {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem
+    }
+
+    .choice-btn {
+      background: #fff;
+      border: 1px solid #E8E3D8;
+      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--text-secondary);
+      background: var(--green-light)
+    }
+
+    .choice-btn.selected {
+      border-color: var(--terra);
+      background: var(--terra-light);
+      pointer-events: none
+    }
+
+    .choice-btn .emoji {
+      font-size: 1.5rem;
+      flex-shrink: 0
+    }
+
+    .choice-btn .label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text)
+    }
+
+    .choice-btn .desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+      line-height: 1.5
+    }
+
+    /* Result card */
+    .result-card {
+      display: none;
+      max-width: 480px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      background: var(--green-light);
+      border: 1px solid rgba(45, 107, 79, 0.15);
+    }
+
+    .result-card.show {
+      display: block;
+      animation: fadeUp 0.5s ease forwards
+    }
+
+    .result-card .r-badge {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem
+    }
+
+    .result-card .r-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .result-card .r-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem
+    }
+
+    .result-card .key-line {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      padding: 1rem 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 1rem;
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03)
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
+    }
+
+    .cta h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03)
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em
+    }
+
+    @media(max-width:700px) {
+      html {
+        font-size: 16px
+      }
+
+      section {
+        padding: 3rem 1.2rem
+      }
+
+      .hero h1 {
+        font-size: 1.8rem
+      }
+
+      .mod .name {
+        font-size: 0.68rem
+      }
+
+      .modules {
+        flex-wrap: nowrap
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="hero-logo" style="height:56px">
+    <h1>兆豐實測穩定幣！<br>卻沒發現銀行才是最大贏家？</h1>
+    <p class="subtitle">三分鐘看懂這場爭論的真正問題</p>
+    <div class="scroll-hint">SCROLL</div>
+  </div>
+
+  <!-- PART 1: What happened -->
+  <section id="s1">
+    <h2 class="fade-in"><span class="label">PART 1</span>兆豐量對了數字，卻量錯了東西</h2>
+
+    <p class="fade-in">兆豐金控董事長董瑞斌動員 17 個國家、25 家海外分行的職員，實際以穩定幣進行跨境匯款，再與銀行電匯的效率和成本做對照。結論：<span class="hl">超過 7,000
+        美元的匯款，銀行更便宜</span>。媒體紛紛下標「傳統金融沒有輸」。</p>
+
+    <p class="fade-in">去年 8 月，董先生曾將穩定幣類比為悠遊卡。這次他不再紙上談兵，實際動員全球分行測試。行動力值得欽佩。</p>
+
+    <p class="fade-in">但仔細檢視測試方法會發現，兆豐量對了數字，卻量錯了東西。</p>
+  </section>
+
+  <!-- PART 2: Value chain -->
+  <section class="wide">
+    <h2 class="fade-in"><span class="label">PART 2</span>穩定幣只換一個環節，兆豐卻把整條鏈拆了</h2>
+
+    <p class="fade-in">錢要從銀行匯到國外，有時比人搭飛機出國更麻煩。一筆款項得先通過身份驗證才能開戶，將台幣換成外幣，透過 SWIFT
+      和中轉行完成跨境結算，再經過結匯申報和合規審查。萬一出問題，還得仰賴客服追蹤資金。</p>
+
+    <p class="fade-in">銀行的核心價值就是把這些環節整合起來，讓使用者只接觸頭尾兩端——在台灣匯款，在境外收錢——中間由銀行包辦。</p>
+
+    <div class="diagram-wrap fade-in">
+      <div class="diagram-label" style="color:var(--blue);">🏦 銀行跨境匯款的六個環節</div>
+      <div class="modules">
+        <div class="mod mod-blue">
+          <div class="name">身份驗證</div>
+        </div>
+        <div class="mod mod-blue">
+          <div class="name">帳戶管理</div>
+        </div>
+        <div class="mod mod-blue">
+          <div class="name">換匯</div>
+        </div>
+        <div class="mod mod-terra">
+          <div class="badge" style="background:var(--terra);">穩定幣換這層</div>
+          <div class="name">跨境結算</div>
+          <div class="desc">SWIFT</div>
+        </div>
+        <div class="mod mod-blue">
+          <div class="name">合規審查</div>
+        </div>
+        <div class="mod mod-blue">
+          <div class="name">客戶服務</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-in">穩定幣獲准進入金融體系之後，直接衝擊的是「跨境結算」。它用區塊鏈取代 SWIFT 和中轉行，讓資金結算從「工作天、層層中轉」變成「幾秒鐘、點對點到帳」，成本近乎免費。<span
+        class="hl">除此之外，其餘五個環節都不受影響</span>。</p>
+
+    <p class="fade-in">但兆豐銀行的測試流程不太一樣。兆豐請各國行員到當地合法的交易所開戶、用當地貨幣買入 USDT，透過鏈上轉帳把 USDT 轉到台灣 BitoPro 交易所，最後賣掉換回台幣。</p>
+
+    <div class="diagram-wrap fade-in">
+      <div class="diagram-label" style="color:var(--yellow);">🧪 兆豐的測試路徑</div>
+      <div class="modules">
+        <div class="mod mod-yellow">
+          <div class="badge" style="background:var(--yellow);">測試範圍</div>
+          <div class="name">交易所開戶</div>
+        </div>
+        <div class="mod mod-yellow">
+          <div class="name">法幣入金</div>
+        </div>
+        <div class="mod mod-yellow">
+          <div class="name">買 USDT</div>
+          <div class="desc">0.2%</div>
+        </div>
+        <div class="mod mod-terra">
+          <div class="badge" style="background:var(--terra);">唯一對應的</div>
+          <div class="name">鏈上轉帳</div>
+        </div>
+        <div class="mod mod-yellow">
+          <div class="name">收幣</div>
+        </div>
+        <div class="mod mod-yellow">
+          <div class="name">賣回台幣</div>
+          <div class="desc">0.2%</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-in">兆豐的問題出在<span
+        class="hl">它把自己當成散戶，而不是銀行</span>。它不是直接用穩定幣抽換「跨境結算」這個模組，而是跑去交易所開戶、從頭組裝了一條替代路徑，再拿來和銀行的整合體驗對照。說穿了，兆豐證明的是「散戶東拼西湊的體驗，不如專業整合者」，而不是「銀行比穩定幣更具優勢」。
+    </p>
+
+    <p class="highlight fade-in">穩定幣說「升級 CPU 可以更快」，兆豐卻跑去光華商場從頭組了一台電腦，然後說舊電腦比較好。<br>銀行只需要把 CPU 換掉就好。</p>
+  </section>
+
+  <!-- PART 3: Three strategies -->
+  <section>
+    <h2 class="fade-in"><span class="label">PART 3</span>全球金融業的三套劇本</h2>
+
+    <p class="fade-in">電腦產業也經歷過一段「模組化革命」。1981 年 IBM 推出個人電腦，打破大型主機完全自己設計的傳統，改採公開架構與外購零件，PC 產業迅速走向模組化。</p>
+
+    <p class="fade-in">大型主機廠商 DEC 堅持封閉架構才是「專業」，嘲笑 PC
+      只是玩具，不到十年就被市場淘汰。反觀剛成立的華碩選擇擁抱模組化，專注做主機板這一個零件，最終稱霸全球。戴爾則走第三條路，直接用現成零件組裝電腦並提供保固，替消費者省麻煩。</p>
+
+    <p class="fade-in">金融業面對穩定幣帶來的模組化變革，正在重演這三套劇本：</p>
+
+    <div class="strategy-card fade-in" style="background:var(--terra-light);border-color:#DBBFAD;">
+      <div class="header">
+        <div class="icon">🛡️</div>
+        <div class="title" style="color:var(--terra);">防禦者</div>
+      </div>
+      <div class="body">如 DEC → 兆豐目前的做法。用既有指標證明穩定幣不如銀行，並主張監管應對穩定幣「一視同仁」。守住既有市場，但也可能錯過新商機。</div>
+    </div>
+    <div class="strategy-card fade-in" style="background:var(--yellow-light);border-color:#E4D5B8;">
+      <div class="header">
+        <div class="icon">🔧</div>
+        <div class="title" style="color:var(--yellow);">供應商</div>
+      </div>
+      <div class="body">如華碩 → Visa。全球最大發卡組織 Visa 推出穩定幣 Visa 卡，將龐大的法幣支付網路開放給穩定幣使用。照賺刷卡手續費。</div>
+    </div>
+    <div class="strategy-card fade-in" style="background:var(--green-light);border-color:#A8D4BC;">
+      <div class="header">
+        <div class="icon">⚡</div>
+        <div class="title" style="color:var(--green);">整合者</div>
+      </div>
+      <div class="body">如戴爾 → Stripe。支付巨擘 Stripe 收購穩定幣基礎設施公司 Bridge，直接把穩定幣變成自家支付網路的結算引擎。商家只需要串接
+        Stripe，就能收全球穩定幣付款，底下跑什麼鏈完全不必知道。Bridge 在 2025 年交易量成長超過四倍。</div>
+    </div>
+
+    <p class="fade-in">不只 Stripe，Visa 正在把穩定幣卡擴展到超過 100 個國家，日本三大銀行（三菱 UFJ、三井住友、瑞穗）聯手發行日圓穩定幣。就連華爾街的大型銀行，也已經悄悄把結算引擎換成區塊鏈。
+    </p>
+
+    <p class="fade-in">以區塊鏈處理跨境轉帳是否更具優勢，金融機構已經用腳投票。兆豐最該問的，不是「銀行跟穩定幣比起來怎麼樣」，而是<span
+        class="hl">「引入穩定幣之後，銀行會是贏家還是輸家？」</span></p>
+  </section>
+
+  <!-- PART 4: Smile curve -->
+  <section>
+    <h2 class="fade-in"><span class="label">PART 4</span>換掉結算引擎，銀行反而更值錢</h2>
+
+    <p class="fade-in">台灣的境內轉帳已經夠快、夠便宜，穩定幣的最大價值在於跨境匯款。對台灣人來說，不外乎是個人投資美股，或是做外銷生意的中小企業。</p>
+
+    <p class="fade-in">若銀行引入穩定幣處理跨境結算，大幅降低時間和金錢成本，原本被傳統匯款流程擋住的需求就會被釋放出來，跨境交易的總量會膨脹。而這些新增的金流，會流向銀行還是加密貨幣交易所？</p>
+
+    <p class="fade-in">宏碁創辦人施振榮在 1992 年提出的微笑曲線，可以借鏡。當年 IBM 把 PC
+      架構模組化，硬體組裝變成任何人都能做的事。施振榮建議企業不要停留在中間的組裝代工，而是往價值鏈的兩端移動——一端是技術專利，另一端是品牌服務。</p>
+
+    <p class="fade-in">穩定幣也是一樣的道理。當跨境結算變成任何人都能做的事，另外兩端的價值反而更凸顯出來：<span class="hl">合規風控</span>、<span
+        class="hl">品牌信任</span>。恰好銀行在這兩端，比加密貨幣交易所更有先發優勢。</p>
+
+    <div class="curve-wrap fade-in">
+      <div style="background:#fff;border:1px solid #E8E3D8;border-radius:10px;padding:24px 20px;text-align:center;">
+        <div
+          style="font-family:'Noto Sans TC',sans-serif;font-size:14px;font-weight:700;color:#2C2A25;margin-bottom:16px;text-align:center;">
+          微笑曲線：兩端的價值反而更凸顯</div>
+        <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Axes -->
+          <line x1="60" y1="20" x2="60" y2="250" stroke="#e5e3df" stroke-width="1" />
+          <line x1="60" y1="250" x2="560" y2="250" stroke="#e5e3df" stroke-width="1" />
+          <text x="18" y="140" fill="#9E9A90" font-size="11" font-family="Noto Sans TC"
+            transform="rotate(-90,18,140)">附加價值</text>
+          <text x="310" y="275" fill="#9E9A90" font-size="11" font-family="Noto Sans TC"
+            text-anchor="middle">價值鏈環節</text>
+
+          <!-- Smile curve -->
+          <path d="M 90,70 C 150,80 220,200 310,210 C 400,200 470,80 530,70" stroke="#C06A3A" stroke-width="2.5"
+            fill="none" />
+
+          <!-- Left label -->
+          <text x="90" y="42" fill="#2563EB" font-size="10" font-family="Noto Sans TC" text-anchor="middle">（技術端）</text>
+          <text x="90" y="58" fill="#2563EB" font-size="12" font-weight="700" font-family="Noto Sans TC"
+            text-anchor="middle">合規 / 風控</text>
+
+          <!-- Right label -->
+          <text x="530" y="42" fill="#2563EB" font-size="10" font-family="Noto Sans TC"
+            text-anchor="middle">（關係端）</text>
+          <text x="530" y="58" fill="#2563EB" font-size="12" font-weight="700" font-family="Noto Sans TC"
+            text-anchor="middle">品牌 / 客戶信任</text>
+
+          <!-- Bottom label -->
+          <text x="310" y="200" fill="#9E9A90" font-size="10" font-family="Noto Sans TC" text-anchor="middle">任何人都能做
+            ↓</text>
+          <text x="310" y="235" fill="#C06A3A" font-size="12" font-weight="700" font-family="Noto Sans TC"
+            text-anchor="middle">跨境結算</text>
+
+          <!-- Value arrows (dashed green with arrowheads) -->
+          <defs>
+            <marker id="arrowG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#2D6B4F" />
+            </marker>
+          </defs>
+          <path d="M 240,195 C 200,170 140,110 110,80" stroke="#2D6B4F" stroke-width="1.5" fill="none"
+            stroke-dasharray="4,3" marker-end="url(#arrowG)" />
+          <path d="M 380,195 C 420,170 480,110 510,80" stroke="#2D6B4F" stroke-width="1.5" fill="none"
+            stroke-dasharray="4,3" marker-end="url(#arrowG)" />
+          <text x="170" y="148" fill="#2D6B4F" font-size="10" font-family="Noto Sans TC">價值凸顯</text>
+          <text x="420" y="148" fill="#2D6B4F" font-size="10" font-family="Noto Sans TC">價值凸顯</text>
+        </svg>
+        <p
+          style="font-size:12px;color:#9E9A90;margin-top:12px;text-align:left;line-height:1.6;font-family:'Noto Sans TC',sans-serif;">
+          施振榮的微笑曲線：當跨境結算變成任何人都能做的事，兩端的合規風控與品牌信任反而更凸顯。銀行恰好站在兩端。</p>
+      </div>
+    </div>
+
+    <p class="fade-in">一家中小企業要把幾百萬貨款交給誰處理？<span class="hl">是兆豐，還是一家沒聽過的交易所？</span></p>
+
+    <p class="fade-in">如果兆豐不是請行員去交易所開戶買 USDT，而是直接在自己的系統裡把 SWIFT 換成穩定幣結算，實驗結果就會完全不同。兆豐在海外的 25
+      家分行，就是加密貨幣交易所最夢寐以求的穩定幣出入口。企業客戶在網銀上匯款的操作流程完全沒變，但到帳時間從幾個工作天變成幾秒鐘。</p>
+  </section>
+
+  <!-- BIG QUOTE -->
+  <div class="big-quote">
+    <p class="fade-in"><span class="hl">穩定幣取代的不是銀行，而是 SWIFT。</span></p>
+    <p class="fade-in"
+      style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+      如果董先生的心態從防禦者換成整合者，會發現兆豐手上的牌比想像中更好。</p>
+  </div>
+
+  <!-- CHOICE -->
+  <div class="choice-section" id="choice">
+    <h2 class="fade-in">如果你是銀行決策者<br>你會走哪條路？</h2>
+    <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+    <div class="choice-options fade-in">
+      <button class="choice-btn" onclick="choose(0)">
+        <div class="emoji">🛡️</div>
+        <div>
+          <div class="label">防禦</div>
+          <div class="desc">證明穩定幣不如銀行，要求監管一視同仁</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(1)">
+        <div class="emoji">🔧</div>
+        <div>
+          <div class="label">供應</div>
+          <div class="desc">開放部分能力給穩定幣生態系使用</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(2)">
+        <div class="emoji">⚡</div>
+        <div>
+          <div class="label">整合</div>
+          <div class="desc">把穩定幣變成結算引擎，客戶無感升級</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="r-badge">你的觀點</div>
+      <div class="r-title" id="rTitle"></div>
+      <div class="r-desc" id="rDesc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>想看完整分析？</h2>
+    <p>完整文章包含價值鏈拆解、三種策略的全球案例比較、微笑曲線的經濟學分析，以及為什麼銀行在穩定幣時代反而更值錢。</p>
+    <a class="cta-btn" href="https://www.blocktrend.today/p/765" target="_blank">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw"
+        onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('穩定幣取代的不是銀行，而是 SWIFT。兆豐實測穩定幣跨境匯款，卻沒發現銀行才是最大贏家？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到
+        𝕏</button>
+      <button class="share-btn fb"
+        onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('穩定幣取代的不是銀行，而是 SWIFT。'),'_blank')">分享到
+        Facebook</button>
+    </div>
+  </div>
+
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+  <script>
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Choice
+    let userChoice = -1;
+    const labels = ['防禦者', '供應商', '整合者'];
+    const results = [
+      { title: '你選擇了防禦——歷史會站在你這邊嗎？', desc: '守住既有市場是本能反應。但當 Stripe 把穩定幣變成全球支付引擎、Visa 穩定幣卡擴展到 100 國、日本三大銀行聯手發日圓穩定幣，防禦的窗口正在縮小。兆豐的 25 家海外分行是巨大資產——要拿來防守，還是進攻？', bg: 'var(--terra-light)', border: '#DBBFAD' },
+      { title: '你選擇了供應——務實，但有天花板', desc: '像 Visa 一樣把能力開放給穩定幣生態系，風險低、見效快。但當你只是別人生態系裡的零件，議價能力會被壓縮。兆豐有合規、有信任、有全球網路——它有條件做更多。', bg: 'var(--yellow-light)', border: '#E4D5B8' },
+      { title: '你選擇了整合——跟 Stripe 站在同一邊', desc: '把穩定幣變成結算引擎，客戶無感，到帳從工作天變成幾秒鐘。兆豐的 25 家海外分行就是交易所夢寐以求的穩定幣出入口。風險最高，但也是唯一讓銀行在穩定幣時代變更值錢的路。', bg: 'var(--green-light)', border: '#A8D4BC' }
+    ];
+
+    function choose(idx) {
+      if (userChoice >= 0) return;
+      userChoice = idx;
+      document.querySelectorAll('.choice-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add('selected');
+        b.style.cursor = 'default';
+      });
+      const r = results[idx];
+      const card = document.getElementById('resultCard');
+      document.getElementById('rTitle').textContent = r.title;
+      document.getElementById('rDesc').textContent = r.desc;
+      card.style.background = r.bg;
+      card.style.borderColor = r.border;
+      card.classList.add('show');
+
+      const shareText = `面對穩定幣，我認為台灣的銀行應該當「${labels[idx]}」。\n\n穩定幣取代的不是銀行，而是 SWIFT。`;
+      document.getElementById('shareTw').onclick = function () {
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+      };
+      document.getElementById('shareFb').onclick = function () {
+        window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+      };
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    }
+  </script>
+</body>
+
+</html>
