@@ -10,8 +10,13 @@
 <meta property="og:image" content="https://astrohsu.github.io/759/cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://astrohsu.github.io/759/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://astrohsu.github.io/759/cover.png">
+<meta name="twitter:title" content="美股代幣上架幣安！像夜市套圈圈一樣刺激">
+<meta name="twitter:description" content="代幣化股票改變全球投資模式。24/7 交易、無國界轉讓、極低手續費。">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -452,28 +457,30 @@ p{margin-bottom:1.5rem}
   margin-top:1.5rem;
 }
 
+.share-row{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+
 .share-btn{
-  padding:0.8rem 1.5rem;
-  border-radius:8px;
+  padding:0.55rem 1.2rem;
+  border-radius:2rem;
   border:none;
-  font-size:0.85rem;
+  font-size:0.8rem;
   font-weight:500;
   cursor:pointer;
   font-family:'Noto Sans TC',sans-serif;
   letter-spacing:0.05em;
-  transition:transform 0.2s,box-shadow 0.2s;
+  transition:transform 0.2s;
 }
 
 .share-btn:hover{
-  transform:scale(1.05);
+  transform:scale(1.03);
 }
 
-.share-btn.twitter{
+.share-btn.tw{
   background:#0f1419;
   color:#fff;
 }
 
-.share-btn.facebook{
+.share-btn.fb{
   background:#1877f2;
   color:#fff;
 }
@@ -481,7 +488,7 @@ p{margin-bottom:1.5rem}
 /* CTA section */
 .cta{
   text-align:center;
-  padding:5rem 2rem;
+  padding:4rem 2rem;
   background:linear-gradient(180deg,#F5F3ED,var(--cream));
 }
 
@@ -495,9 +502,9 @@ p{margin-bottom:1.5rem}
   font-size:0.95rem;
 }
 
-.cta-link{
+.cta-btn{
   display:inline-block;
-  padding:1rem 3rem;
+  padding:0.9rem 2.5rem;
   border-radius:2rem;
   background:var(--text);
   color:#fff;
@@ -505,10 +512,10 @@ p{margin-bottom:1.5rem}
   font-weight:500;
   letter-spacing:0.1em;
   transition:transform 0.2s;
-  font-size:1rem;
+  font-size:0.95rem;
 }
 
-.cta-link:hover{
+.cta-btn:hover{
   transform:scale(1.03);
 }
 
@@ -521,15 +528,30 @@ footer{
   letter-spacing:0.15em;
 }
 
-.footer-logo{
+footer img{
   height:44px;
-  margin-bottom:1.5rem;
   opacity:0.5;
 }
 
-.footer-logo img{
-  height:100%;
-  object-fit:contain;
+/* Big Quote */
+.big-quote{
+  text-align:center;
+  padding:4rem 2rem;
+  background:linear-gradient(180deg,var(--warm),var(--terra-light));
+}
+
+.big-quote p{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.4rem,4vw,2rem);
+  font-weight:700;
+  line-height:1.6;
+  max-width:500px;
+  margin:0 auto;
+  letter-spacing:0.03em;
+}
+
+.big-quote .hl{
+  color:var(--terra);
 }
 
 /* Responsive */
@@ -768,20 +790,25 @@ footer{
   </div>
 </div>
 
+<!-- Big Quote -->
+<div class="big-quote fade-in">
+  <p><span class="hl">股票代幣讓「股東身分」與「股票價格」分開處理。</span></p>
+  <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">股票從此有機會離開券商帳戶、融入日常生活。</p>
+</div>
+
 <!-- CTA -->
-<section class="cta">
+<div class="cta">
   <h2>想深入了解全部細節？</h2>
   <p>閱讀完整文章，了解為什麼代幣股票會改變全球投資的未來，以及你需要知道的所有風險。</p>
-  <a href="https://www.blocktrend.today/p/759" class="cta-link">閱讀完整文章 →</a>
-</section>
+  <a href="https://www.blocktrend.today/p/759" class="cta-btn">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('美股代幣上架幣安！代幣化股票正在改變全球投資模式。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('美股代幣上架幣安！代幣化股票正在改變全球投資模式。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-logo">
-    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
-  </div>
-  <p>BLOCKTREND.TODAY</p>
-</footer>
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
 <script>
 // Fade-in animation

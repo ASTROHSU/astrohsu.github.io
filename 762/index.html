@@ -7,11 +7,16 @@
 <meta name="description" content="Circle 和 Stripe 正在為 AI 構建穩定幣支付系統。為什麼 AI 不能用信用卡？為什麼機器之間的交易必須用穩定幣？">
 <meta property="og:title" content="AI 不刷卡！為什麼機器之間要用穩定幣交易？">
 <meta property="og:description" content="AI 無法透過傳統金融系統支付。穩定幣正在取代的不是 Visa，而是 SWIFT。">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:image" content="https://astrohsu.github.io/762/cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://astrohsu.github.io/762/">
 <meta name="twitter:image" content="https://astrohsu.github.io/762/cover.png">
+<meta name="twitter:title" content="AI 不刷卡！為什麼機器之間要用穩定幣交易？">
+<meta name="twitter:description" content="AI 無法透過傳統金融系統支付。穩定幣正在取代的不是 Visa，而是 SWIFT。">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -228,18 +233,24 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2;margin-bottom
 .read-full:hover{background:#B85A30}
 
 /* CTA section */
-.cta-section{
-  text-align:center;padding:5rem 2rem;background:var(--terra-light);border-radius:16px;
-  margin:4rem 0;
+.cta{
+  text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,#F5F3ED,var(--cream));
 }
-.cta-section h2{margin-bottom:1rem}
-.cta-section p{margin-bottom:2rem}
+.cta h2{font-size:1.3rem;margin-bottom:0.8rem}
+.cta p{color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.9rem}
 .cta-btn{
-  display:inline-block;padding:1.2rem 2.5rem;background:var(--terra);color:#fff;
-  text-decoration:none;border-radius:8px;font-weight:500;font-size:1rem;
-  transition:background 0.3s;
+  display:inline-block;padding:0.9rem 2.5rem;border-radius:2rem;background:var(--text);color:#fff;
+  text-decoration:none;font-weight:500;letter-spacing:0.1em;transition:transform 0.2s;font-size:0.95rem;
 }
-.cta-btn:hover{background:#B85A30}
+.cta-btn:hover{transform:scale(1.03)}
+.share-row{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+.share-btn{padding:0.55rem 1.2rem;border-radius:2rem;border:none;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;transition:transform 0.2s}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+/* Big quote */
+.big-quote{text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,var(--warm),var(--terra-light))}
+.big-quote p{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.6;max-width:500px;margin:0 auto;letter-spacing:0.03em}
 
 /* Footer */
 footer{
@@ -411,19 +422,65 @@ footer img{
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="cta-section fade-in">
-  <h2>想更深入了解 AI、穩定幣與支付的未來嗎？</h2>
-  <p>閱讀完整文章，看作者如何串聯 Citrini Research、Visa 與 Stripe 的最新動態。</p>
-  <a href="https://www.blocktrend.today/p/762" target="_blank" class="cta-btn">閱讀完整文章</a>
+<!-- Big quote -->
+<section class="fade-in">
+  <div class="big-quote">
+    <p><span class="hl">AI 會自動選擇成本最低的支付方式。</span></p>
+    <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">當信用卡的 3% 手續費成為浪費，穩定幣的優勢就會被無情地選中。</p>
+  </div>
 </section>
 
+<!-- Choice section -->
+<div class="choice-section" id="choice">
+  <h2>你認為誰會在 AI 支付時代贏家？</h2>
+  <p class="choice-sub">選完之後，分享你的觀點</p>
+  <div class="choice-options">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">⚡</div>
+      <div>
+        <div class="label">穩定幣</div>
+        <div class="desc">AI 的理性決策會淘汰信用卡</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🤝</div>
+      <div>
+        <div class="label">傳統支付</div>
+        <div class="desc">銀行夠聰慧適應並融合新技術</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">⚙️</div>
+      <div>
+        <div class="label">新秀結合者</div>
+        <div class="desc">Stripe 與 Visa 這類整合者才是贏家</div>
+      </div>
+    </button>
+  </div>
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA Section -->
+<div class="cta">
+  <h2>想看完整分析？</h2>
+  <p>完整文章包含 AI 支付系統的深入分析、Stripe 與 Visa 的實戰策略比較，以及為什麼 vibe coder 才是穩定幣冷啟動的真正鑰匙。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/762" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 不刷卡！為什麼機器之間要用穩定幣交易？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('AI 不刷卡！為什麼機器之間要用穩定幣交易？'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
 <!-- Footer -->
-<footer class="fade-in">
-  <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend">
-  <p>區塊勢 — 用淺顯易懂的方式，每週探討區塊鏈的商業、科技與未來</p>
-  <p><a href="https://www.blocktrend.today/p/762" style="color:var(--terra);text-decoration:none">https://www.blocktrend.today/p/762</a></p>
-</footer>
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
 <script>
 // Fade-in animation
@@ -437,6 +494,40 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Choice section
+let userChoice = -1;
+const labels = ['穩定幣', '傳統支付', '結合者'];
+const results = [
+  { title: '⚡ 穩定幣終將主導', desc: 'AI 的無情邏輯會改寫規則。當 3% 手續費對機器毫無吸引力，成本優勢就會被無情地選中。但別忘了，這個過程需要時間——流動性的廣泛性仍是穩定幣最大的瓶頸。', bg: 'var(--yellow-light)', border: '#E4D5B8' },
+  { title: '🤝 傳統金融會進化', desc: '銀行和信用卡組織並非僵化恐龍。Visa 已在擁抱穩定幣，銀行在合規和信任上有天然優勢。最終的結果可能不是穩定幣取代信用卡，而是穩定幣成為更快的結算引擎，信用卡保留消費介面。', bg: 'var(--blue-light)', border: '#EFF4FF' },
+  { title: '⚙️ 整合者是真贏家', desc: '像 Stripe 和 Visa 這樣既握住支付入口，又擁抱穩定幣的玩家，反而是最大贏家。他們不需要在「穩定幣 vs 信用卡」中選邊站，只需要打造最佳的整合體驗。AI 時代的支付，就像 PC 時代的 Dell——靠整合獲勝。', bg: 'var(--green-light)', border: '#A8D4BC' }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `在 AI 支付時代，我認為 ${labels[idx]} 會成為贏家。\n\nAI 會自動選擇成本最低的支付方式。`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
 
 // Opinion selection
 const resultTexts = {

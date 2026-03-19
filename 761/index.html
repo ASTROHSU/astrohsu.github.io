@@ -7,15 +7,16 @@
   <meta name="description" content="韓國國稅廳在新聞稿中拍照並公開加密貨幣冷錢包的助記詞卡片，導致 5 百萬美元的資產在幾小時內遭竊。一場政府加密資產管理的烏龍鬧劇。">
   <meta property="og:title" content="韓國政府把私鑰公開上網！查稅機動隊的荒唐事件">
   <meta property="og:description" content="韓國國稅廳在新聞稿中拍照並公開加密貨幣冷錢包的助記詞卡片，導致 5 百萬美元的資產在幾小時內遭竊。">
+        <meta property="og:url" content="https://astrohsu.github.io/761/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:image" content="https://astrohsu.github.io/761/cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://astrohsu.github.io/761/">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://astrohsu.github.io/761/cover.png">
-  <meta name="twitter:title" content="韓國政府把私鑰公開上網！查稅機動隊的荒唐事件">
+    <meta name="twitter:title" content="韓國政府把私鑰公開上網！查稅機動隊的荒唐事件">
   <meta name="twitter:description" content="韓國國稅廳在新聞稿中拍照並公開加密貨幣冷錢包的助記詞卡片，導致 5 百萬美元的資產在幾小時內遭竊。">
+  <meta name="twitter:image" content="https://astrohsu.github.io/761/cover.png">
+  <link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -379,46 +380,81 @@
     }
 
     /* CTA Section */
-    .cta-section {
-      background: var(--green-light);
-      padding: 3rem 2rem;
+    .cta {
       text-align: center;
-      margin: 4rem 0 0 0;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
     }
 
-    .cta-section h2 {
-      color: var(--green);
-      margin-top: 0;
+    .cta h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
     }
 
-    .cta-link {
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-btn {
       display: inline-block;
-      background: var(--green);
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
       color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      border-bottom: none;
-      transition: all 0.3s ease;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 0.95rem;
     }
 
-    .cta-link:hover {
-      background: var(--text);
-      transform: translateY(-2px);
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff;
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff;
     }
 
     /* Footer */
     footer {
-      background: var(--warm);
-      padding: 3rem 2rem;
       text-align: center;
-      border-top: 1px solid #E8E3D8;
-    }
-
-    .footer-logo {
-      height: 44px;
-      opacity: 0.5;
-      margin: 0 auto;
+      padding: 3rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
     }
 
     /* Fade-in Animation */
@@ -436,6 +472,23 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Big quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
     }
 
     /* Responsive */
@@ -571,6 +624,12 @@
 
   </div>
 
+  <!-- Big Quote Section -->
+  <div class="big-quote">
+    <p class="fade-in"><span class="hl">政府連最基本的資訊安全都不懂。</span></p>
+    <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">更可怕的是，他們根本沒有應急機制，靠傻賊主動投案才發現問題。</p>
+  </div>
+
   <!-- Interaction Section -->
   <section class="interaction-section">
     <h2>你怎麼看這件事？</h2>
@@ -613,18 +672,18 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section">
-    <h2>想深入了解整個故事？</h2>
-    <p>這篇文章涵蓋了韓國國稅廳如何在一次新聞稿中犯下資訊安全最大錯誤、駭客的行為模式，以及政府加密資產管理的根本漏洞。</p>
-    <a href="https://www.blocktrend.today/p/761" class="cta-link" target="_blank">
-      在 Blocktrend 閱讀完整文章
-    </a>
-  </section>
+  <div class="cta">
+    <h2>想看完整分析？</h2>
+    <p>完整文章包含政府加密資產管理的漏洞、駭客的行為心理分析，以及為什麼即使奇蹟似地用零成本解決，仍反映出政府體系對數位資產安全的根本誤解。</p>
+    <a class="cta-btn" href="https://www.blocktrend.today/p/761" target="_blank">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('韓國政府把加密貨幣冷錢包的助記詞公開在新聞稿裡，導致 $5 百萬資產在幾小時內遭竊。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('韓國政府把加密貨幣冷錢包的助記詞公開在新聞稿裡，導致 $5 百萬資產在幾小時內遭竊。'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
 
   <!-- Footer -->
-  <footer>
-    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo" class="footer-logo">
-  </footer>
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
   <script>
     // Results data

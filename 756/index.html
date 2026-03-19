@@ -9,8 +9,13 @@
   <meta property="og:image" content="https://astrohsu.github.io/756/cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://astrohsu.github.io/756/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://astrohsu.github.io/756/cover.png">
+  <meta name="twitter:title" content="從明恩幣到穩定幣紅包：七年前的夢想終於實現">
+  <meta name="twitter:description" content="2019年發行「明恩幣」作為農曆新年紅包，七年後，隱身地址、Layer 2、及零 gas 費讓幣圈紅包夢想終成現實。">
+  <link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -566,59 +571,223 @@
       transform: translateX(4px);
     }
 
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--terra-light) 0%, var(--cream) 100%);
-      padding: 60px 40px;
+    /* CTA */
+    .cta {
       text-align: center;
-      margin-top: 60px;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
     }
 
-    .cta-text {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.6rem;
-      color: var(--terra);
-      margin-bottom: 24px;
-      font-weight: 700;
+    .cta h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .cta-link {
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn {
       display: inline-block;
-      padding: 16px 32px;
-      background: var(--terra);
-      color: white;
+      padding: 1rem 3rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
       text-decoration: none;
-      border-radius: 8px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 1rem;
+      font-family: 'Noto Sans TC', sans-serif;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    /* Big Quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
       font-weight: 700;
-      font-size: 1.05rem;
-      transition: all 0.3s ease;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+
+    .hl {
+      color: var(--terra);
+    }
+
+    /* Choice Section */
+    .choice-section {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(180deg, var(--warm), #F5F3ED);
+    }
+
+    .choice-section h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .choice-sub {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .choice-options {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .choice-btn {
+      background: #fff;
+      border: 1px solid #E8E3D8;
+      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       font-family: 'Noto Sans TC', sans-serif;
     }
 
-    .cta-link:hover {
-      background: #A85A2F;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(192, 106, 58, 0.25);
+    .choice-btn:hover {
+      border-color: var(--text-secondary);
+      background: var(--green-light);
+    }
+
+    .choice-btn.selected {
+      border-color: var(--terra);
+      background: var(--terra-light);
+      pointer-events: none;
+    }
+
+    .choice-btn .emoji {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .choice-btn .label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .choice-btn .desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-top: 0.15rem;
+      line-height: 1.5;
+    }
+
+    /* Result Card */
+    .result-card {
+      display: none;
+      max-width: 480px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      background: var(--green-light);
+      border: 1px solid rgba(45, 107, 79, 0.15);
+    }
+
+    .result-card.show {
+      display: block;
+      animation: slideDown 0.5s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-card .r-badge {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .result-card .r-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .result-card .r-desc {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff;
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff;
     }
 
     /* Footer */
     footer {
-      background: var(--warm);
-      padding: 40px;
       text-align: center;
-      border-top: 1px solid #E8E3D8;
-      margin-top: 60px;
-    }
-
-    .footer-logo {
-      height: 44px;
-      opacity: 0.5;
-      margin-bottom: 16px;
-    }
-
-    .footer-text {
-      font-size: 0.85rem;
+      padding: 3rem 2rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
+      letter-spacing: 0.15em;
     }
 
     /* Fade-in Animation */
@@ -935,54 +1104,66 @@ blockquote{border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin:2rem 0
 
     <p>如果年假期間收到區塊勢來信，那很可能就是穩定幣紅包到了。流程越簡單，競爭就越激烈，手腳記得快一點。七年前發給爸媽的明恩幣還在虛擬錢包裡躺著，但這次的 USDC 紅包不一樣——它們真的可以用，也值得領。</p>
   </section>
-  <!-- Interactive Section -->
-  <section class="interactive-section fade-in">
-    <h3 class="interactive-title">你對幣圈紅包有什麼看法？</h3>
+  <!-- Big Quote -->
+  <div class="big-quote fade-in">
+    <p><span class="hl">七年前發行的明恩幣只能躺在錢包裡，今年的穩定幣紅包卻真的可以用。</span></p>
+    <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">這不只是幣的差異，更代表了整個區塊鏈生態系終於成熟到能組裝出日常應用。</p>
+  </div>
 
-    <div class="choices-container">
-      <button class="choice-button" onclick="selectChoice(0)">
-        <span class="choice-emoji">🎉</span>
-        <div class="choice-title">期待好奇</div>
-        <div class="choice-description">新概念，想試試看隱私錢包的威力</div>
+  <!-- Choice Section -->
+  <div class="choice-section fade-in">
+    <h2>你對幣圈紅包有什麼看法？</h2>
+    <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+    <div class="choice-options fade-in">
+      <button class="choice-btn" onclick="choose(0)">
+        <div class="emoji">🎉</div>
+        <div>
+          <div class="label">期待好奇</div>
+          <div class="desc">新概念，想試試看隱私錢包的威力</div>
+        </div>
       </button>
-      <button class="choice-button" onclick="selectChoice(1)">
-        <span class="choice-emoji">⚡</span>
-        <div class="choice-title">技術迷</div>
-        <div class="choice-description">對可組合性的未來應用充滿想像</div>
+      <button class="choice-btn" onclick="choose(1)">
+        <div class="emoji">⚡</div>
+        <div>
+          <div class="label">技術迷</div>
+          <div class="desc">對可組合性的未來應用充滿想像</div>
+        </div>
       </button>
-      <button class="choice-button" onclick="selectChoice(2)">
-        <span class="choice-emoji">💭</span>
-        <div class="choice-title">從容觀察</div>
-        <div class="choice-description">先看看生態怎麼發展，再決定</div>
+      <button class="choice-btn" onclick="choose(2)">
+        <div class="emoji">💭</div>
+        <div>
+          <div class="label">從容觀察</div>
+          <div class="desc">先看看生態怎麼發展，再決定</div>
+        </div>
       </button>
     </div>
 
-    <div id="resultCard" class="result-card">
-      <div class="result-title" id="resultTitle"></div>
-      <p class="result-text" id="resultText"></p>
-      <div class="share-buttons">
-        <button class="share-btn share-btn-twitter" onclick="shareTwitter()">
-          <span>𝕏</span>
-          <span>分享</span>
-        </button>
-        <button class="share-btn share-btn-facebook" onclick="shareFacebook()">
-          <span>f</span>
-          <span>分享</span>
-        </button>
+    <div class="result-card" id="resultCard">
+      <div class="r-badge">你的觀點</div>
+      <div class="r-title" id="rTitle"></div>
+      <div class="r-desc" id="rDesc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
       </div>
-      <a href="https://www.blocktrend.today/p/756" class="read-full" target="_blank">閱讀完整文章 →</a>
     </div>
-  </section>
+  </div>
+
   <!-- CTA Section -->
-  <section class="cta-section fade-in">
-    <p class="cta-text">準備好親身體驗穩定幣紅包了嗎？</p>
-    <a href="https://www.blocktrend.today/p/756" class="cta-link" target="_blank">閱讀區塊勢完整文章</a>
-  </section>
+  <div class="cta fade-in">
+    <h2>準備深入了解更多？</h2>
+    <p>完整文章包含七年技術進化的完整解析、隱身地址的隱私原理、以及可組合性如何成就未來應用。</p>
+    <a class="cta-btn" href="https://www.blocktrend.today/p/756" target="_blank">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('從明恩幣到穩定幣紅包：七年前的夢想終於實現\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('從明恩幣到穩定幣紅包：七年前的夢想終於實現'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="fade-in">
-    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend" class="footer-logo">
-    <p class="footer-text">blocktrend.today/p/756</p>
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5">
   </footer>
 <script>
   // Intersection Observer for fade-in animations
@@ -997,76 +1178,38 @@ blockquote{border-left:3px solid var(--gold);padding:1.2rem 1.5rem;margin:2rem 0
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Interactive choices
-  const choices = [
-    {
-      title: '期待好奇的你',
-      text: '隱身地址把日常交易變成隱私保護，讓紅包成為真正的禮物。不妨在年假期間試試看 Fluidkey 的新體驗，親身感受七年技術進步帶來的真實差異。'
-    },
-    {
-      title: '技術迷的觀察',
-      text: '可組合性正在改寫幣圈。當 Base + USDC + Privy + Fluidkey 能無縫組裝在一起，想像空間無限大——金融、身份、供應鏈、DAO治理，每個領域都能重新被定義。'
-    },
-    {
-      title: '從容觀察的智慧',
-      text: '等待本身就是一種策略。看看這波紅包潮能掀起多大的浪，能否真正改變大眾對鏈上應用的認知。七年前的玩笑話，今年可能成為大眾入場的觸發點。'
-    }
+  // Choice logic
+  let userChoice = -1;
+  const labels = ['期待好奇', '技術迷', '從容觀察'];
+  const results = [
+    { title: '期待好奇的你', desc: '隱身地址把日常交易變成隱私保護，讓紅包成為真正的禮物。不妨在年假期間試試看 Fluidkey 的新體驗，親身感受七年技術進步帶來的真實差異。', bg: 'var(--green-light)', border: '#A8D4BC' },
+    { title: '技術迷的觀察', desc: '可組合性正在改寫幣圈。當 Base + USDC + Privy + Fluidkey 能無縫組裝在一起，想像空間無限大——金融、身份、供應鏈、DAO治理，每個領域都能重新被定義。', bg: 'var(--yellow-light)', border: '#E4D5B8' },
+    { title: '從容觀察的智慧', desc: '等待本身就是一種策略。看看這波紅包潮能掀起多大的浪，能否真正改變大眾對鏈上應用的認知。七年前的玩笑話，今年可能成為大眾入場的觸發點。', bg: 'var(--gold-light)', border: '#DEC99F' }
   ];
 
-  let selectedChoice = -1;
-
-  function selectChoice(index) {
-    // Remove previous selection
-    document.querySelectorAll('.choice-button').forEach((btn, i) => {
-      if (i === index) {
-        btn.classList.add('selected');
-      } else {
-        btn.classList.remove('selected');
-      }
+  function choose(idx) {
+    if (userChoice >= 0) return;
+    userChoice = idx;
+    document.querySelectorAll('.choice-btn').forEach((b, i) => {
+      if (i === idx) b.classList.add('selected');
+      b.style.cursor = 'default';
     });
+    const r = results[idx];
+    const card = document.getElementById('resultCard');
+    document.getElementById('rTitle').textContent = r.title;
+    document.getElementById('rDesc').textContent = r.desc;
+    card.style.background = r.bg;
+    card.style.borderColor = r.border;
+    card.classList.add('show');
 
-    selectedChoice = index;
-    showResult(index);
-  }
-
-  function showResult(index) {
-    const resultCard = document.getElementById('resultCard');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultText = document.getElementById('resultText');
-
-    resultTitle.textContent = choices[index].title;
-    resultText.textContent = choices[index].text;
-
-    resultCard.classList.add('visible');
-
-    // Scroll to result
-    setTimeout(() => {
-      resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 100);
-  }
-
-  function shareTwitter() {
-    if (selectedChoice === -1) return;
-
-    const text = `我的觀點：${choices[selectedChoice].title}\n\n從明恩幣到穩定幣紅包，七年前的夢想終於實現。用 Fluidkey、Base 和 USDC 體驗幣圈應用的未來。`;
-    const url = 'https://astrohsu.github.io/756/';
-
-    window.open(
-      'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url),
-      '_blank'
-    );
-  }
-
-  function shareFacebook() {
-    if (selectedChoice === -1) return;
-
-    const url = 'https://astrohsu.github.io/756/';
-    const quote = `我的觀點：${choices[selectedChoice].title} - ${choices[selectedChoice].text}`;
-
-    window.open(
-      'https://www.facebook.com/share.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(quote),
-      '_blank'
-    );
+    const shareText = `觀點：${labels[idx]}。\n\n從明恩幣到穩定幣紅包，七年前的夢想終於實現。`;
+    document.getElementById('shareTw').onclick = function () {
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+    };
+    document.getElementById('shareFb').onclick = function () {
+      window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+    };
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
   }
 </script>
 </body>

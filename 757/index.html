@@ -8,10 +8,15 @@
 <meta property="og:title" content="除夕限量 200 份穩定幣紅包">
 <meta property="og:description" content="Blocktrend 發放限量紅包，用隱身地址保護你的金流隱私。">
 <meta property="og:image" content="https://astrohsu.github.io/757/cover.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://astrohsu.github.io/757/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://astrohsu.github.io/757/cover.png">
+<meta name="twitter:title" content="除夕限量 200 份穩定幣紅包">
+<meta name="twitter:description" content="Blocktrend 發放限量紅包，用隱身地址保護你的金流隱私。">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -410,13 +415,14 @@ strong {
 
 /* Result card */
 .result-card {
-  background: #fff;
-  border: 2px solid var(--terra);
-  border-radius: 10px;
-  padding: 2rem;
-  margin-top: 2rem;
-  text-align: center;
   display: none;
+  max-width: 480px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  background: var(--green-light);
+  border: 1px solid rgba(45, 107, 79, 0.15);
 }
 
 .result-card.show {
@@ -435,17 +441,25 @@ strong {
   }
 }
 
-.result-card h3 {
+.result-card .r-badge {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+
+.result-card .r-title {
   font-family: 'Noto Serif TC', serif;
   font-size: 1.3rem;
-  color: var(--text);
-  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
 }
 
 .result-text {
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
+  font-size: 0.85rem;
   line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.2rem;
 }
 
 .share-buttons {
@@ -457,92 +471,97 @@ strong {
 }
 
 .share-btn {
-  padding: 0.8rem 1.5rem;
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
   border: none;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
   font-family: 'Noto Sans TC', sans-serif;
   letter-spacing: 0.05em;
+  transition: transform 0.2s;
 }
 
-.share-btn.twitter {
-  background: #000;
+.share-btn:hover {
+  transform: scale(1.03);
+}
+
+.share-btn.tw {
+  background: #0f1419;
   color: #fff;
 }
 
-.share-btn.twitter:hover {
-  background: #333;
-}
-
-.share-btn.facebook {
-  background: #1877F2;
+.share-btn.fb {
+  background: #1877f2;
   color: #fff;
 }
 
-.share-btn.facebook:hover {
-  background: #0A66C2;
+/* Big Quote */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+.hl {
+  color: var(--terra);
 }
 
 /* CTA */
-.cta-section {
+.cta {
   text-align: center;
-  padding: 3rem 2rem;
-  background: linear-gradient(135deg, var(--green-light) 0%, #E8F3ED 100%);
-  border-radius: 12px;
-  margin: 3rem 0;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
 }
 
-.cta-section h2 {
-  color: var(--text);
-  margin-bottom: 1.5rem;
+.cta h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.cta-link {
+.cta p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.cta-btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: var(--terra);
+  padding: 0.9rem 2.5rem;
+  border-radius: 2rem;
+  background: var(--text);
   color: #fff;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: transform 0.2s;
+  font-size: 0.95rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  border: none;
+  cursor: pointer;
 }
 
-.cta-link:hover {
-  background: #A85630;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(192, 106, 58, 0.2);
+.cta-btn:hover {
+  transform: scale(1.03);
 }
 
 /* Footer */
 footer {
-  padding: 3rem 2rem;
   text-align: center;
-  border-top: 1px solid #E8E3D8;
-  margin-top: 2rem;
-}
-
-.footer-logo {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto;
-  opacity: 0.5;
-}
-
-.footer-logo img {
-  width: 100%;
-  height: 100%;
-}
-
-footer p {
-  font-size: 0.85rem;
+  padding: 3rem 2rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 1rem;
+  letter-spacing: 0.15em;
 }
 
 /* Responsive */
@@ -674,29 +693,36 @@ footer p {
 
   <!-- Result Card -->
   <div class="result-card" id="result">
-    <h3 id="result-title"></h3>
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="result-title"></div>
     <p class="result-text" id="result-text"></p>
-    <div class="share-buttons">
-      <button class="share-btn twitter" id="share-twitter">𝕏 分享結果</button>
-      <button class="share-btn facebook" id="share-facebook">Facebook 分享</button>
+    <div class="share-row">
+      <button class="share-btn tw" id="share-twitter">分享到 𝕏</button>
+      <button class="share-btn fb" id="share-facebook">分享到 Facebook</button>
     </div>
-    <a href="https://www.blocktrend.today/p/757" class="cta-link">閱讀完整文章 →</a>
   </div>
 </section>
 
-<!-- CTA Section -->
-<section class="fade-in cta-section">
-  <h2>準備好體驗隱私金融了嗎？</h2>
-  <p style="margin-bottom: 2rem; color: var(--text-secondary);">限量 200 份紅包，領完為止。新戶永久升級額度等著你。</p>
-  <a href="https://www.blocktrend.today/p/757" class="cta-link">閱讀完整文章和領取方式 →</a>
-</section>
+<!-- Big Quote -->
+<div class="big-quote fade-in">
+  <p><span class="hl">隱身地址不只保護隱私，更代表金融自主權回到個人手中的可能性。</span></p>
+  <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">這不僅是技術創新，更是金融邏輯的重新定義。</p>
+</div>
+
+<!-- CTA -->
+<div class="cta fade-in">
+  <h2>想看完整分析？</h2>
+  <p>完整文章包含隱身地址的技術原理、穩定幣的多種使用方案、以及 Fluidkey 新戶永久升級的完整條件。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/757" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('除夕限量 200 份穩定幣紅包：用隱身地址保護你的金流隱私\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('除夕限量 200 份穩定幣紅包'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <!-- Footer -->
-<footer>
-  <div class="footer-logo">
-    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend">
-  </div>
-  <p>區塊勢 — 用區塊鏈思維理解世界</p>
+<footer class="fade-in">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5">
 </footer>
 
 <script>
@@ -713,25 +739,28 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // Choice button logic
-const resultTexts = {
-  invest: {
-    title: '📈 你選擇了「長期投資加密資產」',
+let userChoice = -1;
+const labels = ['投資加密', '轉進美股', '生息 DeFi'];
+const resultTexts = [
+  {
+    title: '長期投資加密資產',
     text: '穩定幣是進入加密世界的最穩健起點。隱身地址技術代表著隱私金融的未來，當你用 Fluidkey 管理資產時，你不只在投資，更在參與金融隱私革命。祝你投資順利，也別忘了探索 DeFi 生息的可能性——風險低、收益穩定。'
   },
-  stocks: {
-    title: '🏦 你選擇了「轉進美股券商投資」',
+  {
+    title: '轉進美股券商投資',
     text: '美股一直是長期投資者的首選，而加密通道讓你不受匯兌限制。用隱身地址領紅包，再轉進券商，整個流程既安全又隱私。如果你達成 1,000 美元存入的門檻，升級後的 20,000 美元免費額度會大幅降低交易成本。這筆紅包可能改變你未來的投資方式。'
   },
-  yield: {
-    title: '🌾 你選擇了「DeFi 平台生息」',
+  {
+    title: 'DeFi 平台生息',
     text: '保守而聰慧的選擇。穩定幣在 DeFi 中能產生 4-8% 的年化收益，Fluidkey 新戶還能享受 150% 加成。一年下來，這筆紅包就能為你增值 40-80 美元。長期來看，時間就是金錢——讓你的錢自動工作，是財務自由的第一步。'
   }
-};
+];
 
-document.querySelectorAll('.choice-btn').forEach(btn => {
+document.querySelectorAll('.choice-btn').forEach((btn, idx) => {
   btn.addEventListener('click', () => {
-    const choice = btn.dataset.choice;
-    const result = resultTexts[choice];
+    if (userChoice >= 0) return;
+    userChoice = idx;
+    const result = resultTexts[idx];
 
     // Update result card
     document.getElementById('result-title').textContent = result.title;
@@ -739,24 +768,23 @@ document.querySelectorAll('.choice-btn').forEach(btn => {
 
     // Show result card
     const resultCard = document.getElementById('result');
-    resultCard.classList.remove('show');
-    setTimeout(() => resultCard.classList.add('show'), 10);
+    resultCard.classList.add('show');
 
     // Setup share buttons
-    const shareText = `我在 Blocktrend 的互動體驗選擇了：${result.title}\n\n領取限量 200 份穩定幣紅包，體驗隱私金融的未來。`;
+    const shareText = `我選擇了「${labels[idx]}」。\n\n領取限量 200 份穩定幣紅包，體驗隱私金融的未來。`;
     const pageUrl = window.location.href;
 
-    document.getElementById('share-twitter').addEventListener('click', () => {
+    document.getElementById('share-twitter').onclick = function () {
       window.open('https://twitter.com/intent/tweet?text=' +
         encodeURIComponent(shareText + '\n\n') +
         '&url=' + encodeURIComponent(pageUrl), '_blank');
-    }, { once: true });
+    };
 
-    document.getElementById('share-facebook').addEventListener('click', () => {
+    document.getElementById('share-facebook').onclick = function () {
       window.open('https://www.facebook.com/share.php?u=' +
         encodeURIComponent(pageUrl) +
         '&quote=' + encodeURIComponent(shareText), '_blank');
-    }, { once: true });
+    };
 
     // Scroll to result
     setTimeout(() => {

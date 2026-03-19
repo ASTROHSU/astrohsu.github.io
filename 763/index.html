@@ -13,13 +13,14 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://share.blocktrend.today/763/">
+  <meta property="og:url" content="https://astrohsu.github.io/763/">
 
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://astrohsu.github.io/763/cover.png">
   <meta name="twitter:title" content="以太坊的 Linux 抉擇：選未來還是選現在？">
   <meta name="twitter:description" content="以太坊基金會公布 38 頁「承諾宣言」，選擇強化去中心化而非追逐市場。這場抉擇與當年 Linux 的決定何其相似。">
-  <meta name="twitter:image" content="https://astrohsu.github.io/763/cover.png">
-
+  <link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
@@ -433,7 +434,7 @@
     }
 
     /* CTA Section */
-    .cta-section {
+    .cta {
       background: linear-gradient(135deg, var(--terra-light) 0%, #FFF9F5 100%);
       padding: 3rem;
       border-radius: 10px;
@@ -441,11 +442,11 @@
       margin: 4rem 0;
     }
 
-    .cta-section h2 {
+    .cta h2 {
       margin-bottom: 1rem;
     }
 
-    .cta-section p {
+    .cta p {
       margin-bottom: 2rem;
       color: var(--text-secondary);
     }
@@ -471,29 +472,95 @@
     footer {
       text-align: center;
       padding: 3rem 2rem;
-      border-top: 1px solid #E8E3D8;
-      margin-top: 4rem;
-    }
-
-    .footer-logo {
-      height: 44px;
-      opacity: 0.5;
-      margin-bottom: 1rem;
-    }
-
-    footer p {
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       color: var(--text-muted);
-      margin: 0;
+      letter-spacing: 0.15em;
     }
 
-    footer a {
-      color: var(--terra);
+    /* Big quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
+    }
+
+    .cta h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 0.95rem;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff;
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff;
     }
 
     /* Responsive */
@@ -638,13 +705,13 @@
       <p>或許以太坊基金會也意識到，這場競賽的勝算極低。才決定把穩定幣支付讓給 Stripe、結算讓給 Circle，就算速度輸給 Solana 也沒關係。以太坊只專注一件事 —— 成為無法被關掉、沒人能審查的區塊鏈。好消息是，以太坊在這個領域遙遙領先。基金會賭的是，去中心化終有一天會成為必需品。到那時候，以太坊就是唯一選擇。</p>
     </section>
 
-    <!-- Opinion Section -->
-    <section class="opinion-section fade-in">
+    <!-- Opinion Section (choice-section) -->
+    <section class="opinion-section choice-section fade-in">
       <h2>你怎麼看？</h2>
       <p style="color: var(--text-secondary); margin-bottom: 2rem;">以太坊應該優先考慮什麼？選擇你的想法，看看其他讀者的看法。</p>
 
-      <div class="opinion-buttons" id="opinionButtons">
-        <button class="opinion-btn" onclick="selectOpinion('future')">
+      <div class="opinion-buttons choice-options" id="opinionButtons">
+        <button class="opinion-btn choice-btn" onclick="selectOpinion('future')">
           <div class="opinion-icon">🚀</div>
           <div class="opinion-content">
             <h3>選未來</h3>
@@ -652,7 +719,7 @@
           </div>
         </button>
 
-        <button class="opinion-btn" onclick="selectOpinion('present')">
+        <button class="opinion-btn choice-btn" onclick="selectOpinion('present')">
           <div class="opinion-icon">💼</div>
           <div class="opinion-content">
             <h3>選現在</h3>
@@ -660,7 +727,7 @@
           </div>
         </button>
 
-        <button class="opinion-btn" onclick="selectOpinion('hybrid')">
+        <button class="opinion-btn choice-btn" onclick="selectOpinion('hybrid')">
           <div class="opinion-icon">⚖️</div>
           <div class="opinion-content">
             <h3>兩者平衡</h3>
@@ -669,7 +736,7 @@
         </button>
       </div>
 
-      <div id="resultCard" class="result-card">
+      <div id="resultCard" class="result-card choice-result">
         <h3>你選擇了</h3>
         <p id="resultText"></p>
         <div class="share-buttons">
@@ -680,19 +747,27 @@
       </div>
     </section>
 
+    <!-- Big quote -->
+    <div class="big-quote fade-in">
+      <p><span class="hl">以太坊可以選擇被淘汰，但不願淘汰自己的靈魂。</span></p>
+      <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">三十年後，當去中心化成為必需品，以太坊就是唯一選擇。</p>
+    </div>
+
+
     <!-- CTA Section -->
-    <section class="cta-section fade-in">
-      <h2>想看更多區塊鏈分析？</h2>
-      <p>區塊勢每週發表三篇深度文章，幫你理解加密貨幣的趨勢與商業邏輯</p>
-      <a href="https://www.blocktrend.today/p/763" target="_blank" class="cta-button">閱讀完整文章</a>
-    </section>
+    <div class="cta fade-in">
+      <h2>想看完整分析？</h2>
+      <p>完整文章包含 Linux 的歷史回顧、三種發展路徑的深度比較，以及為什麼去中心化終有一天會成為必需品。</p>
+      <a href="https://www.blocktrend.today/p/763" target="_blank" class="cta-btn">閱讀完整文章 →</a>
+      <div class="share-row" style="margin-top:1.5rem">
+        <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('以太坊的 Linux 抉擇：選未來還是選現在？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+        <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('以太坊的 Linux 抉擇：選未來還是選現在？'),'_blank')">分享到 Facebook</button>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
-  <footer>
-    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo" class="footer-logo">
-    <p>© 2026 Blocktrend | <a href="https://www.blocktrend.today/p/763">原文連結</a></p>
-  </footer>
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
   <script>
     // Fade-in animation on scroll
@@ -728,6 +803,10 @@
         }
       };
 
+      // Remove selected from all buttons, add to clicked one
+      document.querySelectorAll('.opinion-btn').forEach(btn => btn.classList.remove('selected'));
+      event.target.closest('.opinion-btn').classList.add('selected');
+
       const resultCard = document.getElementById('resultCard');
       const resultText = document.getElementById('resultText');
 
@@ -752,14 +831,14 @@
     function shareOnTwitter() {
       if (!selectedOpinion) return;
       const text = getShareText() + '\n\n我在「以太坊的 Linux 抉擇」看到了一個難題：選未來還是選現在？\n#Ethereum #區塊勢';
-      const url = 'https://share.blocktrend.today/763/';
+      const url = 'https://astrohsu.github.io/763/';
       window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), '_blank');
     }
 
     function shareOnFacebook() {
       if (!selectedOpinion) return;
       const text = getShareText();
-      const url = 'https://share.blocktrend.today/763/';
+      const url = 'https://astrohsu.github.io/763/';
       window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text), '_blank');
     }
   </script>

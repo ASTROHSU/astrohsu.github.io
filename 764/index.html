@@ -7,15 +7,16 @@
   <meta name="description" content="五年來，讀者反覆提到深入淺出、有溫度和說人話。但今年填問卷的人數大幅下滑，現實也變了。">
   <meta property="og:title" content="五年問卷回顧：讀者怎麼說？">
   <meta property="og:description" content="五年來的讀者滿意度調查揭露了什麼？">
+        <meta property="og:url" content="https://astrohsu.github.io/764/">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:image" content="https://astrohsu.github.io/764/cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://astrohsu.github.io/764/">
-  <meta property="og:type" content="article">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://astrohsu.github.io/764/cover.png">
-  <meta name="twitter:title" content="五年問卷回顧：讀者怎麼說？">
+    <meta name="twitter:title" content="五年問卷回顧：讀者怎麼說？">
   <meta name="twitter:description" content="五年來的讀者滿意度調查揭露了什麼？">
+  <meta name="twitter:image" content="https://astrohsu.github.io/764/cover.png">
+  <link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -457,7 +458,7 @@
     }
 
     /* CTA Section */
-    .cta-section {
+    .cta {
       background: linear-gradient(135deg, var(--terra-light) 0%, var(--cream) 100%);
       padding: 3rem 2rem;
       border-radius: 12px;
@@ -465,7 +466,7 @@
       margin-top: 3rem;
     }
 
-    .cta-section h2 {
+    .cta h2 {
       margin-top: 0;
     }
 
@@ -492,13 +493,95 @@
     footer {
       text-align: center;
       padding: 3rem 2rem;
-      background-color: var(--warm);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
     }
 
-    .footer-logo {
-      height: 44px;
-      opacity: 0.5;
-      margin-bottom: 1rem;
+    /* Big quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
+    }
+
+    .cta h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border-radius: 2rem;
+      background: var(--text);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      transition: transform 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff;
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff;
     }
 
     /* Fade In Animation */
@@ -632,27 +715,27 @@
     </section>
 
     <!-- Interactive Section -->
-    <div class="interactive-section fade-in">
+    <div class="interactive-section choice-section fade-in">
       <h2>你怎麼看？</h2>
-      <div class="opinion-buttons">
-        <button class="opinion-btn" onclick="showResult('personal')">
+      <div class="opinion-buttons choice-options">
+        <button class="opinion-btn choice-btn" onclick="showResult('personal')">
           <span class="opinion-btn-icon">🧠</span>
           <span class="opinion-btn-title">個人讀者</span>
           <span class="opinion-btn-desc">我因為個人興趣關注區塊鏈</span>
         </button>
-        <button class="opinion-btn" onclick="showResult('work')">
+        <button class="opinion-btn choice-btn" onclick="showResult('work')">
           <span class="opinion-btn-icon">💼</span>
           <span class="opinion-btn-title">工作需求</span>
           <span class="opinion-btn-desc">我因為工作需要理解產業</span>
         </button>
-        <button class="opinion-btn" onclick="showResult('both')">
+        <button class="opinion-btn choice-btn" onclick="showResult('both')">
           <span class="opinion-btn-icon">⚡</span>
           <span class="opinion-btn-title">雙重身份</span>
           <span class="opinion-btn-desc">我既是個人好奇心，也有工作需求</span>
         </button>
       </div>
 
-      <div id="result-personal" class="result-card">
+      <div id="result-personal" class="result-card choice-result">
         <h3>謝謝你的個人好奇心</h3>
         <p>像你這樣的讀者，是區塊勢起初的核心。對產業的熱情，對新技術的探索，正是推動我持續寫作的動力。即便創新的模式改變了，這份好奇心依然寶貴。希望區塊勢能繼續為你的好奇心提供養分，讓你在複雜的產業變化中找到清晰的方向。</p>
         <div class="share-buttons">
@@ -662,7 +745,7 @@
         <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
       </div>
 
-      <div id="result-work" class="result-card">
+      <div id="result-work" class="result-card choice-result">
         <h3>歡迎工作驅動型讀者</h3>
         <p>你代表了區塊鏈產業變化的新方向。從個人興趣轉向工作應用，意味著這項技術正在落地。區塊勢已經看到並準備好應對這個轉變，提供更多產業應用、合規框架、企業戰略面的深度分析。你的需求，正在形塑我的寫作方向，讓我寫出更多有實踐價值的文章。</p>
         <div class="share-buttons">
@@ -672,7 +755,65 @@
         <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
       </div>
 
-      <div id="result-both" class="result-card">
+      <div id="result-both" class="result-card choice-result">
+        <h3>最理想的讀者組合</h3>
+        <p>你既保持對產業技術的好奇心，也需要在工作中應用這些知識。這樣的讀者，能最完整地體驗區塊勢所有面向的文章——既有對新機制的探索，也有對產業應用的深度分析。你的需求，兼容並蓄，正是未來讀者群的雛型，也是推動區塊勢持續進化的動力。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我既關心區塊鏈興趣，也有工作需求 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我既關心區塊鏈興趣，也有工作需求 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
+      </div>
+    </div>
+
+    <!-- Big quote -->
+    <div class="big-quote fade-in">
+      <p><span class="hl">你的每一句話，我都有認真看。</span></p>
+      <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">五年來的讀者回饋，形塑了區塊勢今天的樣子。</p>
+    </div>
+
+    <!-- Choice section -->
+    <div class="interactive-section choice-section fade-in">
+      <h2>你怎麼看？</h2>
+      <div class="opinion-buttons choice-options">
+        <button class="opinion-btn choice-btn" onclick="showResult('personal')">
+          <span class="opinion-btn-icon">🧠</span>
+          <span class="opinion-btn-title">個人讀者</span>
+          <span class="opinion-btn-desc">我因為個人興趣關注區塊鏈</span>
+        </button>
+        <button class="opinion-btn choice-btn" onclick="showResult('work')">
+          <span class="opinion-btn-icon">💼</span>
+          <span class="opinion-btn-title">工作需求</span>
+          <span class="opinion-btn-desc">我因為工作需要理解產業</span>
+        </button>
+        <button class="opinion-btn choice-btn" onclick="showResult('both')">
+          <span class="opinion-btn-icon">⚡</span>
+          <span class="opinion-btn-title">雙重身份</span>
+          <span class="opinion-btn-desc">我既是個人好奇心，也有工作需求</span>
+        </button>
+      </div>
+
+      <div id="result-personal" class="result-card choice-result">
+        <h3>謝謝你的個人好奇心</h3>
+        <p>像你這樣的讀者，是區塊勢起初的核心。對產業的熱情，對新技術的探索，正是推動我持續寫作的動力。即便創新的模式改變了，這份好奇心依然寶貴。希望區塊勢能繼續為你的好奇心提供養分，讓你在複雜的產業變化中找到清晰的方向。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我因為個人興趣關注區塊鏈 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我因為個人興趣關注區塊鏈 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
+      </div>
+
+      <div id="result-work" class="result-card choice-result">
+        <h3>歡迎工作驅動型讀者</h3>
+        <p>你代表了區塊鏈產業變化的新方向。從個人興趣轉向工作應用，意味著這項技術正在落地。區塊勢已經看到並準備好應對這個轉變，提供更多產業應用、合規框架、企業戰略面的深度分析。你的需求，正在形塑我的寫作方向，讓我寫出更多有實踐價值的文章。</p>
+        <div class="share-buttons">
+          <button class="share-btn twitter" onclick="shareTwitter('我因為工作需要理解區塊鏈 | 五年問卷回顧：讀者怎麼說？')">𝕏 分享</button>
+          <button class="share-btn facebook" onclick="shareFacebook('我因為工作需要理解區塊鏈 | 五年問卷回顧：讀者怎麼說？')">Facebook 分享</button>
+        </div>
+        <a href="https://www.blocktrend.today/p/764" target="_blank" class="read-full">閱讀完整文章 →</a>
+      </div>
+
+      <div id="result-both" class="result-card choice-result">
         <h3>最理想的讀者組合</h3>
         <p>你既保持對產業技術的好奇心，也需要在工作中應用這些知識。這樣的讀者，能最完整地體驗區塊勢所有面向的文章——既有對新機制的探索，也有對產業應用的深度分析。你的需求，兼容並蓄，正是未來讀者群的雛型，也是推動區塊勢持續進化的動力。</p>
         <div class="share-buttons">
@@ -684,10 +825,14 @@
     </div>
 
     <!-- CTA Section -->
-    <div class="cta-section fade-in">
-      <h2>讀者的聲音，都在這裡</h2>
-      <p>過去五年的所有問卷回饋，都被原文呈現在「讀者怎麼說？」互動頁面上。沒有修飾、沒有篩選，你可以看到真實的讀者想法，按年份瀏覽、按主題探索。這是區塊勢對讀者最誠實的回應，也是我對讀者最深的感謝。</p>
-      <a href="https://survey.blocktrend.today/" target="_blank" class="cta-button">看讀者怎麼說 →</a>
+    <div class="cta fade-in">
+      <h2>想看完整分析？</h2>
+      <p>完整文章包含五年問卷數據的完整回顧、讀者觀點的深度分析，以及區塊勢對產業未來的展望。</p>
+      <a href="https://www.blocktrend.today/p/764" target="_blank" class="cta-btn">閱讀完整文章 →</a>
+      <div class="share-row" style="margin-top:1.5rem">
+        <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('五年問卷回顧：讀者怎麼說？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+        <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('五年問卷回顧：讀者怎麼說？'),'_blank')">分享到 Facebook</button>
+      </div>
     </div>
 
     <!-- Referral CTA -->
@@ -697,10 +842,7 @@
     </section>
   </div>
 
-  <footer>
-    <img src="https://i.urusai.cc/yaku8.png" alt="Blocktrend Logo" class="footer-logo">
-    <p style="color: var(--text-muted); font-size: 0.95rem;">謝謝你的閱讀。— Blocktrend</p>
-  </footer>
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
   <script>
     // Fade-in animation
@@ -720,6 +862,12 @@
       document.querySelectorAll('.result-card').forEach(card => {
         card.classList.remove('show');
       });
+
+      // Remove selected from all buttons, add to clicked one
+      document.querySelectorAll('.opinion-btn').forEach(btn => btn.classList.remove('selected'));
+      if (event && event.target) {
+        event.target.closest('.opinion-btn')?.classList.add('selected');
+      }
 
       // Show selected result card
       const cardId = `result-${type}`;
