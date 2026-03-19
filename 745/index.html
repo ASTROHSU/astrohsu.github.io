@@ -573,26 +573,35 @@ section p:last-child {
   <p>當內容本身變得廉價、容易複製時，真正值錢的東西轉移到了「誰在說」。是一個會因為工作過度而不得不請假的真人，還是一個表面上效率無懈可擊、其實沒有任何真實承諾的 AI？是一篇經過實地調查、融合創作者個人經驗的報導，還是一份被演算法優化到完美的資訊報表？區塊勢在 2026 年的努力，就是在回答這個問題：真實比完美更重要，責任比效率更寶貴。而這些東西，正是讀者願意為之付費的理由。</p>
 </section>
 
-<section class="interactive-section fade-in">
+<div class="big-quote fade-in">
+  <p>完美已死，真實最貴。AI 時代，創作者最大的資產不是完美的內容，而是願意為內容負責的勇氣。</p>
+</div>
+
+<section class="choice-section fade-in">
   <h2>你認為內容的真實性有多重要？</h2>
+  <p class="choice-sub">AI 時代，創作者的最大資產是什麼？選擇一個最符合你想法的選項。</p>
 
-  <p>AI 時代，創作者的最大資產是什麼？選擇一個最符合你想法的選項。</p>
-
-  <div class="choice-buttons">
-    <button class="choice-btn" onclick="showResult('authenticity')">
-      <div class="choice-emoji">✨</div>
-      <div class="choice-title">真實性最重要</div>
-      <div class="choice-desc">完美可以被複製，但真實的聲音無法被取代。</div>
+  <div class="choice-options">
+    <button class="choice-btn" data-choice="0" onclick="showResult('authenticity')">
+      <span class="emoji">✨</span>
+      <div style="flex: 1;">
+        <div class="label">真實性最重要</div>
+        <div class="desc">完美可以被複製，但真實的聲音無法被取代。</div>
+      </div>
     </button>
-    <button class="choice-btn" onclick="showResult('expertise')">
-      <div class="choice-emoji">🧠</div>
-      <div class="choice-title">專業性最重要</div>
-      <div class="choice-desc">內容品質和深度才是讀者信任的基礎。</div>
+    <button class="choice-btn" data-choice="1" onclick="showResult('expertise')">
+      <span class="emoji">🧠</span>
+      <div style="flex: 1;">
+        <div class="label">專業性最重要</div>
+        <div class="desc">內容品質和深度才是讀者信任的基礎。</div>
+      </div>
     </button>
-    <button class="choice-btn" onclick="showResult('connection')">
-      <div class="choice-emoji">❤️</div>
-      <div class="choice-title">連結最重要</div>
-      <div class="choice-desc">創作者願意付出時間和責任去與讀者互動。</div>
+    <button class="choice-btn" data-choice="2" onclick="showResult('connection')">
+      <span class="emoji">❤️</span>
+      <div style="flex: 1;">
+        <div class="label">連結最重要</div>
+        <div class="desc">創作者願意付出時間和責任去與讀者互動。</div>
+      </div>
     </button>
   </div>
 

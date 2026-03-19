@@ -243,47 +243,6 @@
     /* Interactive Section */
     
 
-    .choice-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-      margin: 2.5rem 0;
-    }
-
-    .choice-button {
-      background: white;
-      border: 2px solid #E8E3D8;
-      border-radius: 10px;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .choice-button:hover {
-      border-color: var(--terra);
-      box-shadow: 0 8px 16px rgba(192, 106, 58, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .choice-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .choice-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.7rem;
-    }
-
-    .choice-desc {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
 
     /* Result Card */
     .result-card {
@@ -644,30 +603,38 @@
     </p>
   </section>
 
-  <!-- Interactive Section -->
-  <section class="cta-section fade-in">
+  <div class="big-quote fade-in">
+    <p>從披薩日的 64% 溢價到近乎零的交易磨損，15 年的支付革命正在加速。穩定幣卡市場翻倍成長，這不只是數字遊戲，而是摩擦力的真正消失。</p>
+  </div>
+
+  <!-- Choice Section -->
+  <section class="choice-section fade-in">
     <h2>你最看好哪個未來？</h2>
-    <p style="font-size: 1.05rem; margin-bottom: 2rem;">
-      穩定幣 Visa 卡的大爆發，反映了加密貨幣支付摩擦力的下降。但這只是開始，還有更多可能性——
-    </p>
+    <p class="choice-sub">穩定幣 Visa 卡的大爆發，反映了加密貨幣支付摩擦力的下降。但這只是開始，還有更多可能性——</p>
 
-    <div class="choice-container">
-      <button class="choice-button" onclick="showResult(1)">
-        <div class="choice-icon">💳</div>
-        <div class="choice-title">主流化時代</div>
-        <div class="choice-desc">穩定幣卡會成為主流支付工具，完全取代傳統信用卡</div>
+    <div class="choice-options">
+      <button class="choice-btn" data-choice="0" onclick="showResult(1)">
+        <span class="emoji">💳</span>
+        <div style="flex: 1;">
+          <div class="label">主流化時代</div>
+          <div class="desc">穩定幣卡會成為主流支付工具，完全取代傳統信用卡</div>
+        </div>
       </button>
 
-      <button class="choice-button" onclick="showResult(2)">
-        <div class="choice-icon">⚔️</div>
-        <div class="choice-title">競爭激烈</div>
-        <div class="choice-desc">更多發行商入場，競爭加劇，用戶享受更好的回饋與體驗</div>
+      <button class="choice-btn" data-choice="1" onclick="showResult(2)">
+        <span class="emoji">⚔️</span>
+        <div style="flex: 1;">
+          <div class="label">競爭激烈</div>
+          <div class="desc">更多發行商入場，競爭加劇，用戶享受更好的回饋與體驗</div>
+        </div>
       </button>
 
-      <button class="choice-button" onclick="showResult(3)">
-        <div class="choice-icon">🏦</div>
-        <div class="choice-title">銀行對抗</div>
-        <div class="choice-desc">傳統銀行與支付網路將強力回應，爭奪這片市場</div>
+      <button class="choice-btn" data-choice="2" onclick="showResult(3)">
+        <span class="emoji">🏦</span>
+        <div style="flex: 1;">
+          <div class="label">銀行對抗</div>
+          <div class="desc">傳統銀行與支付網路將強力回應，爭奪這片市場</div>
+        </div>
       </button>
     </div>
 
@@ -720,6 +687,16 @@
       <a href="https://www.blocktrend.today/p/749" class="read-full" target="_blank">閱讀完整文章 →</a>
     </div>
   </section>
+
+  <div class="cta fade-in">
+    <h2>穩定幣支付革命已在眼前</h2>
+    <p>從披薩日的溢價到零磨損，15 年里程碑見證了加密貨幣支付的完整蛻變。穩定幣 Visa 卡市場翻倍成長，為什麼現在成為支付主流時機？區塊勢深度分析。</p>
+    <a href="https://www.blocktrend.today/p/749" class="cta-btn">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('穩定幣 Visa 卡市場翻倍！重新定義「披薩日」。從 2010 年的 64% 溢價到 2025 年交易磨損近乎零，15 年支付革命正在加速。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('穩定幣 Visa 卡市場翻倍！重新定義披薩日。'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

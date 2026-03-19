@@ -297,59 +297,6 @@
     }
 
     /* Interactive Section */
-    .interactive-section {
-      background: var(--gold-light);
-      padding: 60px 40px;
-      border-radius: 8px;
-      margin: 80px auto;
-      max-width: 800px;
-      text-align: center;
-    }
-
-    .interactive-section h2 {
-      margin-bottom: 40px;
-    }
-
-    .choice-buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-
-    .choice-btn {
-      background: #fff;
-      border: 2px solid #E8E3D8;
-      padding: 24px;
-      border-radius: 8px;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-
-    .choice-btn:hover {
-      border-color: var(--terra);
-      box-shadow: 0 8px 16px rgba(192, 106, 58, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .choice-icon {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
-    }
-
-    .choice-title {
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-      font-family: 'Noto Serif TC', serif;
-    }
-
-    .choice-description {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
 
     .result-card {
       background: #fff;
@@ -727,27 +674,38 @@
     <p>市場效率是一把雙面刃。如果監管制度與風險隔離機制沒有同步升級，提升效率反而可能放大衝擊。幸好紐交所這次選擇另闢新戰場，而不是直接把原本的 T+1 升級成 T+0。否則，你敢用嗎？</p>
   </section>
 
-  <!-- Interactive Section -->
-  <section class="interactive-section fade-in">
+  <div class="big-quote fade-in">
+    <p>市場效率是把雙面刃。提升交易效率不只降低成本，也放大了系統風險。代幣化股票就是這場權衡的縮影。</p>
+  </div>
+
+  <!-- Choice Section -->
+  <section class="choice-section fade-in">
     <h2>代幣化股票，你的想法是？</h2>
+    <p class="choice-sub">選一個最符合你現在觀點的選項。</p>
 
-    <div class="choice-buttons">
-      <button class="choice-btn" onclick="selectChoice('enthusiast')">
-        <div class="choice-icon">🚀</div>
-        <div class="choice-title">完全贊成</div>
-        <div class="choice-description">24 小時交易、即時交割，這是金融市場的未來。</div>
+    <div class="choice-options">
+      <button class="choice-btn" data-choice="0" onclick="selectChoice('enthusiast')">
+        <span class="emoji">🚀</span>
+        <div style="flex: 1;">
+          <div class="label">完全贊成</div>
+          <div class="desc">24 小時交易、即時交割，這是金融市場的未來。</div>
+        </div>
       </button>
 
-      <button class="choice-btn" onclick="selectChoice('cautious')">
-        <div class="choice-icon">⚠️</div>
-        <div class="choice-title">謹慎樂觀</div>
-        <div class="choice-description">概念不錯，但風險管制必須跟上才行。</div>
+      <button class="choice-btn" data-choice="1" onclick="selectChoice('cautious')">
+        <span class="emoji">⚠️</span>
+        <div style="flex: 1;">
+          <div class="label">謹慎樂觀</div>
+          <div class="desc">概念不錯，但風險管制必須跟上才行。</div>
+        </div>
       </button>
 
-      <button class="choice-btn" onclick="selectChoice('skeptical')">
-        <div class="choice-icon">🤔</div>
-        <div class="choice-title">保留意見</div>
-        <div class="choice-description">等規模證明了有效之後，再來考慮。</div>
+      <button class="choice-btn" data-choice="2" onclick="selectChoice('skeptical')">
+        <span class="emoji">🤔</span>
+        <div style="flex: 1;">
+          <div class="label">保留意見</div>
+          <div class="desc">等規模證明了有效之後，再來考慮。</div>
+        </div>
       </button>
     </div>
 
@@ -773,13 +731,15 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section fade-in">
+  <div class="cta fade-in">
     <h2>深入了解更多</h2>
-    <p class="cta-text">這個互動頁面為你總結了美股代幣化的核心觀念。如果想完整理解 DTCC、NYSE、BlackRock 的戰略部署，以及代幣化股票可能帶來的風險，歡迎點擊下方按鈕閱讀完整文章。</p>
-    <a href="https://www.blocktrend.today/p/752" class="read-full-btn">
-      前往完整文章
-    </a>
-  </section>
+    <p>這個互動頁面為你總結了美股代幣化的核心觀念。完整文章深入理解 DTCC、NYSE、BlackRock 的戰略部署，以及代幣化股票可能帶來的新風險與機會。</p>
+    <a href="https://www.blocktrend.today/p/752" class="cta-btn">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('美股即將走向代幣化？24 小時交易、即時交割、零交易風險。代幣化股票不只改變效率，更深刻改變金融市場結構與風險配置。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('美股即將走向代幣化？'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

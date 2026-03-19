@@ -221,50 +221,6 @@ body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); background: 
 .module-name { font-size: 0.85rem; font-weight: 500; }
 
 /* Interactive Section */
-.interactive-section {
-  padding: 4rem 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.interactive-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-.interactive-desc {
-  text-align: center;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
-}
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-@media (max-width: 600px) {
-  .options-grid { grid-template-columns: 1fr; }
-}
-
-
-
-.option-emoji {
-  font-size: 1.8rem;
-  margin-bottom: 0.8rem;
-}
-.option-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: var(--text);
-}
-.option-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-}
 
 /* Result Card */
 .result-card {
@@ -487,31 +443,43 @@ body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); background: 
     <p>高重建曾提過：「AI 是為了提升生產效率，區塊鏈則更著眼於改善生產關係。」伙影社正在用這個原則，解決內容創作者在 AI 時代面臨的根本問題 —— 如何在眾聲喧嘩的網路上，證明自己的作品是真實的、是自己的。</p>
   </section>
 
-  <!-- Interactive Section -->
-  <section class="interactive-section fade-in">
-    <h3 class="interactive-title">你的觀點</h3>
-    <p class="interactive-desc">在 AI 快速發展的時代，內容來源驗證對創作者來說有多重要？</p>
+  <div class="big-quote fade-in">
+    <p>AI 是為了提升生產效率，區塊鏈則更著眼於改善生產關係。內容驗證在 AI 時代，不是選擇題，而是必修課。</p>
+  </div>
 
-    <div class="options-grid">
-      <button class="option-btn" data-choice="essential">
-        <div class="option-emoji">🔐</div>
-        <div class="option-title">極其重要</div>
-        <div class="option-desc">沒有驗證機制，創作者的權益無法保障</div>
+  <!-- Choice Section -->
+  <section class="choice-section fade-in">
+    <h2>你的觀點</h2>
+    <p class="choice-sub">在 AI 快速發展的時代，內容來源驗證對創作者來說有多重要？</p>
+
+    <div class="choice-options">
+      <button class="choice-btn" data-choice="0">
+        <span class="emoji">🔐</span>
+        <div style="flex: 1;">
+          <div class="label">極其重要</div>
+          <div class="desc">沒有驗證機制，創作者的權益無法保障</div>
+        </div>
       </button>
-      <button class="option-btn" data-choice="emerging">
-        <div class="option-emoji">🌱</div>
-        <div class="option-title">逐漸重要</div>
-        <div class="option-desc">區塊鏈等新技術會讓驗證變得更容易</div>
+      <button class="choice-btn" data-choice="1">
+        <span class="emoji">🌱</span>
+        <div style="flex: 1;">
+          <div class="label">逐漸重要</div>
+          <div class="desc">區塊鏈等新技術會讓驗證變得更容易</div>
+        </div>
       </button>
-      <button class="option-btn" data-choice="complementary">
-        <div class="option-emoji">🤝</div>
-        <div class="option-title">需要配套</div>
-        <div class="option-desc">技術只是基礎，法律制度同樣關鍵</div>
+      <button class="choice-btn" data-choice="2">
+        <span class="emoji">🤝</span>
+        <div style="flex: 1;">
+          <div class="label">需要配套</div>
+          <div class="desc">技術只是基礎，法律制度同樣關鍵</div>
+        </div>
       </button>
-      <button class="option-btn" data-choice="optimistic">
-        <div class="option-emoji">🚀</div>
-        <div class="option-title">樂觀看待</div>
-        <div class="option-desc">創意經濟會自然形成信任機制</div>
+      <button class="choice-btn" data-choice="3">
+        <span class="emoji">🚀</span>
+        <div style="flex: 1;">
+          <div class="label">樂觀看待</div>
+          <div class="desc">創意經濟會自然形成信任機制</div>
+        </div>
       </button>
     </div>
 
@@ -560,10 +528,15 @@ body { font-family: 'Noto Sans TC', sans-serif; color: var(--text); background: 
 </div>
 
 <!-- CTA Section -->
-<section class="cta-section">
-  <p>想了解更多伙影社、Numbers Protocol 和內容驗證的故事？</p>
-  <a class="cta-btn" href="https://www.blocktrend.today/p/754">前往區塊勢閱讀完整文章 →</a>
-</section>
+<div class="cta fade-in">
+  <h2>想深入了解內容驗證的故事？</h2>
+  <p>從馬格蘭通訊社的歷史到伙影社的 AI 時代實踐，看區塊鏈如何重新定義創作者與作品的關係。Numbers Protocol 標準如何成為內容驗證的通用語言？區塊勢完整分析。</p>
+  <a href="https://www.blocktrend.today/p/754" class="cta-btn">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 時代的內容驗證如何解決？伙影社運用區塊鏈記錄「數位底片」，保護創作者權益。從馬格蘭通訊社到 Web3，看創意經濟如何重新定義。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('AI 時代的內容驗證如何解決？伙影社與區塊鏈。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

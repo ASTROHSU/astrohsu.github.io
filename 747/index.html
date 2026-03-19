@@ -240,17 +240,6 @@ section li strong {
   font-weight: 700;
 }
 
-/* Option buttons */
-.options {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
-  .options { grid-template-columns: 1fr 1fr; }
-}
 
 
 
@@ -427,7 +416,7 @@ section li strong {
     <span>向下滑動</span>
     <div class="scroll-icon"></div>
   </div>
-</section>
+</div>
 
 <!-- Main Content -->
 <div class="article-content">
@@ -484,28 +473,38 @@ section li strong {
 
 </div>
 
-<!-- Interactive Section -->
-<section class="interactive-section">
-  <div class="interactive-content">
-    <h2>你怎麼看？</h2>
+<div class="big-quote fade-in">
+  <p>協定就像 USB-C，標準化了 AI 與商務世界的連接方式。AI 沒有習慣的包袱，所以會分散到成千上萬個商家。</p>
+</div>
 
-    <div class="options">
-      <button class="option-btn fade-in" onclick="showResult(1)">
-        <div class="emoji">🚀</div>
-        <div class="title">AI 時代已來</div>
-        <div class="description">協定會降低摩擦，加密貨幣會在幕後悄悄普及</div>
+<!-- Choice Section -->
+<section class="choice-section fade-in">
+  <h2>你怎麼看？</h2>
+  <p class="choice-sub">這不是測驗，只是想了解你的想法。選一個最符合你現在觀點的選項。</p>
+
+  <div class="choice-options">
+      <button class="choice-btn" data-choice="0" onclick="showResult(1)">
+        <span class="emoji">🚀</span>
+        <div style="flex: 1;">
+          <div class="label">AI 時代已來</div>
+          <div class="desc">協定會降低摩擦，加密貨幣會在幕後悄悄普及</div>
+        </div>
       </button>
 
-      <button class="option-btn fade-in" onclick="showResult(2)">
-        <div class="emoji">🤔</div>
-        <div class="title">理想豐滿</div>
-        <div class="description">這些協定還需要時間推廣，5 至 10 年才能真正普及</div>
+      <button class="choice-btn" data-choice="1" onclick="showResult(2)">
+        <span class="emoji">🤔</span>
+        <div style="flex: 1;">
+          <div class="label">理想豐滿</div>
+          <div class="desc">這些協定還需要時間推廣，5 至 10 年才能真正普及</div>
+        </div>
       </button>
 
-      <button class="option-btn fade-in" onclick="showResult(3)">
-        <div class="emoji">⚠️</div>
-        <div class="title">風險在哪</div>
-        <div class="description">讓 AI 掌控金流，隱私和監管問題會浮現</div>
+      <button class="choice-btn" data-choice="2" onclick="showResult(3)">
+        <span class="emoji">⚠️</span>
+        <div style="flex: 1;">
+          <div class="label">風險在哪</div>
+          <div class="desc">讓 AI 掌控金流，隱私和監管問題會浮現</div>
+        </div>
       </button>
     </div>
 
@@ -544,9 +543,17 @@ section li strong {
         <a href="https://www.blocktrend.today/p/747" class="read-full-link">閱讀完整文章 →</a>
       </div>
     </div>
-
-  </div>
 </section>
+
+<div class="cta fade-in">
+  <h2>AI 購物的未來已在眼前</h2>
+  <p>看似繁瑣的協定，卻是 AI 時代商務的基礎設施。當 AI 能自主購物，加密貨幣會在幕後悄悄改變金融生態。區塊勢第 747 期深入分析這場革命。</p>
+  <a href="https://www.blocktrend.today/p/747" class="cta-btn">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 購物為何卡關？Google 和 Shopify 聯手鋪路。當 AI 能自主購物，加密貨幣會在幕後悄悄改變金融生態。協定就像 USB-C，標準化了 AI 與商務的連接。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('AI 購物為何卡關？Google 和 Shopify 聯手鋪路。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

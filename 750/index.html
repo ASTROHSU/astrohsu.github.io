@@ -291,66 +291,6 @@
     }
 
     /* Interactive Section */
-    .interactive-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .interactive-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .choice-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .choice-btn {
-      background: white;
-      border: 2px solid #E8E3D8;
-      border-radius: 12px;
-      padding: 2rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Noto Sans TC', sans-serif;
-      text-align: center;
-      position: relative;
-    }
-
-    .choice-btn:hover {
-      border-color: var(--terra);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(192, 106, 58, 0.15);
-    }
-
-    .choice-btn.selected {
-      background: var(--terra-light);
-      border-color: var(--terra);
-    }
-
-    .choice-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .choice-title {
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-
-    .choice-description {
-      font-size: 0.85rem;
       color: var(--text-secondary);
       line-height: 1.6;
     }
@@ -647,10 +587,15 @@
     <p>我不認為這在短期內會是主流想法，但我會對於願意實踐「閃人測試」的產品多一分信任。因為他最能反映開發團隊的信心 —— 使用者不是被困在平台走不了。而是明知可以隨時離開，卻主動選擇留下來。</p>
   </section>
 
-  <!-- Interactive Section -->
-  <section class="interactive-section fade-in">
-    <h2 class="interactive-title">你怎麼看「閃人測試」的實踐？</h2>
-    <div class="choice-buttons">
+  <div class="big-quote fade-in">
+    <p>「閃人測試」不只測試技術，而是測試信任。真正的去中心化系統，應該讓使用者隨時可以離開，反而會增加人們的依賴。</p>
+  </div>
+
+  <!-- Choice Section -->
+  <section class="choice-section fade-in">
+    <h2>你怎麼看「閃人測試」的實踐？</h2>
+    <p class="choice-sub">選一個最符合你現在觀點的選項。</p>
+    <div class="choice-options">
       <button class="choice-btn" data-choice="trust">
         <span class="choice-icon">🔐</span>
         <span class="choice-title">信任優於護城河</span>
@@ -686,11 +631,15 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="cta-section fade-in">
+  <div class="cta fade-in">
     <h2>想深入理解區塊鏈的本質？</h2>
-    <p>從 AI 輔助開發的實踐出發，我們發現了去中心化系統真正的價值所在。</p>
-    <a href="https://www.blocktrend.today/p/750" class="cta-button" target="_blank">閱讀完整文章</a>
-  </section>
+    <p>從 AI 輔助開發的實踐出發，我們發現了去中心化系統真正的價值所在。「閃人測試」不只是技術實驗，而是人類對信任的本質的思考。</p>
+    <a href="https://www.blocktrend.today/p/750" class="cta-btn">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('什麼是「閃人測試」？一個去中心化應用的核心評估標準——使用者隨時可以離開，反而增加信任。區塊勢深度分析區塊鏈的本質。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('什麼是「閃人測試」？區塊鏈應用的核心評估標準。'),'_blank')">分享到 Facebook</button>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

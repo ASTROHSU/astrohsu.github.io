@@ -441,71 +441,10 @@
     }
 
     /* Interactive Section */
-    .interactive-section {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: linear-gradient(180deg, var(--warm), var(--cream));
-      border-top: 1px solid #E8E3D8;
-      border-bottom: 1px solid #E8E3D8;
-      margin: 4rem 0;
-    }
-
-    .interactive-section h2 {
-      animation: fadeDown 0.8s ease-out 0.8s both;
-    }
-
-    .choices-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-      opacity: 0;
-      animation: fadeDown 0.8s ease-out 1s forwards;
-    }
-
-    .choice-btn {
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      border: 2px solid #E8E3D8;
-      background: #fff;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-align: center;
       font-family: 'Noto Sans TC', sans-serif;
       font-size: 0.9rem;
       font-weight: 500;
       color: var(--text);
-    }
-
-    .choice-btn .emoji {
-      font-size: 2.5rem;
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .choice-btn .title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .choice-btn .desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.5;
-    }
-
-    .choice-btn:hover {
-      border-color: var(--terra);
-      box-shadow: 0 8px 24px rgba(192, 106, 58, 0.15);
-      transform: translateY(-4px);
-    }
-
-    .choice-btn.selected {
-      background: var(--terra-light);
-      border-color: var(--terra);
     }
 
     .result-card {
@@ -825,26 +764,33 @@
 </div>
 
 <!-- Interactive Section -->
-<section class="interactive-section">
+<section class="choice-section">
   <h2>你怎麼看待穩定幣的未來？</h2>
+  <p class="choice-sub">選一個最符合你現在觀點的選項。</p>
 
-  <div class="choices-grid">
-    <button class="choice-btn" onclick="selectChoice(1)">
+  <div class="choice-options">
+    <button class="choice-btn" data-choice="0" onclick="selectChoice(1)">
       <span class="emoji">🌐</span>
-      <span class="title">全球普及化</span>
-      <span class="desc">穩定幣將成為國際匯款標準，打破傳統銀行壟斷</span>
+      <div style="flex: 1;">
+        <div class="label">全球普及化</div>
+        <div class="desc">穩定幣將成為國際匯款標準，打破傳統銀行壟斷</div>
+      </div>
     </button>
 
-    <button class="choice-btn" onclick="selectChoice(2)">
+    <button class="choice-btn" data-choice="1" onclick="selectChoice(2)">
       <span class="emoji">🔒</span>
-      <span class="title">監管收緊</span>
-      <span class="desc">各國政府會進一步限制穩定幣，強化央行數位貨幣</span>
+      <div style="flex: 1;">
+        <div class="label">監管收緊</div>
+        <div class="desc">各國政府會進一步限制穩定幣，強化央行數位貨幣</div>
+      </div>
     </button>
 
-    <button class="choice-btn" onclick="selectChoice(3)">
+    <button class="choice-btn" data-choice="2" onclick="selectChoice(3)">
       <span class="emoji">⚖️</span>
-      <span class="title">走向均衡</span>
-      <span class="desc">穩定幣與央行數位貨幣並存，各自應用於不同場景</span>
+      <div style="flex: 1;">
+        <div class="label">走向均衡</div>
+        <div class="desc">穩定幣與央行數位貨幣並存，各自應用於不同場景</div>
+      </div>
     </button>
   </div>
 
@@ -859,11 +805,15 @@
 </section>
 
 <!-- CTA Section -->
-<section class="cta-section">
+<div class="cta fade-in">
   <h2>想閱讀完整文章？</h2>
-  <p>在區塊勢，我們深入探討穩定幣如何改變金融秩序，以及監管者如何在保護與創新間取得平衡。</p>
-  <a href="https://www.blocktrend.today/p/751" class="cta-btn">前往區塊勢閱讀全文 →</a>
-</section>
+  <p>在區塊勢，我們深入探討穩定幣如何改變金融秩序，以及監管者如何在保護與創新間取得平衡。從各國央行行動到市場反應，看清穩定幣未來的多條路徑。</p>
+  <a href="https://www.blocktrend.today/p/751" class="cta-btn">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('穩定幣的未來將何去何從？監管收緊、全球普及、還是走向均衡？區塊勢分析穩定幣與央行數位貨幣的競爭與共存。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('穩定幣的未來將何去何從？'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>

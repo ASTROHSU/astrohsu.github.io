@@ -416,71 +416,6 @@ p {
   margin: 0.8rem 0;
 }
 
-.vote-section {
-  text-align: center;
-  padding: 5rem 1.5rem;
-  background: linear-gradient(180deg, var(--warm), var(--terra-light));
-}
-
-.vote-section h2 {
-  margin-bottom: 1rem;
-}
-
-.vote-intro {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: 2.5rem;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.vote-wrap {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.vote-options {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.vote-btn {
-  padding: 1.2rem;
-  border-radius: 12px;
-  border: 1px solid #E8E3D8;
-  background: #fff;
-  cursor: pointer;
-  text-align: left;
-  font-family: 'Noto Sans TC', sans-serif;
-  color: var(--text);
-  transition: all 0.3s;
-  font-size: 0.95rem;
-}
-
-.vote-btn:hover {
-  border-color: var(--text-secondary);
-  transform: translateX(4px);
-}
-
-.vote-btn.selected {
-  background: var(--green-light);
-  border-color: var(--green);
-  font-weight: 500;
-}
-
-.vote-btn .emoji {
-  font-size: 1.5rem;
-  margin-right: 0.8rem;
-}
-
-.vote-btn .option-text {
-  display: inline-block;
-  text-align: left;
-}
 
 .result-card {
   display: none;
@@ -820,23 +755,31 @@ footer .logo {
   </div>
 </section>
 
-<section class="vote-section fade-in">
+<section class="choice-section fade-in">
   <h2>你對 2026 年幣價走勢的看法？</h2>
-  <p class="vote-intro">這不是測驗，只是想了解你的想法。選一個最符合你現在觀點的選項。</p>
+  <p class="choice-sub">這不是測驗，只是想了解你的想法。選一個最符合你現在觀點的選項。</p>
 
-  <div class="vote-wrap">
-    <div class="vote-options">
-      <button class="vote-btn" data-choice="0">
+  <div class="choice-options">
+      <button class="choice-btn" data-choice="0">
         <span class="emoji">🚀</span>
-        <span class="option-text"><strong>循環失效，2026 還會漲</strong><br>監管清晰、機構資金、應用成熟是長期利多，四年循環已經過時。</span>
+        <div style="flex: 1;">
+          <div class="label"><strong>循環失效，2026 還會漲</strong></div>
+          <div class="desc">監管清晰、機構資金、應用成熟是長期利多，四年循環已經過時。</div>
+        </div>
       </button>
-      <button class="vote-btn" data-choice="1">
+      <button class="choice-btn" data-choice="1">
         <span class="emoji">🤔</span>
-        <span class="option-text"><strong>有利好但要防風險</strong><br>認同長期成長邏輯，但短期不排除調整。需要更多驗證和現實應用落地。</span>
+        <div style="flex: 1;">
+          <div class="label"><strong>有利好但要防風險</strong></div>
+          <div class="desc">認同長期成長邏輯，但短期不排除調整。需要更多驗證和現實應用落地。</div>
+        </div>
       </button>
-      <button class="vote-btn" data-choice="2">
+      <button class="choice-btn" data-choice="2">
         <span class="emoji">📉</span>
-        <span class="option-text"><strong>循環仍然有效，2026 會跌</strong><br>過去三年漲幅太大，市場總需要冷卻期。歷史規律不會改變。</span>
+        <div style="flex: 1;">
+          <div class="label"><strong>循環仍然有效，2026 會跌</strong></div>
+          <div class="desc">過去三年漲幅太大，市場總需要冷卻期。歷史規律不會改變。</div>
+        </div>
       </button>
     </div>
 
@@ -855,11 +798,19 @@ footer .logo {
   </div>
 </section>
 
-<section class="cta fade-in">
+<div class="big-quote fade-in">
+  <p>過去三年漲幅太大，市場總需要冷卻期。但更深層的力量正在改寫遊戲規則——監管、機構、應用，都指向同一個方向。</p>
+</div>
+
+<div class="cta fade-in">
   <h2>深入了解 2026 年的幣圈變局</h2>
-  <p>區塊勢提供最新的區塊鏈、Web3 與加密金融的深度分析。</p>
+  <p>四年循環會失效嗎？監管清晰化、機構資金湧入、穩定幣成為基礎設施——區塊勢分析這三股力量如何改寫比特幣的未來。</p>
   <a href="https://www.blocktrend.today/p/746" class="cta-btn">閱讀完整文章 →</a>
-</section>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('2026年比特幣一定會漲？四年循環週期已失效。監管清晰、機構資金、穩定幣成為基礎設施，三股力量正在改寫比特幣走勢。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('2026年比特幣一定會漲？四年循環週期已失效。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
 
 <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
