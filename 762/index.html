@@ -172,34 +172,16 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2;margin-bottom
 }
 
 /* Opinion section */
-.big-question{
-  text-align:center;padding:4rem 2rem;
-  background:linear-gradient(135deg,var(--cream) 0%,var(--green-light) 100%);
-  border-radius:16px;margin:4rem 0;
-}
-.big-question h2{
-  font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:1.5rem;color:var(--text);
-}
-.big-question p{
-  font-size:1rem;color:var(--text-secondary);margin-bottom:2rem;
-}
-.big-question .options{
-  display:flex;flex-direction:column;gap:1rem;
-}
-.option-btn{
-  padding:1.2rem;border-radius:12px;border:2px solid #E8E3D8;background:#fff;
-  text-align:left;cursor:pointer;transition:all 0.3s;
-}
-.option-btn:hover{border-color:var(--terra);background:var(--terra-light);transform:translateX(4px)}
-.option-btn.selected{border-color:var(--terra);background:var(--terra-light)}
-.option-btn .emoji{font-size:1.5rem;margin-right:0.8rem}
-.option-btn .title{
-  font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;
-  color:var(--text);margin-bottom:0.3rem;
-}
-.option-btn .desc{
-  font-size:0.85rem;color:var(--text-secondary);margin:0;
-}
+
+
+
+
+
+
+
+
+
+
 
 /* Result card */
 .result-card{
@@ -208,29 +190,15 @@ p.lead{font-size:1.15rem;color:var(--text-secondary);line-height:2;margin-bottom
 }
 .result-card.show{display:block}
 @keyframes slideIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.result-card h3{
-  font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;
-  color:var(--terra);margin-bottom:1rem;
-}
-.result-card p{
-  font-size:0.95rem;color:var(--text-secondary);margin-bottom:1.5rem;line-height:1.8;
-}
-.share-buttons{
-  display:flex;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;
-}
-.share-btn{
-  padding:0.8rem 1.5rem;border-radius:8px;border:none;background:var(--terra);
-  color:#fff;font-weight:500;cursor:pointer;font-size:0.9rem;
-  transition:background 0.3s;flex:1;min-width:150px;
-}
+
+
+
+
 .share-btn:hover{background:#B85A30}
-.share-btn.facebook{background:var(--blue)}
-.share-btn.facebook:hover{background:#1E5DC8}
-.read-full{
-  display:inline-block;padding:1rem 1.8rem;background:var(--terra);color:#fff;
-  text-decoration:none;border-radius:8px;font-weight:500;transition:background 0.3s;
-}
-.read-full:hover{background:#B85A30}
+
+
+
+
 
 /* CTA section */
 .cta{
@@ -264,9 +232,59 @@ footer img{
   section{padding:3rem 1.2rem}
   h2{font-size:1.4rem}
   .layers-card,.cost-block{padding:1.5rem}
-  .big-question{padding:2.5rem 1.5rem}
+  
 }
-</style>
+
+    
+    /* === BREAKOUT: Force full-width even inside constrained parents === */
+    .big-quote, .choice-section, .opinion-section, .interactive-section, .vote-section, .cta {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    /* === 765 STANDARD: Choice Section === */
+    .choice-section { text-align: center; padding: 5rem 1.5rem; background: linear-gradient(180deg, var(--warm), #F5F3ED); }
+    .choice-section h2 { margin-bottom: 0.5rem; }
+    .choice-sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2rem; }
+    .choice-options { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
+    .choice-btn { background: #fff; border: 1px solid #E8E3D8; border-radius: 12px; padding: 1.1rem 1.4rem; cursor: pointer; text-align: left; transition: all 0.2s; display: flex; align-items: center; gap: 1rem; font-family: 'Noto Sans TC', sans-serif; }
+    .choice-btn:hover { border-color: var(--text-secondary); background: var(--green-light); }
+    .choice-btn.selected { border-color: var(--terra); background: var(--terra-light); pointer-events: none; }
+    .choice-btn .emoji { font-size: 1.5rem; flex-shrink: 0; }
+    .choice-btn .label { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .choice-btn .desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.15rem; line-height: 1.5; }
+    
+    /* === 765 STANDARD: Result Card === */
+    .result-card { display: none; max-width: 480px; margin: 2rem auto 0; padding: 2rem; border-radius: 16px; text-align: center; background: var(--green-light); border: 1px solid rgba(45, 107, 79, 0.15); }
+    .result-card.show, .result-card.visible { display: block; animation: fadeUp 0.5s ease forwards; }
+    .result-card .r-badge { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 0.8rem; }
+    .result-card .r-title { font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .result-card .r-desc { font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.2rem; }
+    
+    /* === 765 STANDARD: Big Quote === */
+    .big-quote { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, var(--warm), var(--terra-light)); }
+    .big-quote p { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; line-height: 1.6; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
+    
+    /* === 765 STANDARD: CTA === */
+    .cta { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, #F5F3ED, var(--cream)); }
+    .cta h2 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+    .cta p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .cta-btn { display: inline-block; padding: 0.9rem 2.5rem; border-radius: 2rem; background: var(--text); color: #fff; text-decoration: none; font-weight: 500; letter-spacing: 0.1em; transition: transform 0.2s; font-size: 0.95rem; }
+    .cta-btn:hover { transform: scale(1.03); }
+    
+    /* === 765 STANDARD: Share Buttons === */
+    .share-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+    .share-btn { padding: 0.55rem 1.2rem; border-radius: 2rem; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0.05em; transition: transform 0.2s; }
+    .share-btn:hover { transform: scale(1.03); }
+    .share-btn.tw { background: #0f1419; color: #fff; }
+    .share-btn.fb { background: #1877f2; color: #fff; }
+    
+    /* === 765 STANDARD: Footer === */
+    footer { text-align: center; padding: 3rem 2rem; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.15em; }
+
+  </style>
 </head>
 <body>
 
@@ -389,46 +407,11 @@ footer img{
   <p>其實 Visa 已經在提前佈局。他們與 Stripe 聯手擴大穩定幣支付卡合作，預計 2026 年底在全球 100 個國家推出。這表明傳統金融巨頭不是被動應變，而是主動競逐這場變革。最終，回到人們吵翻天的問題：AI 最終會用穩定幣還是信用卡付款？關鍵其實不在成本有多低，而在穩定幣流通性有多廣。假如未來穩定幣和信用卡一樣普及，就只有小孩才在做選擇！</p>
 </section>
 
-<!-- Interactive opinion section -->
-<section class="big-question fade-in">
-  <h2>你對 AI 支付的未來怎麼看？</h2>
-  <p>AI 將如何影響全球支付系統？</p>
-  <div class="options">
-    <button class="option-btn" onclick="selectOption(1)">
-      <span class="emoji">⚡</span>
-      <div class="title">穩定幣將主導</div>
-      <div class="desc">AI 的理性決策會逐漸繞過傳統信用卡，穩定幣成為機器的標準支付工具</div>
-    </button>
-    <button class="option-btn" onclick="selectOption(2)">
-      <span class="emoji">🤝</span>
-      <div class="title">融合的未來</div>
-      <div class="desc">穩定幣與傳統卡並存，作為結算層的幕後英雄，消費介面保持多元</div>
-    </button>
-    <button class="option-btn" onclick="selectOption(3)">
-      <span class="emoji">🏦</span>
-      <div class="title">傳統金融勝出</div>
-      <div class="desc">銀行和信用卡網路足夠聰慧來適應，穩定幣只是一時現象</div>
-    </button>
-  </div>
-
-  <div class="result-card" id="resultCard">
-    <h3 id="resultTitle"></h3>
-    <p id="resultText"></p>
-    <div class="share-buttons">
-      <button class="share-btn" onclick="shareOnTwitter()">𝕏 分享</button>
-      <button class="share-btn facebook" onclick="shareOnFacebook()">Facebook 分享</button>
-    </div>
-    <a href="https://www.blocktrend.today/p/762" class="read-full" target="_blank">閱讀完整文章 →</a>
-  </div>
-</section>
-
 <!-- Big quote -->
-<section class="fade-in">
-  <div class="big-quote">
+<div class="big-quote">
     <p><span class="hl">AI 會自動選擇成本最低的支付方式。</span></p>
     <p style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">當信用卡的 3% 手續費成為浪費，穩定幣的優勢就會被無情地選中。</p>
-  </div>
-</section>
+</div>
 
 <!-- Choice section -->
 <div class="choice-section" id="choice">

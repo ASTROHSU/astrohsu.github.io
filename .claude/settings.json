@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:i.urusai.cc)",
-      "Bash(git push origin main)"
+      "Bash(git push origin main)",
+      "Bash(gh api repos/ASTROHSU/astrohsu.github.io/pages)",
+      "Bash(gh run list --limit 5)",
+      "Bash(gh run view 23277345828 --log)",
+      "Bash(gh run list --limit 1)"
     ]
   }
 }
