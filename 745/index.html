@@ -70,7 +70,7 @@ body {
 
 .hero .logo {
   height: 48px;
-  opacity: 0.8;
+  opacity: 1.8;
   margin-bottom: 3rem;
 }
 
@@ -160,7 +160,7 @@ section p:last-child {
   color: var(--terra);
   line-height: 1;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  opacity: 1.6;
 }
 
 .quote-block p {
@@ -377,7 +377,7 @@ section p:last-child {
 .site-footer {
   padding: 3rem 1.5rem;
   text-align: center;
-  border-top: 1px solid var(--border);
+  
 }
 
 .site-footer img {
@@ -577,7 +577,7 @@ section p:last-child {
   <p>完美已死，真實最貴。AI 時代，創作者最大的資產不是完美的內容，而是願意為內容負責的勇氣。</p>
 </div>
 
-<section class="choice-section fade-in">
+<div class="choice-section fade-in">
   <h2>你認為內容的真實性有多重要？</h2>
   <p class="choice-sub">AI 時代，創作者的最大資產是什麼？選擇一個最符合你想法的選項。</p>
 
@@ -608,18 +608,22 @@ section p:last-child {
   <div id="result-authenticity" class="result-card">
     <h3 class="result-title">你看重真實性</h3>
     <p class="result-text">你理解的是 Adam Mosseri 和許明恩都在強調的核心——當 AI 能製造完美時，真實反而成了最稀缺的資源。一個會犯錯、會請假、會坦誠內容風險的創作者，比一個完美無缺的自動化系統更值得信任。這正是區塊勢的 2026 年策略：用「不完美」來證明「真實」。</p>
-    <div class="share-buttons">
-      <button class="share-btn share-x" onclick="shareX('我認為內容的真實性最重要。AI 時代，創作者最大的資產不是完美，而是願意為內容負責的勇氣。\n\n完美已死，真實最貴。')">𝕏 分享</button>
+    <div class="share-row">
+      <button class="share-btn tw" onclick="shareX('我認為內容的真實性最重要。AI 時代，創作者最大的資產不是完美，而是願意為內容負責的勇氣。\n\n完美已死，真實最貴。')">𝕏 分享</button>
       <button class="share-btn share-facebook" onclick="shareFacebook('我認為內容的真實性最重要')">Facebook 分享</button>
     </div>
     <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('區塊勢第 745 期\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+      <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('區塊勢第 745 期'),'_blank')">分享到 Facebook</button>
+    </div>
   </div>
 
   <div id="result-expertise" class="result-card">
     <h3 class="result-title">你看重專業性</h3>
     <p class="result-text">深度、準確性和專業知識依然是內容的基礎。但正如文章所指，在 AI 時代，這些東西已經漸漸被機器追上。真正的分野在於，誰願意把自己的信譽綁在內容上？區塊勢不會躲在「內容可能有誤」這樣的免責聲明後面。當創作者願意為品質負責，專業性才能真正轉化為信任。</p>
-    <div class="share-buttons">
-      <button class="share-btn share-x" onclick="shareX('專業性很重要，但更重要的是創作者願不願意為內容負責。完美已死，真實最貴。\n\n')">𝕏 分享</button>
+    <div class="share-row">
+      <button class="share-btn tw" onclick="shareX('專業性很重要，但更重要的是創作者願不願意為內容負責。完美已死，真實最貴。\n\n')">𝕏 分享</button>
       <button class="share-btn share-facebook" onclick="shareFacebook('專業性很重要，但責任感才是真正的差異')">Facebook 分享</button>
     </div>
     <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
@@ -628,13 +632,13 @@ section p:last-child {
   <div id="result-connection" class="result-card">
     <h3 class="result-title">你看重人與人的連結</h3>
     <p class="result-text">你抓住了區塊勢 2026 年策略的核心——在地、故事和肉身。區塊勢舉辦實體工作坊、用台灣經驗寫文章、透過 Podcast 講述商業故事，這些都是為了建立真實的、無法被線上演算法完全取代的人際連結。當 AI 變得越來越聰明時，創作者唯一的優勢就是「我是一個真實的人，我願意與你相見」。</p>
-    <div class="share-buttons">
-      <button class="share-btn share-x" onclick="shareX('最珍貴的是人與人之間的真實連結。在地故事、肉身參與、直接對話——這些才是 AI 永遠無法複製的。')">𝕏 分享</button>
+    <div class="share-row">
+      <button class="share-btn tw" onclick="shareX('最珍貴的是人與人之間的真實連結。在地故事、肉身參與、直接對話——這些才是 AI 永遠無法複製的。')">𝕏 分享</button>
       <button class="share-btn share-facebook" onclick="shareFacebook('真實的連結是 AI 無法複製的')">Facebook 分享</button>
     </div>
     <a href="https://www.blocktrend.today/p/745" class="cta-link">閱讀完整文章 →</a>
   </div>
-</section>
+</div>
 
 </div>
 
