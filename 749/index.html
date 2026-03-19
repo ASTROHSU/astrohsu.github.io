@@ -241,12 +241,7 @@
     }
 
     /* Interactive Section */
-    .cta-section {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 2rem;
-      text-align: center;
-    }
+    
 
     .choice-container {
       display: grid;
@@ -330,13 +325,7 @@
       line-height: 1.8;
     }
 
-    .share-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
+    
 
     .share-btn {
       display: inline-flex;
@@ -353,37 +342,17 @@
       color: white;
     }
 
-    .share-btn.twitter {
-      background-color: #000;
-    }
+    
 
-    .share-btn.twitter:hover {
-      background-color: #1a1a1a;
-    }
+    
 
-    .share-btn.facebook {
-      background-color: #1877F2;
-    }
+    
 
-    .share-btn.facebook:hover {
-      background-color: #0a66c2;
-    }
+    
 
-    .read-full {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 1rem 2rem;
-      background-color: var(--terra);
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
+    
 
-    .read-full:hover {
-      background-color: #a85a32;
-    }
+    
 
     /* Footer */
     footer {
@@ -441,7 +410,66 @@
         margin: 3rem auto;
       }
     }
+  
+    /* === BREAKOUT: Force full-width even inside constrained parents === */
+    .big-quote, .choice-section, .cta {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    /* === 765 STANDARD: Choice Section === */
+    .choice-section { text-align: center; padding: 5rem 1.5rem; background: linear-gradient(180deg, var(--warm), #F5F3ED); }
+    .choice-section h2 { margin-bottom: 0.5rem; }
+    .choice-sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2rem; }
+    .choice-options { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.6rem; }
+    .choice-btn { background: #fff; border: 1px solid #E8E3D8; border-radius: 12px; padding: 1.1rem 1.4rem; cursor: pointer; text-align: left; transition: all 0.2s; display: flex; align-items: center; gap: 1rem; font-family: 'Noto Sans TC', sans-serif; }
+    .choice-btn:hover { border-color: var(--text-secondary); background: var(--green-light); }
+    .choice-btn.selected { border-color: var(--terra); background: var(--terra-light); pointer-events: none; }
+    .choice-btn .emoji { font-size: 1.5rem; flex-shrink: 0; }
+    .choice-btn .label { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+    .choice-btn .desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 0.15rem; line-height: 1.5; }
+
+    /* === 765 STANDARD: Result Card === */
+    .result-card { display: none; max-width: 480px; margin: 2rem auto 0; padding: 2rem; border-radius: 16px; text-align: center; background: var(--green-light); border: 1px solid rgba(45, 107, 79, 0.15); }
+    .result-card.show, .result-card.visible { display: block; animation: fadeUp 0.5s ease forwards; }
+    .result-card .r-badge { font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-muted); margin-bottom: 0.8rem; }
+    .result-card .r-title { font-family: 'Noto Serif TC', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .result-card .r-desc { font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1.2rem; }
+
+    /* === 765 STANDARD: Big Quote === */
+    .big-quote { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, var(--warm), var(--terra-light)); }
+    .big-quote p { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; line-height: 1.6; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
+
+    /* === 765 STANDARD: CTA === */
+    .cta { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, #F5F3ED, var(--cream)); }
+    .cta h2 { font-size: 1.3rem; margin-bottom: 0.8rem; }
+    .cta p { color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .cta-btn { display: inline-block; padding: 0.9rem 2.5rem; border-radius: 2rem; background: var(--text); color: #fff; text-decoration: none; font-weight: 500; letter-spacing: 0.1em; transition: transform 0.2s; font-size: 0.95rem; }
+    .cta-btn:hover { transform: scale(1.03); }
+
+    /* === 765 STANDARD: Share Buttons === */
+    .share-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+    .share-btn { padding: 0.55rem 1.2rem; border-radius: 2rem; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0.05em; transition: transform 0.2s; }
+    .share-btn:hover { transform: scale(1.03); }
+    .share-btn.tw { background: #0f1419; color: #fff; }
+    .share-btn.fb { background: #1877f2; color: #fff; }
+
+    /* === 765 STANDARD: Footer === */
+    footer { text-align: center; padding: 3rem 2rem; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.15em; }
+
   </style>
+    <meta property="og:image" content="https://astrohsu.github.io/749/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://astrohsu.github.io/749/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="穩定幣 Visa 卡市場翻倍！重新定義「披薩日」">
+  <meta name="twitter:description" content="穩定幣 Visa 卡市場 106% CAGR 翻倍成長。從披薩日的 64% 溢價到交易磨損近乎零，15 年的支付革命。">
+  <meta name="twitter:image" content="https://astrohsu.github.io/749/cover.png">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
 </head>
 <body>
   <!-- Hero Section -->
@@ -694,12 +722,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="fade-in">
-    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="footer-logo">
-    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
-      區塊勢 | <a href="https://www.blocktrend.today/p/749" style="color: var(--terra); text-decoration: none;">閱讀完整分析</a>
-    </p>
-  </footer>
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
 
   <script>
     // Fade-in Animation on Scroll
