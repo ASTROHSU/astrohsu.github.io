@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 幫你結帳的時代來了</title>
+  <link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+  <meta property="og:title" content="AI 幫你結帳的時代來了">
+  <meta property="og:description" content="未來會由 AI 替你結帳。Stripe、Visa、Circle 三大陣營搶位，你認為誰會勝出？">
+  <meta property="og:image" content="https://share.blocktrend.today/agentic-commerce/cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://share.blocktrend.today/agentic-commerce/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 幫你結帳的時代來了">
+  <meta name="twitter:description" content="未來會由 AI 替你結帳。Stripe、Visa、Circle 三大陣營搶位，你認為誰會勝出？">
+  <meta name="twitter:image" content="https://share.blocktrend.today/agentic-commerce/cover.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --warm: #FAFAF7;
+      --cream: #EDE0D4;
+      --terra: #C06A3A;
+      --terra-light: #F5EBE5;
+      --green: #2D6B4F;
+      --green-light: #E8F3ED;
+      --green-deep: #0D2E20;
+      --blue: #2563EB;
+      --blue-light: #EFF4FF;
+      --yellow: #8B6914;
+      --yellow-light: #FDF8EC;
+      --text: #2C2A25;
+      --text-secondary: #6B6860;
+      --text-muted: #9E9A90;
+      --gold: #8B7340;
+      --gold-light: #F9F3E6;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 18px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--text);
+      background: var(--warm);
+      line-height: 1.9;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 100%);
+      position: relative;
+    }
+
+    .hero img.logo {
+      height: 48px;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+      animation: breathe 2.5s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: translateY(0);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateY(-6px);
+      }
+    }
+
+    /* Sections */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    section .part-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--terra);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    section h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    section p {
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    section p.muted {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    /* Wide content (diagrams) */
+    section.wide {
+      max-width: 900px;
+    }
+
+    /* Highlight */
+    .hl {
+      background: linear-gradient(180deg, transparent 60%, rgba(192, 106, 58, 0.15) 60%);
+      padding: 0 2px;
+    }
+
+    /* Diagram cards */
+    .diagram-card {
+      background: #fff;
+      border: 1px solid #E8E3D8;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .diagram-card .diagram-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .diagram-card .diagram-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .diagram-card .diagram-caption {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-top: 1.2rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Flow diagram (圖一) */
+    .flow-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .flow-row {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      position: relative;
+    }
+
+    .flow-row-label {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      letter-spacing: 0.1em;
+    }
+
+    .flow-cells {
+      display: flex;
+      flex: 1;
+      gap: 0.8rem;
+      align-items: stretch;
+    }
+
+    .flow-cell {
+      flex: 1;
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .flow-cell .fc-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-cell .fc-title {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .flow-cell .fc-desc {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .flow-cell .fc-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    .flow-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.8rem;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+    }
+
+    /* Now row */
+    .flow-row.now .flow-cell {
+      background: #F8F7F3;
+      border: 1px solid #E8E3D8;
+    }
+
+    .flow-row.now .flow-cell.highlight {
+      background: var(--yellow-light);
+      border: 2px solid #D4C08E;
+    }
+
+    .flow-row.now .fc-badge {
+      background: #F0E8D0;
+      color: var(--yellow);
+    }
+
+    /* Future row */
+    .flow-row.future {
+      background: var(--blue-light);
+      border-radius: 14px;
+      padding: 1.2rem 0.8rem;
+    }
+
+    .flow-row.future .flow-cell {
+      background: #fff;
+      border: 1px solid #C8D8F0;
+    }
+
+    .flow-row.future .fc-badge {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .flow-row.future .fc-badge.multi {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+
+    .flow-header {
+      display: flex;
+      gap: 0.8rem;
+      padding-left: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-header span {
+      flex: 1;
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .flow-divider {
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.85rem;
+      color: var(--terra);
+      font-weight: 500;
+    }
+
+    /* Strategy cards (圖二三四) */
+    .strategy-block {
+      border-radius: 14px;
+      padding: 1.8rem 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .strategy-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .strategy-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .strategy-name {
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .strategy-tagline {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      padding-left: 3rem;
+    }
+
+    .strategy-steps {
+      display: flex;
+      gap: 0.7rem;
+      align-items: stretch;
+    }
+
+    .strategy-step {
+      flex: 1;
+      border-radius: 10px;
+      padding: 1.2rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .strategy-step .ss-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .strategy-step .ss-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .strategy-step .ss-desc {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .strategy-step .ss-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 500;
+      padding: 0.12rem 0.45rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    .strategy-step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    .strategy-summary {
+      margin-top: 1.2rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* Stripe */
+    .strategy-block.stripe {
+      background: #F0ECF8;
+    }
+
+    .strategy-block.stripe .strategy-icon {
+      background: #6B5CE7;
+    }
+
+    .strategy-block.stripe .strategy-step {
+      background: #E0D8F5;
+      border: 1px solid #C8BCF0;
+    }
+
+    .strategy-block.stripe .strategy-step.core {
+      background: #7B6AE8;
+      color: #fff;
+    }
+
+    .strategy-block.stripe .strategy-step.core .ss-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .strategy-block.stripe .ss-badge {
+      background: rgba(107, 92, 231, 0.15);
+      color: #6B5CE7;
+    }
+
+    .strategy-block.stripe .strategy-step.core .ss-badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .strategy-block.stripe .strategy-summary {
+      background: rgba(107, 92, 231, 0.1);
+      color: #5B4CCE;
+    }
+
+    /* Visa */
+    .strategy-block.visa {
+      background: #EEF0F8;
+    }
+
+    .strategy-block.visa .strategy-icon {
+      background: #4456A6;
+    }
+
+    .strategy-block.visa .strategy-step {
+      background: #DEE2F3;
+      border: 1px solid #C0C8E8;
+    }
+
+    .strategy-block.visa .strategy-step.advantage {
+      background: #fff;
+      border: 2px solid #D4C08E;
+    }
+
+    .strategy-block.visa .ss-badge {
+      background: rgba(68, 86, 166, 0.12);
+      color: #4456A6;
+    }
+
+    .strategy-block.visa .ss-badge.gold {
+      background: #F0E8D0;
+      color: var(--yellow);
+    }
+
+    .strategy-block.visa .strategy-summary {
+      background: rgba(68, 86, 166, 0.08);
+      color: #3A4A90;
+    }
+
+    /* Circle + Coinbase */
+    .strategy-block.circle {
+      background: #E8F5EE;
+    }
+
+    .strategy-block.circle .strategy-icon {
+      background: var(--green);
+    }
+
+    .strategy-block.circle .strategy-step {
+      background: #fff;
+      border: 2px solid #A8D4BC;
+    }
+
+    .strategy-block.circle .ss-badge {
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .strategy-block.circle .strategy-summary {
+      background: rgba(45, 107, 79, 0.08);
+      color: var(--green);
+    }
+
+    /* Big Quote */
+    .big-quote {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, var(--warm), var(--terra-light));
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .big-quote p {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto;
+      letter-spacing: 0.03em;
+    }
+
+    /* Choice Section */
+    .choice-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--gold-light);
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .choice-section h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .choice-sub {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    .choice-options {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .choice-btn {
+      background: #fff;
+      border: 2px solid #E8E3D8;
+      border-radius: 12px;
+      padding: 1.5rem 1.2rem;
+      cursor: pointer;
+      text-align: left;
+      flex: 1;
+      min-width: 200px;
+      max-width: 260px;
+      transition: all 0.3s ease;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--terra);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .choice-btn.selected {
+      border-color: var(--terra);
+      background: var(--terra-light);
+    }
+
+    .choice-btn .emoji {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .choice-btn .label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .choice-btn .desc {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .result-card {
+      max-width: 520px;
+      margin: 2rem auto 0;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 2px solid transparent;
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+      animation: fadeUp 0.5s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .r-badge {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--terra);
+      margin-bottom: 0.5rem;
+    }
+
+    .r-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .r-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Share buttons */
+    .share-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      padding: 0.55rem 1.2rem;
+      border-radius: 2rem;
+      border: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
+      letter-spacing: 0.05em;
+      transition: transform 0.2s;
+    }
+
+    .share-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .share-btn.tw {
+      background: #0f1419;
+      color: #fff;
+    }
+
+    .share-btn.fb {
+      background: #1877f2;
+      color: #fff;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(180deg, #F5F3ED, var(--cream));
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .cta h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--terra);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .cta-btn:hover {
+      background: #A8572E;
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.15em;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      html {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 2rem 1.2rem;
+      }
+
+      .flow-cells {
+        flex-direction: column;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+        min-height: 1.5rem;
+        min-width: auto;
+      }
+
+      .flow-header {
+        display: none;
+      }
+
+      .flow-row-label {
+        writing-mode: horizontal-tb;
+        min-width: auto;
+        margin-bottom: 0.5rem;
+      }
+
+      .flow-row {
+        flex-direction: column;
+      }
+
+      .flow-row.future {
+        padding: 1rem;
+      }
+
+      .strategy-steps {
+        flex-direction: column;
+      }
+
+      .strategy-step-arrow {
+        transform: rotate(90deg);
+        min-height: 1.5rem;
+        min-width: auto;
+      }
+
+      .choice-options {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .choice-btn {
+        max-width: 100%;
+      }
+
+      .diagram-card {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+    <h1 class="fade-in">AI 幫你結帳的時代來了</h1>
+    <p class="subtitle fade-in">人類出一張嘴，AI 代理人搞定一切。<br>但 AI 要用什麼付錢？</p>
+    <div class="scroll-hint">↓ SCROLL ↓</div>
+  </div>
+
+  <!-- PART 1 -->
+  <section>
+    <div class="part-label fade-in">PART 1</div>
+    <h2 class="fade-in">AI 代勞</h2>
+
+    <p class="fade-in">上週 Visa 的產品與策略長 Jack Forestell 公開表示，自己在支付產業打滾近 25 年，代理商務（Agentic
+      Commerce）是他見過最大的機會，影響堪比當年電商問世。他說人們的消費行為會完全改變，但沒說出口的下半句是：「因為未來會由 AI 替你結帳。」</p>
+
+    <p class="fade-in">什麼是代理商務？就現況來說，是把原本要親自動手做的事外包給 AI 完成，人類只要出一張嘴就好。這套願景大家早已聽到耳朵長繭，但最近有人總算親身體會到新時代降臨的感動 —— Claude
+      Cowork 竟然自動替他訂好了一段出國行程。</p>
+
+    <p class="fade-in">想像你要去越南旅行，出發前想預約一家評價不錯的按摩店。以往你得先打開店家網站，查價格、選時段，流程不難，就是花時間。但改用 AI 代理人之後，你只要給一個指令，它就像人類一樣操作電腦 ——
+      打開瀏覽器、搜尋資料、填寫表單。不久後它回報：這家店沒有線上訂位，只能用 Email 聯繫，草稿已經擬好讓你過目。沒問題就寄出，很快就收到確認。整個過程就像把工作交給秘書一樣輕鬆。</p>
+
+    <p class="fade-in">但好景不常。當你接著用 AI 預訂熱門餐廳，正以為一切順利，最後一步卻被擋下了：需要手動輸入 CAPTCHA 驗證碼，還必須用信用卡支付訂金。這凸顯 AI 代理人當前面臨的<span
+        class="hl">兩大難題：身分與支付</span>。</p>
+
+    <p class="fade-in">身分決定 AI 能不能代表人類行動，支付則是它能否真正完成交易。前者還在找標準，後者已經先打起來了。</p>
+  </section>
+
+  <!-- PART 2 -->
+  <section class="wide">
+    <div class="part-label fade-in">PART 2</div>
+    <h2 class="fade-in">代理式商務</h2>
+
+    <p class="fade-in">現在幾乎所有線上消費預設都是刷卡或 Apple Pay。但隨著 AI 普及，越來越多消費者會躲到 AI 後面，將實際操作交給 AI 代理人。支付業者意識到風向，紛紛開始為 AI
+      打造專屬的付款工具。</p>
+
+    <!-- 圖一：現在 vs 未來 -->
+    <div class="diagram-card fade-in">
+      <div class="diagram-title">支付的典範轉移</div>
+      <div class="diagram-subtitle">當第一格從「人類」變成「AI 代理人」，後面全部跟著變</div>
+
+      <div class="flow-compare">
+        <div class="flow-header">
+          <span>誰在付錢</span>
+          <span>用什麼付</span>
+          <span>店家怎麼收</span>
+        </div>
+
+        <!-- 現在 -->
+        <div class="flow-row now">
+          <div class="flow-row-label">現在</div>
+          <div class="flow-cells">
+            <div class="flow-cell">
+              <div class="fc-icon">👤</div>
+              <div class="fc-title">人類消費者</div>
+              <div class="fc-desc">自己搜尋、比價、結帳</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-cell highlight">
+              <div class="fc-icon">💳</div>
+              <div class="fc-title">信用卡</div>
+              <div class="fc-desc">對人類最方便<br>其他選項都太麻煩</div>
+              <div class="fc-badge">唯一選擇</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-cell">
+              <div class="fc-icon">⚡</div>
+              <div class="fc-title">Stripe + Visa/MC</div>
+              <div class="fc-desc">所有交易都經過卡組織</div>
+              <div class="fc-badge">管道為王</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flow-divider fade-in">↓ 第一格變了，後面全部跟著變 ↓</div>
+
+        <!-- 未來 -->
+        <div class="flow-row future">
+          <div class="flow-row-label">未來</div>
+          <div class="flow-cells">
+            <div class="flow-cell">
+              <div class="fc-icon">🤖</div>
+              <div class="fc-title">消費者 + AI 代理人</div>
+              <div class="fc-desc">人類出一張嘴<br>代理人執行一切</div>
+              <div class="fc-badge">聚合者</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-cell">
+              <div class="fc-icon">🪙</div>
+              <div class="fc-title">虛擬卡 + 穩定幣</div>
+              <div class="fc-desc">對 AI 都是一行指令<br>信用卡不再是唯一</div>
+              <div class="fc-badge multi">多種選擇</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-cell">
+              <div class="fc-icon">🌐</div>
+              <div class="fc-title">卡片收款 + 穩定幣收款</div>
+              <div class="fc-desc">Stripe 兩邊接<br>Circle / Coinbase 搶穩定幣端</div>
+              <div class="fc-badge multi">各自搶位</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="fade-in">美國金融科技公司 Ramp 宣布推出 AI 代理人專用的虛擬支付卡。Visa 區塊鏈實驗室則推出 Visa CLI 命令列工具，讓代理人直接從終端機付錢 ——
+      連卡片都不用了。有人發卡、有人不要卡，Circle 和 Coinbase 甚至繞過卡片網路，直接用穩定幣結算。</p>
+
+    <p class="fade-in">目前穩定幣的普及率遠低於支付卡。對人類來說，加密貨幣還是太陌生，但假如未來付錢的不是人類呢？AI 代理人呼叫虛擬卡或穩定幣都是一行指令的功夫。</p>
+
+    <p class="fade-in">虛擬卡和穩定幣一樣方便，AI 代理人應該選哪一個？許多人應該還記得從簡訊換到 LINE 的經歷。十幾年前，由於行動網路慢、智慧型手機不普及，大家習慣傳簡訊。但因為 LINE
+      跑在網路上，訊息傳送免費。才沒幾年，連爸媽都在用 LINE 了。簡訊雖然沒有消失，但也從「唯一的方式」變成「偶爾才用的備案」。</p>
+
+    <p class="fade-in">穩定幣也處於類似階段。區塊鏈的速度還不足以支撐全球消費者上鏈，收款服務也還不普及。說取代還太早，但未來線上支付很可能不再只有刷卡一種方式。一旦支付工具變得多元，<span
+        class="hl">決定勝負的就不再是工具本身，而是誰在使用者端最普及、並且覆蓋最多店家</span>。就像 LINE Pay 在台灣最強勢，不是因為它最好用，而是因為幾乎所有人都有 LINE。</p>
+  </section>
+
+  <!-- PART 3 -->
+  <section class="wide">
+    <div class="part-label fade-in">PART 3</div>
+    <h2 class="fade-in">各家搶位</h2>
+
+    <p class="fade-in">這場仗已經開打了。三大陣營各有一套截然不同的策略。</p>
+
+    <!-- Stripe -->
+    <div class="strategy-block stripe fade-in">
+      <div class="strategy-header">
+        <div class="strategy-icon">S</div>
+        <div class="strategy-name">Stripe</div>
+      </div>
+      <div class="strategy-tagline">兩端都搶</div>
+      <div class="strategy-steps">
+        <div class="strategy-step">
+          <div class="ss-icon">🤖</div>
+          <div class="ss-title">ACP 協議</div>
+          <div class="ss-desc">跟 OpenAI 合作<br>使用者在 ChatGPT<br>裡找商品並結帳</div>
+          <div class="ss-badge">新擴張</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step core">
+          <div class="ss-icon">⚡</div>
+          <div class="ss-title">Stripe 收款 + MPP</div>
+          <div class="ss-desc">本業收款<br>加上 MPP 路由器<br>卡片穩定幣都接</div>
+          <div class="ss-badge">核心</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step">
+          <div class="ss-icon">🪙</div>
+          <div class="ss-title">Tempo + Bridge</div>
+          <div class="ss-desc">自建區塊鏈<br>收購穩定幣公司<br>全新結算路徑</div>
+          <div class="ss-badge">新擴張</div>
+        </div>
+      </div>
+      <div class="strategy-summary">從收款本業同時往兩端擴張：左接 AI 代理人入口，右建穩定幣結算。不管代理人選什麼，都經過 Stripe。</div>
+    </div>
+
+    <p class="fade-in">Stripe 的打法最積極。身為全球最多商家使用的線上刷卡機，Stripe 一手跟 OpenAI 合作推出 ACP 協議，讓使用者直接在 ChatGPT 裡找到商品並結帳；另一手投資 Tempo
+      區塊鏈、收購穩定幣公司 Bridge，從頭打造全新的結算路徑。中間再推出機器支付協議 MPP 當路由器，不管代理人選擇刷卡還是穩定幣，都能透過 Stripe 完成。</p>
+
+    <!-- Visa -->
+    <div class="strategy-block visa fade-in">
+      <div class="strategy-header">
+        <div class="strategy-icon">V</div>
+        <div class="strategy-name">Visa</div>
+      </div>
+      <div class="strategy-tagline">確保卡片無處不在</div>
+      <div class="strategy-steps">
+        <div class="strategy-step">
+          <div class="ss-icon">🤖</div>
+          <div class="ss-title">Ramp 專用卡 + Visa CLI</div>
+          <div class="ss-desc">跟 Ramp 合作推出<br>代理人專用卡<br>再推 CLI 命令列刷卡</div>
+          <div class="ss-badge">嫁接</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step">
+          <div class="ss-icon">💳</div>
+          <div class="ss-title">加入 MPP</div>
+          <div class="ss-desc">MPP 一出就加入<br>替它加上卡片功能<br>別人建路我搭便車</div>
+          <div class="ss-badge">嫁接</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step advantage">
+          <div class="ss-icon">🏪</div>
+          <div class="ss-title">店家端 + 穩定幣結算</div>
+          <div class="ss-desc">商家本來就用 Visa<br>後端改用穩定幣<br>降低結算成本</div>
+          <div class="ss-badge gold">既有優勢</div>
+        </div>
+      </div>
+      <div class="strategy-summary">不自建基礎設施，而是把卡片塞進每一個新環節。別人建路，Visa 確保每條路上都能刷卡。</div>
+    </div>
+
+    <p class="fade-in">Visa 則採防守策略，沒有建立新的基礎設施，而是把卡片塞進每個關鍵環節裡。跟 Ramp 合作推出 AI 代理人專用卡，還推出 Visa CLI 讓代理人從命令列刷卡。Stripe 發布 MPP
+      當日，Visa 就加入成為合作夥伴。後端也開始用穩定幣處理結算來降低成本。刷卡本來就是 AI 代理人的預設選項，Visa 只要確保刷卡永遠是好選擇，就不怕被繞過。</p>
+
+    <!-- Circle + Coinbase -->
+    <div class="strategy-block circle fade-in">
+      <div class="strategy-header">
+        <div class="strategy-icon">₿</div>
+        <div class="strategy-name">Circle + Coinbase</div>
+      </div>
+      <div class="strategy-tagline">從零打造開放支付鏈</div>
+      <div class="strategy-steps">
+        <div class="strategy-step">
+          <div class="ss-icon">👛</div>
+          <div class="ss-title">AI 專用錢包</div>
+          <div class="ss-desc">從頭打造錢包<br>先從加密貨幣<br>開發者切入</div>
+          <div class="ss-badge">自建</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step">
+          <div class="ss-icon">🪙</div>
+          <div class="ss-title">x402 協議</div>
+          <div class="ss-desc">代理人存取 API<br>同時自動用<br>穩定幣付款</div>
+          <div class="ss-badge">自建</div>
+        </div>
+        <div class="strategy-step-arrow">→</div>
+        <div class="strategy-step">
+          <div class="ss-icon">🏪</div>
+          <div class="ss-title">Coinbase Commerce</div>
+          <div class="ss-desc">商家直接<br>收穩定幣</div>
+          <div class="ss-badge">自建</div>
+        </div>
+      </div>
+      <div class="strategy-summary">每段都自己蓋，難度最高。但 x402 是開放協議，每個零件都能抽換 —— 如果未來不是少數 AI 獨大，這是最有彈性的架構。</div>
+    </div>
+
+    <p class="fade-in">Circle 和 Coinbase 的路最辛苦，得從零開始為 AI 代理人建立一條新的支付鏈。它們從頭打造 AI 專用錢包，拉攏加密貨幣開發者採用。支付處理押注的是 x402 協議，讓代理人存取
+      API 的同時自動用穩定幣付款。商家端則透過 Coinbase Commerce 收款。這等於每段都自己蓋，難度極高。但最大特色是可組合性 —— x402 是開放協議，錢包、穩定幣、區塊鏈每個零件都能抽換。如果未來不是少數幾家
+      AI 獨大，這種什麼都能接的開放架構就會是最有彈性的選擇。</p>
+  </section>
+
+  <!-- Big Quote -->
+  <div class="big-quote">
+    <p class="fade-in"><span class="hl">誰會是最終贏家？答案不在於誰的技術更強、手續費更便宜。真正的關鍵在於誰能掌握工具以外的價值。</span></p>
+    <p class="fade-in"
+      style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+      當年我們為了跟朋友聊天使用 LINE，未來 AI 代理人用什麼方式結帳，或許也取決於那些能跟它互通的「朋友」在哪裡。</p>
+  </div>
+
+  <!-- Choice Section -->
+  <div class="choice-section" id="choice">
+    <h2 class="fade-in">你認為哪個陣營<br>最有可能勝出？</h2>
+    <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+    <div class="choice-options fade-in">
+      <button class="choice-btn" onclick="choose(0)">
+        <div class="emoji">⚡</div>
+        <div>
+          <div class="label">Stripe 全包</div>
+          <div class="desc">左接 AI 入口、右建區塊鏈，不管你選什麼都經過它。生態系才是護城河。</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(1)">
+        <div class="emoji">💳</div>
+        <div>
+          <div class="label">Visa 搭便車</div>
+          <div class="desc">不用自建基礎設施，只要確保每條路上都能刷卡。既有優勢太強大。</div>
+        </div>
+      </button>
+      <button class="choice-btn" onclick="choose(2)">
+        <div class="emoji">🌐</div>
+        <div>
+          <div class="label">Circle + Coinbase 開放架構</div>
+          <div class="desc">每個零件都能抽換的開放協議。如果 AI 不被少數公司壟斷，這條路最有彈性。</div>
+        </div>
+      </button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <div class="r-badge">你的觀點</div>
+      <div class="r-title" id="rTitle"></div>
+      <div class="r-desc" id="rDesc"></div>
+      <div class="share-row">
+        <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+        <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>想看完整分析？</h2>
+    <p>完整文章包含 AI 代理人實際訂餐廳的完整過程，以及三大陣營更詳細的策略拆解。</p>
+    <a class="cta-btn" href="https://www.blocktrend.today/p/766" target="_blank">閱讀完整文章 →</a>
+    <div class="share-row" style="margin-top:1.5rem">
+      <button class="share-btn tw"
+        onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('AI 幫你結帳的時代來了。Stripe、Visa、Circle 三大陣營搶位，誰會勝出？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到
+        𝕏</button>
+      <button class="share-btn fb"
+        onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('AI 幫你結帳的時代來了。Stripe、Visa、Circle 三大陣營搶位，誰會勝出？'),'_blank')">分享到
+        Facebook</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+  <script>
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Choice interaction
+    let userChoice = -1;
+    const labels = ['Stripe 全包', 'Visa 搭便車', 'Circle + Coinbase 開放架構'];
+    const results = [
+      {
+        title: '你押注生態系的力量',
+        desc: 'Stripe 從收款本業兩端擴張，左接 AI 代理人入口、右建穩定幣結算。當所有路都通過同一個交叉口，它就成了新時代的收費站。這是最積極也最燒錢的策略。',
+        bg: 'var(--terra-light)',
+        border: '#DBBFAD'
+      },
+      {
+        title: '你看好既有優勢的延續',
+        desc: '刷卡已經是全球消費者的預設動作。Visa 不需要重建基礎設施，只要確保每條新路上都能刷卡就好。這是防守策略，但防守做得好，就不怕進攻者。',
+        bg: 'var(--yellow-light)',
+        border: '#E4D5B8'
+      },
+      {
+        title: '你相信開放協議的未來',
+        desc: '如果 AI 世界不被少數公司壟斷，開放、可組合的架構就有最大的適應力。x402 讓每個零件都能抽換，這是最辛苦但也最有彈性的路徑。',
+        bg: 'var(--green-light)',
+        border: '#A8D4BC'
+      }
+    ];
+
+    function choose(idx) {
+      if (userChoice >= 0) return;
+      userChoice = idx;
+      document.querySelectorAll('.choice-btn').forEach((b, i) => {
+        if (i === idx) b.classList.add('selected');
+        b.style.cursor = 'default';
+      });
+      const r = results[idx];
+      const card = document.getElementById('resultCard');
+      document.getElementById('rTitle').textContent = r.title;
+      document.getElementById('rDesc').textContent = r.desc;
+      card.style.background = r.bg;
+      card.style.borderColor = r.border;
+      card.classList.add('show');
+
+      const shareText = '我認為「' + labels[idx] + '」最有可能贏得 AI 代理支付大戰。你覺得呢？';
+      document.getElementById('shareTw').onclick = function () {
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+      };
+      document.getElementById('shareFb').onclick = function () {
+        window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+      };
+      setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+    }
+  </script>
+</body>
+
+</html>
