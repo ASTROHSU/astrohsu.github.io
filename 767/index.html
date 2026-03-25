@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>POAP 進入維護模式：收攤才是真的開始</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+<meta property="og:title" content="POAP 進入維護模式：收攤才是真的開始">
+<meta property="og:description" content="去中心化、永久保存，到底有幾分真實？">
+<meta property="og:image" content="https://share.blocktrend.today/poap-maintenance-mode/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/poap-maintenance-mode/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POAP 進入維護模式：收攤才是真的開始">
+<meta name="twitter:description" content="去中心化、永久保存，到底有幾分真實？">
+<meta name="twitter:image" content="https://share.blocktrend.today/poap-maintenance-mode/cover.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;
+--green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;
+--blue:#2563EB;--blue-light:#EFF4FF;
+--yellow:#8B6914;--yellow-light:#FDF8EC;
+--text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;
+--gold:#8B7340;--gold-light:#F9F3E6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:18px}
+body{background:var(--warm);color:var(--text);font-family:'Noto Sans TC',sans-serif;overflow-x:hidden}
+section{max-width:720px;margin:0 auto;padding:2rem 1.5rem}
+p{line-height:1.9;margin-bottom:1.2rem}
+h2{font-family:'Noto Serif TC',serif;font-size:1.6rem;font-weight:700;margin-bottom:1.2rem;line-height:1.4}
+.hl{background:linear-gradient(180deg,transparent 60%,rgba(192,106,58,0.15) 60%)}
+.tag{display:inline-block;font-size:0.7rem;font-weight:500;letter-spacing:0.12em;color:var(--terra);border:1px solid var(--terra);border-radius:2rem;padding:0.2rem 0.8rem;margin-bottom:0.8rem}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:linear-gradient(180deg,var(--cream),var(--warm))}
+.hero img{height:48px;margin-bottom:2rem}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;line-height:1.35;margin-bottom:1rem;color:var(--text)}
+.hero .sub{font-size:1rem;color:var(--text-secondary);margin-bottom:3rem}
+.scroll-hint{font-size:0.75rem;color:var(--text-muted);letter-spacing:0.15em;animation:breathe 2.5s infinite}
+@keyframes breathe{0%,100%{opacity:0.4;transform:translateY(0)}50%{opacity:1;transform:translateY(6px)}}
+
+.layer-card{background:#fff;border:1px solid #E8E3D8;border-radius:12px;padding:1.5rem;margin:1.5rem 0}
+.layer-card h3{font-family:'Noto Sans TC',sans-serif;font-size:1rem;font-weight:700;margin-bottom:0.3rem}
+.layer-card p{font-size:0.85rem;margin-bottom:0}
+.layer-stack{display:flex;flex-direction:column;gap:8px;margin:1.5rem 0}
+.layer-box{padding:16px 20px;border-radius:12px;display:flex;justify-content:space-between;align-items:center}
+.layer-box h4{font-size:0.95rem;font-weight:700;margin-bottom:2px}
+.layer-box p{font-size:0.8rem;margin-bottom:0;color:var(--text-secondary)}
+.l-top{background:#FAECE7;border:1.5px solid #F0997B}
+.l-mid{background:#FAEEDA;border:1.5px solid #FAC775}
+.l-btm{background:#E1F5EE;border:1.5px solid #5DCAA5}
+.badge{font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:6px;white-space:nowrap}
+.b-red{background:#F09595;color:#501313}
+.b-yellow{background:#FAC775;color:#412402}
+.b-green{background:#5DCAA5;color:#04342C}
+.arrow-hint{text-align:center;font-size:0.72rem;color:var(--text-muted);padding:4px 0}
+
+.cost-card{background:#fff;border:1px solid #E8E3D8;border-radius:12px;padding:2rem;margin:1.5rem 0;text-align:center}
+.cost-card .label{font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.5rem}
+.cost-card .nums{display:flex;gap:12px;justify-content:center;margin-bottom:1rem;flex-wrap:wrap}
+.cost-card .num-box{background:var(--warm);border:1px solid #E8E3D8;border-radius:10px;padding:12px 16px;text-align:center;min-width:100px}
+.cost-card .num-box .n{font-size:1.5rem;font-weight:700;color:var(--text)}
+.cost-card .num-box .u{font-size:0.75rem;color:var(--text-secondary);margin-top:2px}
+.cost-card .punch{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;color:var(--terra);margin-top:0.5rem}
+
+.big-quote{text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,var(--warm),var(--terra-light));width:100vw;margin-left:calc(-50vw + 50%);position:relative;box-sizing:border-box}
+.big-quote p{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.6;max-width:500px;margin:0 auto;letter-spacing:0.03em}
+
+.choice-section{text-align:center;padding:3rem 1.5rem;background:var(--gold-light);width:100vw;margin-left:calc(-50vw + 50%);position:relative;box-sizing:border-box}
+.choice-section h2{color:var(--text)}
+.choice-sub{font-size:0.9rem;color:var(--text-secondary);margin-bottom:1.5rem}
+.choice-options{display:flex;flex-direction:column;gap:0.7rem;max-width:480px;margin:0 auto}
+.choice-btn{display:flex;align-items:center;gap:1rem;background:#fff;border:1.5px solid #E8E3D8;border-radius:12px;padding:1rem 1.2rem;cursor:pointer;text-align:left;transition:border-color 0.3s,transform 0.2s;font-family:'Noto Sans TC',sans-serif}
+.choice-btn:hover{border-color:var(--terra);transform:scale(1.01)}
+.choice-btn.selected{border-color:var(--terra);background:var(--terra-light)}
+.choice-btn .emoji{font-size:1.6rem;flex-shrink:0}
+.choice-btn .label{font-weight:700;font-size:0.95rem}
+.choice-btn .desc{font-size:0.8rem;color:var(--text-secondary);margin-top:2px}
+.result-card{max-width:480px;margin:1.5rem auto 0;padding:1.5rem;border-radius:12px;border:1.5px solid transparent;display:none;text-align:center}
+.result-card.show{display:block}
+.r-badge{display:inline-block;font-size:0.7rem;font-weight:600;background:rgba(0,0,0,0.08);padding:3px 10px;border-radius:2rem;margin-bottom:0.6rem}
+.r-title{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.r-desc{font-size:0.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0}
+
+.share-row{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+.share-btn{padding:0.55rem 1.2rem;border-radius:2rem;border:none;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;transition:transform 0.2s}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+
+.cta{text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,#F5F3ED,var(--cream));width:100vw;margin-left:calc(-50vw + 50%);position:relative;box-sizing:border-box}
+.cta h2{font-size:1.3rem;margin-bottom:0.6rem}
+.cta p{color:var(--text-secondary);font-size:0.9rem}
+.cta-btn{display:inline-block;margin-top:1rem;padding:0.8rem 2rem;background:var(--terra);color:#fff;border-radius:2rem;text-decoration:none;font-weight:500;font-size:0.95rem;transition:transform 0.2s}
+.cta-btn:hover{transform:scale(1.03)}
+
+.subscribe-cta{text-align:center;padding:4rem 2rem 5rem;background:var(--green-deep);width:100vw;margin-left:calc(-50vw + 50%);position:relative;box-sizing:border-box}
+.subscribe-inner{max-width:520px;margin:0 auto}
+.subscribe-eyebrow{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-bottom:0.8rem;letter-spacing:0.08em}
+.subscribe-title{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;color:#fff;line-height:1.5;margin-bottom:1rem}
+.subscribe-desc{font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:1.5rem}
+.subscribe-btn{display:inline-block;padding:0.8rem 2rem;background:var(--terra);color:#fff;border-radius:2rem;text-decoration:none;font-weight:500;font-size:0.95rem;transition:transform 0.2s}
+.subscribe-btn:hover{transform:scale(1.03)}
+.subscribe-note{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:1rem}
+
+footer{text-align:center;padding:3rem 1rem}
+footer img{height:44px;opacity:0.5}
+</style>
+</head>
+<body>
+
+<div class="hero">
+<img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+<h1>POAP 進入維護模式<br>收攤才是真的開始</h1>
+<p class="sub">去中心化、永久保存，到底有幾分真實？</p>
+<div class="scroll-hint">SCROLL ↓</div>
+</div>
+
+<section>
+<div class="tag fade-in">PART 1</div>
+<h2 class="fade-in">區塊鏈上的紀念章</h2>
+<p class="fade-in">POAP 全名是出席證明協議（Proof of Attendance Protocol）。你可以把它想像成區塊鏈上的紀念章——就像風景區、博物館設置的那些紀念章一樣。無論是舉辦活動或珍藏某段回憶，都可以刻一款 POAP 紀念章讓參與者永久收藏。</p>
+<p class="fade-in">發行 POAP 非常簡單：請 AI 設計一張圓形圖像，到網站填寫活動名稱和發行方式就能完成。發放方式從鑄造連結、QR code 到 GPS 定位通通支援。不用點擊連結、不用掃碼，打開 App 就能領取。</p>
+<p class="fade-in">最貼心的是，POAP 不預設對方已經有錢包。沒有錢包的人可以先用 email 保留，未來用同一組 email 領取任何一枚 POAP，過去保留的回憶也會一併鑄造到錢包裡。</p>
+<p class="fade-in">但共同創辦人 Isabel Gonzalez 近期發文宣告，平台將從 3 月 16 日起進入維護模式，不再接受新的發行者。在 Web2 的世界，平台收攤就是終局。但 Web3 應該不一樣——當初大家煞費苦心學習安裝錢包、在鏈上鑄造代幣，不就是為了預防這一天嗎？</p>
+</section>
+
+<section>
+<div class="tag fade-in">PART 2</div>
+<h2 class="fade-in">拆開來看，什麼會留下？</h2>
+<p class="fade-in">Isabel 在公告裡坦言，現有的工具是被當年的技術條件制約。POAP 不是發行在以太坊上，而是一條叫做 Gnosis Chain 的冷門區塊鏈，因為當時以太坊手續費太貴。圖片和活動資訊也存在公司自己的伺服器裡，而不是區塊鏈上。</p>
+<p class="fade-in">技術上，POAP 可以拆成三層。越底層，越安全：</p>
+
+<div class="layer-stack fade-in">
+<div class="layer-box l-top"><div><h4>發行介面</h4><p>POAP 後台、App、生態系工具</p></div><span class="badge b-red">已受限</span></div>
+<div class="arrow-hint">▲ 越上層，越先受影響</div>
+<div class="layer-box l-mid"><div><h4>Metadata</h4><p>圖片、活動名稱、日期描述</p></div><span class="badge b-yellow">有風險</span></div>
+<div class="arrow-hint">▼ 越底層，越安全</div>
+<div class="layer-box l-btm"><div><h4>代幣（ERC-721）</h4><p>所有權紀錄，永久存在區塊鏈上</p></div><span class="badge b-green">不受影響</span></div>
+</div>
+
+<p class="fade-in">把 POAP 想像成一張 CD。CD 永遠是你的，沒人能拿走。但上面刻的不是音樂本身，而是一行字：「請上 poap.xyz 聽這首歌。」萬一網站關了，CD 還在，打開來卻只剩一行失效的網址。代幣還在，回憶卻看不到了。</p>
+<p class="fade-in">好消息是，要長期保存這些回憶，技術上已經不是難題：</p>
+
+<div class="cost-card fade-in">
+<div class="label">POAP 七年累積 ≈ 250 GB</div>
+<div class="nums">
+<div class="num-box"><div class="n">$20</div><div class="u">/ 月（IPFS）</div></div>
+<div class="num-box"><div class="n">$2,000</div><div class="u">一次（Arweave）</div></div>
+</div>
+<div class="punch">全部永久保存 ≈ 一台 MacBook</div>
+</div>
+
+<p class="fade-in">以 POAP 的規模，這筆錢絕對付得起。技術不是問題，商業模式才是。</p>
+</section>
+
+<section>
+<div class="tag fade-in">PART 3</div>
+<h2 class="fade-in">Web3 為什麼養不起創業者？</h2>
+<p class="fade-in">很多人這輩子沒付過 Google 一毛錢，Google 卻賺得盆滿鉢滿。關鍵在廣告——Web2 平台壟斷入口，把注意力轉賣給廣告主。</p>
+<p class="fade-in">但 Web3 應用先天就無法壟斷。智慧合約是公開的後端程式碼，今天平台插廣告，明天就有人做出無廣告的前端把使用者吸走。當後端是公共財、前端可替換，廣告模式就跑不通。如果你沒有付錢，那就真的沒人付錢。</p>
+<p class="fade-in">POAP 團隊選擇退後一步，把資源轉向打造新的底層標準。在 AI 時代，人人都能快速打造個人化的應用，但應用之間要如何互通？越是客製化的時代，共通的底層標準就越稀缺。</p>
+</section>
+
+<div class="big-quote">
+<p class="fade-in"><span class="hl">收攤不是終局。前面忙了這麼久，不就是為了這一刻嗎？</span></p>
+<p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0">去中心化不是一個開關，它是每一層都需要刻意選擇的過程。</p>
+</div>
+
+<div class="choice-section" id="choice">
+<h2 class="fade-in">POAP 進入維護模式<br>你怎麼看？</h2>
+<p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+<div class="choice-options fade-in">
+<button class="choice-btn" onclick="choose(0)">
+<div class="emoji">🛡️</div>
+<div><div class="label">安心了</div><div class="desc">代幣還在鏈上，去中心化確實有用</div></div>
+</button>
+<button class="choice-btn" onclick="choose(1)">
+<div class="emoji">⚠️</div>
+<div><div class="label">有點擔心</div><div class="desc">Metadata 還在公司伺服器，不夠去中心化</div></div>
+</button>
+<button class="choice-btn" onclick="choose(2)">
+<div class="emoji">🔮</div>
+<div><div class="label">看好未來</div><div class="desc">轉做底層標準，在 AI 時代反而更有價值</div></div>
+</button>
+</div>
+<div class="result-card" id="resultCard">
+<div class="r-badge">你的觀點</div>
+<div class="r-title" id="rTitle"></div>
+<div class="r-desc" id="rDesc"></div>
+<div class="share-row">
+<button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+<button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+</div>
+</div>
+</div>
+
+<div class="cta">
+<h2>想看完整分析？</h2>
+<p>完整文章包含 POAP 三層架構拆解、儲存成本計算，以及 Web3 商業模式困境的深入討論。</p>
+<a class="cta-btn" href="https://www.blocktrend.today/p/poap-maintenance-mode" target="_blank">閱讀完整文章 →</a>
+<div class="share-row" style="margin-top:1.5rem">
+<button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('POAP 進入維護模式，收攤才是真的開始。去中心化、永久保存，到底有幾分真實？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+<button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('POAP 進入維護模式，收攤才是真的開始。去中心化、永久保存，到底有幾分真實？'),'_blank')">分享到 Facebook</button>
+</div>
+</div>
+
+<div class="subscribe-cta">
+<div class="subscribe-inner fade-in">
+<p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+<h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+<p class="subscribe-desc">從 POAP、穩定幣到 AI 代理人，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+<a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+<p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+</div>
+</div>
+
+<footer>
+<img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+</footer>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');observer.unobserve(el.target)}})},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+let userChoice=-1;
+const labels=['安心了','有點擔心','看好未來'];
+const results=[
+{title:'去中心化確實守住了底線',desc:'代幣在鏈上，誰也拿不走。但別忘了，Metadata 還需要有人去搬到永久儲存上。一台 MacBook 的價格就夠了。',bg:'var(--green-light)',border:'#A8D4BC'},
+{title:'你的擔心是有道理的',desc:'POAP 號稱是協議，但 Metadata 存在公司伺服器。好消息是搬家成本只要一台 MacBook，技術上完全做得到。',bg:'var(--yellow-light)',border:'#E4D5B8'},
+{title:'AI 時代的底層標準確實稀缺',desc:'應用層的建構成本被 AI 壓到趨近於零。真正稀缺的，是讓這些應用互通的共同標準。POAP 花了五年定義這個格式。',bg:'var(--terra-light)',border:'#DBBFAD'}
+];
+function choose(idx){
+if(userChoice>=0)return;
+userChoice=idx;
+document.querySelectorAll('.choice-btn').forEach((b,i)=>{if(i===idx)b.classList.add('selected');b.style.cursor='default'});
+const r=results[idx];
+const card=document.getElementById('resultCard');
+document.getElementById('rTitle').textContent=r.title;
+document.getElementById('rDesc').textContent=r.desc;
+card.style.background=r.bg;
+card.style.borderColor=r.border;
+card.classList.add('show');
+const shareText=`我的觀點：${labels[idx]}。POAP 進入維護模式，收攤才是真的開始。`;
+document.getElementById('shareTw').onclick=function(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText+'\n\n')+'&url='+encodeURIComponent(location.href),'_blank')};
+document.getElementById('shareFb').onclick=function(){window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent(shareText),'_blank')};
+setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'center'}),100);
+}
+</script>
+</body>
+</html>
