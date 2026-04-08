@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>交易所特許制：路邊攤升格餐廳</title>
+<meta property="og:title" content="交易所特許制：路邊攤升格餐廳">
+<meta property="og:description" content="這部法看起來在限制交易所，實際上是在解放交易所。">
+<meta property="og:image" content="https://share.blocktrend.today/vasp-act/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/vasp-act/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="交易所特許制：路邊攤升格餐廳">
+<meta name="twitter:description" content="這部法看起來在限制交易所，實際上是在解放交易所。">
+<meta name="twitter:image" content="https://share.blocktrend.today/vasp-act/cover.png">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+  --red: #B91C1C;
+  --red-light: #FEF2F2;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body { background: var(--warm); color: var(--text); font-family: 'Noto Sans TC', sans-serif; line-height: 1.9; }
+section { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem; }
+section.wide { max-width: 900px; }
+h2 { font-family: 'Noto Serif TC', serif; font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: 700; line-height: 1.5; margin-bottom: 1.2rem; color: var(--text); }
+h3 { font-family: 'Noto Sans TC', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.8rem; color: var(--terra); }
+p { margin-bottom: 1.2rem; }
+.part-label { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; color: var(--terra); background: var(--terra-light); padding: 0.25rem 0.8rem; border-radius: 2rem; margin-bottom: 1.2rem; }
+.hl { background: linear-gradient(to top, rgba(192,106,58,0.15) 40%, transparent 40%); padding: 0 0.1em; }
+.fade-in { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 1.5rem; background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 60%); position: relative; }
+.hero img { height: 48px; margin-bottom: 2rem; }
+.hero h1 { font-family: 'Noto Serif TC', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; line-height: 1.4; margin-bottom: 1rem; letter-spacing: 0.02em; }
+.hero .sub { font-size: 1rem; color: var(--text-secondary); max-width: 500px; line-height: 1.8; }
+.scroll-hint { position: absolute; bottom: 2rem; font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.15em; animation: breathe 2.5s ease-in-out infinite; }
+@keyframes breathe { 0%,100% { opacity: 0.4; transform: translateY(0); } 50% { opacity: 1; transform: translateY(5px); } }
+.card { background: #fff; border: 1px solid #E8E3D8; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.card-title { font-family: 'Noto Sans TC', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem; }
+.event-row { display: flex; gap: 0.8rem; align-items: flex-start; padding: 0.8rem 0; border-bottom: 1px solid #f0ede6; }
+.event-row:last-child { border-bottom: none; }
+.event-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0; }
+.event-dot.red { background: var(--red); }
+.event-dot.green { background: var(--green); }
+.event-label { font-size: 0.85rem; line-height: 1.6; }
+.event-label strong { font-weight: 700; }
+.event-label .law { color: var(--green); font-weight: 500; font-size: 0.8rem; }
+.big-quote { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, var(--warm), var(--terra-light)); width: 100vw; margin-left: calc(-50vw + 50%); position: relative; box-sizing: border-box; }
+.big-quote p { font-family: 'Noto Serif TC', serif; font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; line-height: 1.6; max-width: 500px; margin: 0 auto; letter-spacing: 0.03em; }
+.choice-section { text-align: center; padding: 4rem 2rem; background: var(--gold-light); width: 100vw; margin-left: calc(-50vw + 50%); position: relative; box-sizing: border-box; }
+.choice-section h2 { font-family: 'Noto Serif TC', serif; }
+.choice-sub { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 2rem; }
+.choice-options { display: flex; flex-direction: column; gap: 0.8rem; max-width: 480px; margin: 0 auto; }
+.choice-btn { display: flex; align-items: center; gap: 1rem; background: #fff; border: 2px solid #E8E3D8; border-radius: 12px; padding: 1rem 1.2rem; cursor: pointer; text-align: left; transition: all 0.2s; font-family: 'Noto Sans TC', sans-serif; }
+.choice-btn:hover { border-color: var(--terra); transform: translateY(-2px); }
+.choice-btn.selected { border-color: var(--terra); background: var(--terra-light); }
+.choice-btn .emoji { font-size: 1.5rem; flex-shrink: 0; }
+.choice-btn .label { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.choice-btn .desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+.result-card { max-width: 480px; margin: 1.5rem auto 0; padding: 1.5rem; border-radius: 12px; border: 2px solid transparent; display: none; text-align: center; }
+.result-card.show { display: block; }
+.r-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: var(--terra); background: rgba(192,106,58,0.1); padding: 0.2rem 0.8rem; border-radius: 2rem; margin-bottom: 0.8rem; }
+.r-title { font-family: 'Noto Serif TC', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.r-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem; }
+.share-row { display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.2rem; flex-wrap: wrap; }
+.share-btn { padding: 0.55rem 1.2rem; border-radius: 2rem; border: none; font-size: 0.8rem; font-weight: 500; cursor: pointer; font-family: 'Noto Sans TC', sans-serif; letter-spacing: 0.05em; transition: transform 0.2s; }
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+.cta { text-align: center; padding: 4rem 2rem; background: linear-gradient(180deg, #F5F3ED, var(--cream)); width: 100vw; margin-left: calc(-50vw + 50%); position: relative; box-sizing: border-box; }
+.cta h2 { font-family: 'Noto Serif TC', serif; }
+.cta p { color: var(--text-secondary); max-width: 500px; margin: 0 auto 1.5rem; }
+.cta-btn { display: inline-block; background: var(--terra); color: #fff; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 2rem; font-weight: 500; font-size: 1rem; transition: all 0.3s; font-family: 'Noto Sans TC', sans-serif; }
+.cta-btn:hover { background: #A8572E; transform: translateY(-1px); }
+.subscribe-cta { text-align: center; padding: 4rem 2rem 5rem; background: var(--green-deep); width: 100vw; margin-left: calc(-50vw + 50%); position: relative; box-sizing: border-box; }
+.subscribe-inner { max-width: 520px; margin: 0 auto; }
+.subscribe-eyebrow { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.15em; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+.subscribe-title { font-family: 'Noto Serif TC', serif; font-size: clamp(1.3rem, 3.5vw, 1.7rem); font-weight: 700; line-height: 1.6; color: #fff; margin-bottom: 1rem; }
+.subscribe-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2rem; }
+.subscribe-btn { display: inline-block; background: var(--terra); color: #fff; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 2rem; font-weight: 500; font-size: 1rem; transition: all 0.3s; font-family: 'Noto Sans TC', sans-serif; }
+.subscribe-btn:hover { background: #A8572E; transform: translateY(-1px); }
+.subscribe-note { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 1rem; }
+footer { text-align: center; padding: 3rem 2rem; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1 class="fade-in">交易所特許制<br>路邊攤升格餐廳</h1>
+  <p class="sub fade-in">這部法看起來在限制交易所，實際上是在解放交易所。</p>
+  <div class="scroll-hint">↓ SCROLL</div>
+</div>
+
+<section>
+  <div class="part-label fade-in">PART 1</div>
+  <h2 class="fade-in">從毒春捲說起</h2>
+  <p class="fade-in">清明連假，高雄傳統市場的春捲攤造成超過 157 人食物中毒就醫。媒體發現這家攤販沒有公司登記，也沒有投保產品責任險。後續賠償金額恐怕超過 4,000 萬。</p>
+  <p class="fade-in">路邊攤規模小，政府也知道不必用連鎖餐廳的標準管理。沒想到連假人潮一來，春捲攤的生意瞬間升級，卻沒有相應的風險管理。老闆的畢生積蓄恐怕都不夠賠。</p>
+  <p class="fade-in"><strong>生意越好，責任越大。</strong>過去幾年，加密貨幣交易所一直在做類金融生意，法律上卻只被當成路邊攤在管。一旦出事，投資者經常求償無門。你會用「老闆有沒有錢」來決定要不要去一家餐廳吃飯嗎？</p>
+  <p class="fade-in">如何經營餐廳已經有明確標準，但交易所的法規該怎麼訂？這就是《虛擬資產服務法》的意義所在。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 2</div>
+  <h2 class="fade-in">每條法規背後<br>都有一段災難</h2>
+  <p class="fade-in">《虛擬資產服務法》草案 39 頁，每一條都是從全球加密貨幣市場的實際災難中學來的教訓。</p>
+
+  <div class="card fade-in">
+    <div class="card-title">FTX 倒閉 → 草案怎麼防</div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>客戶的錢被拿去填虧損</strong><br><span class="law">→ 第 18 條：客戶資產強制分離</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>無限制借錢給 Alameda</strong><br><span class="law">→ 第 21 條：關係企業出借限制</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>崩盤前限制用戶提領</strong><br><span class="law">→ 第 20 條：不得拒絕客戶提領</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>客戶資產困在破產程序</strong><br><span class="law">→ 第 46 條：金管會指定業者承接</span></div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-title">LUNA/UST 脫鉤 → 穩定幣專章</div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>沒有真正的美元儲備</strong><br><span class="law">→ 第 36 條：足額準備資產、定期查核</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>任何人都能發穩定幣</strong><br><span class="law">→ 第 34 條：金管會與央行雙重許可</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>用高收益吸引用戶</strong><br><span class="law">→ 第 37 條：禁止支付利息或收益</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>崩盤後持有人血本無歸</strong><br><span class="law">→ 第 38 條：準備資產破產隔離</span></div>
+    </div>
+  </div>
+
+  <div class="card fade-in">
+    <div class="card-title">Celsius / BlockFi 倒閉 → 借貸商獨立管理</div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>借貸風險跟交易所不同</strong><br><span class="law">→ 第 6 條：借貸商獨立納管</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>BlockFi 集中借給 3AC</strong><br><span class="law">→ 第 21 條：出借總額與限額管制</span></div>
+    </div>
+    <div class="event-row">
+      <div class="event-dot red"></div>
+      <div class="event-label"><strong>Celsius 負債遠超資產</strong><br><span class="law">→ 第 13 條：負債不得超過淨值倍數</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 3</div>
+  <h2 class="fade-in">隱形的紅線</h2>
+  <p class="fade-in">這部法限制的是替用戶管錢的業者，不是加密貨幣本身。你還是可以把比特幣提領到個人錢包，責任自負。但如果你選擇把資產交給別人保管，那個人就該受到嚴格約束。</p>
+  <p class="fade-in">至今多數銀行不敢跟交易所做生意。聽到客戶資金來源是虛擬貨幣，輕則好心提醒，重則直接關戶。去年中華郵政開第一槍，終止交易所的約定轉帳服務。沒人公開說不歡迎加密貨幣，但事實擺在眼前。</p>
+  <p class="fade-in">在銀行眼裡，交易所無論生意好壞，通通都是「路邊攤」。守法的業者啞巴吃黃連——他們或許能證明自己以最高標準自我要求，但在餐廳的標準還沒訂出來之前，銀行就是不願跟你做生意。</p>
+  <p class="fade-in">開餐廳的經營成本當然比路邊攤更高。但換來的好處，應該是供應商願意讓你月結、百貨公司歡迎你進駐。</p>
+</section>
+
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">金管會應該不會讓業者付出了餐廳的成本，卻還是被當成路邊攤對待吧。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">應該啦。</p>
+</div>
+
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">你怎麼看這部法？</h2>
+  <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">防弊到位，給過</div>
+        <div class="desc">每條法規都有對應的災難，防弊做得專業</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">⚖️</div>
+      <div>
+        <div class="label">方向對，但還不夠</div>
+        <div class="desc">防弊及格了，但興利的配套還是空白</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🚧</div>
+      <div>
+        <div class="label">擔心管太嚴</div>
+        <div class="desc">合規成本太高，中小業者可能被淘汰</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>想看完整分析？</h2>
+  <p>完整文章包含毒春捲事件的完整比喻、FTX / LUNA / Celsius 三大案例的法條對照，以及對傳統金融歧視問題的深入討論。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/vasp-act" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('交易所特許制：路邊攤升格餐廳。這部法看起來在限制交易所，實際上是在解放交易所。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('交易所特許制：路邊攤升格餐廳。這部法看起來在限制交易所，實際上是在解放交易所。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從虛擬資產專法、穩定幣到交易所監管，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+let userChoice = -1;
+const labels = ['防弊到位，給過', '方向對，但還不夠', '擔心管太嚴'];
+const results = [
+  { title: '你認為這部法在防弊上做得專業', desc: '每一條法規都能找到對應的歷史災難，這確實是一部從真實教訓中學來的草案。接下來要看的是，金管會能不能讓業者付出餐廳的成本後，也享有餐廳的待遇。', bg: 'var(--green-light)', border: '#A8D4BC' },
+  { title: '你覺得防弊及格，但興利還早', desc: '這部法解決了過去的問題，但穩定幣的企業應用場景、跨境收付款的配套、會計準則的銜接，都還是空白。拼圖的第一片到位了，但還差很多片。', bg: 'var(--yellow-light)', border: '#E4D5B8' },
+  { title: '你擔心合規成本會擠壓中小業者', desc: '許可制的門檻確實不低，中小型業者可能被迫退出或被併購。但換個角度看，如果連基本的客戶資產分離都做不到，或許本來就不該替人管錢。', bg: 'var(--terra-light)', border: '#DBBFAD' }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = '我的觀點：' + labels[idx] + '。\n\n交易所特許制：路邊攤升格餐廳。這部法看起來在限制交易所，實際上是在解放交易所。';
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+</script>
+</body>
+</html>
