@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>越想成為中本聰，就越不像中本聰</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+<meta property="og:title" content="越想成為中本聰，就越不像中本聰">
+<meta property="og:description" content="Craig Wright 用法律、版權、密碼學輪番上陣證明自己是中本聰。但他越努力，就離那個形象越遠。">
+<meta property="og:image" content="https://share.blocktrend.today/satoshi-identity/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/satoshi-identity/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="越想成為中本聰，就越不像中本聰">
+<meta name="twitter:description" content="Craig Wright 用法律、版權、密碼學輪番上陣證明自己是中本聰。但他越努力，就離那個形象越遠。">
+<meta name="twitter:image" content="https://share.blocktrend.today/satoshi-identity/cover.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 18px; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+section.wide { max-width: 900px; }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(180deg, var(--cream), var(--warm));
+  position: relative;
+}
+.hero img { height: 48px; margin-bottom: 2rem; }
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  letter-spacing: 0.03em;
+}
+.hero .subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.8;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  animation: breathe 2.5s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-6px); }
+}
+
+.part-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  margin-bottom: 0.8rem;
+}
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+section p {
+  margin-bottom: 1.2rem;
+  color: var(--text);
+}
+.hl {
+  background: linear-gradient(180deg, transparent 60%, rgba(192,106,58,0.15) 60%);
+  padding: 0 2px;
+}
+
+/* Cards */
+.info-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+.info-card .card-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+.info-card .card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin: 2rem 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--cream);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--terra);
+  background: var(--warm);
+}
+.timeline-item .year {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--terra);
+  margin-bottom: 0.2rem;
+}
+.timeline-item .event {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Contrast box */
+.contrast-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.contrast-item {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.2rem;
+  text-align: center;
+}
+.contrast-item .emoji { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.contrast-item .label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+.contrast-item .value {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Big quote */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+/* Choice section */
+.choice-section {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: var(--gold-light);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.choice-sub {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+.choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border: 2px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.choice-btn:hover { border-color: var(--terra); transform: translateY(-2px); }
+.choice-btn.selected { border-color: var(--terra); background: var(--terra-light); }
+.choice-btn .emoji { font-size: 1.5rem; flex-shrink: 0; }
+.choice-btn .label { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem; }
+.choice-btn .desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+.result-card {
+  max-width: 520px;
+  margin: 1.5rem auto 0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  display: none;
+  text-align: left;
+}
+.result-card.show { display: block; }
+.r-badge {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--terra);
+  margin-bottom: 0.5rem;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.r-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Share buttons */
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.cta p {
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+  font-size: 0.95rem;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.cta-btn:hover { background: #A8572E; transform: translateY(-1px); }
+
+/* Subscribe CTA */
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+.subscribe-inner { max-width: 520px; margin: 0 auto; }
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.subscribe-btn:hover { background: #A8572E; transform: translateY(-1px); }
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+/* Fade in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .contrast-box { grid-template-columns: 1fr; }
+  section { padding: 2.5rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>越想成為中本聰<br>就越不像中本聰</h1>
+  <p class="subtitle">英國法院要求下架比特幣白皮書，自稱中本聰的澳洲商人贏了官司，卻離那個形象更遠了。</p>
+  <div class="scroll-hint">↓ SCROLL</div>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <div class="part-tag fade-in">PART 1</div>
+  <h2 class="fade-in">白皮書被法院下架了</h2>
+  <p class="fade-in">2021 年，英國法院做出一個看似荒謬的判決：要求 Bitcoin.org 網站在限期內下架比特幣白皮書，否則站長 CØBRA 將面臨藐視法庭的處罰，包括罰款、監禁或沒收財產。</p>
+  <p class="fade-in">Bitcoin.org 不是一般網站。這個域名最初由中本聰與另一位開發者 Martti Malmi 共同註冊，中本聰離開前才將擁有權轉交給比特幣核心開發團隊。在 Google 搜尋「比特幣白皮書」，排在最前面的結果就是它。它的象徵意義不言而喻。</p>
+  <p class="fade-in">提告的人是澳洲商人 Craig Wright。他主張自己就是中本聰，因此白皮書的版權屬於他。另一個被告 Bitcoincore.org 選擇息事寧人、自行下架，但 CØBRA 拒絕妥協——他認為白皮書最初就是以公開授權發布的，不應該被任何人據為己有。</p>
+  <p class="fade-in">然而事情的轉折很戲劇化：CØBRA 堅持匿名出庭，導致他無法在法庭上為自己辯護。法官因此判決 Wright 勝訴。就這樣，中本聰寫的白皮書被一個自稱中本聰的人用法律手段下架了。</p>
+
+  <div class="info-card fade-in">
+    <div class="card-title">但白皮書真的消失了嗎？</div>
+    <div class="card-desc">當然沒有。如同人們主動備份《蘋果日報》，比特幣白皮書早已被麻省理工學院、Coinbase、愛沙尼亞政府、哥倫比亞政府、美國邁阿密市政府紛紛備份。甚至有人把它永久保存在 Arweave 區塊鏈上。這場訴訟的象徵意義遠大於實質意義。</div>
+  </div>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <div class="part-tag fade-in">PART 2</div>
+  <h2 class="fade-in">三招證明自己是中本聰</h2>
+  <p class="fade-in">既然白皮書無法真正被下架，Wright 為什麼還要大費周章？答案很可能是：他要的不是下架本身，而是法院的認證。這場官司只是他漫長「自證」之路上的又一步。</p>
+  <p class="fade-in">事實上，密碼學家公認中本聰要證明身份非常簡單——只要公開轉移那些已知屬於中本聰、至今從未被動過的比特幣就好。但 Wright 偏偏捨近求遠，選擇了一條迂迴而處處可疑的路。</p>
+
+  <div class="timeline fade-in">
+    <div class="timeline-item">
+      <div class="year">2016 年</div>
+      <div class="event">Wright 公開自稱中本聰。他在個人網站上發表「新版」白皮書，內文相同，只是把作者欄換成自己的名字，把 bitcoin.org 網址改成個人網址。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2016 年（同期）</div>
+      <div class="event">Wright 邀請《經濟學人》、BBC、GQ 三家媒體，以及曾與中本聰共事的開發者 Gavin Andreson，當面示範用私鑰簽署數位訊息。Andreson 驗證通過後在部落格寫下：「我相信 Craig Wright 就是中本聰。」</div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2019 年</div>
+      <div class="event">Wright 向美國版權局登記比特幣白皮書和原始程式碼的版權，並獲得正式核准。媒體報導他是「美國政府認證的比特幣作者」。</div>
+    </div>
+    <div class="timeline-item">
+      <div class="year">2021 年</div>
+      <div class="event">Wright 在英國法院對 Bitcoin.org 提起版權訴訟並勝訴，法院要求下架白皮書。</div>
+    </div>
+  </div>
+
+  <p class="fade-in">這些操作表面上很有說服力，但每一招都經不起仔細檢驗。</p>
+  <p class="fade-in">改白皮書的作者欄？連小學生都會。向美國政府登記版權？有律師指出，美國版權登記採信任制，只要繳約 50 美金的規費，任何人都可以登記成為作者。美國版權局還特地發新聞稿澄清，版權登記由系統自動核准，不代表政府背書。</p>
+  <p class="fade-in">至於那場讓 Andreson 信服的私鑰簽名示範？後來有資安專家質疑整個驗證流程太草率，而且《經濟學人》也報導 Wright 拒絕用記者提供的字串重新示範。對一般人而言，這些密碼學爭議就像神仙打架，離自己的生活經驗太遠了——但正是這種資訊不對稱，成了 Wright 操作空間的來源。</p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <div class="part-tag fade-in">PART 3</div>
+  <h2 class="fade-in">人們心中的中本聰，已經不是一個人了</h2>
+  <p class="fade-in">Wright 的根本困境在於：中本聰消失的這些年，人們心目中的中本聰形象已經定型了。而 Wright 的每一個動作，都跟那個形象背道而馳。</p>
+
+  <div class="contrast-box fade-in">
+    <div class="contrast-item">
+      <div class="emoji">👤</div>
+      <div class="label">人們想像的中本聰</div>
+      <div class="value">神秘、低調</div>
+    </div>
+    <div class="contrast-item">
+      <div class="emoji">📢</div>
+      <div class="label">Wright 的做法</div>
+      <div class="value">在官方網站公開列出「中本聰的生日」</div>
+    </div>
+  </div>
+  <div class="contrast-box fade-in">
+    <div class="contrast-item">
+      <div class="emoji">🌐</div>
+      <div class="label">人們想像的中本聰</div>
+      <div class="value">崇尚開放</div>
+    </div>
+    <div class="contrast-item">
+      <div class="emoji">⚖️</div>
+      <div class="label">Wright 的做法</div>
+      <div class="value">透過訴訟要求下架白皮書，自詡為正統</div>
+    </div>
+  </div>
+  <div class="contrast-box fade-in">
+    <div class="contrast-item">
+      <div class="emoji">🤝</div>
+      <div class="label">人們想像的中本聰</div>
+      <div class="value">消失讓人人都能是中本聰</div>
+    </div>
+    <div class="contrast-item">
+      <div class="emoji">👑</div>
+      <div class="label">Wright 的做法</div>
+      <div class="value">渴望世人稱他中本聰，由他發號施令</div>
+    </div>
+  </div>
+
+  <p class="fade-in">中本聰的消失，與去中心化的精神完美契合。這份空白讓每個人都可以成為中本聰，讓比特幣真正成為沒有「創辦人風險」的協定。但 Wright 的出現，恰好破壞了這一切。</p>
+  <p class="fade-in">更耐人尋味的是：即便今天 Wright 真的拿出私鑰、移動了中本聰的比特幣，不相信他的人恐怕仍然占多數。因為中本聰已經不再是一個待確認身份的人，而是一種精神象徵。只要中本聰晚一天出現，要成為中本聰的難度就更高一分。</p>
+</section>
+
+<!-- Big Quote -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">不僅 Wright 不會是中本聰，恐怕永遠都不會有人能成為中本聰。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">中本聰的身份，已經從一個人變成一種理念。</p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">你覺得中本聰的身份<br>重要嗎？</h2>
+  <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🔍</div>
+      <div>
+        <div class="label">很重要，真相只有一個</div>
+        <div class="desc">無論如何，比特幣的發明者應該被歷史正確記錄。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🌊</div>
+      <div>
+        <div class="label">不重要，去中心化就是答案</div>
+        <div class="desc">中本聰的消失才是比特幣最好的結局，沒有人應該代言去中心化。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🤔</div>
+      <div>
+        <div class="label">矛盾的，但傾向留白</div>
+        <div class="desc">理性上想知道真相，但承認永遠留白可能是更好的選擇。</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想看完整分析？</h2>
+  <p>完整文章深入拆解 Craig Wright 的每一步操作，從法律、密碼學到社群政治，以及中本聰身份之謎背後更深層的意義。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/satoshi-identity" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('越想成為中本聰，就越不像中本聰。中本聰的身份已經從一個人變成一種理念。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('越想成為中本聰，就越不像中本聰。中本聰的身份已經從一個人變成一種理念。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從比特幣身份政治、穩定幣到平台策略，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Choice interaction
+let userChoice = -1;
+const labels = ['真相只有一個', '去中心化就是答案', '矛盾但傾向留白'];
+const results = [
+  {
+    title: '你重視歷史真相',
+    desc: '確實，比特幣的發明是人類金融史上的重要時刻，發明者值得被記錄。但有趣的是，正因為沒有人能被確認為中本聰，比特幣才成了真正去中心化的協定——沒有「創辦人風險」，沒有個人崇拜的空間。',
+    bg: 'var(--terra-light)',
+    border: '#DBBFAD'
+  },
+  {
+    title: '你擁抱去中心化精神',
+    desc: '中本聰的消失，可能是比特幣史上最偉大的設計決策之一。當發明者自己退場，協定就不再依賴任何個人。正如文章所說，Wright 越想證明自己是中本聰，就離那個精神越遠。',
+    bg: 'var(--green-light)',
+    border: '#A8D4BC'
+  },
+  {
+    title: '你看到了這個問題的兩面',
+    desc: '這種矛盾感很真實。我們天生渴望確定性，但有些事情的美正在於它的不確定。中本聰的身份之謎，已經從一個未解的問題變成了去中心化精神的活教材。',
+    bg: 'var(--yellow-light)',
+    border: '#E4D5B8'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = \`我的觀點：\${labels[idx]}。越想成為中本聰，就越不像中本聰——中本聰的身份，已經從一個人變成一種理念。\`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\\n\\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+</script>
+</body>
+</html>
