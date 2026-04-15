@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tether 的防守策略：為何全世界最爽的生意，沒那麼爽了？</title>
+<meta property="og:title" content="Tether 的防守策略：為何全世界最爽的生意，沒那麼爽了？">
+<meta property="og:description" content="你持有 USDT 的每一秒鐘，都在為 Tether 賺錢。但這套躺賺機制正在失效。">
+<meta property="og:image" content="https://share.blocktrend.today/771/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/771/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tether 的防守策略：為何全世界最爽的生意，沒那麼爽了？">
+<meta name="twitter:description" content="你持有 USDT 的每一秒鐘，都在為 Tether 賺錢。但這套躺賺機制正在失效。">
+<meta name="twitter:image" content="https://share.blocktrend.today/771/cover.png">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--warm:#FAFAF7;--cream:#EDE0D4;--terra:#C06A3A;--terra-light:#F5EBE5;--green:#2D6B4F;--green-light:#E8F3ED;--green-deep:#0D2E20;--blue:#2563EB;--blue-light:#EFF4FF;--yellow:#8B6914;--yellow-light:#FDF8EC;--red:#B91C1C;--red-light:#FEF2F2;--text:#2C2A25;--text-secondary:#6B6860;--text-muted:#9E9A90;--gold:#8B7340;--gold-light:#F9F3E6}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:18px;scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;color:var(--text);background:var(--warm);line-height:1.9;-webkit-font-smoothing:antialiased}
+section{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
+h2{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;line-height:1.5;margin-bottom:1.5rem}
+p{margin-bottom:1.2rem}
+.hl{background:linear-gradient(transparent 60%,rgba(192,106,58,0.18) 60%)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:linear-gradient(180deg,var(--cream) 0%,var(--warm) 100%)}
+.hero img{height:48px;margin-bottom:2rem}
+.hero h1{font-family:'Noto Serif TC',serif;font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.4;max-width:600px;margin-bottom:1rem}
+.hero .sub{font-size:1rem;color:var(--text-secondary);max-width:440px}
+.hero .scroll-hint{position:absolute;bottom:2rem;font-size:0.75rem;color:var(--text-muted);letter-spacing:0.2em;animation:breathe 2.5s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:0.4;transform:translateY(0)}50%{opacity:1;transform:translateY(-6px)}}
+.part-label{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;color:var(--terra);margin-bottom:0.8rem;text-transform:uppercase}
+.chart-card{background:#fff;border:1px solid #E8E3D8;border-radius:10px;padding:1.5rem;margin:2rem 0}
+.chart-card .chart-title{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:700;margin-bottom:0.3rem}
+.chart-card .chart-caption{font-size:0.8rem;color:var(--text-secondary);margin-top:0.8rem}
+.flow-row{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;justify-content:center;margin:1rem 0}
+.flow-box{padding:0.6rem 1rem;border-radius:8px;font-size:0.82rem;font-weight:500;text-align:center;line-height:1.4;min-width:90px}
+.flow-arrow{color:var(--text-muted);font-size:1.2rem}
+.flow-gray{background:#F1EFE8;color:#5F5E5A}
+.flow-amber{background:#FDF8EC;color:#854F0B}
+.flow-teal{background:#E1F5EE;color:#0F6E56}
+.flow-coral{background:#FAECE7;color:#993C1D}
+.flow-red{background:var(--red-light);color:var(--red)}
+.crack-row{display:flex;gap:0.8rem;flex-wrap:wrap;justify-content:center;margin:1rem 0}
+.crack-box{flex:1;min-width:140px;max-width:200px;padding:0.8rem 1rem;border-radius:8px;text-align:center;font-size:0.82rem;line-height:1.5}
+.crack-box .crack-label{font-weight:700;margin-bottom:0.2rem}
+.big-quote,.choice-section,.cta,.subscribe-cta{width:100vw;margin-left:calc(-50vw + 50%);position:relative;box-sizing:border-box}
+.big-quote{text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,var(--warm),var(--terra-light))}
+.big-quote p{font-family:'Noto Serif TC',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;line-height:1.6;max-width:500px;margin:0 auto;letter-spacing:0.03em}
+.choice-section{text-align:center;padding:4rem 2rem;background:var(--warm)}
+.choice-section h2{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,3.5vw,1.6rem);margin-bottom:0.5rem}
+.choice-sub{font-size:0.9rem;color:var(--text-secondary);margin-bottom:2rem}
+.choice-options{display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.choice-btn{display:flex;align-items:center;gap:0.8rem;padding:1rem 1.4rem;border:1px solid #E8E3D8;border-radius:12px;background:#fff;cursor:pointer;text-align:left;transition:all 0.2s;font-family:'Noto Sans TC',sans-serif;flex:1;min-width:160px}
+.choice-btn:hover{border-color:var(--terra);background:var(--terra-light)}
+.choice-btn.selected{border-color:var(--terra);background:var(--terra-light)}
+.choice-btn .emoji{font-size:1.6rem}
+.choice-btn .label{font-weight:700;font-size:0.9rem;margin-bottom:0.15rem}
+.choice-btn .desc{font-size:0.78rem;color:var(--text-secondary);line-height:1.4}
+.result-card{max-width:480px;margin:2rem auto 0;padding:1.5rem 2rem;border-radius:12px;border:1px solid transparent;display:none;text-align:center}
+.result-card.show{display:block}
+.r-badge{font-size:0.7rem;font-weight:700;letter-spacing:0.15em;color:var(--terra);margin-bottom:0.5rem}
+.r-title{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem}
+.r-desc{font-size:0.88rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.5rem}
+.share-row{display:flex;gap:0.5rem;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+.share-btn{padding:0.55rem 1.2rem;border-radius:2rem;border:none;font-size:0.8rem;font-weight:500;cursor:pointer;font-family:'Noto Sans TC',sans-serif;letter-spacing:0.05em;transition:transform 0.2s}
+.share-btn:hover{transform:scale(1.03)}
+.share-btn.tw{background:#0f1419;color:#fff}
+.share-btn.fb{background:#1877f2;color:#fff}
+.cta{text-align:center;padding:4rem 2rem;background:linear-gradient(180deg,#F5F3ED,var(--cream))}
+.cta h2{margin-bottom:0.5rem}
+.cta p{color:var(--text-secondary);font-size:0.95rem}
+.cta-btn{display:inline-block;margin-top:1.5rem;padding:0.9rem 2.2rem;background:var(--terra);color:#fff;text-decoration:none;border-radius:2rem;font-weight:500;font-size:1rem;transition:all 0.3s;font-family:'Noto Sans TC',sans-serif}
+.cta-btn:hover{background:#A8572E;transform:translateY(-1px)}
+.subscribe-cta{text-align:center;padding:4rem 2rem 5rem;background:var(--green-deep)}
+.subscribe-inner{max-width:520px;margin:0 auto}
+.subscribe-eyebrow{font-size:0.85rem;font-weight:500;letter-spacing:0.15em;color:rgba(255,255,255,0.5);margin-bottom:1rem}
+.subscribe-title{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,3.5vw,1.7rem);font-weight:700;line-height:1.6;color:#fff;margin-bottom:1rem}
+.subscribe-desc{font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:2rem}
+.subscribe-btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;padding:0.9rem 2.2rem;border-radius:2rem;font-weight:500;font-size:1rem;transition:all 0.3s;font-family:'Noto Sans TC',sans-serif}
+.subscribe-btn:hover{background:#A8572E;transform:translateY(-1px)}
+.subscribe-note{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:1rem}
+footer{text-align:center;padding:3rem 2rem}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity 0.8s ease,transform 0.8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>全世界最爽的生意<br>沒那麼爽了</h1>
+  <p class="sub">Tether 推出錢包不是進攻，是防守</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- PART 1：完整保留 -->
+<section>
+  <div class="part-label fade-in">PART 1</div>
+  <h2 class="fade-in">穩定幣央行的印鈔機</h2>
+  <p class="fade-in">Tether 的市場地位就像穩定幣的央行。幾乎人人都用過它發行的 USDT，卻只有極少數人擁有 Tether 帳戶、能跟這家公司直接往來。許多人不知道，<span class="hl">你持有 USDT 的每一秒鐘，其實都在為 Tether 賺錢。</span></p>
+  <p class="fade-in">人們在交易所買入 USDT，就等於把價格往上推。當市場價格高於 1 美元，套利者就會把錢存入 Tether 帳戶，以 1：1 鑄造新的 USDT 到交易所賣掉。買的人越多，存進 Tether 的錢就越多。Tether 把這些錢拿去買美國國債，坐收每年約 4% 的利息。</p>
+
+  <div class="chart-card fade-in">
+    <div class="chart-title">Tether 的印鈔機制</div>
+    <div class="flow-row">
+      <div class="flow-box flow-gray">你買 USDT<br><span style="font-size:0.72rem;opacity:0.7">推高價格</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-amber">價格 > $1<br><span style="font-size:0.72rem;opacity:0.7">套利空間</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-teal">套利者鑄造<br><span style="font-size:0.72rem;opacity:0.7">存美元換 USDT</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box flow-coral">Tether<br><span style="font-size:0.72rem;opacity:0.7">買國債賺息</span></div>
+    </div>
+    <div class="chart-caption">2025 年 Tether 靠這套機制躺賺超過 100 億美元</div>
+  </div>
+
+  <p class="fade-in">2025 年光靠這套機制，Tether 就躺賺超過 100 億美元。它不需要知道用戶是誰，也不需要自己打造應用場景。只要交易所和錢包繼續把 BTC、ETH、USDT 擺在第一順位，利息就會持續流進口袋。</p>
+  <p class="fade-in"><span class="hl">要說這是全世界最爽的生意，一點也不為過。</span></p>
+</section>
+
+<!-- PART 2：完整保留 -->
+<section>
+  <div class="part-label fade-in">PART 2</div>
+  <h2 class="fade-in">分發管道正在斷裂</h2>
+  <p class="fade-in">如果躺著就可以賺錢，何必要坐著？除非危機已經近在眼前。</p>
+  <p class="fade-in">2024 年底歐盟 MiCA 法規上路，要求穩定幣發行方必須在歐盟取得牌照。Tether 不符合規範。Coinbase 率先在 2024 年底對歐洲用戶下架 USDT，幣安、Crypto.com 和 Kraken 也在不久後跟進。歐洲用戶想用美元穩定幣，就只剩 USDC。</p>
+  <p class="fade-in">2025 年美國總統簽署天才法案（GENIUS Act），要求發行方必須是美國公司，對資產儲備也有專門規範。Tether 又不符合要求，USDT 未來勢必無法在美國交易所流通。</p>
+
+  <div class="chart-card fade-in">
+    <div class="chart-title">USDT 正在被趕出主要市場</div>
+    <div class="crack-row">
+      <div class="crack-box flow-red">
+        <div class="crack-label">歐盟 MiCA</div>
+        多家交易所下架 USDT
+      </div>
+      <div class="crack-box flow-red">
+        <div class="crack-label">美國天才法案</div>
+        USDT 無法上架
+      </div>
+      <div class="crack-box flow-amber">
+        <div class="crack-label">更多市場？</div>
+        钱包也可能不再支援
+      </div>
+    </div>
+    <div class="chart-caption">台灣用戶目前感受不深，但 USDT 被趕出歐美市場已是事實</div>
+  </div>
+
+  <p class="fade-in">USDT 接連被趕出歐盟、美國市場，台灣用戶可能感受不深，但未來錢包會不會也不再預設支援 USDT，還很難說。<span class="hl">躺著就能被支援的日子，正在一個市場接一個市場消失。</span></p>
+</section>
+
+<!-- PART 3：只放開頭的翻轉，在揭曉框架前停住 -->
+<section>
+  <div class="part-label fade-in">PART 3</div>
+  <h2 class="fade-in">所以 Tether 推出了錢包</h2>
+  <p class="fade-in">Tether 執行長 Paolo Ardoino 說，全球已有超過 5.7 億人在使用 Tether 的技術，但幾乎都是透過交易所或第三方錢包間接使用。tether.wallet 的目標是讓這些人第一次能直接使用 Tether 的服務。</p>
+  <p class="fade-in">許多人以為 Tether 打造錢包是為了跟 MetaMask 或 Trust Wallet 競爭。下載後卻發現支援幣種少，功能也沒什麼獨特之處。</p>
+  <p class="fade-in"><span class="hl">這完全搞錯重點。</span></p>
+  <p class="fade-in">Tether 做錢包的真正原因，以及它為什麼同時開源了一套讓所有人都能用的錢包開發工具，背後有一套跟 Google 開源 Android 非常相似的策略邏輯。但這套邏輯也帶來了一個根本性的矛盾——</p>
+</section>
+
+<!-- Big Quote：懸念 -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">如果有人用 Tether 的錢包，持有 USDT，轉帳走 Tether 自己的鏈——他使用的到底是去中心化的加密貨幣，還是 Tether 開的另類銀行？</span></p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">你的直覺是什麼？</h2>
+  <p class="choice-sub fade-in">選完之後，去完整文章裡驗證你的判斷</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">聰明的防守</div>
+        <div class="desc">自己做錢包是合理的生存策略</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🏦</div>
+      <div>
+        <div class="label">另類銀行</div>
+        <div class="desc">什麼都自己做，跟銀行沒兩樣</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🤔</div>
+      <div>
+        <div class="label">想看完再說</div>
+        <div class="desc">先看完分析再下判斷</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的直覺</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想知道 Tether 搞錯重點的地方在哪？</h2>
+  <p>完整文章拆解了 Tether 做錢包的真正策略、WDK 如何成為武器，以及嘴上去中心化、身體垂直整合的深層矛盾。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/771" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('你持有 USDT 的每一秒鐘，都在幫 Tether 賺錢。但這套年賺百億的機制正在失效。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb" onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('你持有 USDT 的每一秒鐘，都在幫 Tether 賺錢。但這套年賺百億的機制正在失效。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從穩定幣監管、平台策略到去中心化的矛盾，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+const observer=new IntersectionObserver(e=>{e.forEach(t=>{if(t.isIntersecting){t.target.classList.add('visible');observer.unobserve(t.target)}})},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+let userChoice=-1;
+const labels=['聰明的防守','另類銀行','想看完再說'];
+const results=[
+  {title:'你覺得是聰明的防守',desc:'完整文章裡會告訴你 Tether 的策略跟 Google 開源 Android 有多像，以及這套防守為什麼同時製造了一個根本性的矛盾。',bg:'var(--terra-light)',border:'#DBBFAD'},
+  {title:'你覺得是另類銀行',desc:'你的直覺抓到了文章最後要探討的核心矛盾。完整文章會解釋 Tether 為什麼嘴上說去中心化，身體卻一步步走向垂直整合。',bg:'var(--yellow-light)',border:'#E4D5B8'},
+  {title:'你想看完再判斷',desc:'明智的選擇。完整文章用一個你可能沒想過的框架拆解 Tether 的策略，看完再下判斷會更準。',bg:'var(--green-light)',border:'#A8D4BC'}
+];
+function choose(idx){
+  if(userChoice>=0)return;
+  userChoice=idx;
+  document.querySelectorAll('.choice-btn').forEach((b,i)=>{if(i===idx)b.classList.add('selected');b.style.cursor='default'});
+  const r=results[idx];
+  const card=document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent=r.title;
+  document.getElementById('rDesc').textContent=r.desc;
+  card.style.background=r.bg;
+  card.style.borderColor=r.border;
+  card.classList.add('show');
+  const shareText='我的直覺：'+labels[idx]+'。\n\n你持有 USDT 的每一秒鐘，都在幫 Tether 賺錢。但這套年賺百億的機制正在失效⋯⋯';
+  document.getElementById('shareTw').onclick=function(){window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText+'\n\n')+'&url='+encodeURIComponent(location.href),'_blank')};
+  document.getElementById('shareFb').onclick=function(){window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent(shareText),'_blank')};
+  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'center'}),100);
+}
+</script>
+</body>
+</html>
