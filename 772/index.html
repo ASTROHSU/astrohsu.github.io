@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比特幣的中本聰倒數 — 區塊勢</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="比特幣的中本聰倒數">
+<meta property="og:description" content="中本聰的 110 萬顆比特幣註定要被偷走。偏偏現在最積極要動手的，不是駭客，而是比特幣社群自己。">
+<meta property="og:image" content="https://share.blocktrend.today/772/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/772/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="比特幣的中本聰倒數">
+<meta name="twitter:description" content="中本聰的 110 萬顆比特幣註定要被偷走。偏偏現在最積極要動手的，不是駭客，而是比特幣社群自己。">
+<meta name="twitter:image" content="https://share.blocktrend.today/772/cover.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+/* 滿版突破保險 */
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--cream));
+  position: relative;
+}
+.hero img.logo {
+  height: 48px;
+  margin-bottom: 2.5rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.8;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3em;
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
+}
+
+/* PART sections */
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+section.wide {
+  max-width: 900px;
+}
+.part-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--terra);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+section p {
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+  color: var(--text);
+}
+section p strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.highlight {
+  background: var(--gold-light);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  color: var(--gold);
+  font-weight: 500;
+}
+.hex-block {
+  font-family: 'Courier New', monospace;
+  background: var(--terra-light);
+  border-left: 3px solid var(--terra);
+  padding: 1rem 1.2rem;
+  font-size: 0.78rem;
+  word-break: break-all;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 1.5rem 0;
+  border-radius: 4px;
+}
+.quote-block {
+  background: #fff;
+  border-left: 3px solid var(--terra);
+  padding: 1.5rem 1.8rem;
+  margin: 1.5rem 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.quote-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  font-style: italic;
+}
+
+/* 三下場卡片 */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+.outcome-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+}
+.outcome-card .num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  color: var(--terra);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.outcome-card .title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.outcome-card .desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Big Quote */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+.hl {
+  background: linear-gradient(180deg, transparent 60%, var(--gold-light) 60%);
+  padding: 0 0.1em;
+}
+
+/* Choice Section */
+.choice-section {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+.choice-sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+.choice-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--warm);
+  border: 2px solid #E8E3D8;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.2s;
+}
+.choice-btn:hover {
+  border-color: var(--terra);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(192,106,58,0.12);
+}
+.choice-btn.selected {
+  background: var(--terra-light);
+  border-color: var(--terra);
+}
+.choice-btn .emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.choice-btn .label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.choice-btn .desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.result-card {
+  max-width: 540px;
+  margin: 2.5rem auto 0;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #DBBFAD;
+  background: var(--terra-light);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+  pointer-events: none;
+}
+.result-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.r-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.r-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.cta p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.9;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.cta-btn:hover {
+  background: #A8572E;
+  transform: translateY(-1px);
+}
+
+/* Subscribe CTA */
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+}
+.subscribe-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.subscribe-btn:hover {
+  background: #A8572E;
+  transform: translateY(-1px);
+}
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+/* Fade In */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>比特幣的中本聰倒數</h1>
+  <p class="subtitle">那 110 萬顆 BTC 註定要被偷走。<br>偏偏最積極要動手的，不是駭客。</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <div class="part-label fade-in">PART 1</div>
+  <h2 class="fade-in">中本聰消失 15 年，靜止的 BTC 成了去中心化的鐵證</h2>
+  <p class="fade-in">2008 年比特幣白皮書問世，作者署名中本聰（Satoshi Nakamoto）。他是比特幣的發明者，也是全球第一位礦工。持有 110 萬顆 BTC 的中本聰，一度登上全球第 11 大富豪。</p>
+  <p class="fade-in">孰料他在 2011 年行蹤成謎，錢包裡的資產也隨之塵封。時隔 15 年，中本聰的形象早已神格化，110 萬顆靜止的 BTC 則成了去中心化的鐵證——<span class="highlight">連創造者也無法左右這套系統</span>。</p>
+  <p class="fade-in">許多人相信，只要中本聰不出現，那 110 萬顆 BTC 就會繼續長眠。沒料到量子電腦來得比預期中更快，而目前檯面上的所有解方，都無法確保中本聰的比特幣安全無虞。</p>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <div class="part-label fade-in">PART 2</div>
+  <h2 class="fade-in">那串靜靜躺了 15 年的公鑰</h2>
+  <p class="fade-in">密碼學是所有加密貨幣的基礎。使用者只要管好錢包私鑰，就沒人能動你的加密貨幣——因為要用電腦暴力破解，極其困難。即便用當今最快的超級電腦，都要算到天荒地老。銀行用的也是相同等級的技術。</p>
+  <p class="fade-in">但量子電腦打破了私鑰「難以回推」的前提。專家推測，未來五到十年，量子電腦就有能力在幾分鐘內，用公開的公鑰回推出私鑰，直接奪走錢包的控制權。</p>
+  <p class="fade-in">中本聰的比特幣首當其衝。比特幣早期的錢包地址就是公鑰本身，只要找到系統的第一個區塊，任何人都能看到這串公鑰：</p>
+  <div class="hex-block fade-in">04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f</div>
+  <p class="fade-in">萬一正在讀文章的你成為全球第一位掌握量子電腦的人，就可以拿著這段公鑰回推出中本聰的錢包私鑰，把那 110 萬顆 BTC 放進自己口袋。</p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <div class="part-label fade-in">PART 3</div>
+  <h2 class="fade-in">為什麼不能直接升級？</h2>
+  <p class="fade-in">你可能會問：「難道不能透過升級解決嗎？換一套新的抗量子機制，錢包裡的幣不就安全了？」</p>
+  <p class="fade-in">技術上確實可行。抗量子密碼學已經存在，比特幣要升級也不是難事。問題在於，舊錢包的公鑰已經暴露，<strong>換錢包必須由擁有者親自簽名</strong>：用舊私鑰簽一筆交易，把幣轉到新地址。換言之，你我的幣理論上都沒問題。</p>
+  <p class="fade-in">但沒人可以替中本聰簽名升級——否則那個人不就可以偷他的錢了嗎？</p>
+  <p class="fade-in">在可見的未來，中本聰的比特幣只有三種下場：</p>
+  <div class="outcomes-grid fade-in">
+    <div class="outcome-card">
+      <div class="num">1</div>
+      <div class="title">駭客偷走</div>
+      <div class="desc">誰先掌握量子電腦<br>誰就成為新主人</div>
+    </div>
+    <div class="outcome-card">
+      <div class="num">2</div>
+      <div class="title">社群凍結</div>
+      <div class="desc">趕在量子電腦之前<br>協議層主動鎖死</div>
+    </div>
+    <div class="outcome-card">
+      <div class="num">3</div>
+      <div class="title">中本聰復活</div>
+      <div class="desc">神話破滅<br>主動親手遷移</div>
+    </div>
+  </div>
+  <p class="fade-in">三種發生的時間點都不一樣，這就是比特幣的「<strong>中本聰倒數</strong>」。</p>
+</section>
+
+<!-- PART 4 -->
+<section>
+  <div class="part-label fade-in">PART 4</div>
+  <h2 class="fade-in">Adam Back：沒遷移的幣，就視為永久遺失</h2>
+  <p class="fade-in">只要中本聰的比特幣還放在原本的錢包裡，全球第一個掌握量子電腦的人，就能成為錢包的新主人。對此，有人選擇雙手一攤：<strong>這就是命</strong>。</p>
+  <p class="fade-in">Blockstream 執行長 Adam Back 主張，抗量子升級應該採自願加入（opt-in）。由用戶自己決定要不要參與，沒遷移的幣就視為永久遺失。<span class="highlight">自求多福</span>。</p>
+  <p class="fade-in">在 Adam Back 看來，比特幣社群不該為了救中本聰而打破原則。要動他的幣，只能是他自己操作。即便會被駭客拿走，社群也不該插手，<strong>公親變事主</strong>。</p>
+  <p class="fade-in">其實 Adam Back 的立場跟中本聰非常相似。2010 年 6 月，中本聰當年談到弄丟錢包的人時說：</p>
+  <div class="quote-block fade-in">
+    <p>遺失的幣，會讓其他人的幣略為升值。那是對全體持有者的捐贈。</p>
+  </div>
+  <p class="fade-in">換言之，中本聰也反對主動介入。</p>
+</section>
+
+<!-- PART 5 -->
+<section>
+  <div class="part-label fade-in">PART 5</div>
+  <h2 class="fade-in">Jameson Lopp：先下手為強</h2>
+  <p class="fade-in">但眼看有 110 萬顆 BTC 即將被偷走，天下有多少人能夠袖手旁觀？如果駭客立刻賣掉，恐怕還會造成另一波市場海嘯。</p>
+  <p class="fade-in">上週 Casa 共同創辦人 Jameson Lopp 與另外 5 位資安研究者共同提案（BIP-361），希望搶在量子電腦問世之前，<strong>主動凍結中本聰的比特幣</strong>——還有其他所有無法升級的舊錢包。</p>
+  <p class="fade-in">Lopp 承認自己並不喜歡這項提案，但更無法接受什麼都不做。他把中本聰當年那句話反過來用：</p>
+  <p class="fade-in">既然遺失的幣是對所有人的捐贈，那利用量子電腦撿回來的幣，就是向所有人偷竊。前者讓大家升值，後者讓大家一起貶值。</p>
+</section>
+
+<!-- Big Quote -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">比特幣註定要被偷。</span><br>偏偏最積極要動手的，<br>不是駭客，是社群自己。</p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+    BIP-361 聽起來也有道理？但比特幣的哲學正面臨前所未有的考驗。</p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">如果你是比特幣社群的一員<br>你會支持哪一邊？</h2>
+  <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">Adam Back 派</div>
+        <div class="desc">自求多福，讓駭客去偷。<br>社群不插手才是比特幣。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🔒</div>
+      <div>
+        <div class="label">Jameson Lopp 派</div>
+        <div class="desc">先下手為強，主動凍結。<br>救中本聰也是救市場。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🤷</div>
+      <div>
+        <div class="label">兩邊都不對</div>
+        <div class="desc">只要社群做出集體決定，<br>就已經不是無為而治。</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想看完整分析？</h2>
+  <p>完整文章用道家「無為而治」的角度拆解比特幣正在面對的成功悖論——十五年不介入的哲學，為什麼會被自己的成功逼向終結？</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/772" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('比特幣註定要被偷。偏偏最積極要動手的，不是駭客，是社群自己。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('比特幣註定要被偷。偏偏最積極要動手的，不是駭客，是社群自己。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從量子威脅、穩定幣到 AI 代理人，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+let userChoice = -1;
+const labels = ['Adam Back 派：社群不該插手', 'Jameson Lopp 派：先下手為強', '兩邊都不對：已經不是無為而治'];
+const results = [
+  {
+    title: '自求多福，讓駭客去偷',
+    desc: '你相信比特幣的核心價值是「沒有任何人能動你的錢」，即便代價是看著 110 萬顆被駭客拿走。社群一旦開先例，就不再是比特幣了。',
+    bg: 'var(--terra-light)', border: '#DBBFAD'
+  },
+  {
+    title: '先下手為強，主動凍結',
+    desc: '你相信有些威脅嚴重到必須主動回應。比起讓駭客動手，社群凍結雖然打破原則，但救的是整個比特幣市場的信任基礎。',
+    bg: 'var(--yellow-light)', border: '#E4D5B8'
+  },
+  {
+    title: '兩邊都已不是無為而治',
+    desc: '你看到了更深的矛盾——不管選哪邊，社群都在做集體決定。真正的無為是規則寫死、沒人能決定。量子威脅揭示了比特幣已經長大到必須治理。',
+    bg: 'var(--green-light)', border: '#A8D4BC'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `我的觀點：${labels[idx]}。\n\n比特幣註定要被偷。偏偏最積極要動手的，不是駭客，是社群自己。`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+// Intersection Observer fade-in
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
