@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>只有比特幣有神 — 而神留下了百萬顆幣｜區塊勢</title>
+
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="只有比特幣有神 — 而神留下了百萬顆幣">
+<meta property="og:description" content="Google 發了一份 57 頁論文，把量子運算對加密貨幣的威脅從「天邊一朵烏雲」變成「可測量的氣象預報」。但真正被逼到牆角的，是沒有神的比特幣。">
+<meta property="og:image" content="https://share.blocktrend.today/ep314/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/ep314/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="只有比特幣有神 — 而神留下了百萬顆幣">
+<meta name="twitter:description" content="Google 量子論文逼比特幣社群做出選擇：要凍結、沙漏、打撈，還是沒收？">
+<meta name="twitter:image" content="https://share.blocktrend.today/ep314/cover.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+section.wide {
+  max-width: 900px;
+}
+
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 1.9rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+}
+
+section p {
+  margin-bottom: 1.2rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.part-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--terra-light);
+  border-radius: 1rem;
+}
+
+.hl {
+  color: var(--text);
+}
+
+/* 滿版突破保險 */
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, var(--warm) 0%, var(--cream) 100%);
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+}
+.hero .logo {
+  margin-bottom: 3rem;
+}
+.hero .logo img {
+  height: 48px;
+}
+.hero .eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--terra);
+  margin-bottom: 1.5rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+  max-width: 800px;
+}
+.hero .hero-sub {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+.hero .meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
+}
+
+/* ===== Big quote ===== */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 4.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto;
+  letter-spacing: 0.04em;
+}
+
+/* ===== 資訊卡片 ===== */
+.info-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.8rem 1.6rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.info-card h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+  color: var(--terra);
+}
+.info-card .timeline-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed #E8E3D8;
+  font-size: 0.95rem;
+}
+.info-card .timeline-row:last-child {
+  border-bottom: none;
+}
+.info-card .year {
+  font-weight: 700;
+  color: var(--text);
+}
+.info-card .source {
+  color: var(--text-secondary);
+}
+
+/* ===== 攻擊類型卡片 ===== */
+.attack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.attack-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-left: 4px solid var(--terra);
+  border-radius: 10px;
+  padding: 1.4rem 1.4rem;
+}
+.attack-card.static { border-left-color: var(--blue); }
+.attack-card.transit { border-left-color: var(--yellow); }
+.attack-card.setting { border-left-color: var(--terra); }
+.attack-card h4 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+}
+.attack-card .target {
+  display: inline-block;
+  font-size: 0.8rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 1rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.attack-card.static .target { background: var(--blue-light); color: var(--blue); }
+.attack-card.transit .target { background: var(--yellow-light); color: var(--yellow); }
+.attack-card.setting .target { background: var(--terra-light); color: var(--terra); }
+.attack-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+/* ===== 金句強調框 ===== */
+.quote-box {
+  background: var(--gold-light);
+  border-left: 4px solid var(--gold);
+  padding: 1.4rem 1.6rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+/* ===== Choice ===== */
+.choice-section {
+  padding: 5rem 2rem;
+  text-align: center;
+  background: linear-gradient(180deg, var(--terra-light), var(--warm));
+}
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.choice-sub {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+.choice-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+@media (min-width: 640px) {
+  .choice-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.choice-btn {
+  background: #fff;
+  border: 2px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: inherit;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+.choice-btn:hover {
+  transform: translateY(-4px);
+  border-color: var(--terra);
+  box-shadow: 0 6px 20px rgba(192, 106, 58, 0.12);
+}
+.choice-btn.selected {
+  border-color: var(--terra);
+  background: var(--terra-light);
+}
+.choice-btn .emoji {
+  font-size: 2rem;
+}
+.choice-btn .label {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+.choice-btn .desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.result-card {
+  max-width: 560px;
+  margin: 2.5rem auto 0;
+  padding: 2rem 1.8rem;
+  background: var(--terra-light);
+  border: 2px solid #DBBFAD;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s;
+  pointer-events: none;
+}
+.result-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.r-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 0.8rem;
+  background: #fff;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  color: var(--terra);
+  font-weight: 500;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.r-desc {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* ===== CTA ===== */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+.cta p {
+  color: var(--text-secondary);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.cta-btn:hover {
+  background: #A8572E;
+  transform: translateY(-1px);
+}
+
+/* ===== Subscribe CTA ===== */
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+}
+.subscribe-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.subscribe-btn:hover {
+  background: #A8572E;
+  transform: translateY(-1px);
+}
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+/* ===== Fade-in 動畫 ===== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Hero ===== -->
+<div class="hero">
+  <div class="logo">
+    <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  </div>
+  <div class="eyebrow">EP ｜ 量子運算 × 加密貨幣</div>
+  <h1>只有比特幣有神<br>而神留下了百萬顆幣</h1>
+  <p class="hero-sub">Google 一份 57 頁的量子論文<br>把比特幣逼到一個沒辦法迴避的選擇題</p>
+  <div class="meta">區塊勢 Podcast ｜ 許明恩 × 曾可維</div>
+  <div class="scroll-hint">SCROLL ↓</div>
+</div>
+
+<!-- ===== PART 1 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 1</span>
+    <h2>天邊的那朵烏雲，<br>現在量得出距離了</h2>
+    <p>過去在區塊勢討論量子運算，來賓曾可維有一個我很喜歡的比喻：量子電腦對加密貨幣的威脅，就像是天邊的一朵烏雲——你知道它在那裡，但不知道它什麼時候會飄過來，也不確定到底有多遠。</p>
+    <p>但 2026 年 4 月，Google 發了一份 57 頁的論文，把整件事的討論基礎徹底改變。這不是因為他們發明了什麼新的攻擊手法，而是因為他們第一次把「量子電腦需要多少量子位元、花多少運算時間才能攻破比特幣」這個問題，從一個「數量級估計」的階段，推進到「工程等級估計」的階段。</p>
+    <p>過去你問一個量子物理學家「需要多少顆量子位元才能攻破比特幣」，他可能會說幾十萬到上百萬。10 萬到 99 萬聽起來差 9 倍，但對他來說答案都是對的——因為這是個估計。但 Google 這次把數字精準地釘下來了。</p>
+    <div class="quote-box">
+      「它讓這個討論變得更嚴肅，但不是讓它變得恐怖。<br>本來我們知道有一朵烏雲，現在我們量得出它的距離。」
+    </div>
+    <p>用氣象預報來比喻會更清楚：以前我們只知道遠方有烏雲，現在我們知道這朵烏雲還很遠，但有一個明確的工程測量值。時間點依然不變——可維認為商業上有價值的量子電腦，抵達的時間不會早於 2035 年。</p>
+  </div>
+</section>
+
+<!-- ===== PART 2 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 2</span>
+    <h2>為什麼大家說的年份都不一樣？</h2>
+    <p>如果你最近在看量子運算相關新聞，會注意到好幾個不同的時程數字飛來飛去。這三個數字分別來自完全不同的角色：</p>
+
+    <div class="info-card">
+      <h3>三個時間表，三種立場</h3>
+      <div class="timeline-row">
+        <span class="year">2028</span>
+        <span class="source">Vitalik：以太坊升級時程</span>
+      </div>
+      <div class="timeline-row">
+        <span class="year">2029</span>
+        <span class="source">Google：自家系統遷移到 PQC</span>
+      </div>
+      <div class="timeline-row">
+        <span class="year">2035</span>
+        <span class="source">可維：量子電腦真正到來</span>
+      </div>
+    </div>
+
+    <p>差了 6、7 年，但這不是誰比較悲觀的問題，而是在問不同的問題。2028、2029 是「防禦端」的時間——Vitalik 跟 Google 要在那之前把升級做完。2035 是「攻擊端」的時間——可維估計的是攻擊真的可能發生的年份。</p>
+    <p>可維對「2030 年之前發生攻擊」這件事的機率估計是 0.5% 以下。但他也承認：對於 Google 這種把標準都制定好、只要一個模組一個模組替換的大廠來說，提前到 2030 年完成遷移，是完全合理的。</p>
+    <p>這就是為什麼「防禦提前，不代表攻擊提前」——你看到大家急著升級，不是因為明天要出事，而是因為升級本身就需要很多年。</p>
+  </div>
+</section>
+
+<!-- ===== PART 3 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 3</span>
+    <h2>傳統金融也用密碼學，<br>但他們跟我們的工具不一樣</h2>
+    <p>文章貼在社群上，常常會有人留言說：「你們幣圈太緊張了，量子運算威脅的是整個網路，傳統金融更應該擔心才對。」</p>
+    <p>這個觀察對了一半。TLS handshake、HTTPS、Gmail 的加密、銀行的簽章——這些每天運作的基礎建設，底層的密碼學跟加密貨幣用的是同一套。如果量子電腦真的跑得動 Shor 演算法，傳統金融確實也會被打到。</p>
+    <p>但差別在於：傳統金融是中心化的。Google 可以強制你下次登入就要用新的簽章方法；銀行可以要求你重新 KYC、直接 ban 掉不配合的帳戶。你不服氣？謝謝再聯絡。</p>
+    <p>加密貨幣完全不是這樣。一條去中心化的公鏈，沒有人有權力要求所有使用者「下一次交易請改用新的地址格式」。要升級，必須透過社群治理，取得多數節點共識。這個過程可能拖上好幾年。</p>
+    <div class="quote-box">
+      「銀行更需要擔心沒錯，<br>但它有更多方法可以解決；<br>加密貨幣雖然打擊面比較小，<br>但工具也比較少。」
+    </div>
+  </div>
+</section>
+
+<!-- ===== PART 4 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 4</span>
+    <h2>三種攻擊，<br>打擊面比你想像的還要廣</h2>
+    <p>Google 論文最有價值的部分，是它系統性地定義了量子電腦可以對加密貨幣做的三種攻擊。這三種攻擊對應到三種不同的鏈、三種不同的情境。</p>
+
+    <div class="attack-grid">
+      <div class="attack-card static">
+        <span class="target">主要威脅：以太坊</span>
+        <h4>靜態攻擊</h4>
+        <p>只要你的公鑰已經暴露在鏈上——也就是你曾經從某個地址發出過交易——量子電腦就可以反推你的私鑰。比特幣用戶可以透過每次換新地址來避免（OneKey 就有這個功能）。但以太坊是 account-based，你一花過錢，公鑰就已經上鏈了，躲不掉。</p>
+      </div>
+      <div class="attack-card transit">
+        <span class="target">主要威脅：比特幣</span>
+        <h4>交易中攻擊</h4>
+        <p>就算你從不重複使用地址，總有一天你要把幣花出去。那一瞬間，簽名會漂在 Mempool 裡面 10 到 20 分鐘。量子電腦有機會在這段時間破解。這個攻擊只對比特幣有效——以太坊 12 秒出一個區塊，Solana 更是 0.4 秒，量子電腦根本算不完。</p>
+      </div>
+      <div class="attack-card setting">
+        <span class="target">主要威脅：以太坊、Solana 等智能合約鏈</span>
+        <h4>設定攻擊</h4>
+        <p>密碼學在智能合約生態系裡，存在於每一個角落：多簽錢包、跨鏈橋、ZK Rollup、穩定幣的簽章聚合。只要其中一個環節的密碼學被攻破，整個應用就可能被抽乾。最可怕的是這種攻擊不容易被察覺——你會以為「只是又一個跨鏈橋被駭了」。</p>
+      </div>
+    </div>
+
+    <p>把三種攻擊對應到三種鏈，你會發現沒有人能躲掉：比特幣有交易中攻擊的風險、以太坊有靜態攻擊、智能合約鏈有設定攻擊。穩定幣、跨鏈橋、ZK 這些都在設定攻擊的射程內。</p>
+  </div>
+</section>
+
+<!-- ===== PART 5 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 5</span>
+    <h2>誰準備好了？<br>誰還在敲鑼打鼓？</h2>
+    <p>既然三種攻擊都有威脅，那各條公鏈現在準備到哪裡了？可維的判斷很直接——<strong>沒有任何主流的鏈真的做到了抗量子</strong>。</p>
+    <p>以太坊在學術上研究得最多，透過帳戶抽象化底層可以替換簽章方法。Solana 做了一個比較粗糙的工程實作，用 hash-based 一次性簽名。StarkWare 跟 Sui 走的是另一條路，用零知識證明的技巧避開「必須暴露公鑰」的問題。</p>
+    <p>那有沒有鏈真的在主網上部署了抗量子簽章？有——StarkNet 號稱有。但可維提到一個令人不安的事實：StarkNet 前幾個禮拜才剛被 Solana 嘲笑，因為它的日交易量只有幾十到不到一百。技術上領先，但沒有人在用。</p>
+    <p>那如果真的去做，會怎麼樣？可維自己的 IOTA 就是最好的案例：他們在 2015 年白皮書就用了抗量子簽章，使用者體驗「痛苦到一塌糊塗」，簽名肥大十倍、手續費變貴、App 跑得更慢。最後在 2020-2021 年升級時，他們決定把抗量子的部分整個拿掉。</p>
+    <div class="quote-box">
+      「如果你沒有必要的時候做這個痛苦，<br>所有人都會覺得『招誰惹誰』。」
+    </div>
+    <p>這也是為什麼最近孫宇晨（Tron 創辦人）宣佈 Tron 要成為「第一個在主網部署抗量子簽章的主流區塊鏈」的時候，可維的反應是一個笑。技術細節還沒公佈——但總之先喊先贏。這就是孫宇晨的風格。</p>
+  </div>
+</section>
+
+<!-- ===== PART 6 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 6</span>
+    <h2>比特幣的神格化，<br>現在變成一個治理難題</h2>
+    <p>量子威脅對所有公鏈都是問題，但對比特幣而言，問題的性質完全不同。</p>
+    <p>其他鏈的問題是技術——要不要升級、怎麼升級、什麼時候升級。這些都可以討論。但比特幣卡在一個更根本的問題上：它從來沒有一個真正意義上的硬分叉，所有的協議升級都是向前相容的「軟分叉」。2017 年的比特幣內戰之後，比特幣社群變得對任何「無可挽回的改動」極度抗拒。</p>
+    <p>就算社群達成共識，把新的抗量子地址格式（像 BIP-360）部署上去——這在技術上是可以做的——那些不會起床換地址的早期持幣者怎麼辦？最極端的例子，就是中本聰那一百多萬顆幣。</p>
+    <p>這件事有多嚴肅？去看 Coinbase 當年的 S-1 上市文件，裡面列的「主要風險」有一條就是：「中本聰如果突然出現」。因為現在的中本聰已經是一個共同認知——他不存在，他不會發言，他不會動那些幣。這種「神」的狀態本身就構成了比特幣的基礎共識。</p>
+    <div class="quote-box">
+      「所有區塊鏈都有神童，<br>只有比特幣有神。」
+    </div>
+    <p>神童還能被勸說——以太坊基金會影響得了 Vitalik，Solana 有 Anatoly。但神沒有代理人，沒有對話窗口。當量子電腦開始逼近，比特幣社群要面對一個神不會主動處理、但又不能不處理的問題：那一百多萬顆沉睡的幣，該怎麼辦？</p>
+  </div>
+</section>
+
+<!-- ===== 大金句 ===== -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">所有區塊鏈都有神童，<br>只有比特幣有神。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+    而神留下的，是逼著整個社群必須做出選擇的百萬顆幣。</p>
+</div>
+
+<!-- ===== PART 7 ===== -->
+<section>
+  <div class="fade-in">
+    <span class="part-label">PART 7</span>
+    <h2>Google 論文甚至建議了<br>四種處理方案</h2>
+    <p>Google 這篇論文讓人意外的地方，是它不只分析了攻擊面，還認真寫了一整節討論「政策建議」。用一個很有畫面感的比喻——<strong>數位打撈</strong>。</p>
+    <p>中本聰的幣現在就像掉在瑪利亞納海溝底下的黃金。對當代的文明來講，要撈到一萬公尺深的海底基本上不可能，所以這些幣「存在但無法觸及」。但當科技進步，我們可以下沉到 6000 公尺、8000 公尺、總有一天可以抵達 10000 公尺——這時候就是先到先得。</p>
+    <p>這不再是一個「要不要治理」的問題，而是一個「怎麼治理」的問題。論文裡至少列出了四種方案：</p>
+
+    <div class="attack-grid">
+      <div class="attack-card" style="border-left-color: var(--green);">
+        <span class="target" style="background: var(--green-light); color: var(--green);">最保守</span>
+        <h4>方案一：凍結（BIP-361）</h4>
+        <p>設定一個時間點，所有超過這個時間沒有移動的幣，協議層直接凍結。你 5 年、10 年後醒過來？對不起，這些幣成為歷史。</p>
+      </div>
+      <div class="attack-card" style="border-left-color: var(--yellow);">
+        <span class="target" style="background: var(--yellow-light); color: var(--yellow);">折衷派</span>
+        <h4>方案二：沙漏（Sandglass）</h4>
+        <p>允許這些幣被移動，但設限每個區塊只能處理一個包含舊地址的 UTXO。攻擊者要偷也只能慢慢偷，最大傷害會被壓住。</p>
+      </div>
+      <div class="attack-card" style="border-left-color: var(--terra);">
+        <span class="target" style="background: var(--terra-light); color: var(--terra);">無為派</span>
+        <h4>方案三：什麼都不做</h4>
+        <p>讓第一個有量子電腦的人去撈。中本聰就是人類歷史的「One Piece 大秘寶」，誰先到誰就發大財。聽起來荒謬，但比特幣社群真的有人支持。</p>
+      </div>
+      <div class="attack-card" style="border-left-color: var(--blue);">
+        <span class="target" style="background: var(--blue-light); color: var(--blue);">最激進</span>
+        <h4>方案四：沒收做尾端發行</h4>
+        <p>把這些幣通通沒收，全部加進未來的挖礦獎勵池。一石二鳥——既解決量子威脅，又補充比特幣長期缺乏的礦工補貼（security budget）。</p>
+      </div>
+    </div>
+
+    <p>選哪一個都會傷害到某一群人——持幣者不希望這些幣回流到市場（怕貶值）；礦工希望這些幣變成補貼（多賺）；基本教義派不想硬分叉（破壞共識）。而比特幣從來沒有一個神來裁決，所以每一個方案都是一場治理戰爭。</p>
+  </div>
+</section>
+
+<!-- ===== 互動 ===== -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">如果你是比特幣社群的一員，<br>你會投票支持哪個方案？</h2>
+  <p class="choice-sub fade-in">沒有標準答案 — 選完看看你屬於哪一派</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">凍結</div>
+        <div class="desc">永遠封存中本聰的幣，不讓量子電腦有機會碰到</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">⏳</div>
+      <div>
+        <div class="label">沙漏</div>
+        <div class="desc">允許流動但設速度上限，傷害就不會一次擴大</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">💎</div>
+      <div>
+        <div class="label">沒收重發</div>
+        <div class="desc">全部變成挖礦獎勵，用強韌性補償硬分叉</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的立場</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CTA ===== -->
+<div class="cta">
+  <h2>想聽完整對談？</h2>
+  <p>這集 Podcast 訪問了新加坡國立大學量子運算博士曾可維，完整討論 Google 論文、三種攻擊類型、各鏈準備狀況，以及比特幣為何會被逼進這個治理困局。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/ep314" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('所有區塊鏈都有神童，只有比特幣有神。\n\n而神留下了百萬顆幣，正在成為比特幣社群最大的治理難題。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('所有區塊鏈都有神童，只有比特幣有神。而神留下了百萬顆幣，正在成為比特幣社群最大的治理難題。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- ===== Subscribe CTA ===== -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從量子運算、穩定幣到平台策略，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Choice interaction
+let userChoice = -1;
+const labels = ['凍結派', '沙漏派', '沒收重發派'];
+const results = [
+  {
+    title: '你是凍結派 🛡️',
+    desc: '你重視「不動如山」的共識優先於技術進步。你覺得比特幣的價值之一就是穩定，就算要硬分叉，也要用最小改動的方式處理——讓那些幣成為歷史，不要讓量子電腦有機會攪局。這一派最接近比特幣基本教義派的思考方式：共識的可預測性，比任何技術升級都重要。',
+    bg: 'var(--green-light)',
+    border: '#A8D4BC'
+  },
+  {
+    title: '你是沙漏派 ⏳',
+    desc: '你在原教旨跟實用主義之間選了中道。你不想完全放棄這些幣（凍結感覺太粗暴），但也不想讓攻擊者一次掃光（什麼都不做太天真）。讓傷害被分散、讓市場有時間消化——這是最工程師性格的答案。問題是：沙漏的速度要設多快？太快跟放任差不多，太慢跟凍結差不多。',
+    bg: 'var(--yellow-light)',
+    border: '#E4D5B8'
+  },
+  {
+    title: '你是沒收重發派 💎',
+    desc: '你選了最激進、但也最有建設性的方案。把沉睡的幣變成未來的挖礦獎勵，不只解決量子威脅，還一次補上比特幣長期缺乏的 security budget。這個方案等於承認「神的饋贈最終會回到社群」，但代價是永久性的硬分叉——某種意義上，你選擇了「把神的遺產變成社群共有」。',
+    bg: 'var(--terra-light)',
+    border: '#DBBFAD'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `我是「${labels[idx]}」。\n\n所有區塊鏈都有神童，只有比特幣有神。而神留下了百萬顆幣，正在成為比特幣社群最大的治理難題。\n\n`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+</script>
+
+</body>
+</html>
