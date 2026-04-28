@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>前台灣最高洗錢防制官，怎麼看加密貨幣？｜區塊勢 EP.315</title>
+<meta name="description" content="她抓過最多洗錢犯罪。同樣一百萬，可能是出國學費，也可能是買賣毒品。從前洗錢防制辦公室執行秘書蔡佩玲博士的視角，看加密貨幣的真實樣貌。">
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+<meta property="og:title" content="前台灣最高洗錢防制官，怎麼看加密貨幣？">
+<meta property="og:description" content="她抓過最多洗錢犯罪。同樣一百萬，可能是出國學費，也可能是買賣毒品。">
+<meta property="og:image" content="https://share.blocktrend.today/315/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/315/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="前台灣最高洗錢防制官，怎麼看加密貨幣？">
+<meta name="twitter:description" content="她抓過最多洗錢犯罪。同樣一百萬，可能是出國學費，也可能是買賣毒品。">
+<meta name="twitter:image" content="https://share.blocktrend.today/315/cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+section.wide { max-width: 900px; }
+
+/* 滿版突破 */
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 100%);
+  position: relative;
+}
+.hero .logo {
+  height: 48px;
+  margin-bottom: 2rem;
+}
+.hero .episode {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.85rem;
+  color: var(--terra);
+  letter-spacing: 0.2em;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+.hero h1 .accent { color: var(--terra); }
+.hero .subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  line-height: 1.8;
+}
+.hero .guest {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.hero .guest strong {
+  color: var(--text);
+  font-weight: 500;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.3em;
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+}
+
+/* PART 標籤 */
+.part-label {
+  display: inline-block;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.75rem;
+  color: var(--terra);
+  letter-spacing: 0.3em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 0.3rem 0.8rem;
+  background: var(--terra-light);
+  border-radius: 0.3rem;
+}
+
+h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+
+.hl {
+  background: linear-gradient(180deg, transparent 60%, var(--gold-light) 60%);
+  padding: 0 0.1em;
+}
+
+/* 引言區塊 */
+.quote-box {
+  background: #fff;
+  border-left: 4px solid var(--terra);
+  padding: 1.5rem 1.8rem;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.quote-box p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+.quote-box .speaker {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+/* 對比卡片 */
+.contrast-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+.contrast-card .card-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text);
+}
+.contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.contrast-item {
+  padding: 1.2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.contrast-item.good {
+  background: var(--green-light);
+  border: 1px solid #A8D4BC;
+}
+.contrast-item.bad {
+  background: var(--terra-light);
+  border: 1px solid #DBBFAD;
+}
+.contrast-item .amount {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.contrast-item.good .amount { color: var(--green); }
+.contrast-item.bad .amount { color: var(--terra); }
+.contrast-item .label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.contrast-card .caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* 故事卡片 */
+.story-card {
+  background: var(--gold-light);
+  border: 1px solid #E4D5B8;
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin: 1.5rem 0;
+}
+.story-card .story-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+.story-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+}
+.story-card p:last-child { margin-bottom: 0; }
+
+/* Big Quote */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+/* Choice Section */
+.choice-section {
+  background: var(--green-light);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.choice-section h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.choice-sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+.choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.3rem 1.5rem;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.choice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  border-color: var(--terra);
+}
+.choice-btn.selected {
+  border-color: var(--terra);
+  background: var(--terra-light);
+}
+.choice-btn .emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.choice-btn .label {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  color: var(--text);
+}
+.choice-btn .desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Result Card */
+.result-card {
+  max-width: 560px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid #DBBFAD;
+  background: var(--terra-light);
+  display: none;
+  text-align: left;
+}
+.result-card.show {
+  display: block;
+  animation: fadeUp 0.6s ease;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.r-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+.r-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+.cta h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.cta p {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  color: var(--text-secondary);
+}
+.cta-btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(192,106,58,0.3);
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(192,106,58,0.4);
+}
+
+/* Share buttons */
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* Subscribe CTA */
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+}
+.subscribe-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  background: #d47a48;
+}
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  background: var(--warm);
+}
+footer img {
+  height: 44px;
+  opacity: 0.5;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  section { padding: 3rem 1.5rem; }
+  .contrast-grid { grid-template-columns: 1fr; }
+  .choice-btn { padding: 1.1rem; }
+  .choice-btn .emoji { font-size: 1.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <p class="episode">EP.315</p>
+  <h1>前台灣最高洗錢防制官<br>怎麼看<span class="accent">加密貨幣</span>？</h1>
+  <p class="subtitle">她在三個位置處理過台灣最多的洗錢案件。<br>但她對加密貨幣的看法，可能跟你想的不一樣。</p>
+  <p class="guest">ft. <strong>蔡佩玲博士</strong>　前桃園地檢署檢察官・前行政院洗錢防制辦公室執行秘書・前台北富邦銀行副總經理</p>
+  <p class="scroll-hint">SCROLL</p>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <span class="part-label">PART 1</span>
+  <h2 class="fade-in">為什麼加密貨幣<br>特別讓人恐慌？</h2>
+  <p class="fade-in">每次過年聚餐，講到加密貨幣，桌上總會有人露出那種似笑非笑的表情：「你不會在做什麼洗錢的吧？」</p>
+  <p class="fade-in">蔡佩玲博士當過檢察官、做過行政院洗錢防制辦公室執行秘書、當過台北富邦銀行副總經理。她在三個位置上看過台灣最多的洗錢案件，最有資格回答這個問題。</p>
+  <p class="fade-in">她的答案很簡單：加密貨幣不是特別壞，<span class="hl">它特別讓人恐慌，是因為規範還沒到位</span>。</p>
+
+  <div class="quote-box fade-in">
+    <p>「黃金也會拿來犯罪，現金也會拿來犯罪。但是只有加密貨幣特別引起關注的原因，是因為規範沒有到位。」</p>
+    <p class="speaker">—— 蔡佩玲博士</p>
+  </div>
+
+  <p class="fade-in">她舉了一個例子。台灣 105、106 年修法的時候，地檢署案子裡的「虛擬貨幣」其實大多不是真的——被告講的是「玉皇大帝幣」、「王母娘娘幣」這種東西。那時候很多案子的本質是欺騙，而不是加密貨幣本身的問題。</p>
+  <p class="fade-in">真正的轉變發生在 110 年之後。當大家對市場越來越熟悉，犯罪集團才開始把加密貨幣當成洗錢工具。但他們也不是特別偏愛加密貨幣——房地產很好的時候錢就放房地產，股票很好的時候錢就放股票。<span class="hl">犯罪集團是跟著大勢走的，加密貨幣其實很中性</span>。</p>
+  <p class="fade-in">那為什麼還是引起這麼多恐慌？因為法規只在洗錢防制法上訂了一條，沒有說發行商要有什麼條件、交易所要有什麼條件、個人買賣要在哪些平台。完全沒有監管細節——這才是恐慌的來源。</p>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <span class="part-label">PART 2</span>
+  <h2 class="fade-in">同樣一百萬<br>可能是兩種完全不同的事</h2>
+  <p class="fade-in">2016 年，兆豐銀行紐約分行被美國金融服務署罰款 1.8 億美金。台灣金融圈當時非常震驚——我們銀行只是把錢從 A 匯到 B，B 有什麼狀況不是檢調的事嗎？怎麼會說我們違反洗錢防制法？</p>
+  <p class="fade-in">但美國的想法不一樣。蔡佩玲說，美國覺得：你從北美匯到中南美洲，那裡有那麼多的人口販運、那麼多小孩子被把肝挖掉、胃挖掉拿去販賣——你完全不確認受款人身分就匯款，作為一個拿著證照的銀行，你怎麼能說自己沒責任？</p>
+
+  <div class="contrast-card fade-in">
+    <div class="card-title">同樣一百萬的兩種命運</div>
+    <div class="contrast-grid">
+      <div class="contrast-item good">
+        <div class="amount">1,000,000</div>
+        <div class="label">某個留學生的學費<br>未來會成為優秀科學家</div>
+      </div>
+      <div class="contrast-item bad">
+        <div class="amount">1,000,000</div>
+        <div class="label">剛賣了一塊海洛因的代價<br>有多少家庭會 suffer</div>
+      </div>
+    </div>
+    <p class="caption">作為金融機構，你看見的是同一筆匯款。但每一筆背後都有截然不同的後果。</p>
+  </div>
+
+  <p class="fade-in">這就是兆豐案教給台灣金融機構的一課：<span class="hl">每一筆錢的過手，你都要負責</span>。不是只賺手續費，而是要對社會、對世界負責。</p>
+  <p class="fade-in">後來台灣全力修法、上系統、做稽核、派專人到海外分行。一直到 108 年國際洗錢防制評鑑拿到最好成績，才整個解除被高度審查的狀態。最近兆豐的所有制裁也終於正式解除——但這背後的成本，是大家眼睛看不到的。</p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <span class="part-label">PART 3</span>
+  <h2 class="fade-in">用既有框架<br>看不見新東西的本質</h2>
+  <p class="fade-in">在這集 Podcast 裡，蔡佩玲講了一個很有意思的故事——鴨嘴獸。</p>
+
+  <div class="story-card fade-in">
+    <div class="story-title">🦫 鴨嘴獸的故事</div>
+    <p>在鴨嘴獸問世之前，大英博物館的科學家拿到從澳洲送來的標本，看了看就說：「不可能，這一定是有人惡作劇，把鴨子嘴縫到海狸身上。哺乳類怎麼可能會下蛋？我這輩子沒看過鴨嘴獸，所以這世界上沒有鴨嘴獸。」</p>
+    <p>但事實證明，鴨嘴獸就是存在。它是生物學分類上的異類，最後獨立成一類。</p>
+  </div>
+
+  <p class="fade-in">「<span class="hl">你認知的限制，會讓你經驗事情的時候也被限制</span>。可是很多時候，經驗是走在認知之前的。」蔡佩玲說。</p>
+  <p class="fade-in">這個故事她拿來解釋什麼？解釋為什麼國際 FATF 一直想把虛擬貨幣交易所放進金融機構的框架裡管——因為對監管者來說，這是最熟悉、最快上手的做法。但虛擬貨幣發展的初衷就是要跟這個體系不一樣，硬套既有框架，永遠搞不清楚它真正的樣子。</p>
+  <p class="fade-in">她的判斷是：<strong>規則需要被翻轉，但翻轉很難——因為各國政府、金融機構、廠商都在既有體系裡有既得利益</strong>。所以她預估，這套新規範大概還要三到五年才會清楚成形。在那之前，最重要的事情是「研究」——讓它長，但要持續觀察。</p>
+</section>
+
+<!-- PART 4 -->
+<section>
+  <span class="part-label">PART 4</span>
+  <h2 class="fade-in">兩顆麵包的爸爸<br>與衣櫥裡的兩個小孩</h2>
+  <p class="fade-in">蔡佩玲在訪談中講了兩個案例，都是她當檢察官時親手處理的。</p>
+
+  <div class="story-card fade-in">
+    <div class="story-title">🍞 兩顆麵包的爸爸</div>
+    <p>有一次值班，一個爸爸進來自首。眼淚就流下來——他的小孩五天沒吃東西，所以他去偷了兩顆麵包。</p>
+    <p>偷東西嚴不嚴重？問一百個人，兩百張嘴都會說嚴重。但當事實意義有點轉換的時候，就不一樣了。</p>
+  </div>
+
+  <div class="story-card fade-in">
+    <div class="story-title">👶 衣櫥裡的兩個小孩</div>
+    <p>另一個案子，兩個小孩躲在衣櫥裡，看著爸爸把媽媽從活人打成死人。</p>
+    <p>如果你只看是非對錯，會停在爸爸該被怎麼判的那個點。但真正要關心的是：這兩個小孩怎麼走出來？接下來的二十年、四十年、六十年，這件事不要再發生？</p>
+  </div>
+
+  <p class="fade-in">蔡佩玲說：「<span class="hl">很多東西它是經驗值。法律的價值，不在邏輯，在經驗</span>。」</p>
+  <p class="fade-in">這個原則用在加密貨幣上是什麼意思？<strong>不要急著選支持或反對</strong>。任何東西會出現都有它的原因——台商有匯錢回國的需求、戰爭中的人有避險的需求、通膨中的人有保值的需求。先去理解需求從哪裡來，再去找規範的方式，比直接二分對錯有用得多。</p>
+</section>
+
+<!-- PART 5 -->
+<section>
+  <span class="part-label">PART 5</span>
+  <h2 class="fade-in">下雨天的盲人<br>與孩子學走路</h2>
+  <p class="fade-in">這集 Podcast 的後半段，蔡佩玲分享了她決定 Gap Year 之前看到的一個畫面。</p>
+  <p class="fade-in">那天下雨，她坐在松江南京一家火鍋店等朋友。看到一個女孩子，是雨天裡唯一走在騎樓外面的人。她背著背包、提著很多東西、用著盲人杖——因為盲人磚都鋪在騎樓外面，所以她只能走在外面淋雨。</p>
+  <p class="fade-in">蔡佩玲一開始的反應是：如果是她媽媽，會很心疼。但她看了很久，發現這個女孩的表情好自在——沒有可憐，沒有難過，就是很自在地走。</p>
+
+  <div class="quote-box fade-in">
+    <p>「她連在下雨天出門，都這麼坦然。可是我們一般人卻想很多——甚至連可能出門決定要做什麼事，你都想很多。」</p>
+    <p class="speaker">—— 蔡佩玲博士</p>
+  </div>
+
+  <p class="fade-in">最後她把這個觀察跟主持人 Astro 兩歲的小孩連起來——<strong>作為父母，你是希望小孩不要跌倒，還是希望他多嘗試幾次？</strong></p>
+  <p class="fade-in">如果一直擔心、想控制，事情的高度永遠就到那裡。只有放掉這些控制，才會有空間去跑。蔡佩玲說：「我們小時候會勇敢探索，但到了 30 歲、40 歲，就會忘記這件事。」</p>
+  <p class="fade-in">這一切兜回到一個處理過最多洗錢案件的人，最後對加密貨幣的真心話。</p>
+</section>
+
+<!-- Big Quote -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">虛擬貨幣也是一個探索。<br>就像孩子學走路，要讓他多跌幾次。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+    — 蔡佩玲博士，本集結語</p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">面對加密貨幣這件事<br>你的姿態是什麼？</h2>
+  <p class="choice-sub fade-in">選一個最接近你的想法，分享你的觀點</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">先有立場：管太鬆會出事</div>
+        <div class="desc">看到負面新聞就會擔心，覺得加密貨幣風險太高，需要更嚴格的規範。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🔍</div>
+      <div>
+        <div class="label">先觀察現象：不要急著二分</div>
+        <div class="desc">不急著選支持或反對。先理解需求、觀察變化，再決定要怎麼跟它共存。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🚶</div>
+      <div>
+        <div class="label">讓它跌倒：探索本身就是價值</div>
+        <div class="desc">就像看孩子學走路，跌倒是過程的一部分。對新東西要保有勇氣跟耐心。</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>聽完整集對談</h2>
+  <p>蔡佩玲博士從檢察官、洗防辦、銀行副總三個視角，分享她在第一線看到的台灣加密貨幣監管真實樣貌。包括兆豐案的內幕、FATF 評鑑的故事、跟她決定 Gap Year 的轉折。完整 48 分鐘訪談都在區塊勢 Podcast。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/315" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('「同樣一百萬，可能是學費，也可能是毒品的代價」——前台灣最高洗錢防制官蔡佩玲博士，怎麼看加密貨幣？\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('「同樣一百萬，可能是學費，也可能是毒品的代價」——前台灣最高洗錢防制官蔡佩玲博士，怎麼看加密貨幣？'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從穩定幣、AI 代理人到平台策略，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+</footer>
+
+<script>
+let userChoice = -1;
+const labels = ['先選立場', '先觀察現象', '讓它跌倒'];
+const results = [
+  {
+    title: '謹慎派：管不到就是恐慌的來源',
+    desc: '你的反應跟很多人一樣——看到負面新聞就會擔心。蔡佩玲也同意，加密貨幣引起恐慌不是因為它特別壞，而是因為規範沒到位。但她也提醒：規制太早，可能會錯過真正了解它的機會。就像在小朋友一兩歲就把人生排好，反而沒幫助。',
+    bg: 'var(--terra-light)', border: '#DBBFAD'
+  },
+  {
+    title: '觀察派：跟蔡佩玲博士最接近的姿態',
+    desc: '這正是她在 Podcast 裡反覆強調的觀點——「沒有任何東西是二分法的」。需求會出現都有原因。台商要匯錢回國、戰爭中的人要避險、通膨中的人要保值——先理解這些需求，再去找規範的方式，比急著選邊有用得多。',
+    bg: 'var(--green-light)', border: '#A8D4BC'
+  },
+  {
+    title: '勇敢派：讓未知有探索的空間',
+    desc: '這是蔡佩玲在訪談收尾時的態度——虛擬貨幣也是一個探索，就像孩子學走路，要讓他多跌幾次。她從下雨天的盲人那邊學到：對未知保持坦然，事情才會長出新的可能性。但她也強調，「讓它跌」不等於「不管」，而是要持續研究、持續觀察。',
+    bg: 'var(--gold-light)', border: '#E4D5B8'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `面對加密貨幣，我的姿態是「${labels[idx]}」。\n\n聽 EP.315｜前台灣最高洗錢防制官蔡佩玲博士，怎麼看加密貨幣？`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
