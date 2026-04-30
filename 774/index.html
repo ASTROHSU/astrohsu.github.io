@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沒有 bug 的入侵！Kelp DAO 遭北韓駭客攻擊，2.92 億美元怎麼飛了？｜區塊勢</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="沒有 bug 的入侵！Kelp DAO 遭北韓駭客攻擊,2.92 億美元怎麼飛了?">
+<meta property="og:description" content="北韓駭客 46 分鐘內偷走 2.92 億美元,每一行程式碼都按設計運作。這次事件揭露的不是合約漏洞,是 DeFi 缺乏縱深防禦的結構性缺口。">
+<meta property="og:image" content="https://share.blocktrend.today/774/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/774/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="沒有 bug 的入侵！Kelp DAO 遭北韓駭客攻擊,2.92 億美元怎麼飛了?">
+<meta name="twitter:description" content="北韓駭客 46 分鐘內偷走 2.92 億美元,每一行程式碼都按設計運作。DeFi 的漏洞不在程式碼,而是人與人之間的互不協作。">
+<meta name="twitter:image" content="https://share.blocktrend.today/774/cover.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+  --red: #C04A3A;
+  --red-light: #FFE4DE;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 18px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+}
+
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.hero {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--warm), var(--cream));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.hero img.logo { height: 48px; margin-bottom: 2rem; opacity: 0.85; }
+
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  max-width: 800px;
+}
+
+.hero h1 .accent { color: var(--terra); }
+
+.hero .sub {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  max-width: 600px;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  animation: breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.9; transform: translateX(-50%) translateY(6px); }
+}
+
+.part-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--terra);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--terra);
+}
+
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1.8rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+section p {
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+  line-height: 1.95;
+}
+
+section p .hl {
+  background: linear-gradient(180deg, transparent 60%, var(--terra-light) 60%);
+  padding: 0 4px;
+}
+
+section p strong { color: var(--terra); font-weight: 700; }
+
+.viz-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.viz-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.viz-caption {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 1.2rem;
+  line-height: 1.7;
+}
+
+.attack-topology { position: relative; padding: 1.5rem 0; }
+
+.topology-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.node {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  min-width: 90px;
+  border: 2px solid transparent;
+}
+
+.node.vault {
+  background: #fff;
+  border-color: var(--terra);
+  color: var(--text);
+  padding: 1rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+.node.vault .amt {
+  display: block;
+  color: var(--terra);
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  font-weight: 700;
+}
+
+.node.rpc-hacked {
+  background: var(--red-light);
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.node.rpc-down {
+  background: #F0EEEA;
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  position: relative;
+}
+
+.node.rpc-down::after {
+  content: "✕";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.topology-arrow {
+  text-align: center;
+  color: var(--red);
+  font-size: 1.2rem;
+  margin: 0.4rem 0;
+  font-weight: 700;
+}
+
+.topology-label { text-align: center; font-size: 0.75rem; margin-top: 0.4rem; }
+.topology-label.muted { color: var(--text-muted); }
+.topology-label.red { color: var(--red); }
+
+.big-quote {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+.big-quote .hl {
+  background: linear-gradient(180deg, transparent 60%, rgba(192, 106, 58, 0.25) 60%);
+}
+
+.choice-section {
+  background: var(--warm);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.choice-sub {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.choice-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  background: #fff;
+  border: 2px solid var(--cream);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.choice-btn:hover {
+  border-color: var(--terra);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(192, 106, 58, 0.1);
+}
+
+.choice-btn.selected {
+  border-color: var(--terra);
+  background: var(--terra-light);
+}
+
+.choice-btn .emoji { font-size: 1.8rem; flex-shrink: 0; }
+
+.choice-btn .label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.choice-btn .desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.result-card {
+  margin: 2.5rem auto 0;
+  max-width: 480px;
+  padding: 2rem 1.5rem;
+  background: var(--terra-light);
+  border: 1px solid #DBBFAD;
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.result-card.show { opacity: 1; transform: translateY(0); }
+
+.r-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  background: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.r-desc {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+.cta {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.cta-btn:hover {
+  background: #A8572E;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192, 106, 58, 0.3);
+}
+
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+}
+
+.subscribe-inner { max-width: 520px; margin: 0 auto; }
+
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.subscribe-btn:hover { background: #A8572E; transform: translateY(-1px); }
+
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--warm);
+}
+
+footer img { height: 44px; opacity: 0.5; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  section { padding: 4rem 1.5rem; }
+  .topology-row { gap: 0.4rem; }
+  .node { font-size: 0.7rem; min-width: 70px; padding: 0.5rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="logo" src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>沒有 bug 的入侵！<br>KelpDAO 遭北韓駭客攻擊，<br><span class="accent">2.92 億美元怎麼飛了？</span></h1>
+  <p class="sub">合約沒漏洞、簽章也對，但 2.92 億美元就這樣飛了——這次北韓駭客攻擊的不是程式碼，而是合約看世界的方式。</p>
+  <div class="scroll-hint">SCROLL ↓</div>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <span class="part-label fade-in">PART 1</span>
+  <h2 class="fade-in">凌晨 1 點 30 分，鏈上出現一筆異常轉帳</h2>
+  <p class="fade-in">2026 年 4 月，去中心化金融（DeFi）可說是慘遭血洗。北韓駭客國家隊拉薩路集團（Lazarus Group）在三週內接連對兩項 DeFi 應用發動攻擊——4 月 1 日 Drift Protocol 損失 2.85 億美元，4 月 19 日 KelpDAO 損失 2.92 億美元。光是這兩起竊案，就佔了 2026 全年 DeFi 遭駭損失的 77%。</p>
+  <p class="fade-in">聽到這種事件，一般人的直覺反應是：又有哪位工程師寫錯程式碼或點到釣魚連結了吧？<strong>錯了。</strong>Drift Protocol、KelpDAO 的智慧合約程式碼都沒有漏洞，卻還是被北韓駭客攻破。這正是北韓最擅長的攻擊手法，也是整起事件最讓人不寒而慄的地方：即便你完全沒犯錯，資產還是會不翼而飛。</p>
+  <p class="fade-in">台灣時間 4 月 19 日週日凌晨 1 點 30 分，多數人都已熟睡，鏈上卻出現一筆大額轉帳記錄。有人透過跨鏈橋 LayerZero 轉出價值約 2.9 億美元、共 116,500 顆 rsETH 代幣。不到 2 分鐘，這筆錢被分批提領到 7 個不同的新地址。</p>
+  <p class="fade-in">看到這裡，鏈上偵探心裡有底，只要再確認一件事就能知道是不是駭客攻擊——<span class="hl">這個人的 gas fee 是從哪裡來的？</span>一般使用者的資金來源多半是中心化交易所的熱錢包，但駭客會使用混幣器 Tornado Cash 轉入小額 ETH 當成初始資金，製造金流斷點。這筆 2.9 億美元的轉帳前後只花 0.5 美元 gas fee，而源頭正是 Tornado Cash。</p>
+  <p class="fade-in">凌晨 2 點 52 分，鏈上偵探 ZachXBT 率先發聲。一小時後，KelpDAO 終於發出公告，承認遭到駭客入侵。但他們可不是「剛睡醒」，而是剛跟駭客交手完——時間回到凌晨 2 點 21 分，KelpDAO 注意到自家金流異常，立刻按下緊急暫停鍵 <code>pauseAll</code>，凍結所有 rsETH 相關智慧合約。停機後 5 分鐘，駭客發動第二波攻擊想再提領約 9,500 萬美元，所幸合約已經全數凍結，駭客送出的交易被駁回。</p>
+  <p class="fade-in">KelpDAO 成功守住將近 1 億美元的資產，是不幸中的大幸。但大家都在問，駭客究竟是怎麼跑進來的？</p>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <span class="part-label fade-in">PART 2</span>
+  <h2 class="fade-in">兩台 RPC 節點，變成打開金庫的鑰匙</h2>
+  <p class="fade-in">事後多家鏈上分析公司展開調查，把矛頭指向北韓駭客國家隊拉薩路集團旗下的組織 TraderTraitor，也就是 2025 年 2 月從 Bybit 偷走 14.6 億美元的同一夥人再度犯案。</p>
+  <p class="fade-in">讓人意外的是，TraderTraitor 這次掌握的東西乍看之下根本沒什麼價值——<strong>兩組 RPC 節點的權限</strong>。這兩台電腦既不存錢、也沒有特殊功能，唯一用途就是如實回傳鏈上最新資料。誰料到了駭客手上，兩台不起眼的電腦搖身一變，成了打開 2.9 億美元金庫的鑰匙。</p>
+  <p class="fade-in">關鍵在於，駭客盯上的這兩組 RPC 節點「身分特殊」。它們不僅提供外部查詢，也是跨鏈橋 LayerZero 用來掌握鏈上動態的感測器。但跨鏈橋過去幾年早就防守森嚴，LayerZero 不會只仰賴兩組 RPC 掌握鏈上動態，而是會同時參考一大群 RPC 來交叉比對。如果有任何節點回報的資料跟其他節點不一致，跨鏈橋就不會作動。</p>
+  <p class="fade-in">這時候駭客還做了第二件事——對其他 RPC 節點發動 DDoS 攻擊。<span class="hl">客服電話只有 10 條線路，卻同時湧入 100 人撥號</span>，系統沒有壞，只是暫時打不進去而已。其他誠實的 RPC 應接不暇，跨鏈橋只能仰賴那兩台被駭客掌握的節點查詢鏈上資料。</p>
+
+  <div class="viz-card fade-in">
+    <div class="viz-title">DVN 與 RPC 節點的攻擊結構</div>
+    <div class="attack-topology">
+      <div class="topology-row">
+        <div class="node vault">
+          rsETH 金庫
+          <span class="amt">$2.92 億</span>
+        </div>
+      </div>
+      <div class="topology-arrow">↑ 偽造跨鏈訊息 ↑</div>
+      <div class="topology-row">
+        <div class="node rpc-down"></div>
+        <div class="node rpc-hacked">RPC<br>（被駭）</div>
+        <div class="node rpc-hacked">RPC<br>（被駭）</div>
+        <div class="node rpc-down"></div>
+      </div>
+      <div class="topology-row" style="gap:1rem;margin-top:0.4rem">
+        <div class="topology-label muted" style="min-width:90px">被 DDoS<br>蓋掉</div>
+        <div class="topology-label red" style="min-width:200px">唯二能說話的眼睛</div>
+        <div class="topology-label muted" style="min-width:90px">被 DDoS<br>蓋掉</div>
+      </div>
+    </div>
+    <div class="viz-caption">當該說真話的眼睛被蓋掉、能說話的眼睛全在撒謊，跨鏈橋按設計運作的結果就是放錢給駭客。</div>
+  </div>
+
+  <p class="fade-in">即便如此，跨鏈橋也沒那麼容易被攻破。LayerZero 是跨鏈橋的龍頭，目前 80% 的跨鏈訊息都由它負責傳遞。為了避免訊息被偽造，LayerZero 特別設計了「驗證者」（DVN）這個守門人角色——說穿了就是交叉比對。每位驗證者都得用自己管理的一票 RPC 節點去源頭查證，互相比對之後才能放行。</p>
+  <p class="fade-in">連小朋友都知道交叉比對至少要 2 位以上驗證者才有意義，偏偏 rsETH 這項資產的跨鏈設定只有一位驗證者把關：<strong>LayerZero 自己</strong>。這讓防線形同虛設。</p>
+  <p class="fade-in">這下北韓駭客終於找到機會，把狗屎變黃金。駭客先發動 DDoS 塞爆其他 RPC，再透過被掌控的兩台節點向跨鏈橋謊稱「Unichain 上有人燒掉了 116,500 顆 rsETH」。跨鏈橋當然說「沒問題」，通知以太坊主網鑄造 116,500 顆 rsETH 給駭客。但駭客沒有直接拿去交易所變現，而是<span class="hl">轉頭存入借貸平台 Aave、Compound 當抵押品，借出價值超過 2 億美元的真 ETH 逃之夭夭</span>。</p>
+  <p class="fade-in">這行為的惡劣程度等同於無差別攻擊。駭客拿偷來的 rsETH 去借錢，被駭客捲走的 ETH 全都是存款人放在借貸平台裡賺利息的本金。如果 KelpDAO 想拿回被偷的 rsETH，借貸平台手上的抵押品就會瞬間變成空氣；如果借貸平台堅持拍賣那些 rsETH 償還呆帳，KelpDAO 使用者就得認賠。<strong>兩邊都是受害者，駭客卻讓他們自相殘殺。</strong></p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <span class="part-label fade-in">PART 3</span>
+  <h2 class="fade-in">真正的漏洞，不在程式碼裡</h2>
+  <p class="fade-in">資安專家事後檢視，KelpDAO、LayerZero、Aave 跟 Compound 的程式碼都沒有漏洞。但也正是因為它們都表現得「太好」，才讓駭客能順利一步接一步，把價值 2.9 億美元的資產捲走。</p>
+  <p class="fade-in">這讓 DeFi 市值最大、最受使用者信賴、也做過最多資安審計的借貸平台 Aave 首度陷入危機。事件發生之前，Aave 做夢也沒想到，兩台遠在天邊的 RPC 節點被入侵，竟能對自己造成這麼大的損失。</p>
+  <p class="fade-in">那兩台 RPC 節點是否安全，遠遠超出 Aave 的守備範圍。<span class="hl">花錢做合約審計就像花錢做消防安檢</span>，但再完整的例行檢查，也無法防止路上一輛卡車突然朝你衝過來。使用者眼見把錢存在 DeFi 最安全的堡壘也會出事，這市場還有誰能信任？防不勝防，就是整起事件讓人最沮喪的地方。</p>
+  <p class="fade-in">有人認為 DeFi 已經玩完了，我倒沒這麼絕望。這只是證明，用來事前預防的合約審計已經不足以抵禦駭客。人們必須轉變觀念，打造 DeFi 的<strong>「防禦縱深」（Defense in Depth）</strong>。該思考的不是怎樣才能不被攻擊，而是一旦遭到入侵，該如何將損害降到最低。</p>
+  <p class="fade-in">除了事前佈局，防禦縱深更仰賴事發當下的統一指揮鏈。傳統金融業的系統性防線，讓銀行倒了也能由金管會接手、央行提供流動性，其他銀行還會配合政府要求合併承接資產。目前 DeFi 沒有對應的角色。每家協議都想把自己練得更強，卻缺乏跨協議的事前協調與緊急救援機制。駭客專挑縫隙下手，誰又能隨時注意到方方面面？</p>
+  <p class="fade-in">這才是北韓駭客過去幾年盡情肆虐的真正原因。只要 DeFi 防禦縱深一天沒建立，北韓駭客就有下一筆生意可以做。</p>
+</section>
+
+<!-- BIG QUOTE -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">DeFi 的漏洞不在程式碼，</span><br>而是人與人之間的互不協作。</p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.8rem;font-weight:400;letter-spacing:0;">
+    許多人以為 AI 可以減少程式碼漏洞、讓 DeFi 更安全。但真正該補的洞，從來不在合約裡。</p>
+</div>
+
+<!-- CHOICE SECTION -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">面對這種「沒有 bug 的入侵」，<br>你的反應是？</h2>
+  <p class="choice-sub fade-in">這次的攻擊不是程式碼漏洞，是基礎設施被滲透。表達你的態度。</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🚪</div>
+      <div>
+        <div class="label">撤資離場</div>
+        <div class="desc">合約都會被偷，DeFi 的風險已經超過我能承受的範圍</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">👀</div>
+      <div>
+        <div class="label">先觀望</div>
+        <div class="desc">等產業建立起跨協議的防禦縱深，再回來</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">🛡️</div>
+      <div>
+        <div class="label">繼續使用</div>
+        <div class="desc">縱深防禦已經部分發揮作用，我相信 DeFi 會持續進化</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想看完整分析？</h2>
+  <p>完整文章詳細拆解攻擊過程、KelpDAO 的 46 分鐘搶救戰、駭客如何讓借貸平台跟 KelpDAO 自相殘殺，以及為什麼 DeFi 真正的漏洞不在程式碼裡。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/p/774" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('沒有 bug 的入侵！KelpDAO 遭北韓駭客攻擊，2.92 億美元怎麼飛了？\n\nDeFi 的漏洞不在程式碼，而是人與人之間的互不協作。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('DeFi 的漏洞不在程式碼，而是人與人之間的互不協作。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- SUBSCRIBE CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從穩定幣、DeFi 攻擊到 Web3 治理，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢"></footer>
+
+<script>
+let userChoice = -1;
+const labels = ['撤資離場', '先觀望', '繼續使用'];
+const results = [
+  {
+    title: '謹慎是合理的反應',
+    desc: '這次事件確實證明，即便合約沒有漏洞，使用者也可能因為基礎設施被入侵而蒙受損失。在產業建立起完整的防禦縱深之前，降低 DeFi 部位、選擇相對保守的協議，是負責任的決定。',
+    bg: 'var(--blue-light)',
+    border: '#9DB5DC'
+  },
+  {
+    title: '等子彈飛一會兒',
+    desc: '觀望是聰明的做法。這次事件後，Aave、LayerZero 跟其他協議勢必會調整防禦機制——從 1-of-1 DVN 設定的全面審視，到跨協議的緊急應變協調。等這些變化落地之後再回來，風險報酬會更合理。',
+    bg: 'var(--yellow-light)',
+    border: '#E4D5B8'
+  },
+  {
+    title: '進化才是 DeFi 的本質',
+    desc: '縱深防禦在這次事件中其實已經發揮部分作用——KelpDAO 46 分鐘按下緊急暫停救下將近一億美元，Aave 即時凍結 rsETH 市場。產業會從這次事件中學習，逐步補上缺失的協作層。風險永遠存在，關鍵是它在縮小還是擴大。',
+    bg: 'var(--green-light)',
+    border: '#A8D4BC'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `面對「沒有 bug 的入侵」，我選擇：\${labels[idx]}。\n\nDeFi 的漏洞不在程式碼，而是人與人之間的互不協作。`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
