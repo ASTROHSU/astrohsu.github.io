@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aave 律師團上場！7,100 萬美元贓款的第三方反擊 | 區塊勢</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="Aave 律師團上場！7,100 萬美元贓款的第三方反擊">
+<meta property="og:description" content="紐約法院的限制令發出三天後，Aave LLC 律師團跳出來反擊：這筆錢根本不屬於北韓，原告是在「對法院耍花招」。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/aave-motion/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aave 律師團上場！7,100 萬美元贓款的第三方反擊">
+<meta name="twitter:description" content="紐約法院的限制令發出三天後，Aave LLC 律師團跳出來反擊。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --warm: #FAFAF7;
+    --cream: #EDE0D4;
+    --terra: #C06A3A;
+    --terra-light: #F5EBE5;
+    --green: #2D6B4F;
+    --green-light: #E8F3ED;
+    --green-deep: #0D2E20;
+    --blue: #2563EB;
+    --blue-light: #EFF4FF;
+    --gold-light: #F9F3E6;
+    --text: #2C2A25;
+    --text-secondary: #6B6860;
+    --text-muted: #9E9A90;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--warm);
+    color: var(--text);
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+
+  section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  section.wide { max-width: 900px; }
+
+  .big-quote, .choice-section, .cta, .subscribe-cta {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 70%);
+    position: relative;
+  }
+  .hero img.logo {
+    height: 48px;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+  .hero .sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .hero .meta {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+  .hero .scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    animation: breathe 2s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.4; transform: translateY(0); }
+    50% { opacity: 1; transform: translateY(8px); }
+  }
+
+  .part-label {
+    color: var(--terra);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+  p { margin-bottom: 1.2rem; font-size: 1rem; }
+  p strong { color: var(--terra); font-weight: 700; }
+  .hl {
+    background: linear-gradient(180deg, transparent 50%, rgba(192, 106, 58, 0.18) 50%);
+    padding: 0 0.1em;
+  }
+
+  .quote-box {
+    background: #fff;
+    border-left: 4px solid var(--terra);
+    padding: 1.2rem 1.5rem;
+    margin: 1.8rem 0;
+    font-family: 'Noto Serif TC', serif;
+    font-style: italic;
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+  .quote-box .source {
+    display: block;
+    margin-top: 0.6rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #E8E3D8;
+    border-radius: 10px;
+    padding: 1.8rem 1.5rem;
+    margin: 2rem 0;
+  }
+  .card h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+  .card .caption {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 1.2rem;
+    text-align: center;
+  }
+
+  .three-party {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.8rem;
+  }
+  .party {
+    text-align: center;
+    padding: 1.2rem 0.8rem;
+    border-radius: 8px;
+    border: 1.5px solid;
+  }
+  .party.plaintiff { background: var(--terra-light); border-color: #DBBFAD; color: #712B13; }
+  .party.arbitrum { background: #F1EFE8; border-color: #D3D1C7; color: #444441; }
+  .party.aave { background: var(--green-light); border-color: #A8D4BC; color: #085041; }
+  .party .role {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+  }
+  .party .name {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .party .legal {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    border-top: 1px solid currentColor;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .tiffany-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .tiffany-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .tiffany-title {
+    text-align: center;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .tiffany-step {
+    border-radius: 8px;
+    padding: 0.8rem 0.6rem;
+    text-align: center;
+    border: 1.5px solid;
+    font-size: 0.85rem;
+  }
+  .tiffany-step .label {
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .tiffany-step .desc {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    opacity: 0.85;
+  }
+  .ts-coral { background: var(--terra-light); border-color: #DBBFAD; color: #712B13; }
+  .ts-amber { background: #FDF8EC; border-color: #E4D5B8; color: #854F0B; }
+  .ts-blue { background: var(--blue-light); border-color: #B5D4F4; color: #0C447C; }
+  .ts-green { background: var(--green-light); border-color: #A8D4BC; color: #085041; }
+  .tiffany-arrow {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .tiffany-conclusion {
+    margin-top: 0.6rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1.5rem 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 2px;
+    background: #D3D1C7;
+  }
+  .tl-event {
+    position: relative;
+    padding-bottom: 1.4rem;
+  }
+  .tl-event::before {
+    content: '';
+    position: absolute;
+    left: -1.65rem;
+    top: 0.4rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--terra);
+  }
+  .tl-event.gray::before { background: #B4B2A9; }
+  .tl-event.green::before { background: var(--green); }
+  .tl-date {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--terra);
+    margin-bottom: 0.2rem;
+  }
+  .tl-event.gray .tl-date { color: #5F5E5A; }
+  .tl-event.green .tl-date { color: var(--green); }
+  .tl-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .relief-list {
+    background: var(--gold-light);
+    border-radius: 10px;
+    padding: 1.5rem 1.8rem;
+    margin: 2rem 0;
+  }
+  .relief-list h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  .relief-list ol {
+    list-style: none;
+    counter-reset: relief;
+  }
+  .relief-list ol li {
+    counter-increment: relief;
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .relief-list ol li::before {
+    content: counter(relief);
+    position: absolute;
+    left: 0;
+    top: 0.05rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: var(--terra);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .relief-list ol li:last-child { padding-bottom: 0; }
+
+  .big-quote {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--warm), var(--terra-light));
+  }
+  .big-quote p {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    letter-spacing: 0.03em;
+  }
+
+  .choice-section {
+    background: var(--gold-light);
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .choice-section h2 { margin-bottom: 0.5rem; }
+  .choice-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  .choice-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+  .choice-btn {
+    background: #fff;
+    border: 2px solid #E8E3D8;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.2s;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+  .choice-btn:hover {
+    border-color: var(--terra);
+    transform: translateY(-2px);
+  }
+  .choice-btn.selected {
+    border-color: var(--terra);
+    background: var(--terra-light);
+  }
+  .choice-btn .emoji { font-size: 2rem; flex-shrink: 0; }
+  .choice-btn .label { font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+  .choice-btn .desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .result-card {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--terra-light);
+    border: 2px solid #DBBFAD;
+    border-radius: 12px;
+    padding: 2rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s, max-height 0.5s;
+  }
+  .result-card.show { opacity: 1; max-height: 1200px; }
+  .r-badge {
+    display: inline-block;
+    background: var(--terra);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .r-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  .r-desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+    color: var(--text);
+  }
+
+  .share-row {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .share-btn {
+    padding: 0.55rem 1.2rem;
+    border-radius: 2rem;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s;
+  }
+  .share-btn:hover { transform: scale(1.03); }
+  .share-btn.tw { background: #0f1419; color: #fff; }
+  .share-btn.fb { background: #1877f2; color: #fff; }
+
+  .cta {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, #F5F3ED, var(--cream));
+  }
+  .cta h2 { margin-bottom: 1rem; }
+  .cta p {
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .subscribe-cta {
+    text-align: center;
+    padding: 4rem 2rem 5rem;
+    background: var(--green-deep);
+  }
+  .subscribe-inner { max-width: 560px; margin: 0 auto; }
+  .subscribe-eyebrow {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .subscribe-title {
+    font-family: 'Noto Serif TC', serif;
+    color: #fff;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+  .subscribe-desc {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .subscribe-btn {
+    display: inline-block;
+    background: var(--terra);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.2s;
+  }
+  .subscribe-btn:hover { transform: scale(1.03); }
+  .subscribe-note {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.78rem;
+    margin-top: 1.2rem;
+  }
+
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--warm);
+  }
+  footer img { height: 44px; opacity: 0.5; }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 600px) {
+    .three-party { grid-template-columns: 1fr; gap: 0.8rem; }
+    .tiffany-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="logo">
+  <h1>Aave 律師團上場<br>7,100 萬美元贓款的第三方反擊</h1>
+  <p class="sub">在區塊勢 #775 的結尾我寫過：「未來每個有正義理由的人都會來敲門。」沒想到才過了三天，敲門聲就到了——但敲門的不是政府，是另一個受害者。</p>
+  <p class="meta">Case 1:25-mc-00527-MMG · 2026 年 5 月 4 日提交</p>
+  <div class="scroll-hint">SCROLL</div>
+</div>
+
+<section>
+  <div class="part-label fade-in">PART 1</div>
+  <h2 class="fade-in">第一個敲門的人</h2>
+  <p class="fade-in">區塊勢 #775 文章結尾留下幾個沒回答的問題：紐約聯邦法院核發限制令之後，Arbitrum DAO 該派誰出庭？這條軌道上的拉桿被拉下第一次，未來會發生什麼？</p>
+  <p class="fade-in">5 月 4 日，第一個現實答案出現了——但出乎意料，第一個跳出來打的不是 Arbitrum，也不是政府，而是另一個受害者：<strong>Aave LLC</strong>。他們提交了一份 29 頁的緊急動議，要求法院立即撤銷限制令。</p>
+  <p class="fade-in">Aave LLC 是一家位於英屬維京群島的軟體開發公司，負責維護開源的 Aave 協議。他們不是這場訴訟的原告或被告，而是這 7,100 萬美元贓款真正受益人——成千上萬個「<strong>無辜第三方</strong>」（blameless third parties）的 Aave 用戶——的代言人。</p>
+  <p class="fade-in">這份動議由紐約 Morrison Cohen 律師事務所的七位律師聯合署名，引用二十多個判例，用「<strong>interested non-party</strong>」（利害關係非當事人）的身分跳上法庭。</p>
+
+  <div class="card fade-in">
+    <h3>三方角力：誰是誰？</h3>
+    <div class="three-party">
+      <div class="party plaintiff">
+        <div class="role">原告</div>
+        <div class="name">Han Kim 等北韓恐怖攻擊受害者</div>
+        <div class="legal">十幾年前對北韓政府取得勝訴判決，但賠償一直沒拿到。透過 Gerstein Harrow 律師事務所主張凍結這筆錢。</div>
+      </div>
+      <div class="party arbitrum">
+        <div class="role">Garnishee（被執行人）</div>
+        <div class="name">Arbitrum DAO</div>
+        <div class="legal">沒有正式法律實體。被法院送達限制令，但連「能不能合法被送達」都有爭議。</div>
+      </div>
+      <div class="party aave">
+        <div class="role">Interested Non-Party</div>
+        <div class="name">Aave LLC</div>
+        <div class="legal">有完整法律實體的軟體公司。代表受害的 Aave 用戶聲請撤銷限制令。</div>
+      </div>
+    </div>
+    <p class="caption">區塊勢製圖</p>
+  </div>
+
+  <p class="fade-in">這帶出一個 #775 沒寫到的續集：當鏈上拉桿被拉下、政府開始敲門的時候，<strong>真正能在法庭上接住這個敲門的，不是沒有法律實體的 Arbitrum DAO，而是有完整法律實體的 DeFi 公司</strong>。DeFi 生態的法律韌性，反而要靠那些「不夠去中心化」的中心化參與者出來扛。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 2</div>
+  <h2 class="fade-in">核心反駁：Tiffany's 鑽石比喻</h2>
+  <p class="fade-in">這份動議最有力的論點，是用一個珠寶店搶劫的比喻來反駁原告的法律理論。原告主張「<strong>北韓駭客短暫持有這筆錢，所以這筆錢就屬於北韓</strong>」——Aave 律師團直接把這個邏輯套用到實體場景，揭露它有多荒謬。</p>
+
+  <div class="quote-box fade-in">
+    假設一個剛好欠別人錢的小偷，走進 Tiffany's 珠寶店，砸破珠寶櫃搶走三顆鑽石——但被店外的好心路人攔下，路人在小偷逃跑前搶回了其中一顆。原告的主張是：那顆被搶回的鑽石「屬於」小偷，所以小偷的債權人有權凍結 Tiffany's 對那顆鑽石的處分，並把它扣押來償還小偷的債務。
+    <span class="source">—— Aave LLC 動議書，第 3-4 頁</span>
+  </div>
+
+  <p class="fade-in">這個比喻把法律邏輯的荒謬性放大了：被搶的東西、被路人搶回來、結果鑽石「屬於」小偷的債權人？聽起來很離譜——但原告對 Arbitrum 上這 7,100 萬美元的主張，講白了就是這套邏輯。</p>
+
+  <div class="card fade-in">
+    <h3>兩個場景的對應關係</h3>
+    <div class="tiffany-grid">
+      <div class="tiffany-col">
+        <div class="tiffany-title">Tiffany's 鑽石場景</div>
+        <div class="tiffany-step ts-coral">
+          <div class="label">小偷砸櫃搶 3 顆鑽石</div>
+          <div class="desc">同時欠著別人錢</div>
+        </div>
+        <div class="tiffany-arrow">↓</div>
+        <div class="tiffany-step ts-amber">
+          <div class="label">逃跑時被路人攔下</div>
+          <div class="desc">搶回 1 顆鑽石</div>
+        </div>
+        <div class="tiffany-arrow">↓</div>
+        <div class="tiffany-step ts-green">
+          <div class="label">鑽石屬於誰？</div>
+          <div class="desc">當然是 Tiffany's</div>
+        </div>
+      </div>
+      <div class="tiffany-col">
+        <div class="tiffany-title">Arbitrum 反殺場景</div>
+        <div class="tiffany-step ts-coral">
+          <div class="label">駭客偷 2.3 億美元 ETH</div>
+          <div class="desc">疑似北韓 Lazarus Group</div>
+        </div>
+        <div class="tiffany-arrow">↓</div>
+        <div class="tiffany-step ts-amber">
+          <div class="label">Arbitrum 安委會反殺</div>
+          <div class="desc">追回 7,100 萬美元</div>
+        </div>
+        <div class="tiffany-arrow">↓</div>
+        <div class="tiffany-step ts-green">
+          <div class="label">這筆錢屬於誰？</div>
+          <div class="desc">Aave 主張：屬於受害用戶</div>
+        </div>
+      </div>
+    </div>
+    <div class="tiffany-grid" style="margin-top:0.6rem">
+      <div class="tiffany-conclusion">小偷從未取得鑽石的合法所有權</div>
+      <div class="tiffany-conclusion">駭客從未取得 ETH 的合法所有權</div>
+    </div>
+    <p class="caption">區塊勢製圖</p>
+  </div>
+
+  <p class="fade-in">Aave 律師團援引第六巡迴上訴法院 <em>Kitchen v. Boyd (In re Newpower)</em> 判例：當小偷用偷來的錢購買其他資產時，對受害者最多可以建立「<strong>建設性信託</strong>」（constructive trust）讓受害者取回。但「<strong>小偷對偷來的錢本身有合法權益</strong>」這個論點，法院明確拒絕——因為「<strong>受害者從來沒有意圖把所有權轉讓給小偷</strong>」。</p>
+  <p class="fade-in">換句話說，<strong>偷竊不能創造所有權</strong>。這是英美普通法幾百年來的基本原則。原告試圖用「短暫持有等於擁有」這個說法來扣押這筆錢，違反了這個基本原則。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 3</div>
+  <h2 class="fade-in">第二個關鍵反駁：DAO 不是合夥組織</h2>
+  <p class="fade-in">這份動議的腳註 2 是個小炸彈。原告當初聲請限制令的時候主張：「<strong>像 Arbitrum DAO 這樣的 DAO 已經被認定為一般合夥組織</strong>」——這句話讓法院相信可以用「送達合夥」的方式合法送達 Arbitrum DAO。</p>
+  <p class="fade-in">Aave 律師團直接點名這個說法「<strong>flatly false</strong>」（完全錯誤）。</p>
+
+  <div class="quote-box fade-in">
+    原告引用的兩個判例（Lido DAO 和 bZx DAO），最多只是在「駁回動議」階段、用對原告有利的標準下，認為某個 DAO「<strong>有可能</strong>在揭露程序後被認定為合夥組織」。沒有任何具有爭議的判決，認定過某個 DAO 就是合夥組織，更不用說「所有 DAO 都是合夥組織」。原告就是在曲解法律對法院耍花招。
+    <span class="source">—— Aave LLC 動議書，第 10 頁，腳註 2</span>
+  </div>
+
+  <p class="fade-in">這個觀察很尖銳——它直接挑戰整個限制令的合法基礎。如果 Arbitrum DAO 不是合夥組織、沒有法律實體、沒辦法被合法送達，那這張限制令在程序上就站不住腳。</p>
+  <p class="fade-in">但這也揭露了 DAO 的兩面刃處境：<strong>當「不是法人」這個特性對它有利的時候，它能避開合規責任；但對它不利的時候，它也沒辦法在法庭上替自己辯護</strong>。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 4</div>
+  <h2 class="fade-in">第三個關鍵反駁：駭客身分根本沒確證</h2>
+  <p class="fade-in">原告主張這筆錢屬於北韓的依據是什麼？答案讓人意外——是「<strong>網路貼文的臆測</strong>」（conjecture from posts on the internet）。這是 Aave 律師團原文用詞。</p>
+  <p class="fade-in">沒有任何個人或實體承認過這次攻擊。沒有任何法院認定過駭客是北韓 Lazarus Group。原告的主張完全建立在 PeckShield 之類資安公司的鏈上分析報告——這些報告本身有可信度，但不構成法律意義上的證據。</p>
+
+  <div class="quote-box fade-in">
+    原告未能用「<strong>可採信證據</strong>」（不是其他人的網路貼文意見）來證明這些資產目前屬於原告的特定債務人——也就是朝鮮民主主義人民共和國——而不是其他任何行為者。
+    <span class="source">—— Aave LLC 動議書，第 18 頁</span>
+  </div>
+
+  <p class="fade-in">紐約 CPLR 5222 條限制令的合法性要求很明確——必須證明被凍結的財產確實屬於債務人。「<strong>很可能是、看起來像、業界都這樣猜測</strong>」這種程度的舉證，在法律上是不夠的。原告連這個基本門檻都沒過，就想凍結 7,100 萬美元的第三方資產。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 5</div>
+  <h2 class="fade-in">時間軸：DeFi United 救援運動</h2>
+  <p class="fade-in">這份動議揭露了一個過去你沒看到的細節——過去兩週其實有一個全球 DeFi 社群的協調救援行動，叫做「<strong>DeFi United</strong>」。</p>
+
+  <div class="timeline fade-in">
+    <div class="tl-event">
+      <div class="tl-date">4/18</div>
+      <div class="tl-text">駭客透過偽造跨鏈訊息攻擊 KelpDAO，從 Aave 協議借出價值 2.3 億美元的 ETH。</div>
+    </div>
+    <div class="tl-event green">
+      <div class="tl-date">4/21</div>
+      <div class="tl-text">Arbitrum 安全委員會凍結 30,765.6675 顆 ETH（約 7,100 萬美元）。</div>
+    </div>
+    <div class="tl-event gray">
+      <div class="tl-date">4/22 起</div>
+      <div class="tl-text">「DeFi United」全球協調救援開始。各專案、公司、個人捐 ETH 補回 rsETH 擔保缺口。Arbitrum 社群公開表示打算「<strong>幾天內</strong>」把凍結資產還給 Aave 用戶。</div>
+    </div>
+    <div class="tl-event">
+      <div class="tl-date">5/1</div>
+      <div class="tl-text">原告 Han Kim 等取得法院許可，對 Arbitrum DAO 送達限制令。整個救援行動瞬間暫停。</div>
+    </div>
+    <div class="tl-event green">
+      <div class="tl-date">5/4</div>
+      <div class="tl-text">Aave LLC 委請 Morrison Cohen 律師事務所，提交 29 頁緊急動議要求法院撤銷限制令。</div>
+    </div>
+  </div>
+
+  <p class="fade-in">這個時間軸揭露了限制令的「<strong>不對稱傷害</strong>」——對原告來說，多等幾天是時間成本問題；但對 Aave 用戶來說，多等幾天就是抵押品缺口擴大、連鎖清算風險升高、整個 DeFi 生態系統有可能被波及的真實傷害。</p>
+  <p class="fade-in">Aave 律師團用一句話講清楚這個不對稱性：<strong>「這些傷害是時間敏感的，且不能透過後續的金錢賠償還原。」</strong>這是法庭上聲請緊急救濟的標準語言，但每個字都指向真實後果。</p>
+</section>
+
+<section>
+  <div class="part-label fade-in">PART 6</div>
+  <h2 class="fade-in">最強硬的訴訟策略：3 億美元保證金</h2>
+  <p class="fade-in">這份動議的結尾提出四個救濟請求，但其中第三個最有戰略意涵——</p>
+
+  <div class="relief-list fade-in">
+    <h3>Aave LLC 對法院的四個請求</h3>
+    <ol>
+      <li>立即撤銷對 Arbitrum DAO 的限制令</li>
+      <li>如果法院想再聽原告陳述，請排定加速聽證程序，但在等待裁決期間先暫時撤銷限制令</li>
+      <li>如果法院不打算撤銷限制令，請要求原告立即繳交至少 <strong>3 億美元現金保證金</strong>，作為維持限制令的條件</li>
+      <li>其他法院認為適當的救濟</li>
+    </ol>
+  </div>
+
+  <p class="fade-in">這個 3 億美元的數字不是隨便喊的——這是 Aave 律師團估算「<strong>限制令可能造成的傷害總額</strong>」。如果原告認為自己有理凍結這筆錢，那就應該為自己造成的損害承擔保證責任。</p>
+  <p class="fade-in">這個策略很厲害——它不挑戰原告的法律主張，而是直接在開庭前就提高他們的訴訟成本。<strong>如果你有把握，就押上 3 億美元；如果你沒把握，就放過這 7,100 萬美元</strong>。</p>
+  <p class="fade-in">這也讓原告陷入兩難：他們連手頭上的判決賠償都拿不到，要去哪裡生 3 億美元的現金保證金？這是用商業邏輯打法律戰——把對方逼到「<strong>不上不下、進退兩難</strong>」的位置。</p>
+</section>
+
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">真正能對抗政府執法請求的，不是沒有法律實體的 DAO，而是有完整法律實體的 DeFi 公司。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+    DeFi 生態的法律韌性，要靠那些「不夠去中心化」的中心化參與者出來扛。</p>
+</div>
+
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">換你當法官<br>哪個論點最該採納？</h2>
+  <p class="choice-sub fade-in">想像你是 SDNY 的承審法官，週二就要開庭</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">💎</div>
+      <div>
+        <div class="label">Tiffany's 鑽石比喻最關鍵</div>
+        <div class="desc">偷竊不能創造所有權——這是普通法的根本原則，撤銷限制令就有正當理由。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">📜</div>
+      <div>
+        <div class="label">DAO 送達瑕疵最關鍵</div>
+        <div class="desc">Arbitrum DAO 不是合夥組織、沒辦法被合法送達——限制令在程序上根本不成立。</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">⚖️</div>
+      <div>
+        <div class="label">舉證不足最關鍵</div>
+        <div class="desc">原告連「駭客就是北韓」都拿不出可採信證據——憑網路貼文不能凍結第三方資產。</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的判斷</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta">
+  <h2>想看更深入的分析？</h2>
+  <p>區塊勢的完整文章從不同角度切入：當鏈上的拉桿被拉下第一次，未來會發生什麼？電車難題的倫理困境如何套用到 DAO 治理？</p>
+  <a class="subscribe-btn" href="https://www.blocktrend.today/p/775" target="_blank" style="background:var(--terra);">閱讀區塊勢 #775 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('真正能對抗政府執法請求的，不是沒有法律實體的 DAO，而是有完整法律實體的 DeFi 公司。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('Aave 律師團上場！7,100 萬美元贓款的第三方反擊'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種深度解析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從 Arbitrum 反殺、跨鏈橋攻擊到 DAO 法律地位，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<footer>
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  let userChoice = -1;
+  const labels = ['Tiffany\u0027s 鑽石比喻最關鍵', 'DAO 送達瑕疵最關鍵', '舉證不足最關鍵'];
+  const results = [
+    {
+      title: '你選了：Tiffany\u0027s 鑽石比喻',
+      desc: '你的判斷：實體法層面的反駁最有力。「偷竊不能創造所有權」是普通法的根本原則，原告試圖用「短暫持有等於擁有」推翻這個原則，違反幾百年的法律傳統。\n\n這個觀點的優勢：直接打到原告法律理論的核心，撤銷理由清晰且有力。\n\n潛在風險：法院可能認為這個比喻過度簡化了區塊鏈資產的特殊性質，不直接適用普通法。',
+      bg: 'var(--terra-light)',
+      border: '#DBBFAD'
+    },
+    {
+      title: '你選了：DAO 送達瑕疵',
+      desc: '你的判斷：程序法層面的反駁最有力。如果 Arbitrum DAO 根本不是合法可被送達的實體，那這張限制令在程序上就站不住腳。\n\n這個觀點的優勢：法院可以在不觸及實體爭議的情況下，僅以程序瑕疵為由撤銷限制令——這是司法上最保守、最容易說服法官的路徑。\n\n潛在風險：這只是「暫時撤銷」，原告可以用其他方式重新嘗試送達，問題沒有從根本解決。',
+      bg: 'var(--blue-light)',
+      border: '#B5D4F4'
+    },
+    {
+      title: '你選了：舉證不足',
+      desc: '你的判斷：證據層面的反駁最有力。原告連「駭客就是北韓」這個基本前提都拿不出可採信證據——CPLR 5222 條要求必須證明被凍結的財產確實屬於債務人，原告連這個門檻都沒過。\n\n這個觀點的優勢：直接挑戰原告請求的基礎，迫使原告必須先過「證明駭客身分」這一關才能再嘗試。\n\n潛在風險：未來北韓駭客身分如果被進一步證實（例如美國財政部 OFAC 正式公告），這個反駁就失效了。',
+      bg: 'var(--green-light)',
+      border: '#A8D4BC'
+    }
+  ];
+
+  function choose(idx) {
+    if (userChoice >= 0) return;
+    userChoice = idx;
+    document.querySelectorAll('.choice-btn').forEach((b, i) => {
+      if (i === idx) b.classList.add('selected');
+      b.style.cursor = 'default';
+    });
+    const r = results[idx];
+    const card = document.getElementById('resultCard');
+    document.getElementById('rTitle').textContent = r.title;
+    document.getElementById('rDesc').innerHTML = r.desc.replace(/\n\n/g, '<br><br>');
+    card.style.background = r.bg;
+    card.style.borderColor = r.border;
+    card.classList.add('show');
+
+    const shareText = '我的判斷：' + labels[idx] + '。\n\nAave 律師團上場反擊，3 億美元保證金硬槓紐約聯邦法院。';
+    document.getElementById('shareTw').onclick = function () {
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+    };
+    document.getElementById('shareFb').onclick = function () {
+      window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+    };
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+  }
+</script>
+</body>
+</html>
