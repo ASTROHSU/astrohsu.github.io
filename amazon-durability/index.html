@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon 的耐久力:當實體世界成為 AI 時代的護城河</title>
+<meta name="description" content="十年前 Ben Thompson 預言 Amazon 會把物流賣給競爭對手。上週這個預言成真。Amazon 的長期主義為什麼在 AI 時代變得更強?">
+
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="Amazon 的耐久力:當實體世界成為 AI 時代的護城河">
+<meta property="og:description" content="十年前 Ben Thompson 預言 Amazon 會把物流賣給競爭對手。上週這個預言成真。">
+<meta property="og:image" content="https://share.blocktrend.today/amazon-durability/cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://share.blocktrend.today/amazon-durability/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amazon 的耐久力:當實體世界成為 AI 時代的護城河">
+<meta name="twitter:description" content="十年前 Ben Thompson 預言 Amazon 會把物流賣給競爭對手。上週這個預言成真。">
+<meta name="twitter:image" content="https://share.blocktrend.today/amazon-durability/cover.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 18px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  overflow-x: hidden;
+}
+
+/* 滿版突破保險 */
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--warm) 100%);
+  position: relative;
+}
+.hero img.logo {
+  height: 48px;
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+.hero .sub {
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.8;
+}
+.hero .scroll {
+  position: absolute;
+  bottom: 3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  animation: breathe 2s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+}
+
+/* Section 限制寬度 */
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+section.wide { max-width: 900px; }
+
+.part-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  color: var(--terra);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+section p {
+  margin-bottom: 1.4rem;
+  color: var(--text);
+}
+section p .hl {
+  background: var(--gold-light);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* Quote Card 引文 */
+.quote-card {
+  background: #fff;
+  border-left: 3px solid var(--terra);
+  padding: 1.5rem 1.8rem;
+  margin: 2rem 0;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  border-radius: 0 6px 6px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.quote-card .source {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* Timeline 圖表 */
+.timeline-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 2rem 1.8rem;
+  margin: 2rem 0;
+}
+.timeline-card .title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.tl-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px dashed #E8E3D8;
+}
+.tl-row:last-child { border-bottom: none; }
+.tl-year {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--terra);
+  min-width: 70px;
+  flex-shrink: 0;
+}
+.tl-content {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.tl-content strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+.tl-content span {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.timeline-card .caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 1.5rem;
+  line-height: 1.6;
+}
+
+/* 三公司比較卡片 */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+@media (min-width: 700px) {
+  .compare-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.compare-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 1.5rem 1.3rem;
+}
+.compare-card .emoji { font-size: 1.6rem; margin-bottom: 0.6rem; }
+.compare-card .name {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+.compare-card .stance {
+  font-size: 0.85rem;
+  color: var(--terra);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.compare-card .desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* 訓練 vs 推理對比 */
+.shift-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 10px;
+  padding: 1.8rem 1.6rem;
+  margin: 2rem 0;
+}
+.shift-card .title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.shift-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 600px) {
+  .shift-row { grid-template-columns: 1fr 1fr; gap: 1rem; }
+}
+.shift-box {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+.shift-box.before {
+  background: var(--yellow-light);
+  border: 1px solid #E4D5B8;
+}
+.shift-box.after {
+  background: var(--green-light);
+  border: 1px solid #A8D4BC;
+}
+.shift-box .label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.shift-box.before .label { color: var(--yellow); }
+.shift-box.after .label { color: var(--green); }
+
+/* Big Quote */
+.big-quote {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 580px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+
+/* Choice Section */
+.choice-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--warm);
+}
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.choice-sub {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2.5rem;
+}
+.choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.choice-btn {
+  background: #fff;
+  border: 2px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.3rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+.choice-btn:hover {
+  border-color: var(--terra);
+  transform: translateY(-2px);
+}
+.choice-btn.selected {
+  border-color: var(--terra);
+  background: var(--terra-light);
+}
+.choice-btn .emoji {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.choice-btn .label {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: var(--text);
+}
+.choice-btn .desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.result-card {
+  max-width: 540px;
+  margin: 2rem auto 0;
+  padding: 1.8rem 1.6rem;
+  border: 1px solid;
+  border-radius: 12px;
+  display: none;
+  text-align: left;
+}
+.result-card.show { display: block; animation: fadeUp 0.6s ease; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.r-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+.r-desc {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.85;
+}
+
+/* Share Buttons */
+.share-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  padding: 0.55rem 1.2rem;
+  border-radius: 2rem;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  transition: transform 0.2s;
+}
+.share-btn:hover { transform: scale(1.03); }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.cta p {
+  max-width: 480px;
+  margin: 0 auto 2rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+.cta-btn:hover {
+  background: #A8572E;
+  transform: translateY(-2px);
+}
+
+/* Subscribe CTA */
+.subscribe-cta {
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+  background: var(--green-deep);
+}
+.subscribe-inner {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.subscribe-btn:hover {
+  background: #A8572E;
+  transform: translateY(-1px);
+}
+.subscribe-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+/* Fade in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" class="logo">
+  <h1>當實體世界<br>變成 AI 時代的護城河</h1>
+  <p class="sub">十年前 Ben Thompson 預言 Amazon 會把物流網路賣給競爭對手。上週這個預言成真。<br>但這不只是物流的故事,而是 AI 時代誰才耐打的故事。</p>
+  <div class="scroll">SCROLL ↓</div>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <p class="part-label fade-in">PART 1 — 十年預言成真</p>
+  <h2 class="fade-in">Amazon 把物流網<br>賣給對手了</h2>
+  <p class="fade-in">5 月 4 日 Amazon 推出 Amazon Supply Chain Services(ASCS),把空運、海運、卡車、最後一哩的全套物流能力打包成服務,賣給寶僑、3M 這些原本不算 Amazon 客戶的大公司。FedEx 和 UPS 的股價當天應聲下跌。</p>
+  <p class="fade-in">這個動作看起來像是新聞,其實是十年前的劇本被精準演完。2015 年 Ben Thompson 寫過一篇〈The Amazon Tax〉,當時 Amazon 只剛開始試水溫式地租了六架貨機,Thompson 就預測:<span class="hl">Amazon 會把這套物流網路賣給其他公司,就像它把自家的伺服器資源賣成 AWS 一樣</span>。</p>
+  <p class="fade-in">Amazon 做事的公式始終一致。先在自家業務裡蓋出最基礎的能力(primitives),Amazon 自己當第一個、也是最重要的客戶,用內部需求的規模把建置成本攤掉。等到這套能力跑得夠成熟,再把它打包賣給外面的人。賣得越多、規模越大,單位成本越低,護城河就越深。AWS 是這樣、電商履行(FBA)是這樣,現在是物流。</p>
+
+  <div class="timeline-card fade-in">
+    <div class="title">Amazon 三條長期投資的時間線</div>
+    <div class="tl-row">
+      <div class="tl-year">2006</div>
+      <div class="tl-content">
+        <strong>AWS 對外開放</strong>
+        <span>從支撐 Amazon.com 自身運算需求,變成全世界最大的雲端服務商。</span>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2014</div>
+      <div class="tl-content">
+        <strong>Amazon 開始建貨機隊</strong>
+        <span>從 6 架到 20 架到上百架,逐步擺脫對 UPS、FedEx 的依賴。</span>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2015</div>
+      <div class="tl-content">
+        <strong>收購 Annapurna Labs</strong>
+        <span>為日後自製 Graviton、Trainium 晶片埋下伏筆。</span>
+      </div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-year">2026</div>
+      <div class="tl-content">
+        <strong>ASCS 對外開放</strong>
+        <span>物流網從 Amazon 自用工具,變成第三方付費使用的服務。</span>
+      </div>
+    </div>
+    <div class="caption">區塊勢製圖 · 資料來源:Stratechery / Bloomberg</div>
+  </div>
+
+  <p class="fade-in">物流被打開的那一刻,Amazon 完成了「邊際成本變成資本成本」的轉換。每送出一個包裹,都不再是花錢給 FedEx 或 UPS,而是攤平自家折舊。其他公司付錢來用,只是讓這個資產的回報率變得更高。</p>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <p class="part-label fade-in">PART 2 — 三年前看走眼的人</p>
+  <h2 class="fade-in">AWS 看似要被 AI<br>淘汰的那段日子</h2>
+  <p class="fade-in">2023 年 ChatGPT 引爆 AI 熱潮的時候,半導體研究機構 SemiAnalysis 寫了一篇文章:〈Amazon 的雲端危機:AWS 將如何輸掉運算的未來〉。當時的論點看起來相當有說服力。</p>
+  <p class="fade-in">SemiAnalysis 點出 AWS 的兩個結構性問題。第一,AWS 堅持用自家的 Nitro 和 EFA 網路架構,而不採用 Nvidia 或 Broadcom 的最佳網路方案。在大型語言模型訓練時代,你需要把上千顆 GPU 串成一個系統,GPU 之間的橫向通訊速度是關鍵,AWS 的網路架構就是不夠用。第二,Nvidia 在缺貨年代擁有絕對話語權,而 AWS 又一直想自製晶片擺脫 Nvidia,Nvidia 自然就把 H100 優先分給其他更聽話的雲端商。Microsoft Azure、Oracle、CoreWeave 那段時間都比 AWS 拿到更多 GPU。</p>
+  <p class="fade-in">這些觀察當時都對。問題在於,他們沒有預期到 AI 工作負載的本質會變。</p>
+
+  <div class="shift-card fade-in">
+    <div class="title">AI 算力市場的兩次切換</div>
+    <div class="shift-row">
+      <div class="shift-box before">
+        <span class="label">2023 主場:訓練</span>
+        需要把上千顆 GPU 串成單一系統,GPU 之間要能用最快的網路即時同步權重。Nvidia 的整套網路方案幾乎是唯一選擇,AWS 的客製架構派不上用場。
+      </div>
+      <div class="shift-box after">
+        <span class="label">2026 主場:推理</span>
+        模型參數可以塞進單一伺服器,不需要把 GPU 串成大叢集。Agentic 工作負載還需要大量 CPU 協調,正好是 AWS 用 Nitro + Graviton 擅長的拆解式架構。
+      </div>
+    </div>
+  </div>
+
+  <p class="fade-in">轉折點是 ChatGPT 之後的兩個演化。先是 o1 等推理模型出現,模型在回答前要先「想」很多 token,推理算力需求暴增。接著是 Agent 出現,人可以同時開好幾個 Agent,每個 Agent 又會多次呼叫推理模型。這不是線性增加,是兩個指數疊乘。整個 AI 算力市場的重心,從訓練快速移到推理。</p>
+  <p class="fade-in">這個轉移對 AWS 是天大的好消息。推理不需要把上千顆 GPU 串在一起,單台伺服器就能處理。Agent 大量依賴 CPU 來協調,而且要在 CPU 和加速器之間靈活分派工作。這些特性正好對上 AWS 的 Nitro 架構,把運算、儲存、網路、虛擬化拆成獨立模組,然後用便宜的自家 ARM 晶片(Graviton)當 CPU、用自家的 Trainium 當推理加速器。</p>
+  <p class="fade-in">2015 年買下 Annapurna Labs、2019 年推出第一代 AI 晶片時,Trainium 慢得讓人尷尬。但 Amazon 沒停,一代一代迭代,現在 Trainium 3 已經可以打。<span class="hl">這就是長期主義的優勢。重要的不是某一代晶片好不好,而是這條曲線已經走了七年</span>。</p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <p class="part-label fade-in">PART 3 — Anthropic 為什麼變關鍵</p>
+  <h2 class="fade-in">基礎模型的<br>中立平台價值</h2>
+  <p class="fade-in">AWS 還有一個外人看不到的優勢:Anthropic。</p>
+  <p class="fade-in">Nvidia 創辦人黃仁勳前陣子接受 Dwarkesh Patel 訪談時自承,沒有早期投資 Anthropic 是個錯誤。他的解釋很坦白:當時 Nvidia 沒有條件砸幾十億美元到一家 AI 實驗室,而 Google 和 AWS 都有。前期投資讓 Anthropic 反過來把運算花費投回 AWS 和 GCP,這是一個正向循環,而 Nvidia 沒有參與。</p>
+  <p class="fade-in">Amazon 之所以投得起 Anthropic,正是因為 AWS 多年累積的現金。長期投資的另一個複利效應:基礎建設的回報能轉投資成下一波關鍵卡位。</p>
+
+  <div class="quote-card fade-in">
+    AWS CEO Matt Garman:大多數客戶根本不在意自己用的是哪一顆加速器晶片。你跟 OpenAI 對話時不會去碰到 GPU,你跟 Claude 對話時也不會碰到 Trainium 或 TPU,你只會碰到介面。能訓練前緣模型的團隊本來就只有那幾家。
+    <span class="source">— Stratechery 訪談</span>
+  </div>
+
+  <p class="fade-in">這帶出一個有趣的觀察:在 AI 競賽裡,模型本身是中立資產的一方,反而比擁有自家模型的一方更安全。</p>
+  <p class="fade-in">Microsoft 過去靠 OpenAI 獨家綁定 Azure,但這個獨家現在反而是負擔。Microsoft 自己是軟體公司,要對 Copilot、Office 365 投入大量算力,結果今年 Q1 Azure 雲端營收就因為內部 AI 工作負載排擠掉客戶用量,沒達到預期。Google 也類似,它的核心是搜尋,搜尋面對 AI Chatbot 的長期挑戰存在,內部 AI 投資的優先順序高過租給客戶。</p>
+  <p class="fade-in">Amazon 不一樣。Amazon 的核心業務是賣實體商品和蓋資料中心,這兩件事跟「我自己要把 AI 算力都拿去用」沒有直接衝突。<span class="hl">Amazon 願意把絕大多數晶片留給雲端客戶,這在受限算力的時代是個珍稀的賣點</span>。Anthropic 又是當前唯一在三大雲端商都有完整部署的前緣模型,企業客戶要選 AI 雲端時,Amazon 的組合最沒有政治顧慮。</p>
+</section>
+
+<!-- PART 4 -->
+<section>
+  <p class="part-label fade-in">PART 4 — 衛星、無人機、實體護城河</p>
+  <h2 class="fade-in">Leo 衛星的<br>真正用途是無人機</h2>
+  <p class="fade-in">Amazon 還有一個看似奇怪的長期投資:Leo 衛星網路。表面上看是要跟 SpaceX 的 Starlink 競爭,而 Starlink 已經在天上飛了很多年。為什麼 Amazon 還要花這麼多錢蓋一個重複的東西?</p>
+  <p class="fade-in">CEO Andy Jassy 在最近一次法說會上的描述,跟他談 AWS 的口吻一模一樣:前期需要砸大量資本和現金、蓋資產,然後在中長期享受很高的自由現金流和投資報酬率。這就是 Amazon 的固定公式。把邊際成本轉換成資本成本,再用規模把這個資本攤掉。</p>
+  <p class="fade-in">但 Leo 真正的賣點不只是賣衛星網路。Amazon 在 2013 年就公開談過無人機送貨。十三年過去,雖然進度比想像中慢,但要看到一個圖像越來越清楚:當無人機真的能取代人力配送時,送貨成本就只剩下無人機這個資產的折舊,不再有人事費、油料費、最後一哩的時間成本。這跟 AWS 把伺服器折舊變成主要成本是同一個邏輯。</p>
+  <p class="fade-in">那麼,當無人機飛在天上的時候,要靠什麼跟它通訊?衛星網路。<span class="hl">Amazon 不想被黃仁勳卡晶片,當然也不想被馬斯克卡無人機通訊</span>。Leo 不是為了搶 Starlink 的客戶,是為了確保 Amazon 自己的下一個基礎建設不會被別人卡住。蓋好之後,還是可以順便賣給 Apple 或其他公司,延續同一套商業模式。</p>
+</section>
+
+<!-- PART 5 -->
+<section>
+  <p class="part-label fade-in">PART 5 — 真正的洞察</p>
+  <h2 class="fade-in">越紮根實體世界的公司<br>越不怕 AI</h2>
+  <p class="fade-in">把 Amazon 的故事拉開來看,可以得到一個對整個科技業的判斷標準:一家公司面對 AI 衝擊的長期脆弱度,跟它的業務有多紮根於實體世界成反比。</p>
+
+  <div class="compare-grid">
+    <div class="compare-card fade-in">
+      <div class="emoji">📦</div>
+      <div class="name">Amazon、Apple</div>
+      <div class="stance">紮根實體 · 最安全</div>
+      <div class="desc">不需要擁有最強模型,只要能用得到就好。核心業務是賣商品、賣硬體、蓋資料中心,AI 是工具不是命脈。</div>
+    </div>
+    <div class="compare-card fade-in">
+      <div class="emoji">💼</div>
+      <div class="name">Microsoft</div>
+      <div class="stance">中等暴露</div>
+      <div class="desc">沒有自家前緣模型,但對企業客戶的通路掌握度高。投資資料中心,但 OpenAI 依賴是潛在風險。</div>
+    </div>
+    <div class="compare-card fade-in">
+      <div class="emoji">🌐</div>
+      <div class="name">Google、Meta</div>
+      <div class="stance">數位平台 · 最暴露</div>
+      <div class="desc">必須投資自家模型到跟 Amazon 同等規模。注意力一個點擊就被換走,AI 對核心業務是存亡威脅。</div>
+    </div>
+  </div>
+
+  <p class="fade-in">Apple 一直被批評 AI 動作太慢,但從這個角度看,Apple 跟 Amazon 都不需要趕。它們的核心是賣硬體、賣商品,有訪問前緣模型的能力就夠了。模型自己會競爭、會降價,Apple 可以從容選擇。Microsoft 在通路上夠強,但內部 AI 投資的優先順序壓過雲端,代表它的核心軟體業務感受到了真正的壓力。Google 和 Meta 是純粹的數位聚合者,使用者注意力是它們唯一的資產,AI 對它們來說就是存亡。所以這兩家公司的資本支出規模直追 Amazon,而且都堅持自研模型,沒得選。</p>
+  <p class="fade-in">這也回到 Amazon 為什麼能玩十年週期的長賭局。當別人面對的是「兩三年內必須轉型不然就死」的時間壓力,Amazon 面對的是「十年內慢慢蓋好,蓋好了就能用很久」的悠閒節奏。當下看不出來哪邊厲害,十年回頭看才看得清楚。</p>
+</section>
+
+<!-- Big Quote -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">越是紮根實體世界的公司,越不怕 AI 革命。</span></p>
+  <p class="fade-in" style="font-size:1rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-secondary);margin-top:1.5rem;font-weight:400;letter-spacing:0;">
+    Amazon 用十年慢慢蓋,黃仁勳和馬斯克都會被它繞過。</p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">未來三年<br>誰最不怕 AI 衝擊?</h2>
+  <p class="choice-sub fade-in">選一個你最有把握的答案,看你的判斷</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">📦</div>
+      <div>
+        <div class="label">Amazon</div>
+        <div class="desc">物流、AWS、衛星都已經卡好位,實體護城河最深</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">🍎</div>
+      <div>
+        <div class="label">Apple</div>
+        <div class="desc">硬體就是現金流,模型可以跟誰買都行</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">⚡</div>
+      <div>
+        <div class="label">Nvidia</div>
+        <div class="desc">AI 浪潮越大,賣鏟子的越賺,直接受益</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想看更深入的分析?</h2>
+  <p>Substack 文章包含 Ben Thompson 完整論證、AWS Nitro 架構細節、Trainium 晶片演化路徑,幫你把這個論點讀得更透。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/subscribe" target="_blank">閱讀完整文章 →</a>
+  <div class="share-row" style="margin-top:1.5rem">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('越是紮根實體世界的公司,越不怕 AI 革命。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('越是紮根實體世界的公司,越不怕 AI 革命。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎?</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從穩定幣、AI 代理人到平台策略,用台灣讀者看得懂的語言,把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持,解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer><img src="https://i.urusai.cc/yaku8.png" alt="區塊勢" style="height:44px;opacity:0.5"></footer>
+
+<script>
+let userChoice = -1;
+const labels = ['Amazon', 'Apple', 'Nvidia'];
+const results = [
+  {
+    title: '長期主義的信徒',
+    desc: '你看到的是 Amazon 的時間優勢。十年週期讓它從容蓋資產,把邊際成本轉成資本成本。物流、AWS、Leo 衛星都是同一個劇本。實體護城河越深,AI 對它的威脅越小。這個判斷跟 Ben Thompson 站同一邊。',
+    bg: 'var(--terra-light)',
+    border: '#DBBFAD'
+  },
+  {
+    title: '硬體永遠是底氣',
+    desc: '你看穿了 AI 競賽的本質。只要硬體是消費者買單的入口,擁有自家模型反而沒這麼關鍵。Apple 可以從容等模型成熟、價格降下來再選擇。隱形冠軍策略,跟 Amazon 紮根實體的邏輯異曲同工。',
+    bg: 'var(--green-light)',
+    border: '#A8D4BC'
+  },
+  {
+    title: '賣鏟子的高度確定性',
+    desc: '黃仁勳掌握當下,但 Ben Thompson 觀察到一個風險:長期看電力比邏輯晶片更接近商品市場,有錢的客戶會選擇先把錢砸在電力上,而不是付給 Nvidia 高毛利。Amazon 的自研晶片走七年才到能打的水準。時間是 Nvidia 的敵人。',
+    bg: 'var(--yellow-light)',
+    border: '#E4D5B8'
+  }
+];
+
+function choose(idx) {
+  if (userChoice >= 0) return;
+  userChoice = idx;
+  document.querySelectorAll('.choice-btn').forEach((b, i) => {
+    if (i === idx) b.classList.add('selected');
+    b.style.cursor = 'default';
+  });
+  const r = results[idx];
+  const card = document.getElementById('resultCard');
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  card.style.background = r.bg;
+  card.style.borderColor = r.border;
+  card.classList.add('show');
+
+  const shareText = `我認為${labels[idx]}最不怕 AI 衝擊。\n\n越是紮根實體世界的公司,越不怕 AI 革命。`;
+  document.getElementById('shareTw').onclick = function () {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText + '\n\n') + '&url=' + encodeURIComponent(location.href), '_blank');
+  };
+  document.getElementById('shareFb').onclick = function () {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(location.href) + '&quote=' + encodeURIComponent(shareText), '_blank');
+  };
+  setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
