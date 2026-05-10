@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFTC 反過來告各州｜預測市場是不是賭博</title>
+<link rel="icon" type="image/png" href="https://i.urusai.cc/yaku8.png">
+
+<meta property="og:title" content="CFTC 反過來告各州｜預測市場是不是賭博">
+<meta property="og:description" content="2022 年 CFTC 罰 Polymarket 1400 萬美元退出美國，2026 年 CFTC 反過來告各州保護 Polymarket。一場 2000 億美元的定義之爭。">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CFTC 反過來告各州｜預測市場是不是賭博">
+<meta name="twitter:description" content="兩個保守派原則的對決，正在把預測市場推上美國最高法院。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --warm: #FAFAF7;
+  --cream: #EDE0D4;
+  --terra: #C06A3A;
+  --terra-light: #F5EBE5;
+  --green: #2D6B4F;
+  --green-light: #E8F3ED;
+  --green-deep: #0D2E20;
+  --blue: #2563EB;
+  --blue-light: #EFF4FF;
+  --yellow: #8B6914;
+  --yellow-light: #FDF8EC;
+  --text: #2C2A25;
+  --text-secondary: #6B6860;
+  --text-muted: #9E9A90;
+  --gold: #8B7340;
+  --gold-light: #F9F3E6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 18px; scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--warm);
+  color: var(--text);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+.big-quote, .choice-section, .cta, .subscribe-cta {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  box-sizing: border-box;
+}
+
+section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+section.wide {
+  max-width: 900px;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, var(--cream), var(--warm));
+  position: relative;
+}
+.hero img {
+  height: 48px;
+  margin-bottom: 2.5rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.7;
+}
+.hero .scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  animation: breathe 2.5s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
+}
+
+/* Part labels */
+.part-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* Part headings */
+section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+section h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+section p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.hl {
+  background: linear-gradient(180deg, transparent 60%, var(--gold-light) 60%);
+  padding: 0 0.1em;
+}
+
+/* Cards */
+.fact-card {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin: 2rem 0;
+}
+.fact-card .fact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.fact-card .fact-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+.fact-card .fact-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* Comparison table */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.compare-card {
+  padding: 1.75rem;
+  border-radius: 12px;
+  border: 1px solid #E8E3D8;
+  background: #fff;
+}
+.compare-card.left {
+  background: var(--blue-light);
+  border-color: rgba(37,99,235,0.2);
+}
+.compare-card.right {
+  background: var(--terra-light);
+  border-color: rgba(192,106,58,0.2);
+}
+.compare-card .side-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.compare-card.left .side-label { color: var(--blue); }
+.compare-card.right .side-label { color: var(--terra); }
+.compare-card .side-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+.compare-card .side-body {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .compare { grid-template-columns: 1fr; }
+}
+
+/* Timeline */
+.timeline {
+  background: #fff;
+  border: 1px solid #E8E3D8;
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin: 2rem 0;
+}
+.timeline-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  text-align: center;
+}
+.timeline-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #F0EBE0;
+}
+.timeline-item:first-of-type { border-top: none; }
+.timeline-date {
+  font-weight: 700;
+  color: var(--terra);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+.timeline-event {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+@media (max-width: 600px) {
+  .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+/* State map (text-based) */
+.state-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.state-row {
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  border: 1px solid;
+}
+.state-row.kalshi-win {
+  background: var(--green-light);
+  border-color: rgba(45,107,79,0.25);
+  color: var(--green-deep);
+}
+.state-row.state-win {
+  background: var(--terra-light);
+  border-color: rgba(192,106,58,0.25);
+  color: #6B3D1F;
+}
+.state-row .state-name { font-weight: 700; }
+.state-row .state-status { font-size: 0.78rem; opacity: 0.75; }
+
+/* Big quote */
+.big-quote {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, var(--warm), var(--terra-light));
+}
+.big-quote p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto;
+  letter-spacing: 0.03em;
+}
+.big-quote .attribution {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+  letter-spacing: 0;
+}
+
+/* Choice */
+.choice-section {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--gold-light);
+}
+.choice-section h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+.choice-sub {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+.choice-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+.choice-btn {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+.choice-btn:hover {
+  border-color: var(--terra);
+  transform: translateY(-2px);
+}
+.choice-btn .emoji {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.choice-btn .label {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+.choice-btn .desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.result-card {
+  display: none;
+  background: #fff;
+  border-radius: 14px;
+  padding: 2rem;
+  margin: 2.5rem auto 0;
+  max-width: 540px;
+  text-align: left;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  animation: fadeUp 0.6s ease;
+}
+.result-card.active { display: block; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.r-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--terra);
+  background: var(--terra-light);
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+.r-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+.r-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.share-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.share-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  flex: 1;
+  min-width: 120px;
+  transition: opacity 0.2s;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-btn.tw { background: #0f1419; color: #fff; }
+.share-btn.fb { background: #1877f2; color: #fff; }
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(180deg, #F5F3ED, var(--cream));
+}
+.cta h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+.cta p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(192,106,58,0.3);
+}
+
+/* Subscribe CTA */
+.subscribe-cta {
+  background: var(--green-deep);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.subscribe-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.subscribe-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.subscribe-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+.subscribe-desc {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.subscribe-btn {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+.subscribe-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(192,106,58,0.4);
+}
+.subscribe-note {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--warm);
+}
+footer img {
+  height: 44px;
+  opacity: 0.5;
+}
+
+/* Fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+  <h1>CFTC 為什麼<br>反過來告各州</h1>
+  <p class="subtitle">2022 年 CFTC 罰 Polymarket 1400 萬美元退出美國。<br>2026 年 CFTC 反過來告各州，要求別碰 Polymarket。<br>一場 2000 億美元的定義之爭。</p>
+  <div class="scroll-hint">SCROLL ↓</div>
+</div>
+
+<!-- PART 1 -->
+<section>
+  <div class="part-label fade-in">PART 1</div>
+  <h2 class="fade-in">同一個機構，<br>四年內換了一個立場</h2>
+  <p class="fade-in">2022 年 1 月，美國商品期貨交易委員會（CFTC）對 Polymarket 開出 1400 萬美元罰單，理由是違法經營未註冊的衍生品平台。Polymarket 因此退出美國市場將近三年，靠國際版維持營運，被歸類為「監管不合規」的代表案例。</p>
+  <p class="fade-in">2026 年 4 月，同一個 CFTC 在三週內接連對亞利桑那、康乃狄克、伊利諾伊、紐約、威斯康辛五個州提起聯邦訴訟。<span class="hl">理由是這些州試圖用州博弈法管 Polymarket 與 Kalshi，侵犯了 CFTC 的「專屬管轄權」。</span></p>
+  <p class="fade-in">CFTC 主席 Michael Selig 在記者會上的表態很直接：「各州不能繞過國會的明確指示。」這個機構從預測市場的執法者，變成了預測市場最大的法律保護傘。</p>
+
+  <div class="fact-card fade-in">
+    <div class="fact-label">背景數據</div>
+    <div class="fact-title">這個產業現在多大</div>
+    <div class="fact-body">Kalshi 估值 220 億美元，Polymarket 估值約 200 億美元。2026 年運動類事件合約交易量預估突破 2000 億美元。Kalshi 全年營收約 90% 來自運動賽事押注。</div>
+  </div>
+</section>
+
+<!-- PART 2 -->
+<section>
+  <div class="part-label fade-in">PART 2</div>
+  <h2 class="fade-in">同一個產品，<br>兩種完全不同的看法</h2>
+  <p class="fade-in">這場戰爭的核心是定義之爭。預測市場的法律地位取決於它被歸類成哪一種商品。歸類成衍生性金融商品就由 CFTC 管，歸類成博弈就由各州管。</p>
+  <p class="fade-in">兩邊的論證都不是無理取鬧。</p>
+
+  <div class="compare fade-in">
+    <div class="compare-card left">
+      <div class="side-label">CFTC ／ Kalshi 立場</div>
+      <div class="side-title">這是 swap，不是賭博</div>
+      <div class="side-body">2010 年 Dodd-Frank 法案把事件合約定義為 swap（衍生性金融商品）。沒有莊家，賠率由市場決定。雙方都是市場參與者，價格反映集體預期。CFTC 對 swap 享有專屬管轄權，州法律因此被聯邦法優先。</div>
+    </div>
+    <div class="compare-card right">
+      <div class="side-label">各州立場</div>
+      <div class="side-title">名字變了，事情沒變</div>
+      <div class="side-body">使用者進到 Kalshi，可以押贏家、押讓分、押大小分、押球員觸地。這跟 DraftKings、FanDuel 上的選項幾乎完全一樣。Kalshi 自己的行銷材料就把產品稱為「sports betting」。包裝成金融商品不會改變實質。</div>
+    </div>
+  </div>
+
+  <p class="fade-in">關鍵的諷刺數據是：當「衍生性金融商品交易所」九成營收來自運動賽事押注，金融工程的外殼到底有多薄，是個誠實的人都能判斷的問題。</p>
+</section>
+
+<!-- PART 3 -->
+<section>
+  <div class="part-label fade-in">PART 3</div>
+  <h2 class="fade-in">第三巡迴上訴法院<br>2 比 1 的判決</h2>
+  <p class="fade-in">2026 年 4 月 7 日，第三巡迴上訴法院對 Kalshi 訴紐澤西州博弈執法部門案做出判決。三位法官全部由共和黨總統任命，最後以 2 比 1 判 Kalshi 勝訴。這是聯邦上訴審層級第一次直接處理這個爭議。</p>
+  <p class="fade-in">寫多數意見的 David Porter 法官（川普任命）用了一個關鍵手法：把問題重新定義。紐澤西想把問題框定為「監管州內的所有運動賭博」，但 Porter 把問題重新框定為「監管聯邦指定合約市場上的交易」。一旦框架改了，preemption 的結論就幾乎自動成立。</p>
+  <p class="fade-in">真正讓這個案件變成法律史教材的，是異議法官 Jane Roth 的反擊。Roth 90 歲，George H.W. Bush 任命，她實際上去 Kalshi 網站上找了一場坦帕灣海盜對卡羅萊納黑豹的 NFL 比賽，發現自己可以押贏家、押讓分 2.5 分、押兩隊得分總和 45 分以上、押 Mike Evans 是否觸地得分。她寫道，這些選項跟 DraftKings、FanDuel 上的「幾乎無從區分」。</p>
+  <p class="fade-in">Roth 把多數意見的推理稱為「performative sleight（表演性的詭計）」與「acts of alchemy（鍊金術行為）」。她警告，如果多數意見的邏輯推到底，所有結構成 DCM swap 的產品都會排除掉州的賭博監管，這個結果連多數意見自己都不敢正面承認。</p>
+</section>
+
+<!-- Big Quote -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">看起來像賭博，講話像賭博，自己也叫自己賭博，那它就是賭博。</span></p>
+  <p class="attribution fade-in">— Jane Richards Roth 法官，第三巡迴上訴法院異議意見書</p>
+</div>
+
+<!-- PART 4 -->
+<section>
+  <div class="part-label fade-in">PART 4</div>
+  <h2 class="fade-in">巡迴分歧正在形成</h2>
+  <p class="fade-in">第三巡迴判 Kalshi 勝，但其他法院的判決方向完全不同。這個分歧本身就是把案件推向最高法院的引擎。</p>
+
+  <div class="state-grid fade-in">
+    <div class="state-row kalshi-win">
+      <div class="state-name">第三巡迴（紐澤西）</div>
+      <div class="state-status">Kalshi 勝 ✓</div>
+    </div>
+    <div class="state-row kalshi-win">
+      <div class="state-name">田納西聯邦地院</div>
+      <div class="state-status">Kalshi 勝 ✓</div>
+    </div>
+    <div class="state-row state-win">
+      <div class="state-name">內華達聯邦地院</div>
+      <div class="state-status">州勝 ✗</div>
+    </div>
+    <div class="state-row state-win">
+      <div class="state-name">馬里蘭聯邦地院</div>
+      <div class="state-status">州勝 ✗</div>
+    </div>
+    <div class="state-row state-win">
+      <div class="state-name">俄亥俄聯邦地院</div>
+      <div class="state-status">州勝 ✗</div>
+    </div>
+    <div class="state-row state-win">
+      <div class="state-name">麻州高院</div>
+      <div class="state-status">州勝 ✗</div>
+    </div>
+  </div>
+
+  <p class="fade-in">第九巡迴上訴法院 2026 年 4 月 16 日對內華達案進行口頭辯論，三位法官的提問顯示他們似乎傾向支持內華達。如果第九巡迴判 Kalshi 敗訴，就會跟第三巡迴形成正式的 circuit split，這在美國法律體系裡是逼最高法院受理的標準觸發條件。</p>
+  <p class="fade-in">最激進的州是亞利桑那。2026 年 3 月 17 日亞利桑那州對 KalshiEX 提起 20 項刑事指控，包括 4 項涉及 2028 年總統大選的「選舉押注」與 16 項運動押注。CFTC 在 4 月 2 日反向起訴亞利桑那州，4 月 10 日聯邦法官對亞利桑那的刑事訴追下了臨時禁制令，先把這個案子攔了下來。</p>
+
+  <div class="timeline fade-in">
+    <div class="timeline-title">CFTC 對戰各州時間軸</div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025/9</div>
+      <div class="timeline-event">麻州率先對 Kalshi 提告，州內首例</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/1</div>
+      <div class="timeline-event">麻州高院判決 Kalshi 敗訴，下禁制令</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/3</div>
+      <div class="timeline-event">亞利桑那州對 Kalshi 提起 20 項刑事指控</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/4/2</div>
+      <div class="timeline-event">CFTC 同步起訴亞利桑那、康乃狄克、伊利諾伊三州</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/4/7</div>
+      <div class="timeline-event">第三巡迴 2 比 1 判 Kalshi 勝紐澤西</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/4/10</div>
+      <div class="timeline-event">聯邦法官對亞利桑那刑事案下臨時禁制令</div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2026/4/28</div>
+      <div class="timeline-event">CFTC 起訴威斯康辛州</div>
+    </div>
+  </div>
+</section>
+
+<!-- PART 5 -->
+<section>
+  <div class="part-label fade-in">PART 5</div>
+  <h2 class="fade-in">兩個保守派原則<br>正在打架</h2>
+  <p class="fade-in">這個案件如果上到最高法院，結果其實非常難預測。九位大法官中有六位保守派，但這個議題正好讓兩個保守派長期信仰的原則互相衝突。</p>
+
+  <div class="compare fade-in">
+    <div class="compare-card left">
+      <div class="side-label">原則 A</div>
+      <div class="side-title">文本主義</div>
+      <div class="side-body">法條怎麼寫就怎麼解釋。CEA 的 swap 定義確實寫得很寬，事件合約符合定義。Porter 多數意見走的就是這條路線。</div>
+    </div>
+    <div class="compare-card right">
+      <div class="side-label">原則 B</div>
+      <div class="side-title">州權與重大問題原則</div>
+      <div class="side-body">各州在博弈這類傳統警察權範疇上的固有管轄權不應被聯邦輕易壓掉。如果國會真的要剝奪各州幾十年的博弈監管權，應該講清楚而不是用 swap 定義偷渡。</div>
+    </div>
+  </div>
+
+  <p class="fade-in">國會兩黨在這件事上罕見地有部分共識。民主黨參議員 Jeff Merkley 提出法案要禁止選舉、戰爭、運動的事件合約。AOC 在 X 上批評 Polymarket 與 MLB 合作說「普遍化的賭博對社會不好」，Daily Wire 主持人 Michael Knowles 罕見地公開贊同 AOC：「這真的有點悲哀，我同意 AOC。」川普自己也說「整個世界不幸地變成某種程度的賭場」、「這就像 Pete Rose 賭自己球隊」。</p>
+  <p class="fade-in">這場戰役真正在搶的不是「預測市場是什麼」這個哲學問題，是「下一個十年運動押注的監管權與稅基」這個經濟問題。誰贏了，誰就拿到 2000 億美元產業的監管租金。</p>
+</section>
+
+<!-- Big Quote 2 -->
+<div class="big-quote">
+  <p class="fade-in"><span class="hl">這場戰爭沒有贏家也沒有輸家。<br>只有兩種規則。</span></p>
+  <p class="attribution fade-in">傳統州博弈法保護消費者。聯邦衍生品法保護市場誠信。事件合約同時把兩個問題都帶進來。</p>
+</div>
+
+<!-- Choice Section -->
+<div class="choice-section" id="choice">
+  <h2 class="fade-in">如果你是大法官，<br>你會怎麼判？</h2>
+  <p class="choice-sub fade-in">選完之後，分享你的觀點</p>
+
+  <div class="choice-options fade-in">
+    <button class="choice-btn" onclick="choose(0)">
+      <div class="emoji">🎰</div>
+      <div>
+        <div class="label">這就是賭博</div>
+        <div class="desc">看起來像、玩起來像、自己也叫自己賭博，州有權監管</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(1)">
+      <div class="emoji">📊</div>
+      <div>
+        <div class="label">這是金融商品</div>
+        <div class="desc">沒有莊家、價格由市場決定、符合 swap 定義，CFTC 統一管</div>
+      </div>
+    </button>
+    <button class="choice-btn" onclick="choose(2)">
+      <div class="emoji">⚖️</div>
+      <div>
+        <div class="label">兩個都是</div>
+        <div class="desc">需要新的法律框架，現有的 swap 跟 gambling 兩個籃子都裝不下</div>
+      </div>
+    </button>
+  </div>
+
+  <div class="result-card" id="resultCard">
+    <div class="r-badge">你的觀點</div>
+    <div class="r-title" id="rTitle"></div>
+    <div class="r-desc" id="rDesc"></div>
+    <div class="share-row">
+      <button class="share-btn tw" id="shareTw">分享到 𝕏</button>
+      <button class="share-btn fb" id="shareFb">分享到 Facebook</button>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>想看更深入的分析？</h2>
+  <p>區塊勢 Substack 每週深入拆解一個科技與金融的關鍵變局，包含更多脈絡、案例與圖表。</p>
+  <a class="cta-btn" href="https://www.blocktrend.today/" target="_blank">前往區塊勢 →</a>
+  <div class="share-row" style="margin-top:1.5rem;max-width:400px;margin-left:auto;margin-right:auto;">
+    <button class="share-btn tw"
+      onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('CFTC 為什麼從原告變成 Polymarket 的盟友？一場 2000 億美元的定義之爭。\n\n')+'&url='+encodeURIComponent(location.href),'_blank')">分享到 𝕏</button>
+    <button class="share-btn fb"
+      onclick="window.open('https://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&quote='+encodeURIComponent('CFTC 為什麼從原告變成 Polymarket 的盟友？一場 2000 億美元的定義之爭。'),'_blank')">分享到 Facebook</button>
+  </div>
+</div>
+
+<!-- Subscribe CTA -->
+<div class="subscribe-cta">
+  <div class="subscribe-inner fade-in">
+    <p class="subscribe-eyebrow">喜歡這種分析嗎？</p>
+    <h2 class="subscribe-title">區塊勢每週深入拆解一個<br>你該知道的科技趨勢</h2>
+    <p class="subscribe-desc">從預測市場、穩定幣、AI 代理人到平台策略，用台灣讀者看得懂的語言，把複雜的產業變局說清楚。目前已有超過 2 萬位讀者訂閱。</p>
+    <a class="subscribe-btn" href="https://www.blocktrend.today/subscribe" target="_blank">免費訂閱區塊勢 →</a>
+    <p class="subscribe-note">也可以直接付費支持，解鎖每週完整文章</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <img src="https://i.urusai.cc/yaku8.png" alt="區塊勢">
+</footer>
+
+<script>
+// Fade-in animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Choice interaction
+const results = [
+  {
+    title: '你站在各州這邊',
+    desc: '你認同 Roth 法官的「溯因推理」：看起來像賭博、講話像賭博、自己也叫自己賭博，那它就是賭博。包裝成金融商品不會改變實質。各州幾十年累積的消費者保護制度（年齡限制、自我排除、成癮支援）不應該被一句 swap 定義抹除。',
+    share: '我認同各州的立場：看起來像賭博、講話像賭博，那就是賭博。包裝成 swap 不會改變實質。'
+  },
+  {
+    title: '你站在 CFTC 跟 Kalshi 這邊',
+    desc: '你認同 Porter 法官的多數意見：法條怎麼寫就怎麼解釋。事件合約沒有莊家、價格由市場決定、符合 CEA 對 swap 的定義。讓 50 個州各自用不同的賭博法管同一個產品，會徹底破壞聯邦衍生品市場的統一性。',
+    share: '我認同 Kalshi 的立場：事件合約是 swap，CFTC 應該享有專屬管轄權。50 個州各自監管會破壞市場統一性。'
+  },
+  {
+    title: '你認為兩個都是',
+    desc: '你認為這是真正的混血產品。從金融工程結構看是 swap，從使用者體驗與社會效果看是賭博。傳統的 swap 框架不處理消費者保護，傳統的賭博框架不處理市場操縱防範。這個產品需要一個新的法律類別，而不是被硬塞進兩個現有籃子的任一個。',
+    share: '預測市場既是 swap 也是賭博。需要一個新的法律框架，而不是硬塞進兩個現有籃子。'
+  }
+];
+
+function choose(i) {
+  const r = results[i];
+  document.getElementById('rTitle').textContent = r.title;
+  document.getElementById('rDesc').textContent = r.desc;
+  document.getElementById('resultCard').classList.add('active');
+
+  const url = location.href;
+  document.getElementById('shareTw').onclick = () => {
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(r.share + '\n\n') + '&url=' + encodeURIComponent(url), '_blank');
+  };
+  document.getElementById('shareFb').onclick = () => {
+    window.open('https://www.facebook.com/share.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(r.share), '_blank');
+  };
+
+  document.getElementById('resultCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+</script>
+
+</body>
+</html>
